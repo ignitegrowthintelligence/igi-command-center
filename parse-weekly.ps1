@@ -294,3 +294,10 @@ if ($latest) {
   Write-Host "commits.json -> $latest"
 }
 Write-Host "Done. $($weeks.Count) weeks processed."
+
+# Also run DSM parser if DSM file exists
+$dsmScript = Join-Path $PSScriptRoot "parse-dsm.ps1"
+if (Test-Path $dsmScript) {
+  Write-Host "`n--- DSM ---"
+  & powershell -ExecutionPolicy Bypass -File $dsmScript
+}

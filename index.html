@@ -183,6 +183,7 @@
         <div class="flex items-center gap-2">
           <button onclick="switchTab('commits')" id="tab-commits" class="bp-tab-active px-4 py-1.5 text-sm font-medium transition-all">Weekly Commits</button>
           <button onclick="switchTab('sob')" id="tab-sob" class="bp-tab-inactive px-4 py-1.5 text-sm font-medium transition-all">Pacing &amp; SOB</button>
+          <button onclick="switchTab('dsm')" id="tab-dsm" class="bp-tab-inactive px-4 py-1.5 text-sm font-medium transition-all">DSM Report</button>
         </div>
       </div>
 
@@ -210,6 +211,67 @@
       </div>
 
 
+
+      <!-- DSM PANEL -->
+      <div id="panel-dsm" class="hidden">
+        <div style="padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+          <label style="font-size:0.78rem;color:var(--text-dim);">Select DSM:</label>
+          <select id="dsmSelector" class="week-select" onchange="renderDSM(this.value)" style="min-width:200px;">
+            <option value="">Loading...</option>
+          </select>
+          <span id="dsmSubtitle" style="font-size:0.72rem;color:var(--text-dim);"></span>
+        </div>
+
+        <div id="dsmContent" style="padding:16px 0;">
+          <!-- Section 1: Solo Performance -->
+          <div style="padding:0 16px 8px;">
+            <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;">Solo Performance</div>
+            <div class="mobile-scroll">
+              <table class="bp-table" id="dsmSoloTable">
+                <thead><tr>
+                  <th class="text-left">Metric</th>
+                  <th class="text-right">Apr</th><th class="text-right">May</th><th class="text-right">Jun</th><th class="text-right accent">Q2</th>
+                  <th class="text-right hide-mobile">Jul</th><th class="text-right hide-mobile">Aug</th><th class="text-right hide-mobile">Sep</th><th class="text-right accent hide-mobile">Q3</th>
+                </tr></thead>
+                <tbody id="dsmSoloTbody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Section 2: Total Revenue -->
+          <div style="padding:16px 16px 8px;border-top:1px solid var(--border);margin-top:12px;">
+            <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;">Total Revenue by Month</div>
+            <div class="mobile-scroll">
+              <table class="bp-table" id="dsmRevTable">
+                <thead><tr>
+                  <th class="text-left">Period</th>
+                  <th class="text-right">Jan</th><th class="text-right">Feb</th><th class="text-right">Mar</th><th class="text-right accent">Q1</th>
+                  <th class="text-right">Apr</th><th class="text-right">May</th><th class="text-right">Jun</th><th class="text-right accent">Q2</th>
+                  <th class="text-right hide-mobile">Jul</th><th class="text-right hide-mobile">Aug</th><th class="text-right hide-mobile">Sep</th><th class="text-right accent hide-mobile">Q3</th>
+                </tr></thead>
+                <tbody id="dsmRevTbody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Section 3: Market Performance (SOB) -->
+          <div style="padding:16px 16px 8px;border-top:1px solid var(--border);margin-top:12px;">
+            <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;">Market Performance (SOB)</div>
+            <div class="mobile-scroll">
+              <table class="bp-table" id="dsmMktTable">
+                <thead><tr>
+                  <th class="text-left">Market</th>
+                  <th class="text-right">Apr</th><th class="text-right">May</th><th class="text-right">Jun</th><th class="text-right accent">Q2</th>
+                  <th class="text-right">vs Bgt</th><th class="text-right">vs PY</th><th class="text-right">vs Fct</th>
+                  <th class="text-right hide-mobile">Jul</th><th class="text-right hide-mobile">Aug</th><th class="text-right hide-mobile">Sep</th><th class="text-right accent hide-mobile">Q3</th>
+                  <th class="text-right hide-mobile">vs Bgt</th><th class="text-right hide-mobile">vs PY</th><th class="text-right hide-mobile">vs Fct</th>
+                </tr></thead>
+                <tbody id="dsmMktTbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- SOB PANEL -->
       <div id="panel-sob" class="hidden">
@@ -517,11 +579,149 @@
     }
 
     function switchTab(tab) {
-      ['commits','sob'].forEach(t => {
+      if (tab === 'dsm' && !dsmData) loadDSMData();
+      ['commits','sob','dsm'].forEach(t => {
         $('panel-' + t) && $('panel-' + t).classList.toggle('hidden', t !== tab);
         $('tab-' + t)    && ($('tab-' + t).className = t === tab
           ? 'bp-tab-active px-4 py-1.5 text-sm font-medium transition-all'
           : 'bp-tab-inactive px-4 py-1.5 text-sm font-medium transition-all');
+      });
+    }
+
+    // ── DSM rendering ───────────────────────────────────────────
+    let dsmData = null;
+
+    function loadDSMData() {
+      const cb = '?v=' + Date.now();
+      return fetch('data/dsm.json' + cb)
+        .then(r => r.json())
+        .then(data => {
+          dsmData = data;
+          const sel = $('dsmSelector');
+          sel.innerHTML = '';
+          data.dsms.forEach((d, i) => {
+            const opt = document.createElement('option');
+            opt.value = d.name;
+            opt.textContent = d.name + (d.markets.length ? ` (${d.markets.join(', ')})` : '');
+            if (i === 0) opt.selected = true;
+            sel.appendChild(opt);
+          });
+          if (data.dsms.length > 0) renderDSM(data.dsms[0].name);
+        })
+        .catch(() => console.warn('DSM data not available'));
+    }
+
+    function renderDSM(dsmName) {
+      if (!dsmData) return;
+      const dsm = dsmData.dsms.find(d => d.name === dsmName);
+      if (!dsm) return;
+
+      // Subtitle
+      const subtitle = $('dsmSubtitle');
+      if (subtitle) subtitle.textContent = dsm.markets.length ? 'Markets: ' + dsm.markets.join(', ') : '';
+
+      const mk = (n) => fmtK(n);  // reuse SOB formatter
+
+      // Section 1: Solo Performance
+      const soloTbody = $('dsmSoloTbody');
+      soloTbody.innerHTML = '';
+      const soloRows = [
+        { label: 'Budget',         data: dsm.soloBudget,   cls: '' },
+        { label: 'Pacing',         data: dsm.soloPacing,   cls: 'val-pos' },
+        { label: 'Gap',            data: null,             cls: '' }
+      ];
+      soloRows.forEach((row, idx) => {
+        const tr = document.createElement('tr');
+        tr.className = idx === 0 ? 'row-region' : idx === 1 ? 'row-market' : 'row-enterprise';
+        if (idx === 2) {
+          // Gap row
+          const b = dsm.soloBudget, p = dsm.soloPacing;
+          const gapCls = (mo) => { const g = (p[mo]||0)-(b[mo]||0); return g >= 0 ? 'val-pos' : 'val-neg'; };
+          const gapFmt = (mo) => { const g = (p[mo]||0)-(b[mo]||0); return fmtK(g); };
+          tr.innerHTML = `<td class="py-2 px-4 font-semibold" style="color:var(--text-dim)">Gap</td>
+            <td class="text-right py-2 px-3 ${gapCls('apr')}">${gapFmt('apr')}</td>
+            <td class="text-right py-2 px-3 ${gapCls('may')}">${gapFmt('may')}</td>
+            <td class="text-right py-2 px-3 ${gapCls('jun')}">${gapFmt('jun')}</td>
+            <td class="text-right py-2 px-3 font-semibold ${gapCls('q2')}">${gapFmt('q2')}</td>
+            <td class="text-right py-2 px-3 hide-mobile ${gapCls('jul')}">${gapFmt('jul')}</td>
+            <td class="text-right py-2 px-3 hide-mobile ${gapCls('aug')}">${gapFmt('aug')}</td>
+            <td class="text-right py-2 px-3 hide-mobile ${gapCls('sep')}">${gapFmt('sep')}</td>
+            <td class="text-right py-2 px-3 font-semibold hide-mobile ${gapCls('q3')}">${gapFmt('q3')}</td>`;
+        } else {
+          const d = row.data || {};
+          tr.innerHTML = `<td class="py-2 px-4" style="color:var(--text-dim)">${row.label}</td>
+            <td class="text-right py-2 px-3">${mk(d.apr||0)}</td>
+            <td class="text-right py-2 px-3">${mk(d.may||0)}</td>
+            <td class="text-right py-2 px-3">${mk(d.jun||0)}</td>
+            <td class="text-right py-2 px-3 font-semibold">${mk(d.q2||0)}</td>
+            <td class="text-right py-2 px-3 hide-mobile">${mk(d.jul||0)}</td>
+            <td class="text-right py-2 px-3 hide-mobile">${mk(d.aug||0)}</td>
+            <td class="text-right py-2 px-3 hide-mobile">${mk(d.sep||0)}</td>
+            <td class="text-right py-2 px-3 font-semibold hide-mobile">${mk(d.q3||0)}</td>`;
+        }
+        soloTbody.appendChild(tr);
+      });
+
+      // Section 2: Total Revenue
+      const revTbody = $('dsmRevTbody');
+      revTbody.innerHTML = '';
+      const tr = document.createElement('tr');
+      tr.className = 'row-market';
+      const r = dsm.totalRevenue || {};
+      tr.innerHTML = `<td class="py-2 px-4" style="color:var(--text-dim)">IGNITE Total</td>
+        <td class="text-right py-2 px-3">${mk(r.jan||0)}</td><td class="text-right py-2 px-3">${mk(r.feb||0)}</td>
+        <td class="text-right py-2 px-3">${mk(r.mar||0)}</td><td class="text-right py-2 px-3 font-semibold">${mk(r.q1||0)}</td>
+        <td class="text-right py-2 px-3">${mk(r.apr||0)}</td><td class="text-right py-2 px-3">${mk(r.may||0)}</td>
+        <td class="text-right py-2 px-3">${mk(r.jun||0)}</td><td class="text-right py-2 px-3 font-semibold">${mk(r.q2||0)}</td>
+        <td class="text-right py-2 px-3 hide-mobile">${mk(r.jul||0)}</td><td class="text-right py-2 px-3 hide-mobile">${mk(r.aug||0)}</td>
+        <td class="text-right py-2 px-3 hide-mobile">${mk(r.sep||0)}</td><td class="text-right py-2 px-3 font-semibold hide-mobile">${mk(r.q3||0)}</td>`;
+      revTbody.appendChild(tr);
+
+      // Section 3: Market Performance from SOB
+      const mktTbody = $('dsmMktTbody');
+      mktTbody.innerHTML = '';
+      if (!sobData || !dsm.markets.length) {
+        const noData = document.createElement('tr');
+        noData.innerHTML = `<td colspan="14" style="text-align:center;color:var(--text-dim);padding:12px;">${
+          !sobData ? 'SOB data not loaded' : 'No markets assigned'
+        }</td>`;
+        mktTbody.appendChild(noData);
+        return;
+      }
+      const pctOf = (a,b) => b ? Math.round(a/b*100) : null;
+      dsm.markets.forEach(mktName => {
+        let mktData = null;
+        sobData.regions.forEach(r => r.markets.forEach(m => { if (m.name === mktName) mktData = m; }));
+        const mRow = document.createElement('tr');
+        mRow.className = 'row-market';
+        if (mktData) {
+          const q2t = mktData.q2 && mktData.q2.total || {};
+          const q3t = mktData.q3 && mktData.q3.total || {};
+          const q2apr = mktData.q2 && mktData.q2.apr || {};
+          const q2may = mktData.q2 && mktData.q2.may || {};
+          const q2jun = mktData.q2 && mktData.q2.jun || {};
+          const q3jul = mktData.q3 && mktData.q3.jul || {};
+          const q3aug = mktData.q3 && mktData.q3.aug || {};
+          const q3sep = mktData.q3 && mktData.q3.sep || {};
+          mRow.innerHTML = `<td class="py-2 px-4">${mktName}</td>
+            <td class="text-right py-2 px-3">${mk(q2apr.pacing||0)}</td>
+            <td class="text-right py-2 px-3">${mk(q2may.pacing||0)}</td>
+            <td class="text-right py-2 px-3">${mk(q2jun.pacing||0)}</td>
+            <td class="text-right py-2 px-3 font-semibold">${mk(q2t.pacing||0)}</td>
+            <td class="text-right py-2 px-3">${fmtPct(pctOf(q2t.pacing,q2t.budget))}</td>
+            <td class="text-right py-2 px-3">${fmtPct(pctOf(q2t.pacing,q2t.py))}</td>
+            <td class="text-right py-2 px-3">${fmtPct(pctOf(q2t.pacing,q2t.forecast))}</td>
+            <td class="text-right py-2 px-3 hide-mobile">${mk(q3jul.pacing||0)}</td>
+            <td class="text-right py-2 px-3 hide-mobile">${mk(q3aug.pacing||0)}</td>
+            <td class="text-right py-2 px-3 hide-mobile">${mk(q3sep.pacing||0)}</td>
+            <td class="text-right py-2 px-3 font-semibold hide-mobile">${mk(q3t.pacing||0)}</td>
+            <td class="text-right py-2 px-3 hide-mobile">${fmtPct(pctOf(q3t.pacing,q3t.budget))}</td>
+            <td class="text-right py-2 px-3 hide-mobile">${fmtPct(pctOf(q3t.pacing,q3t.py))}</td>
+            <td class="text-right py-2 px-3 hide-mobile">${fmtPct(pctOf(q3t.pacing,q3t.forecast))}</td>`;
+        } else {
+          mRow.innerHTML = `<td class="py-2 px-4">${mktName}</td><td colspan="13" style="color:var(--text-dim);text-align:center;">No SOB data</td>`;
+        }
+        mktTbody.appendChild(mRow);
       });
     }
 
