@@ -631,10 +631,14 @@
     }
 
     function switchTab(tab) {
-      if (tab === 'dsm' && !dsmData) loadDSMData();
+      if (tab === 'dsm' && !dsmData) { loadDSMData(); }
       // Swap summary cards based on active tab
       if (tab === 'sob' && sobData && commitsData) renderSobCards(commitsData.months);
       if (tab === 'commits' && commitsData) renderSummaryCards(currentEntEff || {}, commitsData.months);
+      if (tab === 'dsm' && dsmData) {
+        const sel = $('dsmSelector');
+        if (sel && sel.value) renderDSM(sel.value);
+      }
       ['commits','sob','dsm'].forEach(t => {
         $('panel-' + t) && $('panel-' + t).classList.toggle('hidden', t !== tab);
         $('tab-' + t)    && ($('tab-' + t).className = t === tab
@@ -671,10 +675,55 @@
         .catch(() => console.warn('DSM data not available'));
     }
 
+    // DSM summary cards -- selected DSM total revenue vs their markets' SOB budget
+    function renderDsmCards(dsm) {
+      if (!commitsData || !commitsData.months) return;
+      const months = commitsData.months;
+      $('summaryCards').innerHTML = months.map(m => {
+        const wn = m.woa_month;
+        const mk2 = sobMonthKey[wn], qk = sobMonthQtr[wn];
+        // Total revenue from DSM report (full dollars -> convert to K for comparison)
+        const revFull = (dsm.totalRevenue && dsm.totalRevenue[mk2]) || 0;
+        const revK = revFull / 1000;
+        // Sum of markets' SOB budget for this month
+        let budgetK = 0;
+        if (sobData && mk2) {
+          dsm.markets.forEach(mktName => {
+            sobData.regions.forEach(r => r.markets.forEach(mkt => {
+              if (mkt.name === mktName) {
+                const mo = mkt[qk] && mkt[qk][mk2];
+                if (mo) budgetK += mo.budget || 0;
+              }
+            }));
+          });
+        }
+        const p = budgetK !== 0 ? pct(revK, budgetK) : null;
+        const barColor = p === null ? '#d1d5db' : p >= 100 ? '#10b981' : p >= 85 ? '#10b981' : p >= 70 ? '#f59e0b' : '#ef4444';
+        const barW = p !== null ? Math.min(Math.max(p,0),100) : 0;
+        const statusCls = p === null ? 'val-neutral' : p >= 85 ? 'val-pos' : p >= 70 ? '' : 'val-neg';
+        const statusStyle = p !== null && p >= 70 && p < 85 ? 'color:var(--yellow);' : '';
+        return `
+          <div class="bp-card bp-card-accent p-4">
+            <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);">${m.label} 2026</div>
+            <div style="font-size:1.6rem;font-weight:800;color:#fff;line-height:1.2;margin:4px 0;">${fmtSOB(revK)}</div>
+            <div style="font-size:0.75rem;color:var(--text-dim);">of ${fmtSOB(budgetK)} market budget</div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width:${barW}%;background:${barColor};"></div>
+            </div>
+            <div style="font-size:0.72rem;margin-top:4px;${statusStyle}" class="${statusCls}">
+              ${p !== null ? p + '% of budget' : 'No SOB data'}
+            </div>
+          </div>`;
+      }).join('');
+    }
+
     function renderDSM(dsmName) {
       if (!dsmData) return;
       const dsm = dsmData.dsms.find(d => d.name === dsmName);
       if (!dsm) return;
+
+      // Update summary cards for this DSM
+      renderDsmCards(dsm);
 
       // Subtitle
       const subtitle = $('dsmSubtitle');
