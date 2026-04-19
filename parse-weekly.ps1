@@ -7,25 +7,49 @@ param(
   [string]$OutputDir  = "C:\Users\justi\.openclaw\workspace\igi-command-center\data"
 )
 
+# Region map — sourced from Regional coverage.xlsx (Market Realignment tab)
 $regionMap = @{
-  "Battle Creek"="kathi";"Flint"="kathi";"Grand Rapids"="kathi";"Kalamazoo"="kathi"
+  # Kathi Kirkland
+  "Flint"="kathi";"Grand Rapids"="kathi";"Kalamazoo"="kathi"
   "Killeen-Temple"="kathi";"Killeen/Temple"="kathi";"Lafayette"="kathi";"Lake Charles"="kathi"
   "Lansing"="kathi";"Lufkin"="kathi";"Rockford"="kathi";"Shreveport"="kathi"
   "Texarkana"="kathi";"Tyler"="kathi";"Victoria"="kathi"
+  # Taylor Wheeler (includes St George, Williston, Sierra Vista, Billings, Bozeman)
   "Billings"="taylor";"Boise"="taylor";"Bozeman"="taylor";"Butte"="taylor"
   "Casper"="taylor";"Cheyenne"="taylor";"Fort Collins"="taylor";"Ft Collins"="taylor"
   "Great Falls"="taylor";"Laramie"="taylor";"Tri-Cities"="taylor";"Twin Falls"="taylor"
   "Wenatchee"="taylor";"Yakima"="taylor"
+  "St. George"="taylor";"St George"="taylor"
+  "Williston"="taylor";"Sierra Vista"="taylor"
+  # Tyler Wille
   "Abilene"="tylerw";"Amarillo"="tylerw";"El Paso"="tylerw";"Lawton"="tylerw"
   "Lubbock"="tylerw";"Odessa"="tylerw";"Odessa-Midland"="tylerw";"San Angelo"="tylerw"
   "Wichita Falls"="tylerw"
-  "Bismarck"="jeroen";"Cedar Rapids"="jeroen";"Duluth"="jeroen";"Faribault"="jeroen"
-  "Faribault/Owatonna"="jeroen";"Rochester"="jeroen";"Rochester MN"="jeroen"
+  # Jeroen Corver (includes Dubuque, Quad Cities, Quincy/Hannibal)
+  "Bismarck"="jeroen";"Cedar Rapids"="jeroen";"Duluth"="jeroen"
+  "Faribault"="jeroen";"Faribault/Owatonna"="jeroen"
+  "Rochester"="jeroen";"Rochester MN"="jeroen"
   "Sedalia"="jeroen";"Waterloo"="jeroen"
+  "Dubuque"="jeroen";"Quad Cities"="jeroen";"Quincy/Hannibal"="jeroen"
+  # NNE
+  "Augusta"="nne";"Bangor"="nne";"New Bedford"="nne"
+  "Portland"="nne";"Portsmouth"="nne";"Presque Isle"="nne"
+  # NJ
+  "Atlantic City"="nj";"Shore"="nj";"Trenton/Princeton"="nj"
+  "Princeton"="nj";"Trenton"="nj"
+  # NY
+  "Albany"="ny";"Berkshires"="ny";"Binghamton"="ny";"Buffalo"="ny"
+  "Danbury"="ny";"Oneonta"="ny";"Poughkeepsie"="ny";"Utica"="ny"
+  # Others
+  "Evansville/Owensboro"="others";"Grand Junction"="others"
+  "Missoula"="others";"Montrose"="others";"Shelby"="others"
+  "Sioux Falls"="others";"St. Cloud"="others";"St Cloud"="others"
+  "Tuscaloosa"="others"
 }
 $regionNames = @{
   "kathi"="Kathi Kirkland";"taylor"="Taylor Wheeler"
-  "tylerw"="Tyler Wille";"jeroen"="Jeroen Corver";"direct"="Direct Markets"
+  "tylerw"="Tyler Wille";"jeroen"="Jeroen Corver"
+  "nne"="NNE";"nj"="NJ";"ny"="NY";"others"="Others"
 }
 $aliases = @{
   "Ft Collins"="Fort Collins";"Odessa-Midland"="Odessa";"Killeen-Temple"="Killeen/Temple"
@@ -174,7 +198,7 @@ function Build-WeekJson([string]$weekDate, [array]$months, [hashtable]$bpData, [
   foreach ($k in $bpData.markets.Keys) { $allM[$k]=$true }
   foreach ($k in $woData.Keys)         { $allM[$k]=$true }
 
-  $byRegion = @{ kathi=@(); taylor=@(); tylerw=@(); jeroen=@(); direct=@() }
+  $byRegion = @{ kathi=@(); taylor=@(); tylerw=@(); jeroen=@(); nne=@(); nj=@(); ny=@(); others=@() }
 
   foreach ($market in ($allM.Keys | Sort-Object)) {
     $rid = Get-Region $market
@@ -210,7 +234,7 @@ function Build-WeekJson([string]$weekDate, [array]$months, [hashtable]$bpData, [
 
   $dt = [datetime]::ParseExact($weekDate,'yyyy-MM-dd',$null)
   $weekLabel = "$($monthLongNames[$dt.Month]) $($dt.Day), $($dt.Year)"
-  $regionOrder = @("kathi","taylor","tylerw","jeroen","direct")
+  $regionOrder = @("kathi","taylor","tylerw","jeroen","nne","nj","ny","others")
   $regionList  = $regionOrder | ForEach-Object { [ordered]@{ id=$_; name=$regionNames[$_]; markets=$byRegion[$_] } }
 
   return [ordered]@{
