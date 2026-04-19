@@ -139,13 +139,13 @@
                 <th class="text-left" style="min-width:180px;">Market</th>
                 <th class="text-right">Apr Commit</th>
                 <th class="text-right">Apr Adds</th>
-                <th class="text-right accent">Apr Left</th>
+                <th class="text-right accent">Apr Gap</th>
                 <th class="text-right hide-mobile">May Commit</th>
                 <th class="text-right hide-mobile">May Adds</th>
-                <th class="text-right accent hide-mobile">May Left</th>
+                <th class="text-right accent hide-mobile">May Gap</th>
                 <th class="text-right hide-mobile">Jun Commit</th>
                 <th class="text-right hide-mobile">Jun Adds</th>
-                <th class="text-right accent hide-mobile">Jun Left</th>
+                <th class="text-right accent hide-mobile">Jun Gap</th>
               </tr>
             </thead>
             <tbody id="commitsTbody"></tbody>
@@ -195,10 +195,9 @@
 
     function leftCell(commit, adds, extraCls='') {
       if (commit === 0 && adds === 0) return `<td class="text-right py-2 px-3 val-neutral${extraCls}">—</td>`;
-      const left = commit - adds;
-      const p = commit !== 0 ? pct(adds, commit) : null;
-      const cls = p !== null ? (p >= 80 ? 'val-pos' : p >= 50 ? 'badge-yellow' : 'val-neg') : valClass(-left);
-      return `<td class="text-right py-2 px-3 font-semibold ${cls}${extraCls}">${fmt(left)}</td>`;
+      const gap = adds - commit;
+      const cls = gap > 0 ? 'val-pos' : gap < 0 ? 'val-neg' : 'val-neutral';
+      return `<td class="text-right py-2 px-3 font-semibold ${cls}${extraCls}">${fmt(gap)}</td>`;
     }
 
     let commitsData = null, pipelineData = null;
