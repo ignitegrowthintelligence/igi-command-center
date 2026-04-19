@@ -181,7 +181,8 @@
       <div class="bp-section-header px-5 py-3 flex items-center justify-between">
         <span class="bp-section-title">Revenue Type Summary</span>
         <div class="flex items-center gap-2">
-          <button id="tab-commits" class="bp-tab-active px-4 py-1.5 text-sm font-medium">Weekly Commits</button>
+          <button onclick="switchTab('commits')" id="tab-commits" class="bp-tab-active px-4 py-1.5 text-sm font-medium transition-all">Weekly Commits</button>
+          <button onclick="switchTab('sob')" id="tab-sob" class="bp-tab-inactive px-4 py-1.5 text-sm font-medium transition-all">Pacing &amp; SOB</button>
         </div>
       </div>
 
@@ -209,6 +210,38 @@
       </div>
 
 
+
+      <!-- SOB PANEL -->
+      <div id="panel-sob" class="hidden">
+        <div style="padding:10px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;">
+          <span id="sobWeekLabel" style="font-size:0.78rem;color:var(--text-dim);"></span>
+          <span style="font-size:0.72rem;color:var(--text-dim);">Values in $000s &nbsp;&bull;&nbsp; Ignite Revenue-Cash only</span>
+        </div>
+        <div class="mobile-scroll">
+          <table class="bp-table" id="sobTable">
+            <thead id="sobHead">
+              <tr>
+                <th class="text-left" style="min-width:180px;">Market</th>
+                <th class="text-right">Apr</th>
+                <th class="text-right">May</th>
+                <th class="text-right">Jun</th>
+                <th class="text-right accent">Q2 Total</th>
+                <th class="text-right hide-mobile">vs Bgt</th>
+                <th class="text-right hide-mobile">vs PY</th>
+                <th class="text-right hide-mobile">vs Fct</th>
+                <th class="text-right hide-mobile">Jul</th>
+                <th class="text-right hide-mobile">Aug</th>
+                <th class="text-right hide-mobile">Sep</th>
+                <th class="text-right accent hide-mobile">Q3 Total</th>
+                <th class="text-right hide-mobile">vs Bgt</th>
+                <th class="text-right hide-mobile">vs PY</th>
+                <th class="text-right hide-mobile">vs Fct</th>
+              </tr>
+            </thead>
+            <tbody id="sobTbody"></tbody>
+          </table>
+        </div>
+      </div>
 
     </div>
   </div>
@@ -468,25 +501,135 @@
       const suffix = '-' + panel;
       const chevId = 'chev-' + id + suffix;
       const chev = $(chevId);
-      const isOpen = chev?.classList.contains('open');
+      const isOpen = chev && chev.classList.contains('open');
+      const pAttrMap = { commits:'data-parent', sob:'data-parent-sob', pipeline:'data-parent-p' };
+      const rAttrMap = { commits:'data-region', sob:'data-region-sob', pipeline:'data-region-p' };
+      const pAttr = pAttrMap[panel] || 'data-parent';
+      const rAttr = rAttrMap[panel] || 'data-region';
 
       if (isAll) {
-        const pAttr = panel === 'commits' ? 'data-parent' : 'data-parent-p';
-        const rAttr = panel === 'commits' ? 'data-region' : 'data-region-p';
         document.querySelectorAll(`[${pAttr}], [${rAttr}]`).forEach(r => r.classList.toggle('hidden', isOpen));
         document.querySelectorAll(`[id$="${suffix}"]`).forEach(c => { isOpen ? c.classList.remove('open') : c.classList.add('open'); });
       } else {
-        const pAttr = panel === 'commits' ? 'data-parent' : 'data-parent-p';
         document.querySelectorAll(`[${pAttr}="${id}"]`).forEach(r => r.classList.toggle('hidden', isOpen));
         if (chev) chev.classList.toggle('open');
       }
     }
 
     function switchTab(tab) {
-      $('panel-commits').classList.toggle('hidden', tab !== 'commits');
-      $('panel-pipeline').classList.toggle('hidden', tab !== 'pipeline');
-      $('tab-commits').className  = tab === 'commits'  ? 'bp-tab-active px-4 py-1.5 text-sm font-medium transition-all' : 'bp-tab-inactive px-4 py-1.5 text-sm font-medium transition-all';
-      $('tab-pipeline').className = tab === 'pipeline' ? 'bp-tab-active px-4 py-1.5 text-sm font-medium transition-all' : 'bp-tab-inactive px-4 py-1.5 text-sm font-medium transition-all';
+      ['commits','sob'].forEach(t => {
+        $('panel-' + t) && $('panel-' + t).classList.toggle('hidden', t !== tab);
+        $('tab-' + t)    && ($('tab-' + t).className = t === tab
+          ? 'bp-tab-active px-4 py-1.5 text-sm font-medium transition-all'
+          : 'bp-tab-inactive px-4 py-1.5 text-sm font-medium transition-all');
+      });
+    }
+
+    // ── SOB rendering ────────────────────────────────────────────
+    let sobData = null;
+
+    function fmtK(n) {
+      if (n === 0 || n === null || n === undefined) return '—';
+      const abs = Math.abs(n);
+      const s = '$' + abs.toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0});
+      return n < 0 ? '-' + s : s;
+    }
+    function fmtPct(v) {
+      if (v === null || v === undefined) return '—';
+      const cls = v >= 100 ? 'val-pos' : v >= 85 ? '' : 'val-neg';
+      const style = v >= 85 && v < 100 ? 'color:var(--yellow);' : '';
+      return `<span class="${cls}" style="${style}">${Math.round(v)}%</span>`;
+    }
+
+    function sobRegionSum(region, qkey, mkey, field) {
+      return region.markets.reduce((s, m) => {
+        const q = m[qkey]; if (!q) return s;
+        const mo = q[mkey]; if (!mo) return s;
+        return s + (mo[field] || 0);
+      }, 0);
+    }
+
+    function renderSOB(data) {
+      const tbody = $('sobTbody');
+      tbody.innerHTML = '';
+      if ($('sobWeekLabel')) $('sobWeekLabel').textContent = data.weekLabel + ' — SOB';
+
+      // Enterprise totals
+      const entQ2 = { pacing:0, budget:0, py:0, forecast:0 };
+      const entQ3 = { pacing:0, budget:0, py:0, forecast:0 };
+      data.regions.forEach(r => r.markets.forEach(m => {
+        ['pacing','budget','py','forecast'].forEach(f => {
+          entQ2[f] += (m.q2 && m.q2.total && m.q2.total[f]) || 0;
+          entQ3[f] += (m.q3 && m.q3.total && m.q3.total[f]) || 0;
+        });
+      }));
+
+      function pctOf(a, b) { return b ? Math.round(a/b*100) : null; }
+
+      function sobRow(name, q2t, q3t, q2m, q3m, cls, indent, chevId, onclick) {
+        const q2a = q2m || {}; const q3a = q3m || {};
+        return `
+          <td class="py-2.5 px-4 ${indent}">${chevId ? `<span class="chevron open" id="${chevId}">▶</span> ` : ''}${name}</td>
+          <td class="text-right py-2.5 px-3">${fmtK((q2a.apr||{}).pacing||0)}</td>
+          <td class="text-right py-2.5 px-3">${fmtK((q2a.may||{}).pacing||0)}</td>
+          <td class="text-right py-2.5 px-3">${fmtK((q2a.jun||{}).pacing||0)}</td>
+          <td class="text-right py-2.5 px-3 font-semibold">${fmtK(q2t.pacing||0)}</td>
+          <td class="text-right py-2.5 px-3 hide-mobile">${fmtPct(pctOf(q2t.pacing,q2t.budget))}</td>
+          <td class="text-right py-2.5 px-3 hide-mobile">${fmtPct(pctOf(q2t.pacing,q2t.py))}</td>
+          <td class="text-right py-2.5 px-3 hide-mobile">${fmtPct(pctOf(q2t.pacing,q2t.forecast))}</td>
+          <td class="text-right py-2.5 px-3 hide-mobile">${fmtK((q3a.jul||{}).pacing||0)}</td>
+          <td class="text-right py-2.5 px-3 hide-mobile">${fmtK((q3a.aug||{}).pacing||0)}</td>
+          <td class="text-right py-2.5 px-3 hide-mobile">${fmtK((q3a.sep||{}).pacing||0)}</td>
+          <td class="text-right py-2.5 px-3 font-semibold hide-mobile">${fmtK(q3t.pacing||0)}</td>
+          <td class="text-right py-2.5 px-3 hide-mobile">${fmtPct(pctOf(q3t.pacing,q3t.budget))}</td>
+          <td class="text-right py-2.5 px-3 hide-mobile">${fmtPct(pctOf(q3t.pacing,q3t.py))}</td>
+          <td class="text-right py-2.5 px-3 hide-mobile">${fmtPct(pctOf(q3t.pacing,q3t.forecast))}</td>
+        `;
+      }
+
+      // Enterprise row
+      const eRow = document.createElement('tr');
+      eRow.className = 'row-enterprise cursor-pointer';
+      eRow.onclick = () => toggleGroup('all','sob');
+      eRow.innerHTML = sobRow('Townsquare Enterprise', entQ2, entQ3, null, null, '', 'py-3 font-bold', 'chev-all-sob', true);
+      tbody.appendChild(eRow);
+
+      data.regions.forEach(region => {
+        const rQ2 = { pacing:0, budget:0, py:0, forecast:0 };
+        const rQ3 = { pacing:0, budget:0, py:0, forecast:0 };
+        region.markets.forEach(m => {
+          ['pacing','budget','py','forecast'].forEach(f => {
+            rQ2[f] += (m.q2 && m.q2.total && m.q2.total[f]) || 0;
+            rQ3[f] += (m.q3 && m.q3.total && m.q3.total[f]) || 0;
+          });
+        });
+
+        // Fake q2m/q3m for region row — sum monthly
+        const rQ2m = { apr:{pacing:0}, may:{pacing:0}, jun:{pacing:0} };
+        const rQ3m = { jul:{pacing:0}, aug:{pacing:0}, sep:{pacing:0} };
+        region.markets.forEach(m => {
+          ['apr','may','jun'].forEach(mo => { rQ2m[mo].pacing += (m.q2 && m.q2[mo] && m.q2[mo].pacing) || 0; });
+          ['jul','aug','sep'].forEach(mo => { rQ3m[mo].pacing += (m.q3 && m.q3[mo] && m.q3[mo].pacing) || 0; });
+        });
+
+        const rRow = document.createElement('tr');
+        rRow.className = 'row-region cursor-pointer';
+        rRow.setAttribute('data-region-sob', region.id);
+        rRow.onclick = () => toggleGroup(region.id, 'sob');
+        rRow.innerHTML = sobRow(region.name, rQ2, rQ3, rQ2m, rQ3m, '', 'pl-8');
+        const chevSpan = document.createElement('span');
+        tbody.appendChild(rRow);
+
+        region.markets.forEach(market => {
+          const q2t = (market.q2 && market.q2.total) || {};
+          const q3t = (market.q3 && market.q3.total) || {};
+          const mRow = document.createElement('tr');
+          mRow.className = 'row-market';
+          mRow.setAttribute('data-parent-sob', region.id);
+          mRow.innerHTML = sobRow(market.name, q2t, q3t, market.q2, market.q3, '', 'pl-14 text-xs');
+          tbody.appendChild(mRow);
+        });
+      });
     }
 
     function saveRisd(input) {
@@ -535,10 +678,12 @@
         if (weeksData.weeks.length > 0) {
           await loadWeek(weeksData.weeks[0].date);
         }
-        // Load pipeline data
-        const pr = await fetch('data/pipeline.json' + cb);
-        pipelineData = await pr.json();
-        renderPipeline(pipelineData);
+        // Load SOB data
+        try {
+          const sr = await fetch('data/sob.json' + cb);
+          sobData = await sr.json();
+          renderSOB(sobData);
+        } catch(e) { console.warn('SOB data not available yet'); }
       } catch(e) { console.error(e); }
     }
 
