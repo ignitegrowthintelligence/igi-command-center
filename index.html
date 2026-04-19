@@ -167,18 +167,18 @@
       <div id="panel-commits">
         <div class="mobile-scroll">
           <table class="bp-table" id="commitsTable">
-            <thead>
+            <thead id="commitsHead">
               <tr>
                 <th class="text-left" style="min-width:180px;">Market</th>
-                <th class="text-right">Apr Commit</th>
-                <th class="text-right">Apr Adds</th>
-                <th class="text-right accent">Apr Gap</th>
-                <th class="text-right hide-mobile">May Commit</th>
-                <th class="text-right hide-mobile">May Adds</th>
-                <th class="text-right accent hide-mobile">May Gap</th>
-                <th class="text-right hide-mobile">Jun Commit</th>
-                <th class="text-right hide-mobile">Jun Adds</th>
-                <th class="text-right accent hide-mobile">Jun Gap</th>
+                <th class="text-right">M1 Commit</th>
+                <th class="text-right">M1 Adds</th>
+                <th class="text-right accent">M1 Gap</th>
+                <th class="text-right hide-mobile">M2 Commit</th>
+                <th class="text-right hide-mobile">M2 Adds</th>
+                <th class="text-right accent hide-mobile">M2 Gap</th>
+                <th class="text-right hide-mobile">M3 Commit</th>
+                <th class="text-right hide-mobile">M3 Adds</th>
+                <th class="text-right accent hide-mobile">M3 Gap</th>
               </tr>
             </thead>
             <tbody id="commitsTbody"></tbody>
@@ -237,22 +237,35 @@
 
     function sumRegion(region, month) {
       return {
-        commit: region.markets.reduce((s,m) => s + (m[month]?.commit||0), 0),
-        adds:   region.markets.reduce((s,m) => s + (m[month]?.adds||0),   0)
+        commit: region.markets.reduce((s,m) => s + ((m[month]&&m[month].commit)||0), 0),
+        adds:   region.markets.reduce((s,m) => s + ((m[month]&&m[month].adds)||0),   0)
       };
     }
 
     function renderCommits(data) {
-      const months = ['apr','may','jun'];
+      const months = data.months ? data.months.map(m => m.key) : ['m1','m2','m3'];
+      const monthAbbrs = data.months ? data.months.map(m => m.abbr) : ['M1','M2','M3'];
       const tbody = $('commitsTbody');
       tbody.innerHTML = '';
+
+      // Update column headers dynamically
+      const head = $('commitsHead');
+      if (head && data.months) {
+        const ths = head.querySelectorAll('th');
+        data.months.forEach((mo, i) => {
+          const base = i * 3 + 1;
+          if (ths[base])   ths[base].textContent   = mo.abbr + ' Commit';
+          if (ths[base+1]) ths[base+1].textContent = mo.abbr + ' Adds';
+          if (ths[base+2]) ths[base+2].textContent = mo.abbr + ' Gap';
+        });
+      }
 
       const ent = {};
       months.forEach(mo => {
         ent[mo] = {commit:0, adds:0};
         data.regions.forEach(r => r.markets.forEach(m => {
-          ent[mo].commit += m[mo]?.commit||0;
-          ent[mo].adds   += m[mo]?.adds||0;
+          ent[mo].commit += (m[mo] && m[mo].commit) ? m[mo].commit : 0;
+          ent[mo].adds   += (m[mo] && m[mo].adds)   ? m[mo].adds   : 0;
         }));
       });
 
@@ -299,21 +312,22 @@
           mRow.innerHTML = `
             <td class="py-2 px-4 pl-14">${market.name}</td>
             ${months.map(mo => `
-              <td class="text-right py-2 px-3">${fmt(market[mo]?.commit||0)}</td>
-              <td class="text-right py-2 px-3 ${valClass(market[mo]?.adds||0)}">${fmt(market[mo]?.adds||0)}</td>
-              ${leftCell(market[mo]?.commit||0, market[mo]?.adds||0)}
+              <td class="text-right py-2 px-3">${fmt((market[mo]&&market[mo].commit)||0)}</td>
+              <td class="text-right py-2 px-3 ${valClass((market[mo]&&market[mo].adds)||0)}">${fmt((market[mo]&&market[mo].adds)||0)}</td>
+              ${leftCell((market[mo]&&market[mo].commit)||0, (market[mo]&&market[mo].adds)||0)}
             `).join('')}`;
           tbody.appendChild(mRow);
         });
       });
 
-      renderSummaryCards(ent);
+      renderSummaryCards(ent, data.months);
     }
 
-    function renderSummaryCards(ent) {
-      const months = [{key:'apr',label:'April'},{key:'may',label:'May'},{key:'jun',label:'June'}];
+    function renderSummaryCards(ent, monthDefs) {
+      const months = (monthDefs && monthDefs.length) ? monthDefs : [{key:'m1',label:'Month 1',abbr:'M1'},{key:'m2',label:'Month 2',abbr:'M2'},{key:'m3',label:'Month 3',abbr:'M3'}];
       $('summaryCards').innerHTML = months.map(m => {
-        const p = ent[m.key].commit !== 0 ? pct(ent[m.key].adds, ent[m.key].commit) : null;
+        const ev = ent[m.key] || {commit:0,adds:0};
+        const p = ev.commit !== 0 ? pct(ev.adds, ev.commit) : null;
         const barColor = p === null ? '#d1d5db' : p >= 80 ? '#10b981' : p >= 50 ? '#f59e0b' : '#ef4444';
         const barW = p !== null ? Math.min(Math.max(p,0),100) : 0;
         const statusCls = p === null ? 'val-neutral' : p >= 80 ? 'val-pos' : p >= 50 ? '' : 'val-neg';
@@ -321,8 +335,8 @@
         return `
           <div class="bp-card bp-card-accent p-4">
             <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);">${m.label} 2026</div>
-            <div style="font-size:1.6rem;font-weight:800;color:#fff;line-height:1.2;margin:4px 0;">${fmt(ent[m.key].adds)}</div>
-            <div style="font-size:0.75rem;color:var(--text-dim);">of ${fmt(ent[m.key].commit)} committed</div>
+            <div style="font-size:1.6rem;font-weight:800;color:#fff;line-height:1.2;margin:4px 0;">${fmt(ev.adds)}</div>
+            <div style="font-size:0.75rem;color:var(--text-dim);">of ${fmt(ev.commit)} committed</div>
             <div class="progress-bar">
               <div class="progress-fill" style="width:${barW}%;background:${barColor};"></div>
             </div>

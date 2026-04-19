@@ -1,4 +1,5 @@
 # IGI Command Center — Weekly Data Parser
+# Months are derived from the week date (current month + 2 forward)
 # Usage: .\parse-weekly.ps1
 
 param(
@@ -22,19 +23,23 @@ $regionMap = @{
   "Faribault/Owatonna"="jeroen";"Rochester"="jeroen";"Rochester MN"="jeroen"
   "Sedalia"="jeroen";"Waterloo"="jeroen"
 }
-
 $regionNames = @{
-  "kathi"="Kathi Kirkland"; "taylor"="Taylor Wheeler"
-  "tylerw"="Tyler Wille";   "jeroen"="Jeroen Corver"; "direct"="Direct Markets"
+  "kathi"="Kathi Kirkland";"taylor"="Taylor Wheeler"
+  "tylerw"="Tyler Wille";"jeroen"="Jeroen Corver";"direct"="Direct Markets"
 }
-
 $aliases = @{
-  "Ft Collins"="Fort Collins"; "Odessa-Midland"="Odessa"; "Killeen-Temple"="Killeen/Temple"
-  "Evansville-Owensboro"="Evansville/Owensboro"; "Faribault"="Faribault/Owatonna"
-  "Rochester"="Rochester MN"; "Quincy_Hannibal"="Quincy/Hannibal"
-  "St George"="St. George"
+  "Ft Collins"="Fort Collins";"Odessa-Midland"="Odessa";"Killeen-Temple"="Killeen/Temple"
+  "Evansville-Owensboro"="Evansville/Owensboro";"Faribault"="Faribault/Owatonna"
+  "Rochester"="Rochester MN";"Quincy_Hannibal"="Quincy/Hannibal";"St George"="St. George"
 }
-
+$monthLongNames = @{
+  1="January";2="February";3="March";4="April";5="May";6="June"
+  7="July";8="August";9="September";10="October";11="November";12="December"
+}
+$monthKeys = @{
+  "January"=1;"February"=2;"March"=3;"April"=4;"May"=5;"June"=6
+  "July"=7;"August"=8;"September"=9;"October"=10;"November"=11;"December"=12
+}
 $skipMarkets = @("NABCO","Backyard","Powell","Reno","Atlantic City")
 
 function Normalize([string]$m) {
@@ -42,138 +47,157 @@ function Normalize([string]$m) {
   if ($aliases.ContainsKey($m)) { return $aliases[$m] }
   return $m
 }
-
 function Get-Region([string]$m) {
-  if ($regionMap.ContainsKey($m))  { return $regionMap[$m] }
-  if ($regionMap.ContainsKey((Normalize $m))) { return $regionMap[(Normalize $m)] }
+  if ($regionMap.ContainsKey($m)) { return $regionMap[$m] }
+  $n = Normalize $m
+  if ($regionMap.ContainsKey($n)) { return $regionMap[$n] }
   return "direct"
 }
-
 function Clean-Num([string]$s) {
   $s = ($s -replace '[\$,"\s]','').Trim()
-  if ($s -eq '' -or $s -eq '-' -or $s -eq 'null') { return 0.0 }
+  if ($s -eq '' -or $s -eq '-') { return 0.0 }
   try { return [double]$s } catch { return 0.0 }
 }
 
-# ── Blueprint CSV Parser ───────────────────────────────────────────────────────
+# Derive the 3 active months from the week date
+function Get-WeekMonths([string]$weekDate) {
+  $dt = [datetime]::ParseExact($weekDate,'yyyy-MM-dd',$null)
+  $result = @()
+  for ($i = 0; $i -lt 3; $i++) {
+    $mo = (($dt.Month - 1 + $i) % 12) + 1
+    $label = $monthLongNames[$mo]
+    $result += [ordered]@{ key="m$($i+1)"; label=$label; abbr=$label.Substring(0,3); woa_month=$mo }
+  }
+  return $result
+}
+
+# Blueprint CSV — returns @{ monthLabels=@(); markets=@{name=@{m1=;m2=;m3=}} }
+# where m1/m2/m3 correspond to whatever 3 months Blueprint has in its columns
 function Parse-Blueprint([string]$path) {
-  $result = @{}
+  $markets = @{}; $bpMonthLabels = @()
   $lines = Get-Content $path -Encoding UTF8
   $inIgnite = $false; $headerSeen = $false
+
   foreach ($line in $lines) {
     $line = $line.Trim()
-    if ($line -match '^IGNITE,') { $inIgnite = $true; $headerSeen = $false; continue }
+    # TYPE header: extract the 3 month labels Blueprint uses
+    if ($line -match '^TYPE,' -and $bpMonthLabels.Count -eq 0) {
+      $parts = $line -split ','
+      foreach ($p in ($parts[1..3])) {
+        $label = ($p.Trim().Trim('"') -replace '\s+\d{4}$','').Trim()
+        # Capitalize first letter
+        if ($label.Length -gt 1) { $label = $label.Substring(0,1).ToUpper() + $label.Substring(1).ToLower() }
+        if ($monthKeys.ContainsKey($label)) { $bpMonthLabels += $label }
+      }
+    }
+    if ($line -match '^IGNITE,')              { $inIgnite = $true; $headerSeen = $false; continue }
     if ($inIgnite -and $line -match '^Pending Pitches') { continue }
     if ($inIgnite -and $line -match '^MARKET,') { $headerSeen = $true; continue }
     if ($inIgnite -and $headerSeen) {
       if ($line -match '^(BROADCAST|AMPED|EVENTS|STD|OLR|TSI|"2026)') { break }
       if ([string]::IsNullOrWhiteSpace($line)) { continue }
-      # Parse CSV line with quoted fields: Market,"$x","$y","$z","$t"
-      # Proper quoted-CSV parse: extract all "..." fields for dollar amounts
-      $quotedMatches = [regex]::Matches($line, '"([^"]+)"')
-      if ($quotedMatches.Count -ge 3) {
-        # Market name is before the first quote
-        $marketRaw = ($line -split '"')[0].TrimEnd(',')
-        $market = Normalize $marketRaw.Trim()
-        $apr = Clean-Num $quotedMatches[0].Groups[1].Value
-        $may = Clean-Num $quotedMatches[1].Groups[1].Value
-        $jun = Clean-Num $quotedMatches[2].Groups[1].Value
+      $qm = [regex]::Matches($line, '"([^"]+)"')
+      if ($qm.Count -ge 3) {
+        $market = Normalize (($line -split '"')[0].TrimEnd(',').Trim())
         if ($market -ne '' -and $market -ne 'MARKET') {
-          $result[$market] = @{ apr=$apr; may=$may; jun=$jun }
+          $markets[$market] = @{
+            m1=(Clean-Num $qm[0].Groups[1].Value)
+            m2=(Clean-Num $qm[1].Groups[1].Value)
+            m3=(Clean-Num $qm[2].Groups[1].Value)
+          }
         }
       } elseif ($line -match '^([^,]+),([^,]*),([^,]*),([^,]*)') {
-        # No quotes — plain comma-separated
         $market = Normalize $matches[1].Trim()
-        $apr = Clean-Num $matches[2]
-        $may = Clean-Num $matches[3]
-        $jun = Clean-Num $matches[4]
         if ($market -ne '' -and $market -ne 'MARKET') {
-          $result[$market] = @{ apr=$apr; may=$may; jun=$jun }
+          $markets[$market] = @{ m1=(Clean-Num $matches[2]); m2=(Clean-Num $matches[3]); m3=(Clean-Num $matches[4]) }
         }
       }
     }
   }
-  return $result
+  return @{ monthLabels=$bpMonthLabels; markets=$markets }
 }
 
-# ── WO Analytics TSV Parser ───────────────────────────────────────────────────
+# WO Analytics TSV — extract adds by month number
 function Parse-WO([string]$path) {
   $result = @{}
   $bytes = [System.IO.File]::ReadAllBytes($path)
-  $text = [System.Text.Encoding]::Unicode.GetString($bytes)
+  $text  = [System.Text.Encoding]::Unicode.GetString($bytes)
   $lines = ($text -split "`r`n|`n") | Where-Object { $_.Trim() -ne '' }
   if ($lines.Count -lt 4) { return $result }
-
-  # Line 2 (index 2) = header: "Actual As of Date  Market  Total  3  4  5  6..."
   $header = $lines[2] -split '\t'
-  $aprIdx = $mayIdx = $junIdx = -1
-  $firstFour = $false
+  $colMap = @{}
   for ($c = 0; $c -lt $header.Count; $c++) {
     $v = $header[$c].Trim()
-    if ($v -eq '4' -and $aprIdx -lt 0) { $aprIdx = $c }
-    elseif ($v -eq '5' -and $mayIdx -lt 0) { $mayIdx = $c }
-    elseif ($v -eq '6' -and $junIdx -lt 0) { $junIdx = $c }
+    if ($v -match '^\d+$') { $mn = [int]$v; if (-not $colMap.ContainsKey($mn)) { $colMap[$mn] = $c } }
   }
-
-  if ($aprIdx -lt 0 -or $mayIdx -lt 0 -or $junIdx -lt 0) {
-    Write-Warning "    Could not find month columns. Apr=$aprIdx May=$mayIdx Jun=$junIdx"
-    return $result
-  }
-
-  # Data rows start at index 3
   for ($i = 3; $i -lt $lines.Count; $i++) {
     $cols = $lines[$i] -split '\t'
     if ($cols.Count -lt 3) { continue }
-    $dateVal   = $cols[0].Trim()
-    $marketVal = $cols[1].Trim()
+    $dateVal = $cols[0].Trim(); $marketVal = $cols[1].Trim()
     if ($dateVal -notmatch '^\d+/\d+/\d+') { continue }
     if ($marketVal -eq '' -or $marketVal -eq 'Grand Total' -or $marketVal -eq 'Total') { continue }
     $market = Normalize $marketVal
     if ($skipMarkets -contains $market) { continue }
-    $apr = if ($aprIdx -lt $cols.Count) { Clean-Num $cols[$aprIdx] } else { 0.0 }
-    $may = if ($mayIdx -lt $cols.Count) { Clean-Num $cols[$mayIdx] } else { 0.0 }
-    $jun = if ($junIdx -lt $cols.Count) { Clean-Num $cols[$junIdx] } else { 0.0 }
-    $result[$market] = @{ apr=$apr; may=$may; jun=$jun }
+    $entry = @{}
+    foreach ($mn in $colMap.Keys) {
+      $ci = $colMap[$mn]
+      $entry[$mn] = if ($ci -lt $cols.Count) { Clean-Num $cols[$ci] } else { 0.0 }
+    }
+    $result[$market] = $entry
   }
   return $result
 }
 
-# ── Build JSON ─────────────────────────────────────────────────────────────────
-function Build-WeekJson([string]$weekDate,[hashtable]$commits,[hashtable]$adds) {
+# Build the final week JSON using derived months
+function Build-WeekJson([string]$weekDate, [array]$months, [hashtable]$bpData, [hashtable]$woData) {
   $allM = @{}
-  foreach ($k in $commits.Keys) { $allM[$k]=$true }
-  foreach ($k in $adds.Keys)    { $allM[$k]=$true }
+  foreach ($k in $bpData.monthLabels) { }  # just for reference
+  # Collect all market names
+  foreach ($k in $bpData.markets.Keys) { $allM[$k]=$true }
+  foreach ($k in $woData.Keys)         { $allM[$k]=$true }
 
   $byRegion = @{ kathi=@(); taylor=@(); tylerw=@(); jeroen=@(); direct=@() }
-  $seen = @{}
 
   foreach ($market in ($allM.Keys | Sort-Object)) {
-    if ($seen.ContainsKey($market)) { continue }
-    $seen[$market] = $true
     $rid = Get-Region $market
-    $c = if ($commits.ContainsKey($market)) { $commits[$market] } else { @{apr=0;may=0;jun=0} }
-    $a = if ($adds.ContainsKey($market))    { $adds[$market] }    else { @{apr=0;may=0;jun=0} }
-    $byRegion[$rid] += [ordered]@{
-      name=$market
-      apr=[ordered]@{ commit=[math]::Round($c.apr,2); adds=[math]::Round($a.apr,2) }
-      may=[ordered]@{ commit=[math]::Round($c.may,2); adds=[math]::Round($a.may,2) }
-      jun=[ordered]@{ commit=[math]::Round($c.jun,2); adds=[math]::Round($a.jun,2) }
+    $mdata = [ordered]@{ name=$market }
+
+    foreach ($mo in $months) {
+      $mk  = $mo.key
+      $wn  = $mo.woa_month
+      $lbl = $mo.label
+
+      # Commit: find the Blueprint slot that matches this month label
+      $commit = 0.0
+      if ($bpData.markets.ContainsKey($market)) {
+        for ($j = 0; $j -lt $bpData.monthLabels.Count; $j++) {
+          if ($bpData.monthLabels[$j] -eq $lbl) {
+            $bpKey = "m$($j+1)"
+            $commit = $bpData.markets[$market][$bpKey]
+            break
+          }
+        }
+      }
+
+      # Adds: WO Analytics by month number
+      $adds = 0.0
+      if ($woData.ContainsKey($market) -and $woData[$market].ContainsKey($wn)) {
+        $adds = $woData[$market][$wn]
+      }
+
+      $mdata[$mk] = [ordered]@{ commit=[math]::Round($commit,2); adds=[math]::Round($adds,2) }
     }
+    $byRegion[$rid] += $mdata
   }
 
   $dt = [datetime]::ParseExact($weekDate,'yyyy-MM-dd',$null)
-  $months = @{1="January";2="February";3="March";4="April";5="May";6="June";
-               7="July";8="August";9="September";10="October";11="November";12="December"}
-  $weekLabel = "$($months[$dt.Month]) $($dt.Day), $($dt.Year)"
-
+  $weekLabel = "$($monthLongNames[$dt.Month]) $($dt.Day), $($dt.Year)"
   $regionOrder = @("kathi","taylor","tylerw","jeroen","direct")
-  $regionList = $regionOrder | ForEach-Object {
-    [ordered]@{ id=$_; name=$regionNames[$_]; markets=$byRegion[$_] }
-  }
+  $regionList  = $regionOrder | ForEach-Object { [ordered]@{ id=$_; name=$regionNames[$_]; markets=$byRegion[$_] } }
 
   return [ordered]@{
     lastRefreshed=(Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
-    weekOf=$weekLabel; weekDate=$weekDate; regions=$regionList
+    weekOf=$weekLabel; weekDate=$weekDate; months=$months; regions=$regionList
   }
 }
 
@@ -184,13 +208,16 @@ foreach ($folder in (Get-ChildItem $WeeklyRoot -Directory | Sort-Object Name)) {
   Write-Host "Week: $weekDate"
   $bpFile = Get-ChildItem $folder.FullName "Blueprint*.csv" -ErrorAction SilentlyContinue | Select-Object -Last 1
   $woFile = Get-ChildItem $folder.FullName "Sales Revenue.csv" -ErrorAction SilentlyContinue | Select-Object -First 1
-  if (-not $bpFile -or -not $woFile) { Write-Warning "  Missing files, skipping"; continue }
+  if (-not $bpFile -or -not $woFile) { Write-Warning "  Missing files"; continue }
 
-  $commits = Parse-Blueprint $bpFile.FullName
-  $adds    = Parse-WO        $woFile.FullName
-  Write-Host "  Commits: $($commits.Count)  Adds: $($adds.Count)"
+  $months = Get-WeekMonths $weekDate
+  $bp     = Parse-Blueprint $bpFile.FullName
+  $wo     = Parse-WO $woFile.FullName
 
-  $json = Build-WeekJson $weekDate $commits $adds
+  $mLabels = ($months | ForEach-Object { $_.label }) -join ', '
+  Write-Host "  Months: $mLabels  BP months: $($bp.monthLabels -join ',')  Commits: $($bp.markets.Count)  WO: $($wo.Count)"
+
+  $json = Build-WeekJson $weekDate $months $bp $wo
   $outPath = Join-Path $OutputDir "$weekDate.json"
   $json | ConvertTo-Json -Depth 10 | Set-Content $outPath -Encoding UTF8
   Write-Host "  -> $outPath"

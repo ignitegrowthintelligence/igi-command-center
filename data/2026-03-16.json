@@ -1,7 +1,27 @@
 ﻿{
-    "lastRefreshed":  "2026-04-19T16:32:13Z",
+    "lastRefreshed":  "2026-04-19T16:37:25Z",
     "weekOf":  "March 16, 2026",
     "weekDate":  "2026-03-16",
+    "months":  [
+                   {
+                       "key":  "m1",
+                       "label":  "March",
+                       "abbr":  "Mar",
+                       "woa_month":  3
+                   },
+                   {
+                       "key":  "m2",
+                       "label":  "April",
+                       "abbr":  "Apr",
+                       "woa_month":  4
+                   },
+                   {
+                       "key":  "m3",
+                       "label":  "May",
+                       "abbr":  "May",
+                       "woa_month":  5
+                   }
+               ],
     "regions":  [
                     {
                         "id":  "kathi",
@@ -9,168 +29,168 @@
                         "markets":  [
                                         {
                                             "name":  "Flint",
-                                            "apr":  {
-                                                        "commit":  1967.21,
-                                                        "adds":  2250
-                                                    },
-                                            "may":  {
-                                                        "commit":  2768.08,
-                                                        "adds":  2250
-                                                    },
-                                            "jun":  {
-                                                        "commit":  2205.88,
-                                                        "adds":  4375
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  1967.21,
+                                                       "adds":  2250
+                                                   },
+                                            "m3":  {
+                                                       "commit":  2768.08,
+                                                       "adds":  2250
+                                                   }
                                         },
                                         {
                                             "name":  "Grand Rapids",
-                                            "apr":  {
-                                                        "commit":  2459.02,
-                                                        "adds":  -1500
-                                                    },
-                                            "may":  {
-                                                        "commit":  4567.12,
-                                                        "adds":  -1500
-                                                    },
-                                            "jun":  {
-                                                        "commit":  4419.8,
-                                                        "adds":  2000
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  -3350
+                                                   },
+                                            "m2":  {
+                                                       "commit":  2459.02,
+                                                       "adds":  -1500
+                                                   },
+                                            "m3":  {
+                                                       "commit":  4567.12,
+                                                       "adds":  -1500
+                                                   }
                                         },
                                         {
                                             "name":  "Kalamazoo",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  525
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  -8328
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  700
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  9028
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  525
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  -8328
+                                                   }
                                         },
                                         {
                                             "name":  "Killeen/Temple",
-                                            "apr":  {
-                                                        "commit":  7476.14,
-                                                        "adds":  21336
-                                                    },
-                                            "may":  {
-                                                        "commit":  9281.18,
-                                                        "adds":  10965
-                                                    },
-                                            "jun":  {
-                                                        "commit":  7719.51,
-                                                        "adds":  922
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  -3917
+                                                   },
+                                            "m2":  {
+                                                       "commit":  7476.14,
+                                                       "adds":  21336
+                                                   },
+                                            "m3":  {
+                                                       "commit":  9281.18,
+                                                       "adds":  10965
+                                                   }
                                         },
                                         {
                                             "name":  "Lafayette",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  -2500
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  -2500
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  -2500
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  -2500
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  -2500
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  -2500
+                                                   }
                                         },
                                         {
                                             "name":  "Lansing",
-                                            "apr":  {
-                                                        "commit":  9801.92,
-                                                        "adds":  500
-                                                    },
-                                            "may":  {
-                                                        "commit":  5087.99,
-                                                        "adds":  499
-                                                    },
-                                            "jun":  {
-                                                        "commit":  2586.21,
-                                                        "adds":  0
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  -13000
+                                                   },
+                                            "m2":  {
+                                                       "commit":  9801.92,
+                                                       "adds":  500
+                                                   },
+                                            "m3":  {
+                                                       "commit":  5087.99,
+                                                       "adds":  499
+                                                   }
                                         },
                                         {
                                             "name":  "Lufkin",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  500
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  500
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  500
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  500
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  500
+                                                   }
                                         },
                                         {
                                             "name":  "Rockford",
-                                            "apr":  {
-                                                        "commit":  7833.33,
-                                                        "adds":  2625
-                                                    },
-                                            "may":  {
-                                                        "commit":  7833.33,
-                                                        "adds":  2625
-                                                    },
-                                            "jun":  {
-                                                        "commit":  7833.33,
-                                                        "adds":  4463
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  -2338
+                                                   },
+                                            "m2":  {
+                                                       "commit":  7833.33,
+                                                       "adds":  2625
+                                                   },
+                                            "m3":  {
+                                                       "commit":  7833.33,
+                                                       "adds":  2625
+                                                   }
                                         },
                                         {
                                             "name":  "Shreveport",
-                                            "apr":  {
-                                                        "commit":  1325.58,
-                                                        "adds":  3868
-                                                    },
-                                            "may":  {
-                                                        "commit":  1674.42,
-                                                        "adds":  3400
-                                                    },
-                                            "jun":  {
-                                                        "commit":  3000,
-                                                        "adds":  -3633
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  1870
+                                                   },
+                                            "m2":  {
+                                                       "commit":  1325.58,
+                                                       "adds":  3868
+                                                   },
+                                            "m3":  {
+                                                       "commit":  1674.42,
+                                                       "adds":  3400
+                                                   }
                                         },
                                         {
                                             "name":  "Texarkana",
-                                            "apr":  {
-                                                        "commit":  2665.75,
-                                                        "adds":  0
-                                                    },
-                                            "may":  {
-                                                        "commit":  2547.95,
-                                                        "adds":  0
-                                                    },
-                                            "jun":  {
-                                                        "commit":  2465.75,
-                                                        "adds":  0
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  2665.75,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  2547.95,
+                                                       "adds":  0
+                                                   }
                                         },
                                         {
                                             "name":  "Tyler",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  -4750
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  -4750
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  -4750
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  -4750
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  -4750
+                                                   }
                                         }
                                     ]
                     },
@@ -180,138 +200,138 @@
                         "markets":  [
                                         {
                                             "name":  "Boise",
-                                            "apr":  {
-                                                        "commit":  2459.02,
-                                                        "adds":  0
-                                                    },
-                                            "may":  {
-                                                        "commit":  2540.98,
-                                                        "adds":  0
-                                                    },
-                                            "jun":  {
-                                                        "commit":  2459.02,
-                                                        "adds":  0
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  2000
+                                                   },
+                                            "m2":  {
+                                                       "commit":  2459.02,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  2540.98,
+                                                       "adds":  0
+                                                   }
                                         },
                                         {
                                             "name":  "Bozeman",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  7000
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  7000
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  7000
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  7000
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  7000
+                                                   }
                                         },
                                         {
                                             "name":  "Butte",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  3000
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  0
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  0
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  1500
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  3000
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
                                         },
                                         {
                                             "name":  "Fort Collins",
-                                            "apr":  {
-                                                        "commit":  1972.6,
-                                                        "adds":  0
-                                                    },
-                                            "may":  {
-                                                        "commit":  2038.36,
-                                                        "adds":  0
-                                                    },
-                                            "jun":  {
-                                                        "commit":  1972.6,
-                                                        "adds":  0
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  1972.6,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  2038.36,
+                                                       "adds":  0
+                                                   }
                                         },
                                         {
                                             "name":  "Great Falls",
-                                            "apr":  {
-                                                        "commit":  5054.95,
-                                                        "adds":  5500
-                                                    },
-                                            "may":  {
-                                                        "commit":  2640.11,
-                                                        "adds":  0
-                                                    },
-                                            "jun":  {
-                                                        "commit":  2469.78,
-                                                        "adds":  0
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  -7500
+                                                   },
+                                            "m2":  {
+                                                       "commit":  5054.95,
+                                                       "adds":  5500
+                                                   },
+                                            "m3":  {
+                                                       "commit":  2640.11,
+                                                       "adds":  0
+                                                   }
                                         },
                                         {
                                             "name":  "Tri-Cities",
-                                            "apr":  {
-                                                        "commit":  1500,
-                                                        "adds":  -2215
-                                                    },
-                                            "may":  {
-                                                        "commit":  1500,
-                                                        "adds":  -2215
-                                                    },
-                                            "jun":  {
-                                                        "commit":  1500,
-                                                        "adds":  -2215
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  -5011
+                                                   },
+                                            "m2":  {
+                                                       "commit":  1500,
+                                                       "adds":  -2215
+                                                   },
+                                            "m3":  {
+                                                       "commit":  1500,
+                                                       "adds":  -2215
+                                                   }
                                         },
                                         {
                                             "name":  "Twin Falls",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  0
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  0
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  0
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  -2022
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
                                         },
                                         {
                                             "name":  "Wenatchee",
-                                            "apr":  {
-                                                        "commit":  6923.08,
-                                                        "adds":  2707
-                                                    },
-                                            "may":  {
-                                                        "commit":  7153.85,
-                                                        "adds":  1543
-                                                    },
-                                            "jun":  {
-                                                        "commit":  6923.08,
-                                                        "adds":  250
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  500
+                                                   },
+                                            "m2":  {
+                                                       "commit":  6923.08,
+                                                       "adds":  2707
+                                                   },
+                                            "m3":  {
+                                                       "commit":  7153.85,
+                                                       "adds":  1543
+                                                   }
                                         },
                                         {
                                             "name":  "Yakima",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  0
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  0
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  0
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
                                         }
                                     ]
                     },
@@ -321,108 +341,108 @@
                         "markets":  [
                                         {
                                             "name":  "Abilene",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  350
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  0
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  0
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  350
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
                                         },
                                         {
                                             "name":  "Amarillo",
-                                            "apr":  {
-                                                        "commit":  11822.76,
-                                                        "adds":  0
-                                                    },
-                                            "may":  {
-                                                        "commit":  12216.85,
-                                                        "adds":  4375
-                                                    },
-                                            "jun":  {
-                                                        "commit":  11822.76,
-                                                        "adds":  0
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  11822.76,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  12216.85,
+                                                       "adds":  4375
+                                                   }
                                         },
                                         {
                                             "name":  "El Paso",
-                                            "apr":  {
-                                                        "commit":  7002.81,
-                                                        "adds":  838
-                                                    },
-                                            "may":  {
-                                                        "commit":  6963.48,
-                                                        "adds":  -2427
-                                                    },
-                                            "jun":  {
-                                                        "commit":  6803.37,
-                                                        "adds":  -2500
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  1323
+                                                   },
+                                            "m2":  {
+                                                       "commit":  7002.81,
+                                                       "adds":  838
+                                                   },
+                                            "m3":  {
+                                                       "commit":  6963.48,
+                                                       "adds":  -2427
+                                                   }
                                         },
                                         {
                                             "name":  "Lawton",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  1313
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  -239
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  -350
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  554
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  1313
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  -239
+                                                   }
                                         },
                                         {
                                             "name":  "Lubbock",
-                                            "apr":  {
-                                                        "commit":  5094.55,
-                                                        "adds":  -2485
-                                                    },
-                                            "may":  {
-                                                        "commit":  5264.37,
-                                                        "adds":  513
-                                                    },
-                                            "jun":  {
-                                                        "commit":  5094.55,
-                                                        "adds":  -550
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  -3
+                                                   },
+                                            "m2":  {
+                                                       "commit":  5094.55,
+                                                       "adds":  -2485
+                                                   },
+                                            "m3":  {
+                                                       "commit":  5264.37,
+                                                       "adds":  513
+                                                   }
                                         },
                                         {
                                             "name":  "Odessa",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  1925
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  1925
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  1925
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  425
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  1925
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  1925
+                                                   }
                                         },
                                         {
                                             "name":  "San Angelo",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  8925
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  8925
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  8925
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  8925
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  8925
+                                                   }
                                         }
                                     ]
                     },
@@ -432,78 +452,78 @@
                         "markets":  [
                                         {
                                             "name":  "Bismarck",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  250
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  0
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  0
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  250
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  250
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
                                         },
                                         {
                                             "name":  "Cedar Rapids",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  -129406
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  -106031
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  -140250
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  -146061
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  -129406
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  -106031
+                                                   }
                                         },
                                         {
                                             "name":  "Duluth",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  51224
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  51649
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  37300
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  51224
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  51649
+                                                   }
                                         },
                                         {
                                             "name":  "Rochester MN",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  2000
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  2000
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  2000
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  2000
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  2000
+                                                   }
                                         },
                                         {
                                             "name":  "Sedalia",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  -3500
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  -3500
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  -3500
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  -1750
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  -3500
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  -3500
+                                                   }
                                         }
                                     ]
                     },
@@ -513,333 +533,333 @@
                         "markets":  [
                                         {
                                             "name":  "Albany",
-                                            "apr":  {
-                                                        "commit":  9410.18,
-                                                        "adds":  10031
-                                                    },
-                                            "may":  {
-                                                        "commit":  9723.86,
-                                                        "adds":  15031
-                                                    },
-                                            "jun":  {
-                                                        "commit":  9410.18,
-                                                        "adds":  9237
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  2237
+                                                   },
+                                            "m2":  {
+                                                       "commit":  9410.18,
+                                                       "adds":  10031
+                                                   },
+                                            "m3":  {
+                                                       "commit":  9723.86,
+                                                       "adds":  15031
+                                                   }
                                         },
                                         {
                                             "name":  "Bangor",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  2500
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  2500
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  1250
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  1250
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  2500
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  2500
+                                                   }
                                         },
                                         {
                                             "name":  "Berkshires",
-                                            "apr":  {
-                                                        "commit":  3913.04,
-                                                        "adds":  0
-                                                    },
-                                            "may":  {
-                                                        "commit":  4043.48,
-                                                        "adds":  0
-                                                    },
-                                            "jun":  {
-                                                        "commit":  3913.04,
-                                                        "adds":  0
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  3913.04,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  4043.48,
+                                                       "adds":  0
+                                                   }
                                         },
                                         {
                                             "name":  "Binghamton",
-                                            "apr":  {
-                                                        "commit":  2942.8,
-                                                        "adds":  -298
-                                                    },
-                                            "may":  {
-                                                        "commit":  3647.41,
-                                                        "adds":  2425
-                                                    },
-                                            "jun":  {
-                                                        "commit":  2054.35,
-                                                        "adds":  2500
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  -1020
+                                                   },
+                                            "m2":  {
+                                                       "commit":  2942.8,
+                                                       "adds":  -298
+                                                   },
+                                            "m3":  {
+                                                       "commit":  3647.41,
+                                                       "adds":  2425
+                                                   }
                                         },
                                         {
                                             "name":  "Buffalo",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  3000
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  5500
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  5500
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  3000
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  5500
+                                                   }
                                         },
                                         {
                                             "name":  "Danbury",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  -2250
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  -1250
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  -1250
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  -5750
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  -2250
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  -1250
+                                                   }
                                         },
                                         {
                                             "name":  "Evansville/Owensboro",
-                                            "apr":  {
-                                                        "commit":  1500,
-                                                        "adds":  2453
-                                                    },
-                                            "may":  {
-                                                        "commit":  1500,
-                                                        "adds":  233
-                                                    },
-                                            "jun":  {
-                                                        "commit":  1500,
-                                                        "adds":  1733
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  -500
+                                                   },
+                                            "m2":  {
+                                                       "commit":  1500,
+                                                       "adds":  2453
+                                                   },
+                                            "m3":  {
+                                                       "commit":  1500,
+                                                       "adds":  233
+                                                   }
                                         },
                                         {
                                             "name":  "Missoula",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  -2500
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  -2500
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  -2500
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  -2500
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  -2500
+                                                   }
                                         },
                                         {
                                             "name":  "New Bedford",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  6750
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  6750
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  8250
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  1500
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  6750
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  6750
+                                                   }
                                         },
                                         {
                                             "name":  "Portland",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  14000
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  10499
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  3999
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  14000
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  10499
+                                                   }
                                         },
                                         {
                                             "name":  "Poughkeepsie",
-                                            "apr":  {
-                                                        "commit":  14867.78,
-                                                        "adds":  46925
-                                                    },
-                                            "may":  {
-                                                        "commit":  15363.38,
-                                                        "adds":  37475
-                                                    },
-                                            "jun":  {
-                                                        "commit":  14867.78,
-                                                        "adds":  9000
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  -12325
+                                                   },
+                                            "m2":  {
+                                                       "commit":  14867.78,
+                                                       "adds":  46925
+                                                   },
+                                            "m3":  {
+                                                       "commit":  15363.38,
+                                                       "adds":  37475
+                                                   }
                                         },
                                         {
                                             "name":  "Presque Isle",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  1500
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  1500
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  1500
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  1500
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  1500
+                                                   }
                                         },
                                         {
                                             "name":  "Quad Cities",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  3500
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  6500
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  5000
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  3500
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  6500
+                                                   }
                                         },
                                         {
                                             "name":  "Quincy/Hannibal",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  -1250
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  0
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  0
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  250
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  -1250
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
                                         },
                                         {
                                             "name":  "Shore",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  1700
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  -1300
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  -1300
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  -5800
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  1700
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  -1300
+                                                   }
                                         },
                                         {
                                             "name":  "Sierra Vista",
-                                            "apr":  {
-                                                        "commit":  2500,
-                                                        "adds":  0
-                                                    },
-                                            "may":  {
-                                                        "commit":  2500,
-                                                        "adds":  0
-                                                    },
-                                            "jun":  {
-                                                        "commit":  2500,
-                                                        "adds":  0
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  2500,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  2500,
+                                                       "adds":  0
+                                                   }
                                         },
                                         {
                                             "name":  "Sioux Falls",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  2600
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  2600
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  1300
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  1300
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  2600
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  2600
+                                                   }
                                         },
                                         {
                                             "name":  "St Cloud",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  1500
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  1500
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  0
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  1500
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  1500
+                                                   }
                                         },
                                         {
                                             "name":  "St. George",
-                                            "apr":  {
-                                                        "commit":  3986.3,
-                                                        "adds":  4500
-                                                    },
-                                            "may":  {
-                                                        "commit":  4019.18,
-                                                        "adds":  2500
-                                                    },
-                                            "jun":  {
-                                                        "commit":  3986.3,
-                                                        "adds":  2500
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  -24800
+                                                   },
+                                            "m2":  {
+                                                       "commit":  3986.3,
+                                                       "adds":  4500
+                                                   },
+                                            "m3":  {
+                                                       "commit":  4019.18,
+                                                       "adds":  2500
+                                                   }
                                         },
                                         {
                                             "name":  "Trenton",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  69569
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  69525
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  23205
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  14276
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  69569
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  69525
+                                                   }
                                         },
                                         {
                                             "name":  "Tuscaloosa",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  1650
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  1650
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  1650
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  150
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  1650
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  1650
+                                                   }
                                         },
                                         {
                                             "name":  "Utica",
-                                            "apr":  {
-                                                        "commit":  3483.52,
-                                                        "adds":  35751
-                                                    },
-                                            "may":  {
-                                                        "commit":  3532.97,
-                                                        "adds":  2500
-                                                    },
-                                            "jun":  {
-                                                        "commit":  3483.52,
-                                                        "adds":  2500
-                                                    }
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  -32751
+                                                   },
+                                            "m2":  {
+                                                       "commit":  3483.52,
+                                                       "adds":  35751
+                                                   },
+                                            "m3":  {
+                                                       "commit":  3532.97,
+                                                       "adds":  2500
+                                                   }
                                         }
                                     ]
                     }
