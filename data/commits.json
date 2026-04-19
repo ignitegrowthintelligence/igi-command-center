@@ -1,0 +1,107 @@
+{
+  "lastRefreshed": null,
+  "weekOf": "April 20, 2026",
+  "months": [
+    { "key": "apr", "label": "April" },
+    { "key": "may", "label": "May" },
+    { "key": "jun", "label": "June" }
+  ],
+  "regions": [
+    {
+      "id": "kathi",
+      "name": "Kathi Kirkland",
+      "markets": [
+        { "name": "Battle Creek",    "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Flint",           "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Grand Rapids",    "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Kalamazoo",       "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Killeen/Temple",  "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Lafayette",       "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Lake Charles",    "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Lansing",         "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Lufkin",          "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Rockford",        "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Shreveport",      "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Texarkana",       "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Tyler",           "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Victoria",        "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } }
+      ]
+    },
+    {
+      "id": "taylor",
+      "name": "Taylor Wheeler",
+      "markets": [
+        { "name": "Billings",    "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Boise",       "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Bozeman",     "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Butte",       "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Casper",      "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Cheyenne",    "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Fort Collins","apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Great Falls", "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Laramie",     "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Tri-Cities",  "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Twin Falls",  "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Wenatchee",   "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Yakima",      "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } }
+      ]
+    },
+    {
+      "id": "tyler",
+      "name": "Tyler Wille",
+      "markets": [
+        { "name": "Abilene",      "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Amarillo",     "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "El Paso",      "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Lawton",       "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Lubbock",      "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Odessa",       "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "San Angelo",   "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Wichita Falls","apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } }
+      ]
+    },
+    {
+      "id": "jeroen",
+      "name": "Jeroen Corver",
+      "markets": [
+        { "name": "Bismarck",          "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Cedar Rapids",      "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Duluth",            "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Faribault/Owatonna","apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Rochester MN",      "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Sedalia",           "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Waterloo",          "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } }
+      ]
+    },
+    {
+      "id": "direct",
+      "name": "Direct Markets",
+      "markets": [
+        { "name": "Albany",                "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Atlantic City",         "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Augusta",               "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Bangor",                "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Berkshires",            "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Binghamton",            "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Buffalo",               "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Danbury",               "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Dubuque",               "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Evansville/Owensboro",  "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Grand Junction",        "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Missoula",              "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "New Bedford",           "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Oneonta",               "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Portland",              "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Portsmouth",            "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Poughkeepsie",          "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Quad Cities",           "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Quincy/Hannibal",       "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Shore",                 "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "St. George",            "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Trenton/Princeton",     "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Tuscaloosa",            "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } },
+        { "name": "Utica",                 "apr": { "commit": 0, "adds": 0 }, "may": { "commit": 0, "adds": 0 }, "jun": { "commit": 0, "adds": 0 } }
+      ]
+    }
+  ]
+}

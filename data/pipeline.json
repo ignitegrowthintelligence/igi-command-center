@@ -1,0 +1,91 @@
+{
+  "lastRefreshed": null,
+  "weekOf": "April 20, 2026",
+  "regions": [
+    {
+      "id": "kathi",
+      "name": "Kathi Kirkland",
+      "markets": [
+        { "name": "Battle Creek",   "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Flint",          "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Grand Rapids",   "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Kalamazoo",      "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Killeen/Temple", "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Lafayette",      "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Lake Charles",   "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Lansing",        "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Lufkin",         "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Rockford",       "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Shreveport",     "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Texarkana",      "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Tyler",          "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Victoria",       "plan": 0, "pacing": 0, "pipeline": 0 }
+      ]
+    },
+    {
+      "id": "taylor",
+      "name": "Taylor Wheeler",
+      "markets": [
+        { "name": "Billings",    "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Boise",       "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Bozeman",     "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Butte",       "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Casper",      "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Cheyenne",    "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Fort Collins","plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Great Falls", "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Laramie",     "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Tri-Cities",  "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Twin Falls",  "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Wenatchee",   "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Yakima",      "plan": 0, "pacing": 0, "pipeline": 0 }
+      ]
+    },
+    {
+      "id": "tyler",
+      "name": "Tyler Wille",
+      "markets": [
+        { "name": "Abilene",      "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Amarillo",     "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "El Paso",      "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Lawton",       "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Lubbock",      "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Odessa",       "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "San Angelo",   "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Wichita Falls","plan": 0, "pacing": 0, "pipeline": 0 }
+      ]
+    },
+    {
+      "id": "jeroen",
+      "name": "Jeroen Corver",
+      "markets": [
+        { "name": "Bismarck",           "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Cedar Rapids",       "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Duluth",             "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Faribault/Owatonna", "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Rochester MN",       "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Sedalia",            "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Waterloo",           "plan": 0, "pacing": 0, "pipeline": 0 }
+      ]
+    },
+    {
+      "id": "direct",
+      "name": "Direct Markets",
+      "markets": [
+        { "name": "Albany",               "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Atlantic City",        "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Augusta",              "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Bangor",               "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Buffalo",              "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Danbury",              "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Portsmouth",           "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Poughkeepsie",         "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Quad Cities",          "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "St. George",           "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Trenton/Princeton",    "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Tuscaloosa",           "plan": 0, "pacing": 0, "pipeline": 0 },
+        { "name": "Utica",                "plan": 0, "pacing": 0, "pipeline": 0 }
+      ]
+    }
+  ]
+}
