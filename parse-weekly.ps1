@@ -59,6 +59,28 @@ function Clean-Num([string]$s) {
   try { return [double]$s } catch { return 0.0 }
 }
 
+# Proper CSV tokenizer that respects quoted fields
+function Split-CsvLine([string]$line) {
+  $tokens = @()
+  $i = 0
+  while ($i -lt $line.Length) {
+    if ($line[$i] -eq '"') {
+      # Quoted field
+      $j = $line.IndexOf('"', $i + 1)
+      if ($j -lt 0) { $j = $line.Length - 1 }
+      $tokens += $line.Substring($i + 1, $j - $i - 1)
+      $i = $j + 1
+      if ($i -lt $line.Length -and $line[$i] -eq ',') { $i++ }
+    } else {
+      $j = $line.IndexOf(',', $i)
+      if ($j -lt 0) { $j = $line.Length }
+      $tokens += $line.Substring($i, $j - $i)
+      $i = $j + 1
+    }
+  }
+  return $tokens
+}
+
 # Derive the 3 active months from the week date
 function Get-WeekMonths([string]$weekDate) {
   $dt = [datetime]::ParseExact($weekDate,'yyyy-MM-dd',$null)
@@ -96,20 +118,16 @@ function Parse-Blueprint([string]$path) {
     if ($inIgnite -and $headerSeen) {
       if ($line -match '^(BROADCAST|AMPED|EVENTS|STD|OLR|TSI|"2026)') { break }
       if ([string]::IsNullOrWhiteSpace($line)) { continue }
-      $qm = [regex]::Matches($line, '"([^"]+)"')
-      if ($qm.Count -ge 3) {
-        $market = Normalize (($line -split '"')[0].TrimEnd(',').Trim())
+      # Use proper CSV tokenizer (handles mixed quoted/unquoted fields)
+      $tokens = Split-CsvLine $line
+      if ($tokens.Count -ge 4) {
+        $market = Normalize $tokens[0].Trim()
         if ($market -ne '' -and $market -ne 'MARKET') {
           $markets[$market] = @{
-            m1=(Clean-Num $qm[0].Groups[1].Value)
-            m2=(Clean-Num $qm[1].Groups[1].Value)
-            m3=(Clean-Num $qm[2].Groups[1].Value)
+            m1=(Clean-Num $tokens[1])
+            m2=(Clean-Num $tokens[2])
+            m3=(Clean-Num $tokens[3])
           }
-        }
-      } elseif ($line -match '^([^,]+),([^,]*),([^,]*),([^,]*)') {
-        $market = Normalize $matches[1].Trim()
-        if ($market -ne '' -and $market -ne 'MARKET') {
-          $markets[$market] = @{ m1=(Clean-Num $matches[2]); m2=(Clean-Num $matches[3]); m3=(Clean-Num $matches[4]) }
         }
       }
     }

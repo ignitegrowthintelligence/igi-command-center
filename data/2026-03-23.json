@@ -1,5 +1,5 @@
 ﻿{
-    "lastRefreshed":  "2026-04-19T16:37:25Z",
+    "lastRefreshed":  "2026-04-19T16:42:22Z",
     "weekOf":  "March 23, 2026",
     "weekDate":  "2026-03-23",
     "months":  [
@@ -164,7 +164,7 @@
                                                        "adds":  0
                                                    },
                                             "m3":  {
-                                                       "commit":  2,
+                                                       "commit":  2021.74,
                                                        "adds":  0
                                                    }
                                         },
@@ -823,11 +823,11 @@
                                                        "adds":  0
                                                    },
                                             "m2":  {
-                                                       "commit":  1,
+                                                       "commit":  1500,
                                                        "adds":  750
                                                    },
                                             "m3":  {
-                                                       "commit":  500,
+                                                       "commit":  0,
                                                        "adds":  -750
                                                    }
                                         },

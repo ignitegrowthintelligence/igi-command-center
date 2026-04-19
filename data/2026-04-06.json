@@ -1,5 +1,5 @@
 ﻿{
-    "lastRefreshed":  "2026-04-19T16:37:25Z",
+    "lastRefreshed":  "2026-04-19T16:42:22Z",
     "weekOf":  "April 6, 2026",
     "weekDate":  "2026-04-06",
     "months":  [
@@ -30,15 +30,15 @@
                                         {
                                             "name":  "Flint",
                                             "m1":  {
-                                                       "commit":  0,
+                                                       "commit":  987.8,
                                                        "adds":  2083
                                                    },
                                             "m2":  {
-                                                       "commit":  0,
+                                                       "commit":  3217.52,
                                                        "adds":  1750
                                                    },
                                             "m3":  {
-                                                       "commit":  0,
+                                                       "commit":  3113.73,
                                                        "adds":  1500
                                                    }
                                         },
@@ -98,7 +98,7 @@
                                                        "adds":  7400
                                                    },
                                             "m3":  {
-                                                       "commit":  10650,
+                                                       "commit":  0,
                                                        "adds":  3600
                                                    }
                                         },
@@ -139,11 +139,11 @@
                                                        "adds":  13820
                                                    },
                                             "m2":  {
-                                                       "commit":  0,
+                                                       "commit":  2000,
                                                        "adds":  11750
                                                    },
                                             "m3":  {
-                                                       "commit":  0,
+                                                       "commit":  2000,
                                                        "adds":  12750
                                                    }
                                         },
@@ -158,7 +158,7 @@
                                                        "adds":  4720
                                                    },
                                             "m3":  {
-                                                       "commit":  8000,
+                                                       "commit":  0,
                                                        "adds":  4100
                                                    }
                                         },
@@ -231,15 +231,15 @@
                                         {
                                             "name":  "Cheyenne",
                                             "m1":  {
-                                                       "commit":  0,
+                                                       "commit":  786.89,
                                                        "adds":  750
                                                    },
                                             "m2":  {
-                                                       "commit":  0,
+                                                       "commit":  1524.59,
                                                        "adds":  1500
                                                    },
                                             "m3":  {
-                                                       "commit":  0,
+                                                       "commit":  1475.41,
                                                        "adds":  1500
                                                    }
                                         },
@@ -502,17 +502,17 @@
                         "name":  "Direct Markets",
                         "markets":  [
                                         {
-                                            "name":  "Albany,$0",
+                                            "name":  "Albany",
                                             "m1":  {
-                                                       "commit":  3111.11,
+                                                       "commit":  0,
                                                        "adds":  0
                                                    },
                                             "m2":  {
-                                                       "commit":  3333.33,
+                                                       "commit":  3111.11,
                                                        "adds":  0
                                                    },
                                             "m3":  {
-                                                       "commit":  26889,
+                                                       "commit":  3333.33,
                                                        "adds":  0
                                                    }
                                         },
@@ -592,21 +592,6 @@
                                                    }
                                         },
                                         {
-                                            "name":  "Cheyenne,$786.89",
-                                            "m1":  {
-                                                       "commit":  1524.59,
-                                                       "adds":  0
-                                                   },
-                                            "m2":  {
-                                                       "commit":  1475.41,
-                                                       "adds":  0
-                                                   },
-                                            "m3":  {
-                                                       "commit":  9000,
-                                                       "adds":  0
-                                                   }
-                                        },
-                                        {
                                             "name":  "Danbury",
                                             "m1":  {
                                                        "commit":  1466.67,
@@ -617,7 +602,7 @@
                                                        "adds":  0
                                                    },
                                             "m3":  {
-                                                       "commit":  2750,
+                                                       "commit":  0,
                                                        "adds":  0
                                                    }
                                         },
@@ -649,21 +634,6 @@
                                             "m3":  {
                                                        "commit":  0,
                                                        "adds":  30250
-                                                   }
-                                        },
-                                        {
-                                            "name":  "Flint,$987.80",
-                                            "m1":  {
-                                                       "commit":  3217.52,
-                                                       "adds":  0
-                                                   },
-                                            "m2":  {
-                                                       "commit":  3113.73,
-                                                       "adds":  0
-                                                   },
-                                            "m3":  {
-                                                       "commit":  13500,
-                                                       "adds":  0
                                                    }
                                         },
                                         {
@@ -813,21 +783,6 @@
                                                    },
                                             "m3":  {
                                                        "commit":  0,
-                                                       "adds":  0
-                                                   }
-                                        },
-                                        {
-                                            "name":  "Rockford,$0",
-                                            "m1":  {
-                                                       "commit":  2000,
-                                                       "adds":  0
-                                                   },
-                                            "m2":  {
-                                                       "commit":  2000,
-                                                       "adds":  0
-                                                   },
-                                            "m3":  {
-                                                       "commit":  6000,
                                                        "adds":  0
                                                    }
                                         },
