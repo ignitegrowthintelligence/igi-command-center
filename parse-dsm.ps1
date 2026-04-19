@@ -88,6 +88,18 @@ function Get-Period($sheet, $row) {
   }
 }
 
+# Find the row for IGNITE Total Revenue | Total (dynamically, since row varies by DSM)
+function Find-TotalRevenueRow($sheet) {
+  for ($r = 47; $r -le 120; $r++) {
+    $prod   = $sheet.Cells.Item($r, 4).Text.Trim()
+    $metric = $sheet.Cells.Item($r, 5).Text.Trim()
+    $agg    = $sheet.Cells.Item($r, 6).Text.Trim()
+    # Match IGNITE (exact) Total Revenue Total - not IGNITE DISPLAY, SEM, STV etc.
+    if ($prod -eq 'IGNITE' -and $metric -eq 'Total Revenue' -and $agg -eq 'Total') { return $r }
+  }
+  return 59  # fallback
+}
+
 # Find the DSM file -- check weekly folders first, then inbox
 function Find-DsmFile {
   # Check weekly folders (newest first)
@@ -129,7 +141,8 @@ foreach ($sheet in $wb.Sheets) {
 
   $soloBudget  = Get-Period $sheet 34
   $soloPacing  = Get-Period $sheet 35
-  $totalRevenue = Get-Period $sheet 59
+  $totalRevRow  = Find-TotalRevenueRow $sheet
+  $totalRevenue = Get-Period $sheet $totalRevRow
 
   # Force proper JSON array (PowerShell serializes single-item arrays as strings)
   $rawMarkets = if ($dsmMarkets.ContainsKey($dsmName)) { $dsmMarkets[$dsmName] } else { @() }
