@@ -69,17 +69,26 @@ function Parse-Blueprint([string]$path) {
       if ($line -match '^(BROADCAST|AMPED|EVENTS|STD|OLR|TSI|"2026)') { break }
       if ([string]::IsNullOrWhiteSpace($line)) { continue }
       # Parse CSV line with quoted fields: Market,"$x","$y","$z","$t"
-      if ($line -match '^"?([^,"]+)"?,(.+)') {
-        $market = Normalize ($matches[1].Trim('"').Trim())
-        $rest = $matches[2]
-        # Extract numeric values, handling quoted dollar amounts
-        $vals = @()
-        foreach ($token in ($rest -split ',')) {
-          $vals += Clean-Num $token
-          if ($vals.Count -ge 3) { break }
+      # Proper quoted-CSV parse: extract all "..." fields for dollar amounts
+      $quotedMatches = [regex]::Matches($line, '"([^"]+)"')
+      if ($quotedMatches.Count -ge 3) {
+        # Market name is before the first quote
+        $marketRaw = ($line -split '"')[0].TrimEnd(',')
+        $market = Normalize $marketRaw.Trim()
+        $apr = Clean-Num $quotedMatches[0].Groups[1].Value
+        $may = Clean-Num $quotedMatches[1].Groups[1].Value
+        $jun = Clean-Num $quotedMatches[2].Groups[1].Value
+        if ($market -ne '' -and $market -ne 'MARKET') {
+          $result[$market] = @{ apr=$apr; may=$may; jun=$jun }
         }
-        if ($vals.Count -ge 3 -and $market -ne '' -and $market -ne 'MARKET') {
-          $result[$market] = @{ apr=$vals[0]; may=$vals[1]; jun=$vals[2] }
+      } elseif ($line -match '^([^,]+),([^,]*),([^,]*),([^,]*)') {
+        # No quotes — plain comma-separated
+        $market = Normalize $matches[1].Trim()
+        $apr = Clean-Num $matches[2]
+        $may = Clean-Num $matches[3]
+        $jun = Clean-Num $matches[4]
+        if ($market -ne '' -and $market -ne 'MARKET') {
+          $result[$market] = @{ apr=$apr; may=$may; jun=$jun }
         }
       }
     }
