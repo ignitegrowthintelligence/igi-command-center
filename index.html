@@ -691,7 +691,7 @@
             sobData.regions.forEach(r => r.markets.forEach(mkt => {
               if (mkt.name === mktName) {
                 const mo = mkt[qk] && mkt[qk][mk2];
-                if (mo) budgetK += mo.budget || 0;
+                if (mo) budgetK += mo.pacing || 0;
               }
             }));
           });
@@ -705,7 +705,7 @@
           <div class="bp-card bp-card-accent p-4">
             <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);">${m.label} 2026</div>
             <div style="font-size:1.6rem;font-weight:800;color:#fff;line-height:1.2;margin:4px 0;">${fmtSOB(revK)}</div>
-            <div style="font-size:0.75rem;color:var(--text-dim);">of ${fmtSOB(budgetK)} market budget</div>
+            <div style="font-size:0.75rem;color:var(--text-dim);">of ${fmtSOB(budgetK)} market revenue</div>
             <div class="progress-bar">
               <div class="progress-fill" style="width:${barW}%;background:${barColor};"></div>
             </div>
