@@ -96,6 +96,29 @@
     /* Refresh badge */
     .refresh-badge { background: var(--teal-dim); color: var(--teal); border: 1px solid var(--border-bright); border-radius: 999px; padding: 2px 10px; font-size: 0.72rem; }
 
+    /* Editable RISD commit cell */
+    .risd-input {
+      background: transparent;
+      border: none;
+      border-bottom: 1px dashed rgba(0,188,212,0.4);
+      color: var(--teal);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-align: right;
+      width: 90px;
+      outline: none;
+      padding: 2px 4px;
+      border-radius: 0;
+    }
+    .risd-input:focus {
+      border-bottom: 1px solid var(--teal);
+      background: rgba(0,188,212,0.06);
+      border-radius: 3px 3px 0 0;
+    }
+    .risd-input::placeholder { color: var(--text-dim); font-weight: 400; }
+    .risd-set { color: var(--teal) !important; }
+    .risd-badge { font-size:0.58rem; background:rgba(0,188,212,0.15); color:var(--teal); border:1px solid rgba(0,188,212,0.3); border-radius:3px; padding:0 4px; margin-left:4px; vertical-align:middle; }
+
     /* Week selector */
     .week-select {
       background: var(--surface-3);
@@ -234,6 +257,27 @@
     }
 
     let commitsData = null, pipelineData = null;
+    let currentWeekDate = '';
+
+    // ── RISD commit localStorage helpers ────────────────────────────────────
+    function risdKey(weekDate, regionId, monthKey) {
+      return `igi_risd_${weekDate}_${regionId}_${monthKey}`;
+    }
+    function getRisd(weekDate, regionId, monthKey) {
+      const v = localStorage.getItem(risdKey(weekDate, regionId, monthKey));
+      return v !== null ? parseFloat(v) : null;
+    }
+    function setRisd(weekDate, regionId, monthKey, value) {
+      if (value === null || value === '') {
+        localStorage.removeItem(risdKey(weekDate, regionId, monthKey));
+      } else {
+        localStorage.setItem(risdKey(weekDate, regionId, monthKey), value);
+      }
+    }
+    function getEffectiveCommit(weekDate, regionId, monthKey, blueprintSum) {
+      const risd = getRisd(weekDate, regionId, monthKey);
+      return risd !== null ? risd : blueprintSum;
+    }
 
     function sumRegion(region, month) {
       return {
@@ -257,6 +301,8 @@
           if (ths[base])   ths[base].textContent   = mo.abbr + ' Commit';
           if (ths[base+1]) ths[base+1].textContent = mo.abbr + ' Adds';
           if (ths[base+2]) ths[base+2].textContent = mo.abbr + ' Gap';
+          // Add RISD tooltip to commit header
+          if (ths[base]) ths[base].title = 'Blueprint total. Click region cell to enter RISD-confirmed commit.';
         });
       }
 
@@ -269,6 +315,17 @@
         }));
       });
 
+      // Compute effective enterprise totals (RISD where set, Blueprint sum where not)
+      const entEff = {};
+      months.forEach(mo => {
+        let commitSum = 0;
+        data.regions.forEach(r => {
+          const bpSum = sumRegion(r, mo).commit;
+          commitSum += getEffectiveCommit(currentWeekDate, r.id, mo, bpSum);
+        });
+        entEff[mo] = { commit: commitSum, adds: ent[mo].adds };
+      });
+
       // Enterprise row
       const eRow = document.createElement('tr');
       eRow.className = 'row-enterprise cursor-pointer';
@@ -279,9 +336,9 @@
           Townsquare Enterprise
         </td>
         ${months.map(mo => `
-          <td class="text-right py-3 px-3">${fmt(ent[mo].commit)}</td>
-          <td class="text-right py-3 px-3 ${valClass(ent[mo].adds)}">${fmt(ent[mo].adds)}</td>
-          ${leftCell(ent[mo].commit, ent[mo].adds, ' py-3')}
+          <td class="text-right py-3 px-3">${fmt(entEff[mo].commit)}</td>
+          <td class="text-right py-3 px-3 ${valClass(entEff[mo].adds)}">${fmt(entEff[mo].adds)}</td>
+          ${leftCell(entEff[mo].commit, entEff[mo].adds, ' py-3')}
         `).join('')}`;
       tbody.appendChild(eRow);
 
@@ -292,17 +349,38 @@
         const rRow = document.createElement('tr');
         rRow.className = 'row-region cursor-pointer';
         rRow.setAttribute('data-region', region.id);
-        rRow.onclick = () => toggleGroup(region.id, 'commits');
+        // Click toggles only if not clicking inside an input
+        rRow.onclick = (e) => { if (e.target.tagName !== 'INPUT') toggleGroup(region.id, 'commits'); };
+
+        const commitCells = months.map(mo => {
+          const bpSum  = reg[mo].commit;
+          const risdVal = getRisd(currentWeekDate, region.id, mo);
+          const dispVal = risdVal !== null ? risdVal : bpSum;
+          const isSet   = risdVal !== null;
+          const fmtPlaceholder = fmt(bpSum).replace('—','0');
+          return `
+            <td class="text-right py-2.5 px-2">
+              <input type="text"
+                class="risd-input ${isSet ? 'risd-set' : ''}"
+                value="${isSet ? dispVal : ''}"
+                placeholder="${fmtPlaceholder}"
+                data-region="${region.id}" data-month="${mo}" data-bp="${bpSum}"
+                onclick="event.stopPropagation()"
+                onblur="saveRisd(this)"
+                onkeydown="if(event.key==='Enter'){this.blur();}"
+              />${isSet ? '<span class="risd-badge">R</span>' : ''}
+            </td>
+            <td class="text-right py-2.5 px-3 ${valClass(reg[mo].adds)}">${fmt(reg[mo].adds)}</td>
+            ${leftCell(dispVal, reg[mo].adds, ' py-2.5')}
+          `;
+        }).join('');
+
         rRow.innerHTML = `
           <td class="py-2.5 px-4 pl-8">
             <span class="chevron open" id="chev-${region.id}-commits">▶</span>
             ${region.name}
           </td>
-          ${months.map(mo => `
-            <td class="text-right py-2.5 px-3">${fmt(reg[mo].commit)}</td>
-            <td class="text-right py-2.5 px-3 ${valClass(reg[mo].adds)}">${fmt(reg[mo].adds)}</td>
-            ${leftCell(reg[mo].commit, reg[mo].adds, ' py-2.5')}
-          `).join('')}`;
+          ${commitCells}`;
         tbody.appendChild(rRow);
 
         region.markets.forEach(market => {
@@ -320,7 +398,7 @@
         });
       });
 
-      renderSummaryCards(ent, data.months);
+      renderSummaryCards(entEff, data.months);
     }
 
     function renderSummaryCards(ent, monthDefs) {
@@ -429,7 +507,19 @@
       $('tab-pipeline').className = tab === 'pipeline' ? 'bp-tab-active px-4 py-1.5 text-sm font-medium transition-all' : 'bp-tab-inactive px-4 py-1.5 text-sm font-medium transition-all';
     }
 
+    function saveRisd(input) {
+      const regionId = input.dataset.region;
+      const monthKey = input.dataset.month;
+      const bpVal    = parseFloat(input.dataset.bp) || 0;
+      const raw = input.value.replace(/[\$,\s]/g,'').trim();
+      const num = raw === '' ? null : parseFloat(raw);
+      setRisd(currentWeekDate, regionId, monthKey, num);
+      // Re-render to update gap and enterprise total
+      if (commitsData) renderCommits(commitsData);
+    }
+
     async function loadWeek(weekDate) {
+      currentWeekDate = weekDate;
       const cb = '?v=' + Date.now();
       const url = weekDate ? `data/${weekDate}.json${cb}` : `data/commits.json${cb}`;
       try {
