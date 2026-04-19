@@ -245,7 +245,6 @@
               <table class="bp-table" id="dsmRevTable">
                 <thead><tr>
                   <th class="text-left">Period</th>
-                  <th class="text-right">Jan</th><th class="text-right">Feb</th><th class="text-right">Mar</th><th class="text-right accent">Q1</th>
                   <th class="text-right">Apr</th><th class="text-right">May</th><th class="text-right">Jun</th><th class="text-right accent">Q2</th>
                   <th class="text-right hide-mobile">Jul</th><th class="text-right hide-mobile">Aug</th><th class="text-right hide-mobile">Sep</th><th class="text-right accent hide-mobile">Q3</th>
                 </tr></thead>
@@ -777,8 +776,6 @@
       tr.className = 'row-market';
       const r = dsm.totalRevenue || {};
       tr.innerHTML = `<td class="py-2 px-4" style="color:var(--text-dim)">IGNITE Total</td>
-        <td class="text-right py-2 px-3">${mk(r.jan||0)}</td><td class="text-right py-2 px-3">${mk(r.feb||0)}</td>
-        <td class="text-right py-2 px-3">${mk(r.mar||0)}</td><td class="text-right py-2 px-3 font-semibold">${mk(r.q1||0)}</td>
         <td class="text-right py-2 px-3">${mk(r.apr||0)}</td><td class="text-right py-2 px-3">${mk(r.may||0)}</td>
         <td class="text-right py-2 px-3">${mk(r.jun||0)}</td><td class="text-right py-2 px-3 font-semibold">${mk(r.q2||0)}</td>
         <td class="text-right py-2 px-3 hide-mobile">${mk(r.jul||0)}</td><td class="text-right py-2 px-3 hide-mobile">${mk(r.aug||0)}</td>
