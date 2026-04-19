@@ -813,8 +813,9 @@
       const tbody = $('sobTbody');
       tbody.innerHTML = '';
       if ($('sobWeekLabel')) $('sobWeekLabel').textContent = data.weekLabel + ' — SOB';
-      // Refresh summary cards with SOB data
-      if (commitsData && commitsData.months) renderSobCards(commitsData.months);
+      // Only update summary cards if SOB tab is active
+      const activeSob = $('tab-sob') && $('tab-sob').className.includes('bp-tab-active');
+      if (activeSob && commitsData && commitsData.months) renderSobCards(commitsData.months);
 
       // Enterprise totals
       const entQ2 = { pacing:0, budget:0, py:0, forecast:0 };
