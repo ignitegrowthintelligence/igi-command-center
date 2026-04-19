@@ -260,6 +260,16 @@ foreach ($folder in (Get-ChildItem $WeeklyRoot -Directory | Sort-Object Name)) {
   $woFile = Get-ChildItem $folder.FullName "Sales Revenue.csv" -ErrorAction SilentlyContinue | Select-Object -First 1
   if (-not $bpFile) { Write-Warning "  No Blueprint file, skipping"; continue }
 
+  # Skip if output JSON already exists and is newer than all source files
+  $outPath = Join-Path $OutputDir "$weekDate.json"
+  if (Test-Path $outPath) {
+    $outTime  = (Get-Item $outPath).LastWriteTime
+    $srcTimes = @($bpFile.LastWriteTime)
+    if ($woFile) { $srcTimes += $woFile.LastWriteTime }
+    $newestSrc = ($srcTimes | Sort-Object -Descending | Select-Object -First 1)
+    if ($newestSrc -le $outTime) { Write-Host "  Skipping (no changes)"; $weeks += [ordered]@{ date=$weekDate; label=(Get-Content $outPath | ConvertFrom-Json).weekOf }; continue }
+  }
+
   $months = Get-WeekMonths $weekDate
   $bp     = Parse-Blueprint $bpFile.FullName
   $wo     = if ($woFile) { Parse-WO $woFile.FullName } else { @{} }  # WO optional

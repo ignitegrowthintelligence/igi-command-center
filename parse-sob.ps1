@@ -125,13 +125,23 @@ foreach ($folder in (Get-ChildItem $WeeklyRoot -Directory | Sort-Object Name)) {
   $sobFile  = Get-ChildItem $folder.FullName -Filter "*SOB*.xlsx" -ErrorAction SilentlyContinue | Select-Object -First 1
   if (-not $sobFile) { continue }
 
+  $outPath = Join-Path $OutputDir "sob-$weekDate.json"
+  # Skip if output JSON is newer than the SOB source file
+  if (Test-Path $outPath) {
+    $outTime = (Get-Item $outPath).LastWriteTime
+    if ($sobFile.LastWriteTime -le $outTime) {
+      Write-Host "Week: $weekDate -- no changes, skipping"
+      $existing = Get-Content $outPath | ConvertFrom-Json
+      $sobWeeks += [ordered]@{ date=$weekDate; label=$existing.weekLabel; sobFile=$sobFile.Name }
+      $latestDate = $weekDate
+      continue
+    }
+  }
+
   Write-Host "Week: $weekDate"
   $json = Parse-SOB-File $sobFile.FullName $weekDate
-
-  $outPath = Join-Path $OutputDir "sob-$weekDate.json"
   $json | ConvertTo-Json -Depth 10 | Set-Content $outPath -Encoding UTF8
   Write-Host "  -> $outPath"
-
   $sobWeeks += [ordered]@{ date=$weekDate; label=$json.weekLabel; sobFile=$json.sobFile }
   $latestDate = $weekDate
 }
