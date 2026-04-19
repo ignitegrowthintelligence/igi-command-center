@@ -426,7 +426,6 @@
         const rRow = document.createElement('tr');
         rRow.className = 'row-region cursor-pointer';
         rRow.setAttribute('data-region', region.id);
-        // Click toggles only if not clicking inside an input
         rRow.onclick = (e) => { if (e.target.tagName !== 'INPUT') toggleGroup(region.id, 'commits'); };
 
         const commitCells = months.map(mo => {
@@ -454,7 +453,7 @@
 
         rRow.innerHTML = `
           <td class="py-2.5 px-4 pl-8">
-            <span class="chevron open" id="chev-${region.id}-commits">▶</span>
+            <span class="chevron" id="chev-${region.id}-commits">▶</span>
             ${region.name}
           </td>
           ${commitCells}`;
@@ -462,7 +461,7 @@
 
         region.markets.forEach(market => {
           const mRow = document.createElement('tr');
-          mRow.className = 'row-market';
+          mRow.className = 'row-market hidden';
           mRow.setAttribute('data-parent', region.id);
           mRow.innerHTML = `
             <td class="py-2 px-4 pl-14">${market.name}</td>
@@ -878,10 +877,11 @@
 
       function pctOf(a, b) { return b ? Math.round(a/b*100) : null; }
 
-      function sobRow(name, q2t, q3t, q2m, q3m, cls, indent, chevId, onclick) {
+      function sobRow(name, q2t, q3t, q2m, q3m, cls, indent, chevId, chevOpen) {
         const q2a = q2m || {}; const q3a = q3m || {};
+        const chevCls = chevOpen === false ? 'chevron' : 'chevron open';
         return `
-          <td class="py-2.5 px-4 ${indent}">${chevId ? `<span class="chevron open" id="${chevId}">▶</span> ` : ''}${name}</td>
+          <td class="py-2.5 px-4 ${indent}">${chevId ? `<span class="${chevCls}" id="${chevId}">▶</span> ` : ''}${name}</td>
           <td class="text-right py-2.5 px-3">${fmtK((q2a.apr||{}).pacing||0)}</td>
           <td class="text-right py-2.5 px-3">${fmtK((q2a.may||{}).pacing||0)}</td>
           <td class="text-right py-2.5 px-3">${fmtK((q2a.jun||{}).pacing||0)}</td>
@@ -903,7 +903,7 @@
       const eRow = document.createElement('tr');
       eRow.className = 'row-enterprise cursor-pointer';
       eRow.onclick = () => toggleGroup('all','sob');
-      eRow.innerHTML = sobRow('Townsquare Enterprise', entQ2, entQ3, null, null, '', 'py-3 font-bold', 'chev-all-sob', true);
+      eRow.innerHTML = sobRow('Townsquare Enterprise', entQ2, entQ3, null, null, '', 'py-3 font-bold', 'chev-all-sob', true);  // enterprise starts open (regions visible)
       tbody.appendChild(eRow);
 
       data.regions.forEach(region => {
@@ -928,14 +928,14 @@
         rRow.className = 'row-region cursor-pointer';
         rRow.setAttribute('data-region-sob', region.id);
         rRow.onclick = () => toggleGroup(region.id, 'sob');
-        rRow.innerHTML = sobRow(region.name, rQ2, rQ3, rQ2m, rQ3m, '', 'pl-8', `chev-${region.id}-sob`);
+        rRow.innerHTML = sobRow(region.name, rQ2, rQ3, rQ2m, rQ3m, '', 'pl-8', `chev-${region.id}-sob`, false);  // regions start closed (markets hidden)
         tbody.appendChild(rRow);
 
         region.markets.forEach(market => {
           const q2t = (market.q2 && market.q2.total) || {};
           const q3t = (market.q3 && market.q3.total) || {};
           const mRow = document.createElement('tr');
-          mRow.className = 'row-market';
+          mRow.className = 'row-market hidden';
           mRow.setAttribute('data-parent-sob', region.id);
           mRow.innerHTML = sobRow(market.name, q2t, q3t, market.q2, market.q3, '', 'pl-14 text-xs');
           tbody.appendChild(mRow);
