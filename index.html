@@ -181,8 +181,7 @@
       <div class="bp-section-header px-5 py-3 flex items-center justify-between">
         <span class="bp-section-title">Revenue Type Summary</span>
         <div class="flex items-center gap-2">
-          <button onclick="switchTab('commits')"  id="tab-commits"  class="bp-tab-active   px-4 py-1.5 text-sm font-medium transition-all">Weekly Commits</button>
-          <button onclick="switchTab('pipeline')" id="tab-pipeline" class="bp-tab-inactive px-4 py-1.5 text-sm font-medium transition-all">Pipeline Health</button>
+          <button id="tab-commits" class="bp-tab-active px-4 py-1.5 text-sm font-medium">Weekly Commits</button>
         </div>
       </div>
 
@@ -209,24 +208,7 @@
         </div>
       </div>
 
-      <!-- PIPELINE PANEL -->
-      <div id="panel-pipeline" class="hidden">
-        <div class="mobile-scroll">
-          <table class="bp-table" id="pipelineTable">
-            <thead>
-              <tr>
-                <th class="text-left" style="min-width:180px;">Market</th>
-                <th class="text-right">Plan</th>
-                <th class="text-right">Pacing</th>
-                <th class="text-right accent">Pacing %</th>
-                <th class="text-right hide-mobile">Pipeline</th>
-                <th class="text-left hide-mobile">Health</th>
-              </tr>
-            </thead>
-            <tbody id="pipelineTbody"></tbody>
-          </table>
-        </div>
-      </div>
+
 
     </div>
   </div>
