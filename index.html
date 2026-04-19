@@ -96,6 +96,26 @@
     /* Refresh badge */
     .refresh-badge { background: var(--teal-dim); color: var(--teal); border: 1px solid var(--border-bright); border-radius: 999px; padding: 2px 10px; font-size: 0.72rem; }
 
+    /* Week selector */
+    .week-select {
+      background: var(--surface-3);
+      border: 1px solid var(--border-bright);
+      color: var(--teal);
+      border-radius: 4px;
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      outline: none;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2300bcd4' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 8px center;
+      padding-right: 28px;
+    }
+    .week-select option { background: var(--surface); color: var(--text); }
+
     /* Section border */
     .bp-section-wrap { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
 
@@ -118,8 +138,10 @@
         </div>
       </div>
       <div class="flex items-center gap-3">
-        <span id="weekBadge" style="color:rgba(255,255,255,0.5);font-size:0.75rem;"></span>
-        <span id="refreshBadge" class="badge-gray">Awaiting refresh</span>
+        <select id="weekSelector" class="week-select" onchange="loadWeek(this.value)">
+          <option value="">Loading weeks...</option>
+        </select>
+        <span id="refreshBadge" class="badge-gray">—</span>
       </div>
     </div>
   </header>
@@ -393,19 +415,43 @@
       $('tab-pipeline').className = tab === 'pipeline' ? 'bp-tab-active px-4 py-1.5 text-sm font-medium transition-all' : 'bp-tab-inactive px-4 py-1.5 text-sm font-medium transition-all';
     }
 
-    async function loadData() {
+    async function loadWeek(weekDate) {
       const cb = '?v=' + Date.now();
+      const url = weekDate ? `data/${weekDate}.json${cb}` : `data/commits.json${cb}`;
       try {
-        const [c, p] = await Promise.all([fetch('data/commits.json'+cb), fetch('data/pipeline.json'+cb)]);
-        commitsData  = await c.json();
-        pipelineData = await p.json();
-        if (commitsData.weekOf) $('weekBadge').textContent = 'Week of ' + commitsData.weekOf;
+        const r = await fetch(url);
+        commitsData = await r.json();
         if (commitsData.lastRefreshed) {
           const d = new Date(commitsData.lastRefreshed);
           $('refreshBadge').className = 'refresh-badge';
-          $('refreshBadge').textContent = 'Refreshed ' + d.toLocaleDateString('en-US',{month:'short',day:'numeric'}) + ' at ' + d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+          $('refreshBadge').textContent = 'Updated ' + d.toLocaleDateString('en-US',{month:'short',day:'numeric'});
         }
         renderCommits(commitsData);
+      } catch(e) { console.error('Failed to load week', weekDate, e); }
+    }
+
+    async function loadData() {
+      const cb = '?v=' + Date.now();
+      try {
+        // Load weeks index
+        const wr = await fetch('data/weeks.json' + cb);
+        const weeksData = await wr.json();
+        const sel = $('weekSelector');
+        sel.innerHTML = '';
+        weeksData.weeks.forEach((w, i) => {
+          const opt = document.createElement('option');
+          opt.value = w.date;
+          opt.textContent = 'Week of ' + w.label;
+          if (i === 0) opt.selected = true;
+          sel.appendChild(opt);
+        });
+        // Load most recent week
+        if (weeksData.weeks.length > 0) {
+          await loadWeek(weeksData.weeks[0].date);
+        }
+        // Load pipeline data
+        const pr = await fetch('data/pipeline.json' + cb);
+        pipelineData = await pr.json();
         renderPipeline(pipelineData);
       } catch(e) { console.error(e); }
     }

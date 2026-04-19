@@ -1,7 +1,7 @@
 ﻿{
     "lastRefreshed":  "2026-04-19T16:25:46Z",
-    "weekOf":  "April 13, 2026",
-    "weekDate":  "2026-04-13",
+    "weekOf":  "March 16, 2026",
+    "weekDate":  "2026-03-16",
     "regions":  [
                     {
                         "id":  "kathi",
@@ -10,150 +10,150 @@
                                         {
                                             "name":  "Flint",
                                             "apr":  {
-                                                        "commit":  2,
-                                                        "adds":  3400
+                                                        "commit":  1,
+                                                        "adds":  2250
                                                     },
                                             "may":  {
-                                                        "commit":  119.48,
-                                                        "adds":  5950
+                                                        "commit":  967.21,
+                                                        "adds":  2250
                                                     },
                                             "jun":  {
-                                                        "commit":  4,
-                                                        "adds":  5950
+                                                        "commit":  2,
+                                                        "adds":  4375
                                                     }
                                         },
                                         {
                                             "name":  "Grand Rapids",
                                             "apr":  {
                                                         "commit":  2,
-                                                        "adds":  0
+                                                        "adds":  -1500
                                                     },
                                             "may":  {
-                                                        "commit":  900,
-                                                        "adds":  0
+                                                        "commit":  459.02,
+                                                        "adds":  -1500
                                                     },
                                             "jun":  {
                                                         "commit":  4,
-                                                        "adds":  0
+                                                        "adds":  2000
                                                     }
                                         },
                                         {
                                             "name":  "Kalamazoo",
                                             "apr":  {
-                                                        "commit":  810.81,
-                                                        "adds":  -350
+                                                        "commit":  0,
+                                                        "adds":  525
                                                     },
                                             "may":  {
-                                                        "commit":  2,
-                                                        "adds":  -350
+                                                        "commit":  0,
+                                                        "adds":  -8328
                                                     },
                                             "jun":  {
-                                                        "commit":  285.01,
-                                                        "adds":  -350
+                                                        "commit":  0,
+                                                        "adds":  700
                                                     }
                                         },
                                         {
                                             "name":  "Killeen/Temple",
                                             "apr":  {
-                                                        "commit":  2,
-                                                        "adds":  963
+                                                        "commit":  7,
+                                                        "adds":  21336
                                                     },
                                             "may":  {
-                                                        "commit":  0,
-                                                        "adds":  7313
+                                                        "commit":  476.14,
+                                                        "adds":  10965
                                                     },
                                             "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  6500
+                                                        "commit":  9,
+                                                        "adds":  922
                                                     }
                                         },
                                         {
                                             "name":  "Lafayette",
                                             "apr":  {
-                                                        "commit":  3,
-                                                        "adds":  0
+                                                        "commit":  0,
+                                                        "adds":  -2500
                                                     },
                                             "may":  {
-                                                        "commit":  150,
-                                                        "adds":  -4300
+                                                        "commit":  0,
+                                                        "adds":  -2500
                                                     },
                                             "jun":  {
-                                                        "commit":  2,
-                                                        "adds":  1300
+                                                        "commit":  0,
+                                                        "adds":  -2500
                                                     }
                                         },
                                         {
                                             "name":  "Lansing",
                                             "apr":  {
-                                                        "commit":  1,
-                                                        "adds":  0
+                                                        "commit":  9,
+                                                        "adds":  500
                                                     },
                                             "may":  {
-                                                        "commit":  539.83,
-                                                        "adds":  5440
+                                                        "commit":  801.92,
+                                                        "adds":  499
                                                     },
                                             "jun":  {
-                                                        "commit":  10,
-                                                        "adds":  5440
+                                                        "commit":  5,
+                                                        "adds":  0
                                                     }
                                         },
                                         {
                                             "name":  "Lufkin",
                                             "apr":  {
                                                         "commit":  0,
-                                                        "adds":  1445
+                                                        "adds":  500
                                                     },
                                             "may":  {
                                                         "commit":  0,
-                                                        "adds":  1445
+                                                        "adds":  500
                                                     },
                                             "jun":  {
                                                         "commit":  0,
-                                                        "adds":  0
+                                                        "adds":  500
                                                     }
                                         },
                                         {
                                             "name":  "Rockford",
                                             "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  4255
+                                                        "commit":  7,
+                                                        "adds":  2625
                                                     },
                                             "may":  {
-                                                        "commit":  4,
-                                                        "adds":  21760
+                                                        "commit":  833.33,
+                                                        "adds":  2625
                                                     },
                                             "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  20437
+                                                        "commit":  7,
+                                                        "adds":  4463
                                                     }
                                         },
                                         {
                                             "name":  "Shreveport",
                                             "apr":  {
-                                                        "commit":  2,
-                                                        "adds":  4058
+                                                        "commit":  1,
+                                                        "adds":  3868
                                                     },
                                             "may":  {
-                                                        "commit":  574.4,
-                                                        "adds":  11707
+                                                        "commit":  325.58,
+                                                        "adds":  3400
                                                     },
                                             "jun":  {
-                                                        "commit":  3,
-                                                        "adds":  -2210
+                                                        "commit":  1,
+                                                        "adds":  -3633
                                                     }
                                         },
                                         {
                                             "name":  "Texarkana",
                                             "apr":  {
-                                                        "commit":  0,
+                                                        "commit":  2,
                                                         "adds":  0
                                                     },
                                             "may":  {
-                                                        "commit":  6,
-                                                        "adds":  650
+                                                        "commit":  665.75,
+                                                        "adds":  0
                                                     },
                                             "jun":  {
-                                                        "commit":  115.07,
+                                                        "commit":  2,
                                                         "adds":  0
                                                     }
                                         },
@@ -161,30 +161,15 @@
                                             "name":  "Tyler",
                                             "apr":  {
                                                         "commit":  0,
-                                                        "adds":  90684
+                                                        "adds":  -4750
                                                     },
                                             "may":  {
                                                         "commit":  0,
-                                                        "adds":  112100
+                                                        "adds":  -4750
                                                     },
                                             "jun":  {
                                                         "commit":  0,
-                                                        "adds":  22100
-                                                    }
-                                        },
-                                        {
-                                            "name":  "Victoria",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  0
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  0
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  0
+                                                        "adds":  -4750
                                                     }
                                         }
                                     ]
@@ -196,91 +181,136 @@
                                         {
                                             "name":  "Boise",
                                             "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  56
+                                                        "commit":  2,
+                                                        "adds":  0
                                                     },
                                             "may":  {
-                                                        "commit":  7,
-                                                        "adds":  250
+                                                        "commit":  459.02,
+                                                        "adds":  0
                                                     },
                                             "jun":  {
-                                                        "commit":  768.72,
-                                                        "adds":  4500
+                                                        "commit":  2,
+                                                        "adds":  0
+                                                    }
+                                        },
+                                        {
+                                            "name":  "Bozeman",
+                                            "apr":  {
+                                                        "commit":  0,
+                                                        "adds":  7000
+                                                    },
+                                            "may":  {
+                                                        "commit":  0,
+                                                        "adds":  7000
+                                                    },
+                                            "jun":  {
+                                                        "commit":  0,
+                                                        "adds":  7000
+                                                    }
+                                        },
+                                        {
+                                            "name":  "Butte",
+                                            "apr":  {
+                                                        "commit":  0,
+                                                        "adds":  3000
+                                                    },
+                                            "may":  {
+                                                        "commit":  0,
+                                                        "adds":  0
+                                                    },
+                                            "jun":  {
+                                                        "commit":  0,
+                                                        "adds":  0
                                                     }
                                         },
                                         {
                                             "name":  "Fort Collins",
                                             "apr":  {
-                                                        "commit":  0,
+                                                        "commit":  1,
                                                         "adds":  0
                                                     },
                                             "may":  {
-                                                        "commit":  2,
-                                                        "adds":  2500
+                                                        "commit":  972.6,
+                                                        "adds":  0
                                                     },
                                             "jun":  {
-                                                        "commit":  38.36,
-                                                        "adds":  2500
+                                                        "commit":  2,
+                                                        "adds":  0
                                                     }
                                         },
                                         {
                                             "name":  "Great Falls",
                                             "apr":  {
-                                                        "commit":  1,
-                                                        "adds":  0
+                                                        "commit":  5,
+                                                        "adds":  5500
                                                     },
                                             "may":  {
-                                                        "commit":  934.11,
-                                                        "adds":  9273
+                                                        "commit":  54.95,
+                                                        "adds":  0
                                                     },
                                             "jun":  {
-                                                        "commit":  4,
-                                                        "adds":  4273
+                                                        "commit":  2,
+                                                        "adds":  0
                                                     }
                                         },
                                         {
                                             "name":  "Tri-Cities",
                                             "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  0
+                                                        "commit":  1,
+                                                        "adds":  -2215
                                                     },
                                             "may":  {
-                                                        "commit":  0,
-                                                        "adds":  2500
+                                                        "commit":  500,
+                                                        "adds":  -2215
                                                     },
                                             "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  2500
+                                                        "commit":  1,
+                                                        "adds":  -2215
                                                     }
                                         },
                                         {
                                             "name":  "Twin Falls",
                                             "apr":  {
-                                                        "commit":  398.42,
-                                                        "adds":  -1200
+                                                        "commit":  0,
+                                                        "adds":  0
                                                     },
                                             "may":  {
-                                                        "commit":  1,
-                                                        "adds":  2700
+                                                        "commit":  0,
+                                                        "adds":  0
                                                     },
                                             "jun":  {
-                                                        "commit":  764.43,
-                                                        "adds":  1500
+                                                        "commit":  0,
+                                                        "adds":  0
+                                                    }
+                                        },
+                                        {
+                                            "name":  "Wenatchee",
+                                            "apr":  {
+                                                        "commit":  6,
+                                                        "adds":  2707
+                                                    },
+                                            "may":  {
+                                                        "commit":  923.08,
+                                                        "adds":  1543
+                                                    },
+                                            "jun":  {
+                                                        "commit":  7,
+                                                        "adds":  250
                                                     }
                                         },
                                         {
                                             "name":  "Yakima",
                                             "apr":  {
                                                         "commit":  0,
-                                                        "adds":  500
+                                                        "adds":  0
                                                     },
                                             "may":  {
-                                                        "commit":  2,
-                                                        "adds":  -2000
+                                                        "commit":  0,
+                                                        "adds":  0
                                                     },
                                             "jun":  {
-                                                        "commit":  547.95,
-                                                        "adds":  500
+                                                        "commit":  0,
+                                                        "adds":  0
                                                     }
                                         }
                                     ]
@@ -293,7 +323,7 @@
                                             "name":  "Abilene",
                                             "apr":  {
                                                         "commit":  0,
-                                                        "adds":  1500
+                                                        "adds":  350
                                                     },
                                             "may":  {
                                                         "commit":  0,
@@ -307,91 +337,91 @@
                                         {
                                             "name":  "Amarillo",
                                             "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  -2559
+                                                        "commit":  11,
+                                                        "adds":  0
                                                     },
                                             "may":  {
-                                                        "commit":  3,
-                                                        "adds":  -3000
+                                                        "commit":  822.76,
+                                                        "adds":  4375
                                                     },
                                             "jun":  {
-                                                        "commit":  24.39,
+                                                        "commit":  12,
                                                         "adds":  0
                                                     }
                                         },
                                         {
                                             "name":  "El Paso",
                                             "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  400
+                                                        "commit":  7,
+                                                        "adds":  838
                                                     },
                                             "may":  {
-                                                        "commit":  7,
-                                                        "adds":  -3350
+                                                        "commit":  2.81,
+                                                        "adds":  -2427
                                                     },
                                             "jun":  {
-                                                        "commit":  500,
-                                                        "adds":  -3350
+                                                        "commit":  6,
+                                                        "adds":  -2500
+                                                    }
+                                        },
+                                        {
+                                            "name":  "Lawton",
+                                            "apr":  {
+                                                        "commit":  0,
+                                                        "adds":  1313
+                                                    },
+                                            "may":  {
+                                                        "commit":  0,
+                                                        "adds":  -239
+                                                    },
+                                            "jun":  {
+                                                        "commit":  0,
+                                                        "adds":  -350
                                                     }
                                         },
                                         {
                                             "name":  "Lubbock",
                                             "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  1275
+                                                        "commit":  5,
+                                                        "adds":  -2485
                                                     },
                                             "may":  {
-                                                        "commit":  0,
-                                                        "adds":  -4625
+                                                        "commit":  94.55,
+                                                        "adds":  513
                                                     },
                                             "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  -4625
+                                                        "commit":  5,
+                                                        "adds":  -550
                                                     }
                                         },
                                         {
                                             "name":  "Odessa",
                                             "apr":  {
-                                                        "commit":  1,
-                                                        "adds":  0
+                                                        "commit":  0,
+                                                        "adds":  1925
                                                     },
                                             "may":  {
-                                                        "commit":  500,
-                                                        "adds":  0
+                                                        "commit":  0,
+                                                        "adds":  1925
                                                     },
                                             "jun":  {
-                                                        "commit":  1,
-                                                        "adds":  0
+                                                        "commit":  0,
+                                                        "adds":  1925
                                                     }
                                         },
                                         {
                                             "name":  "San Angelo",
                                             "apr":  {
                                                         "commit":  0,
-                                                        "adds":  9800
+                                                        "adds":  8925
                                                     },
                                             "may":  {
-                                                        "commit":  17,
-                                                        "adds":  9800
+                                                        "commit":  0,
+                                                        "adds":  8925
                                                     },
                                             "jun":  {
                                                         "commit":  0,
-                                                        "adds":  9800
-                                                    }
-                                        },
-                                        {
-                                            "name":  "Wichita Falls",
-                                            "apr":  {
-                                                        "commit":  89.67,
-                                                        "adds":  0
-                                                    },
-                                            "may":  {
-                                                        "commit":  252.72,
-                                                        "adds":  -6000
-                                                    },
-                                            "jun":  {
-                                                        "commit":  244.57,
-                                                        "adds":  -6000
+                                                        "adds":  8925
                                                     }
                                         }
                                     ]
@@ -401,48 +431,78 @@
                         "name":  "Jeroen Corver",
                         "markets":  [
                                         {
-                                            "name":  "Cedar Rapids",
+                                            "name":  "Bismarck",
                                             "apr":  {
                                                         "commit":  0,
-                                                        "adds":  2850
+                                                        "adds":  250
                                                     },
                                             "may":  {
                                                         "commit":  0,
-                                                        "adds":  8144
+                                                        "adds":  0
                                                     },
                                             "jun":  {
                                                         "commit":  0,
-                                                        "adds":  8143
+                                                        "adds":  0
+                                                    }
+                                        },
+                                        {
+                                            "name":  "Cedar Rapids",
+                                            "apr":  {
+                                                        "commit":  0,
+                                                        "adds":  -129406
+                                                    },
+                                            "may":  {
+                                                        "commit":  0,
+                                                        "adds":  -106031
+                                                    },
+                                            "jun":  {
+                                                        "commit":  0,
+                                                        "adds":  -140250
+                                                    }
+                                        },
+                                        {
+                                            "name":  "Duluth",
+                                            "apr":  {
+                                                        "commit":  0,
+                                                        "adds":  51224
+                                                    },
+                                            "may":  {
+                                                        "commit":  0,
+                                                        "adds":  51649
+                                                    },
+                                            "jun":  {
+                                                        "commit":  0,
+                                                        "adds":  37300
                                                     }
                                         },
                                         {
                                             "name":  "Rochester MN",
                                             "apr":  {
                                                         "commit":  0,
-                                                        "adds":  -597
+                                                        "adds":  2000
                                                     },
                                             "may":  {
                                                         "commit":  0,
-                                                        "adds":  2500
+                                                        "adds":  2000
                                                     },
                                             "jun":  {
                                                         "commit":  0,
-                                                        "adds":  2500
+                                                        "adds":  2000
                                                     }
                                         },
                                         {
                                             "name":  "Sedalia",
                                             "apr":  {
                                                         "commit":  0,
-                                                        "adds":  0
+                                                        "adds":  -3500
                                                     },
                                             "may":  {
                                                         "commit":  0,
-                                                        "adds":  2678
+                                                        "adds":  -3500
                                                     },
                                             "jun":  {
                                                         "commit":  0,
-                                                        "adds":  1913
+                                                        "adds":  -3500
                                                     }
                                         }
                                     ]
@@ -454,240 +514,270 @@
                                         {
                                             "name":  "Albany",
                                             "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  -2400
+                                                        "commit":  9,
+                                                        "adds":  10031
                                                     },
                                             "may":  {
-                                                        "commit":  6,
-                                                        "adds":  -400
+                                                        "commit":  410.18,
+                                                        "adds":  15031
                                                     },
                                             "jun":  {
-                                                        "commit":  913.58,
-                                                        "adds":  -250
-                                                    }
-                                        },
-                                        {
-                                            "name":  "Augusta",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  1200
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  495
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  495
+                                                        "commit":  9,
+                                                        "adds":  9237
                                                     }
                                         },
                                         {
                                             "name":  "Bangor",
                                             "apr":  {
                                                         "commit":  0,
-                                                        "adds":  1800
+                                                        "adds":  2500
                                                     },
                                             "may":  {
                                                         "commit":  0,
-                                                        "adds":  1200
+                                                        "adds":  2500
                                                     },
                                             "jun":  {
                                                         "commit":  0,
-                                                        "adds":  3350
+                                                        "adds":  1250
                                                     }
                                         },
                                         {
                                             "name":  "Berkshires",
                                             "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  2000
+                                                        "commit":  3,
+                                                        "adds":  0
                                                     },
                                             "may":  {
-                                                        "commit":  0,
+                                                        "commit":  913.04,
                                                         "adds":  0
                                                     },
                                             "jun":  {
-                                                        "commit":  0,
+                                                        "commit":  4,
                                                         "adds":  0
                                                     }
                                         },
                                         {
                                             "name":  "Binghamton",
                                             "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  0
+                                                        "commit":  2,
+                                                        "adds":  -298
                                                     },
                                             "may":  {
-                                                        "commit":  0,
-                                                        "adds":  425
+                                                        "commit":  942.8,
+                                                        "adds":  2425
                                                     },
                                             "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  850
+                                                        "commit":  3,
+                                                        "adds":  2500
                                                     }
                                         },
                                         {
                                             "name":  "Buffalo",
                                             "apr":  {
-                                                        "commit":  4,
-                                                        "adds":  7625
+                                                        "commit":  0,
+                                                        "adds":  3000
                                                     },
                                             "may":  {
-                                                        "commit":  290.51,
-                                                        "adds":  5250
+                                                        "commit":  0,
+                                                        "adds":  5500
                                                     },
                                             "jun":  {
-                                                        "commit":  9,
-                                                        "adds":  0
+                                                        "commit":  0,
+                                                        "adds":  5500
                                                     }
                                         },
                                         {
                                             "name":  "Danbury",
                                             "apr":  {
                                                         "commit":  0,
-                                                        "adds":  -667
+                                                        "adds":  -2250
                                                     },
                                             "may":  {
                                                         "commit":  0,
-                                                        "adds":  3450
+                                                        "adds":  -1250
                                                     },
                                             "jun":  {
                                                         "commit":  0,
-                                                        "adds":  3450
-                                                    }
-                                        },
-                                        {
-                                            "name":  "Dubuque",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  643
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  3400
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  2575
+                                                        "adds":  -1250
                                                     }
                                         },
                                         {
                                             "name":  "Evansville/Owensboro",
                                             "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  5385
+                                                        "commit":  1,
+                                                        "adds":  2453
                                                     },
                                             "may":  {
-                                                        "commit":  13,
-                                                        "adds":  2359
+                                                        "commit":  500,
+                                                        "adds":  233
                                                     },
                                             "jun":  {
-                                                        "commit":  194.79,
-                                                        "adds":  1190
+                                                        "commit":  1,
+                                                        "adds":  1733
                                                     }
                                         },
                                         {
-                                            "name":  "Grand Junction",
+                                            "name":  "Missoula",
                                             "apr":  {
                                                         "commit":  0,
-                                                        "adds":  0
+                                                        "adds":  -2500
                                                     },
                                             "may":  {
                                                         "commit":  0,
-                                                        "adds":  650
+                                                        "adds":  -2500
                                                     },
                                             "jun":  {
                                                         "commit":  0,
-                                                        "adds":  650
+                                                        "adds":  -2500
+                                                    }
+                                        },
+                                        {
+                                            "name":  "New Bedford",
+                                            "apr":  {
+                                                        "commit":  0,
+                                                        "adds":  6750
+                                                    },
+                                            "may":  {
+                                                        "commit":  0,
+                                                        "adds":  6750
+                                                    },
+                                            "jun":  {
+                                                        "commit":  0,
+                                                        "adds":  8250
                                                     }
                                         },
                                         {
                                             "name":  "Portland",
                                             "apr":  {
                                                         "commit":  0,
-                                                        "adds":  0
+                                                        "adds":  14000
                                                     },
                                             "may":  {
                                                         "commit":  0,
-                                                        "adds":  1000
+                                                        "adds":  10499
                                                     },
                                             "jun":  {
                                                         "commit":  0,
-                                                        "adds":  1319
-                                                    }
-                                        },
-                                        {
-                                            "name":  "Portsmouth",
-                                            "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  -160
-                                                    },
-                                            "may":  {
-                                                        "commit":  0,
-                                                        "adds":  -55350
-                                                    },
-                                            "jun":  {
-                                                        "commit":  0,
-                                                        "adds":  -55350
+                                                        "adds":  3999
                                                     }
                                         },
                                         {
                                             "name":  "Poughkeepsie",
                                             "apr":  {
-                                                        "commit":  0,
-                                                        "adds":  9800
+                                                        "commit":  14,
+                                                        "adds":  46925
                                                     },
                                             "may":  {
-                                                        "commit":  3,
-                                                        "adds":  8500
+                                                        "commit":  867.78,
+                                                        "adds":  37475
                                                     },
                                             "jun":  {
-                                                        "commit":  567.12,
-                                                        "adds":  750
+                                                        "commit":  15,
+                                                        "adds":  9000
+                                                    }
+                                        },
+                                        {
+                                            "name":  "Presque Isle",
+                                            "apr":  {
+                                                        "commit":  0,
+                                                        "adds":  1500
+                                                    },
+                                            "may":  {
+                                                        "commit":  0,
+                                                        "adds":  1500
+                                                    },
+                                            "jun":  {
+                                                        "commit":  0,
+                                                        "adds":  1500
                                                     }
                                         },
                                         {
                                             "name":  "Quad Cities",
                                             "apr":  {
                                                         "commit":  0,
-                                                        "adds":  0
+                                                        "adds":  3500
                                                     },
                                             "may":  {
                                                         "commit":  0,
-                                                        "adds":  8100
+                                                        "adds":  6500
                                                     },
                                             "jun":  {
                                                         "commit":  0,
-                                                        "adds":  3600
+                                                        "adds":  5000
                                                     }
                                         },
                                         {
                                             "name":  "Quincy/Hannibal",
                                             "apr":  {
                                                         "commit":  0,
-                                                        "adds":  1500
+                                                        "adds":  -1250
                                                     },
                                             "may":  {
                                                         "commit":  0,
-                                                        "adds":  -2250
+                                                        "adds":  0
                                                     },
                                             "jun":  {
                                                         "commit":  0,
-                                                        "adds":  1500
+                                                        "adds":  0
+                                                    }
+                                        },
+                                        {
+                                            "name":  "Shore",
+                                            "apr":  {
+                                                        "commit":  0,
+                                                        "adds":  1700
+                                                    },
+                                            "may":  {
+                                                        "commit":  0,
+                                                        "adds":  -1300
+                                                    },
+                                            "jun":  {
+                                                        "commit":  0,
+                                                        "adds":  -1300
                                                     }
                                         },
                                         {
                                             "name":  "Sierra Vista",
                                             "apr":  {
-                                                        "commit":  1,
+                                                        "commit":  2,
                                                         "adds":  0
                                                     },
                                             "may":  {
-                                                        "commit":  144.51,
+                                                        "commit":  500,
                                                         "adds":  0
                                                     },
                                             "jun":  {
-                                                        "commit":  3,
+                                                        "commit":  2,
+                                                        "adds":  0
+                                                    }
+                                        },
+                                        {
+                                            "name":  "Sioux Falls",
+                                            "apr":  {
+                                                        "commit":  0,
+                                                        "adds":  2600
+                                                    },
+                                            "may":  {
+                                                        "commit":  0,
+                                                        "adds":  2600
+                                                    },
+                                            "jun":  {
+                                                        "commit":  0,
+                                                        "adds":  1300
+                                                    }
+                                        },
+                                        {
+                                            "name":  "St Cloud",
+                                            "apr":  {
+                                                        "commit":  0,
+                                                        "adds":  1500
+                                                    },
+                                            "may":  {
+                                                        "commit":  0,
+                                                        "adds":  1500
+                                                    },
+                                            "jun":  {
+                                                        "commit":  0,
                                                         "adds":  0
                                                     }
                                         },
@@ -695,45 +785,60 @@
                                             "name":  "St. George",
                                             "apr":  {
                                                         "commit":  3,
-                                                        "adds":  -123500
+                                                        "adds":  4500
                                                     },
                                             "may":  {
-                                                        "commit":  0,
-                                                        "adds":  -67800
+                                                        "commit":  986.3,
+                                                        "adds":  2500
                                                     },
                                             "jun":  {
-                                                        "commit":  3,
-                                                        "adds":  -77800
+                                                        "commit":  4,
+                                                        "adds":  2500
                                                     }
                                         },
                                         {
                                             "name":  "Trenton",
                                             "apr":  {
                                                         "commit":  0,
-                                                        "adds":  75878
+                                                        "adds":  69569
                                                     },
                                             "may":  {
                                                         "commit":  0,
-                                                        "adds":  10412
+                                                        "adds":  69525
                                                     },
                                             "jun":  {
                                                         "commit":  0,
-                                                        "adds":  13785
+                                                        "adds":  23205
+                                                    }
+                                        },
+                                        {
+                                            "name":  "Tuscaloosa",
+                                            "apr":  {
+                                                        "commit":  0,
+                                                        "adds":  1650
+                                                    },
+                                            "may":  {
+                                                        "commit":  0,
+                                                        "adds":  1650
+                                                    },
+                                            "jun":  {
+                                                        "commit":  0,
+                                                        "adds":  1650
                                                     }
                                         },
                                         {
                                             "name":  "Utica",
                                             "apr":  {
-                                                        "commit":  500,
-                                                        "adds":  0
+                                                        "commit":  3,
+                                                        "adds":  35751
                                                     },
                                             "may":  {
-                                                        "commit":  4,
-                                                        "adds":  1500
+                                                        "commit":  483.52,
+                                                        "adds":  2500
                                                     },
                                             "jun":  {
-                                                        "commit":  11.05,
-                                                        "adds":  1500
+                                                        "commit":  3,
+                                                        "adds":  2500
                                                     }
                                         }
                                     ]
