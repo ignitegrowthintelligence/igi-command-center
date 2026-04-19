@@ -616,8 +616,7 @@
         rRow.className = 'row-region cursor-pointer';
         rRow.setAttribute('data-region-sob', region.id);
         rRow.onclick = () => toggleGroup(region.id, 'sob');
-        rRow.innerHTML = sobRow(region.name, rQ2, rQ3, rQ2m, rQ3m, '', 'pl-8');
-        const chevSpan = document.createElement('span');
+        rRow.innerHTML = sobRow(region.name, rQ2, rQ3, rQ2m, rQ3m, '', 'pl-8', `chev-${region.id}-sob`);
         tbody.appendChild(rRow);
 
         region.markets.forEach(market => {
