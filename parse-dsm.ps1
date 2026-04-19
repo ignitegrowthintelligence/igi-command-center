@@ -131,7 +131,10 @@ foreach ($sheet in $wb.Sheets) {
   $soloPacing  = Get-Period $sheet 35
   $totalRevenue = Get-Period $sheet 59
 
-  $markets = if ($dsmMarkets.ContainsKey($dsmName)) { $dsmMarkets[$dsmName] } else { @() }
+  # Force proper JSON array (PowerShell serializes single-item arrays as strings)
+  $rawMarkets = if ($dsmMarkets.ContainsKey($dsmName)) { $dsmMarkets[$dsmName] } else { @() }
+  $markets = [System.Collections.Generic.List[string]]::new()
+  foreach ($m in $rawMarkets) { $markets.Add($m) }
 
   $dsmList += [ordered]@{
     sheetName    = $name

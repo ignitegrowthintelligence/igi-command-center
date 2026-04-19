@@ -652,16 +652,21 @@
         .then(r => r.json())
         .then(data => {
           dsmData = data;
+          // Normalize markets: PowerShell may serialize single-item arrays as strings
+          dsmData.dsms.forEach(d => {
+            if (!d.markets) d.markets = [];
+            else if (!Array.isArray(d.markets)) d.markets = [d.markets];
+          });
           const sel = $('dsmSelector');
           sel.innerHTML = '';
-          data.dsms.forEach((d, i) => {
+          dsmData.dsms.forEach((d, i) => {
             const opt = document.createElement('option');
             opt.value = d.name;
-            opt.textContent = d.name + (d.markets.length ? ` (${d.markets.join(', ')})` : '');
+            opt.textContent = d.name + (d.markets.length ? ` — ${d.markets.join(', ')}` : '');
             if (i === 0) opt.selected = true;
             sel.appendChild(opt);
           });
-          if (data.dsms.length > 0) renderDSM(data.dsms[0].name);
+          if (dsmData.dsms.length > 0) renderDSM(dsmData.dsms[0].name);
         })
         .catch(() => console.warn('DSM data not available'));
     }

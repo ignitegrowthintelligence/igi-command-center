@@ -1,11 +1,13 @@
 ﻿{
-    "lastRefreshed":  "2026-04-19T17:58:06Z",
+    "lastRefreshed":  "2026-04-19T18:23:10Z",
     "dsmFile":  "DSM Report (INGITE_AMPED) - 2026-4_18_2026.xlsx",
     "dsms":  [
                  {
                      "sheetName":  "JYAWOOK, ALIXZANDRA M - F14981",
                      "name":  "Alixzandra Jyawook",
-                     "markets":  "Lansing",
+                     "markets":  [
+                                     "Lansing"
+                                 ],
                      "soloBudget":  {
                                         "jan":  76200,
                                         "feb":  82320,
@@ -52,7 +54,9 @@
                  {
                      "sheetName":  "SALISBURY, ALYSSA L - B08425",
                      "name":  "Alyssa Salisbury",
-                     "markets":  "Rockford",
+                     "markets":  [
+                                     "Rockford"
+                                 ],
                      "soloBudget":  {
                                         "jan":  96850,
                                         "feb":  101400,
@@ -99,7 +103,9 @@
                  {
                      "sheetName":  "TODD, ANGELA M - W16052",
                      "name":  "Angela Todd",
-                     "markets":  "Kalamazoo",
+                     "markets":  [
+                                     "Kalamazoo"
+                                 ],
                      "soloBudget":  {
                                         "jan":  28500,
                                         "feb":  32865,
@@ -146,9 +152,9 @@
                  {
                      "sheetName":  "BUFKIN, BRANDON T - G02910",
                      "name":  "Brandon Bufkin",
-                     "markets":  {
+                     "markets":  [
 
-                                 },
+                                 ],
                      "soloBudget":  {
                                         "jan":  46000,
                                         "feb":  53000,
@@ -247,7 +253,9 @@
                  {
                      "sheetName":  "CLEMENS, BRYCE C - J15177",
                      "name":  "Bryce Clemens",
-                     "markets":  "Poughkeepsie",
+                     "markets":  [
+                                     "Poughkeepsie"
+                                 ],
                      "soloBudget":  {
                                         "jan":  45350,
                                         "feb":  47550,
@@ -294,7 +302,9 @@
                  {
                      "sheetName":  "JONES, CHELSEA - L15851",
                      "name":  "Chelsea Jones",
-                     "markets":  "Evansville/Owensboro",
+                     "markets":  [
+                                     "Evansville/Owensboro"
+                                 ],
                      "soloBudget":  {
                                         "jan":  13800,
                                         "feb":  16970,
@@ -341,7 +351,9 @@
                  {
                      "sheetName":  "HAWKINS, CHRISTINA A - J10689",
                      "name":  "Christina Hawkins",
-                     "markets":  "Twin Falls",
+                     "markets":  [
+                                     "Twin Falls"
+                                 ],
                      "soloBudget":  {
                                         "jan":  35650,
                                         "feb":  38250,
@@ -591,7 +603,9 @@
                  {
                      "sheetName":  "LONGLEY, JASON J - I12104",
                      "name":  "Jason Longley",
-                     "markets":  "Boise",
+                     "markets":  [
+                                     "Boise"
+                                 ],
                      "soloBudget":  {
                                         "jan":  35750,
                                         "feb":  37975,
@@ -638,7 +652,9 @@
                  {
                      "sheetName":  "KNAPP, JED - A07008",
                      "name":  "Jed Knapp",
-                     "markets":  "El Paso",
+                     "markets":  [
+                                     "El Paso"
+                                 ],
                      "soloBudget":  {
                                         "jan":  9250,
                                         "feb":  12475,
@@ -685,7 +701,9 @@
                  {
                      "sheetName":  "KLEIN, JEFFREY T - C01346",
                      "name":  "Jeffrey Klein",
-                     "markets":  "Lufkin",
+                     "markets":  [
+                                     "Lufkin"
+                                 ],
                      "soloBudget":  {
                                         "jan":  76700,
                                         "feb":  79150,
@@ -785,7 +803,9 @@
                  {
                      "sheetName":  "FRANCIS, JENNIFIER - X15909",
                      "name":  "Jennifier Francis",
-                     "markets":  "Lafayette",
+                     "markets":  [
+                                     "Lafayette"
+                                 ],
                      "soloBudget":  {
                                         "jan":  11740,
                                         "feb":  16290,
@@ -832,7 +852,9 @@
                  {
                      "sheetName":  "WATSON, JILIAN - A15384",
                      "name":  "Jilian Watson",
-                     "markets":  "Flint",
+                     "markets":  [
+                                     "Flint"
+                                 ],
                      "soloBudget":  {
                                         "jan":  68200,
                                         "feb":  71025,
@@ -929,9 +951,9 @@
                  {
                      "sheetName":  "COX, JOSHUA W - B14761",
                      "name":  "Joshua Cox",
-                     "markets":  {
+                     "markets":  [
 
-                                 },
+                                 ],
                      "soloBudget":  {
                                         "jan":  12800,
                                         "feb":  16520,
@@ -978,7 +1000,9 @@
                  {
                      "sheetName":  "WHINERY, JOSHUA J - P04574",
                      "name":  "Joshua Whinery",
-                     "markets":  "Bangor",
+                     "markets":  [
+                                     "Bangor"
+                                 ],
                      "soloBudget":  {
                                         "jan":  36400,
                                         "feb":  40600,
@@ -1086,7 +1110,9 @@
                  {
                      "sheetName":  "KATOSKI, KELLY - B16057",
                      "name":  "Kelly Katoski",
-                     "markets":  "Duluth",
+                     "markets":  [
+                                     "Duluth"
+                                 ],
                      "soloBudget":  {
                                         "jan":  11400,
                                         "feb":  20050,
@@ -1133,9 +1159,9 @@
                  {
                      "sheetName":  "CONKLIN, KRYSTIN L - I08408",
                      "name":  "Krystin Conklin",
-                     "markets":  {
+                     "markets":  [
 
-                                 },
+                                 ],
                      "soloBudget":  {
                                         "jan":  0,
                                         "feb":  0,
@@ -1182,7 +1208,9 @@
                  {
                      "sheetName":  "MILLER, MICHAEL E - V09859",
                      "name":  "Michael Miller",
-                     "markets":  "Missoula",
+                     "markets":  [
+                                     "Missoula"
+                                 ],
                      "soloBudget":  {
                                         "jan":  41500,
                                         "feb":  44750,
@@ -1531,7 +1559,9 @@
                  {
                      "sheetName":  "MAUSER, SCOTT - P02270",
                      "name":  "Scott Mauser",
-                     "markets":  "Evansville/Owensboro",
+                     "markets":  [
+                                     "Evansville/Owensboro"
+                                 ],
                      "soloBudget":  {
                                         "jan":  54500,
                                         "feb":  65350,
@@ -1578,9 +1608,9 @@
                  {
                      "sheetName":  "HORINKA, STEVEN J - W05804",
                      "name":  "Steven Horinka",
-                     "markets":  {
+                     "markets":  [
 
-                                 },
+                                 ],
                      "soloBudget":  {
                                         "jan":  54425,
                                         "feb":  58225,
@@ -1729,7 +1759,9 @@
                  {
                      "sheetName":  "BUFKIN, TREY W - C15050",
                      "name":  "Trey Bufkin",
-                     "markets":  "Lubbock",
+                     "markets":  [
+                                     "Lubbock"
+                                 ],
                      "soloBudget":  {
                                         "jan":  80600,
                                         "feb":  86100,
@@ -1826,7 +1858,9 @@
                  {
                      "sheetName":  "PRIETO, WILLIAM - E13228",
                      "name":  "William Prieto",
-                     "markets":  "Buffalo",
+                     "markets":  [
+                                     "Buffalo"
+                                 ],
                      "soloBudget":  {
                                         "jan":  14500,
                                         "feb":  17500,
