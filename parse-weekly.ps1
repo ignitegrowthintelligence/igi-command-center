@@ -7,6 +7,18 @@ param(
   [string]$OutputDir  = "C:\Users\justi\.openclaw\workspace\igi-command-center\data"
 )
 
+# Complete master market list — all markets always shown regardless of weekly activity
+$masterMarkets = @{
+  "kathi"  = @("Flint","Grand Rapids","Kalamazoo","Killeen/Temple","Lafayette","Lake Charles","Lansing","Lufkin","Rockford","Shreveport","Texarkana","Tyler","Victoria")
+  "taylor" = @("Billings","Boise","Bozeman","Butte","Casper","Cheyenne","Fort Collins","Great Falls","Laramie","Sierra Vista","St. George","Tri-Cities","Twin Falls","Wenatchee","Williston","Yakima")
+  "tylerw" = @("Abilene","Amarillo","El Paso","Lawton","Lubbock","Odessa","San Angelo","Wichita Falls")
+  "jeroen" = @("Bismarck","Cedar Rapids","Dubuque","Duluth","Faribault/Owatonna","Quad Cities","Quincy/Hannibal","Rochester MN","Sedalia","Waterloo")
+  "nne"    = @("Augusta","Bangor","New Bedford","Portland","Portsmouth","Presque Isle")
+  "nj"     = @("Atlantic City","Shore","Trenton/Princeton")
+  "ny"     = @("Albany","Berkshires","Binghamton","Buffalo","Danbury","Oneonta","Poughkeepsie","Utica")
+  "others" = @("Evansville/Owensboro","Grand Junction","Missoula","Montrose","Shelby","Sioux Falls","St. Cloud","Tuscaloosa")
+}
+
 # Region map — sourced from Regional coverage.xlsx (Market Realignment tab)
 $regionMap = @{
   # Kathi Kirkland
@@ -192,17 +204,12 @@ function Parse-WO([string]$path) {
 
 # Build the final week JSON using derived months
 function Build-WeekJson([string]$weekDate, [array]$months, [hashtable]$bpData, [hashtable]$woData) {
-  $allM = @{}
-  foreach ($k in $bpData.monthLabels) { }  # just for reference
-  # Collect all market names
-  foreach ($k in $bpData.markets.Keys) { $allM[$k]=$true }
-  foreach ($k in $woData.Keys)         { $allM[$k]=$true }
-
   $byRegion = @{ kathi=@(); taylor=@(); tylerw=@(); jeroen=@(); nne=@(); nj=@(); ny=@(); others=@() }
 
-  foreach ($market in ($allM.Keys | Sort-Object)) {
-    $rid = Get-Region $market
-    $mdata = [ordered]@{ name=$market }
+  # Always include every market from the master list, in defined order
+  foreach ($rid in @("kathi","taylor","tylerw","jeroen","nne","nj","ny","others")) {
+    foreach ($market in $masterMarkets[$rid]) {
+      $mdata = [ordered]@{ name=$market }
 
     foreach ($mo in $months) {
       $mk  = $mo.key
@@ -229,8 +236,9 @@ function Build-WeekJson([string]$weekDate, [array]$months, [hashtable]$bpData, [
 
       $mdata[$mk] = [ordered]@{ commit=[math]::Round($commit,2); adds=[math]::Round($adds,2) }
     }
-    $byRegion[$rid] += $mdata
-  }
+      $byRegion[$rid] += $mdata
+    }  # end market loop
+  }  # end region loop
 
   $dt = [datetime]::ParseExact($weekDate,'yyyy-MM-dd',$null)
   $weekLabel = "$($monthLongNames[$dt.Month]) $($dt.Day), $($dt.Year)"
