@@ -258,11 +258,12 @@ foreach ($folder in (Get-ChildItem $WeeklyRoot -Directory | Sort-Object Name)) {
   Write-Host "Week: $weekDate"
   $bpFile = Get-ChildItem $folder.FullName "Blueprint*.csv" -ErrorAction SilentlyContinue | Select-Object -Last 1
   $woFile = Get-ChildItem $folder.FullName "Sales Revenue.csv" -ErrorAction SilentlyContinue | Select-Object -First 1
-  if (-not $bpFile -or -not $woFile) { Write-Warning "  Missing files"; continue }
+  if (-not $bpFile) { Write-Warning "  No Blueprint file, skipping"; continue }
 
   $months = Get-WeekMonths $weekDate
   $bp     = Parse-Blueprint $bpFile.FullName
-  $wo     = Parse-WO $woFile.FullName
+  $wo     = if ($woFile) { Parse-WO $woFile.FullName } else { @{} }  # WO optional
+  if (-not $woFile) { Write-Host "  No WO file - adds will be zero" }
 
   $mLabels = ($months | ForEach-Object { $_.label }) -join ', '
   Write-Host "  Months: $mLabels  BP months: $($bp.monthLabels -join ',')  Commits: $($bp.markets.Count)  WO: $($wo.Count)"
