@@ -478,25 +478,50 @@
       renderSummaryCards(entEff, data.months);
     }
 
+    // Format SOB values (in $K) as $9.0M or $804K
+    function fmtSOB(n) {
+      if (n === 0 || n === null || n === undefined) return '—';
+      const neg = n < 0; const abs = Math.abs(n);
+      const s = abs >= 1000 ? '$' + (abs/1000).toFixed(1) + 'M' : '$' + abs.toLocaleString('en-US') + 'K';
+      return neg ? '-' + s : s;
+    }
+
+    // Map woa_month number -> SOB market accessor
+    const sobMonthKey = { 4:'apr', 5:'may', 6:'jun', 7:'jul', 8:'aug', 9:'sep' };
+    const sobMonthQtr = { 4:'q2', 5:'q2', 6:'q2', 7:'q3', 8:'q3', 9:'q3' };
+
+    function getSobEnterpriseTotals(moNum) {
+      if (!sobData || !sobMonthKey[moNum]) return null;
+      const mk = sobMonthKey[moNum], qk = sobMonthQtr[moNum];
+      let billing = 0, budget = 0;
+      sobData.regions.forEach(r => r.markets.forEach(mkt => {
+        const mo = mkt[qk] && mkt[qk][mk];
+        if (mo) { billing += mo.pacing || 0; budget += mo.budget || 0; }
+      }));
+      return { billing, budget };
+    }
+
     function renderSummaryCards(ent, monthDefs) {
-      const months = (monthDefs && monthDefs.length) ? monthDefs : [{key:'m1',label:'Month 1',abbr:'M1'},{key:'m2',label:'Month 2',abbr:'M2'},{key:'m3',label:'Month 3',abbr:'M3'}];
+      const months = (monthDefs && monthDefs.length) ? monthDefs : [{key:'m1',label:'Month 1',abbr:'M1',woa_month:4},{key:'m2',label:'Month 2',abbr:'M2',woa_month:5},{key:'m3',label:'Month 3',abbr:'M3',woa_month:6}];
       $('summaryCards').innerHTML = months.map(m => {
-        const ev = ent[m.key] || {commit:0,adds:0};
-        const p = ev.commit !== 0 ? pct(ev.adds, ev.commit) : null;
-        const barColor = p === null ? '#d1d5db' : p >= 80 ? '#10b981' : p >= 50 ? '#f59e0b' : '#ef4444';
+        const sob = getSobEnterpriseTotals(m.woa_month);
+        const billing = sob ? sob.billing : 0;
+        const budget  = sob ? sob.budget  : 0;
+        const p = budget !== 0 ? pct(billing, budget) : null;
+        const barColor = p === null ? '#d1d5db' : p >= 100 ? '#10b981' : p >= 85 ? '#10b981' : p >= 70 ? '#f59e0b' : '#ef4444';
         const barW = p !== null ? Math.min(Math.max(p,0),100) : 0;
-        const statusCls = p === null ? 'val-neutral' : p >= 80 ? 'val-pos' : p >= 50 ? '' : 'val-neg';
-        const statusStyle = p !== null && p >= 50 && p < 80 ? 'color:#92400e;' : '';
+        const statusCls = p === null ? 'val-neutral' : p >= 85 ? 'val-pos' : p >= 70 ? '' : 'val-neg';
+        const statusStyle = p !== null && p >= 70 && p < 85 ? 'color:var(--yellow);' : '';
         return `
           <div class="bp-card bp-card-accent p-4">
             <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);">${m.label} 2026</div>
-            <div style="font-size:1.6rem;font-weight:800;color:#fff;line-height:1.2;margin:4px 0;">${fmt(ev.adds)}</div>
-            <div style="font-size:0.75rem;color:var(--text-dim);">of ${fmt(ev.commit)} committed</div>
+            <div style="font-size:1.6rem;font-weight:800;color:#fff;line-height:1.2;margin:4px 0;">${fmtSOB(billing)}</div>
+            <div style="font-size:0.75rem;color:var(--text-dim);">of ${fmtSOB(budget)} budgeted</div>
             <div class="progress-bar">
               <div class="progress-fill" style="width:${barW}%;background:${barColor};"></div>
             </div>
             <div style="font-size:0.72rem;margin-top:4px;${statusStyle}" class="${statusCls}">
-              ${p !== null ? p + '% delivered' : 'No commits entered'}
+              ${p !== null ? p + '% of budget' : sob ? 'SOB loading...' : 'No SOB data'}
             </div>
           </div>`;
       }).join('');
@@ -753,6 +778,8 @@
       const tbody = $('sobTbody');
       tbody.innerHTML = '';
       if ($('sobWeekLabel')) $('sobWeekLabel').textContent = data.weekLabel + ' — SOB';
+      // Refresh summary cards with SOB data
+      if (commitsData && commitsData.months) renderSummaryCards({}, commitsData.months);
 
       // Enterprise totals
       const entQ2 = { pacing:0, budget:0, py:0, forecast:0 };
