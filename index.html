@@ -178,6 +178,13 @@
     <!-- Summary Cards -->
     <div id="summaryCards" class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6"></div>
 
+    <!-- RISD export bar -->
+    <div id="risd-export-bar" style="display:none;align-items:center;gap:12px;background:rgba(251,191,36,0.10);border:1px solid rgba(251,191,36,0.35);border-radius:8px;padding:10px 16px;margin-bottom:16px;font-size:0.8rem;color:#fbbf24;">
+      <span style="flex:1;">⚠️ You have local RISD overrides. Download the updated JSON and commit it to GitHub so everyone sees the same numbers.</span>
+      <button onclick="exportRisdJson()" style="background:#fbbf24;color:#080d1a;font-weight:700;border:none;border-radius:6px;padding:6px 14px;cursor:pointer;font-size:0.8rem;">Download JSON</button>
+      <button onclick="document.getElementById('risd-export-bar').style.display='none'" style="background:transparent;border:1px solid rgba(251,191,36,0.4);color:#fbbf24;border-radius:6px;padding:6px 10px;cursor:pointer;font-size:0.8rem;">Dismiss</button>
+    </div>
+
     <!-- Section wrapper -->
     <div class="bp-section-wrap">
 
@@ -344,6 +351,11 @@
       return `igi_risd_${weekDate}_${regionId}_${monthKey}`;
     }
     function getRisd(weekDate, regionId, monthKey) {
+      // 1. Check JSON file risd block (shared source of truth)
+      if (commitsData && commitsData.risd && commitsData.risd[regionId] && commitsData.risd[regionId][monthKey] != null) {
+        return commitsData.risd[regionId][monthKey];
+      }
+      // 2. Fall back to localStorage (local-only overrides)
       const v = localStorage.getItem(risdKey(weekDate, regionId, monthKey));
       return v !== null ? parseFloat(v) : null;
     }
@@ -357,6 +369,28 @@
     function getEffectiveCommit(weekDate, regionId, monthKey, blueprintSum) {
       const risd = getRisd(weekDate, regionId, monthKey);
       return risd !== null ? risd : blueprintSum;
+    }
+    function exportRisdJson() {
+      if (!commitsData) return;
+      // Merge localStorage overrides into a risd block
+      const risd = JSON.parse(JSON.stringify(commitsData.risd || {}));
+      const regions = ['kathi','taylor','tylerw','jeroen','nne','nj','ny','others'];
+      const months  = (commitsData.months || []).map(m => m.key);
+      regions.forEach(r => {
+        months.forEach(mo => {
+          const v = localStorage.getItem(risdKey(currentWeekDate, r, mo));
+          if (v !== null) {
+            if (!risd[r]) risd[r] = {};
+            risd[r][mo] = parseFloat(v);
+          }
+        });
+      });
+      const out = Object.assign({}, commitsData, { risd });
+      const blob = new Blob([JSON.stringify(out, null, 2)], {type:'application/json'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = currentWeekDate + '.json';
+      a.click();
     }
 
     function sumRegion(region, month) {
@@ -953,6 +987,9 @@
       setRisd(currentWeekDate, regionId, monthKey, num);
       // Re-render to update gap and enterprise total
       if (commitsData) renderCommits(commitsData);
+      // Show export prompt
+      const ex = document.getElementById('risd-export-bar');
+      if (ex) ex.style.display = 'flex';
     }
 
     async function loadWeek(weekDate) {

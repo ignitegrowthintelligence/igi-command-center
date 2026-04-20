@@ -1151,5 +1151,47 @@
                                         }
                                     ]
                     }
-                ]
+                ],
+    "risd":  {
+                 "kathi":  {
+                               "m1":  null,
+                               "m2":  null,
+                               "m3":  null
+                           },
+                 "taylor":  {
+                                "m1":  null,
+                                "m2":  null,
+                                "m3":  null
+                            },
+                 "tylerw":  {
+                                "m1":  null,
+                                "m2":  null,
+                                "m3":  null
+                            },
+                 "jeroen":  {
+                                "m1":  null,
+                                "m2":  null,
+                                "m3":  null
+                            },
+                 "nne":  {
+                             "m1":  null,
+                             "m2":  null,
+                             "m3":  null
+                         },
+                 "nj":  {
+                            "m1":  null,
+                            "m2":  null,
+                            "m3":  null
+                        },
+                 "ny":  {
+                            "m1":  null,
+                            "m2":  null,
+                            "m3":  null
+                        },
+                 "others":  {
+                                "m1":  null,
+                                "m2":  null,
+                                "m3":  null
+                            }
+             }
 }
