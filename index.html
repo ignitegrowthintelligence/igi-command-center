@@ -929,11 +929,19 @@
         `;
       }
 
+      // Enterprise monthly sums for Apr/May/Jun/Jul/Aug/Sep
+      const entQ2m = { apr:{pacing:0}, may:{pacing:0}, jun:{pacing:0} };
+      const entQ3m = { jul:{pacing:0}, aug:{pacing:0}, sep:{pacing:0} };
+      data.regions.forEach(r => r.markets.forEach(m => {
+        ['apr','may','jun'].forEach(mo => { entQ2m[mo].pacing += (m.q2 && m.q2[mo] && m.q2[mo].pacing) || 0; });
+        ['jul','aug','sep'].forEach(mo => { entQ3m[mo].pacing += (m.q3 && m.q3[mo] && m.q3[mo].pacing) || 0; });
+      }));
+
       // Enterprise row
       const eRow = document.createElement('tr');
       eRow.className = 'row-enterprise cursor-pointer';
       eRow.onclick = () => toggleGroup('all','sob');
-      eRow.innerHTML = sobRow('Townsquare Enterprise', entQ2, entQ3, null, null, '', 'py-3 font-bold', 'chev-all-sob', true);  // enterprise starts open (regions visible)
+      eRow.innerHTML = sobRow('Townsquare Enterprise', entQ2, entQ3, entQ2m, entQ3m, '', 'py-3 font-bold', 'chev-all-sob', true);  // enterprise starts open (regions visible)
       tbody.appendChild(eRow);
 
       data.regions.forEach(region => {
