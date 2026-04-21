@@ -202,40 +202,62 @@ function Parse-WO([string]$path) {
   return $result
 }
 
-# Build the final week JSON using derived months
-function Build-WeekJson([string]$weekDate, [array]$months, [hashtable]$bpData, [hashtable]$woData) {
+# Build the final week JSON using derived months.
+# Rules:
+#   - Blueprint commit values: written once; if existing JSON already has a non-zero commit, keep it.
+#   - WO adds values: always overwritten from current Sales Revenue.csv.
+#   - RISD data: always preserved from existing JSON, never touched by parser.
+function Build-WeekJson([string]$weekDate, [array]$months, [hashtable]$bpData, [hashtable]$woData, $existingJson) {
   $byRegion = @{ kathi=@(); taylor=@(); tylerw=@(); jeroen=@(); nne=@(); nj=@(); ny=@(); others=@() }
+
+  # Build a lookup of existing market data for commit preservation
+  $existingMarkets = @{}
+  if ($existingJson -and $existingJson.regions) {
+    foreach ($region in $existingJson.regions) {
+      foreach ($mkt in $region.markets) {
+        $existingMarkets[$mkt.name] = $mkt
+      }
+    }
+  }
 
   # Always include every market from the master list, in defined order
   foreach ($rid in @("kathi","taylor","tylerw","jeroen","nne","nj","ny","others")) {
     foreach ($market in $masterMarkets[$rid]) {
       $mdata = [ordered]@{ name=$market }
 
-    foreach ($mo in $months) {
-      $mk  = $mo.key
-      $wn  = $mo.woa_month
-      $lbl = $mo.label
+      foreach ($mo in $months) {
+        $mk  = $mo.key
+        $wn  = $mo.woa_month
+        $lbl = $mo.label
 
-      # Commit: find the Blueprint slot that matches this month label
-      $commit = 0.0
-      if ($bpData.markets.ContainsKey($market)) {
-        for ($j = 0; $j -lt $bpData.monthLabels.Count; $j++) {
-          if ($bpData.monthLabels[$j] -eq $lbl) {
-            $bpKey = "m$($j+1)"
-            $commit = $bpData.markets[$market][$bpKey]
-            break
+        # COMMIT: Blueprint data — write once, never overwrite existing non-zero value
+        $commit = 0.0
+        # Check existing JSON first
+        if ($existingMarkets.ContainsKey($market) -and $existingMarkets[$market].$mk) {
+          $existingCommit = $existingMarkets[$market].$mk.commit
+          if ($existingCommit -and [double]$existingCommit -ne 0.0) {
+            $commit = [double]$existingCommit
           }
         }
-      }
+        # Only parse from Blueprint if we don't already have a value
+        if ($commit -eq 0.0 -and $bpData.markets.ContainsKey($market)) {
+          for ($j = 0; $j -lt $bpData.monthLabels.Count; $j++) {
+            if ($bpData.monthLabels[$j] -eq $lbl) {
+              $bpKey = "m$($j+1)"
+              $commit = $bpData.markets[$market][$bpKey]
+              break
+            }
+          }
+        }
 
-      # Adds: WO Analytics by month number
-      $adds = 0.0
-      if ($woData.ContainsKey($market) -and $woData[$market].ContainsKey($wn)) {
-        $adds = $woData[$market][$wn]
-      }
+        # ADDS: WO Analytics — always overwrite from current Sales Revenue.csv
+        $adds = 0.0
+        if ($woData.ContainsKey($market) -and $woData[$market].ContainsKey($wn)) {
+          $adds = $woData[$market][$wn]
+        }
 
-      $mdata[$mk] = [ordered]@{ commit=[math]::Round($commit,2); adds=[math]::Round($adds,2) }
-    }
+        $mdata[$mk] = [ordered]@{ commit=[math]::Round($commit,2); adds=[math]::Round($adds,2) }
+      }
       $byRegion[$rid] += $mdata
     }  # end market loop
   }  # end region loop
@@ -245,10 +267,17 @@ function Build-WeekJson([string]$weekDate, [array]$months, [hashtable]$bpData, [
   $regionOrder = @("kathi","taylor","tylerw","jeroen","nne","nj","ny","others")
   $regionList  = $regionOrder | ForEach-Object { [ordered]@{ id=$_; name=$regionNames[$_]; markets=$byRegion[$_] } }
 
-  return [ordered]@{
+  $output = [ordered]@{
     lastRefreshed=(Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
     weekOf=$weekLabel; weekDate=$weekDate; months=$months; regions=$regionList
   }
+
+  # RISD: always preserve from existing JSON — never overwrite
+  if ($existingJson -and $existingJson.risd) {
+    $output["risd"] = $existingJson.risd
+  }
+
+  return $output
 }
 
 # ── Main ───────────────────────────────────────────────────────────────────────
@@ -260,26 +289,39 @@ foreach ($folder in (Get-ChildItem $WeeklyRoot -Directory | Sort-Object Name)) {
   $woFile = Get-ChildItem $folder.FullName "Sales Revenue.csv" -ErrorAction SilentlyContinue | Select-Object -First 1
   if (-not $bpFile) { Write-Warning "  No Blueprint file, skipping"; continue }
 
-  # Skip if output JSON already exists and is newer than all source files
   $outPath = Join-Path $OutputDir "$weekDate.json"
+
+  # Skip only if Sales Revenue.csv has not changed (Blueprint changes are ignored — write-once)
   if (Test-Path $outPath) {
-    $outTime  = (Get-Item $outPath).LastWriteTime
-    $srcTimes = @($bpFile.LastWriteTime)
-    if ($woFile) { $srcTimes += $woFile.LastWriteTime }
-    $newestSrc = ($srcTimes | Sort-Object -Descending | Select-Object -First 1)
-    if ($newestSrc -le $outTime) { Write-Host "  Skipping (no changes)"; $weeks += [ordered]@{ date=$weekDate; label=(Get-Content $outPath | ConvertFrom-Json).weekOf }; continue }
+    if ($woFile) {
+      $outTime = (Get-Item $outPath).LastWriteTime
+      if ($woFile.LastWriteTime -le $outTime) {
+        Write-Host "  Skipping (Sales Revenue.csv unchanged)"
+        $weeks += [ordered]@{ date=$weekDate; label=(Get-Content $outPath | ConvertFrom-Json).weekOf }
+        continue
+      }
+    } else {
+      Write-Host "  Skipping (no Sales Revenue.csv, Blueprint already written)"
+      $weeks += [ordered]@{ date=$weekDate; label=(Get-Content $outPath | ConvertFrom-Json).weekOf }
+      continue
+    }
+  }
+
+  # Load existing JSON to preserve Blueprint commits and RISD data
+  $existingJson = $null
+  if (Test-Path $outPath) {
+    try { $existingJson = Get-Content $outPath -Raw | ConvertFrom-Json } catch { $existingJson = $null }
   }
 
   $months = Get-WeekMonths $weekDate
   $bp     = Parse-Blueprint $bpFile.FullName
-  $wo     = if ($woFile) { Parse-WO $woFile.FullName } else { @{} }  # WO optional
+  $wo     = if ($woFile) { Parse-WO $woFile.FullName } else { @{} }
   if (-not $woFile) { Write-Host "  No WO file - adds will be zero" }
 
   $mLabels = ($months | ForEach-Object { $_.label }) -join ', '
   Write-Host "  Months: $mLabels  BP months: $($bp.monthLabels -join ',')  Commits: $($bp.markets.Count)  WO: $($wo.Count)"
 
-  $json = Build-WeekJson $weekDate $months $bp $wo
-  $outPath = Join-Path $OutputDir "$weekDate.json"
+  $json = Build-WeekJson $weekDate $months $bp $wo $existingJson
   $json | ConvertTo-Json -Depth 10 | Set-Content $outPath -Encoding UTF8
   Write-Host "  -> $outPath"
   $weeks += [ordered]@{ date=$weekDate; label=$json.weekOf }
