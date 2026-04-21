@@ -117,6 +117,8 @@
     }
     .risd-input::placeholder { color: var(--text-dim); font-weight: 400; }
     .risd-set { color: var(--teal) !important; }
+    .risd-saving { opacity: 0.5; cursor: wait; }
+    .risd-saved { border-bottom-color: var(--green) !important; color: var(--green) !important; transition: all 0.3s; }
     .risd-badge { font-size:0.58rem; background:rgba(0,188,212,0.15); color:var(--teal); border:1px solid rgba(0,188,212,0.3); border-radius:3px; padding:0 4px; margin-left:4px; vertical-align:middle; }
 
     /* Week selector */
@@ -177,13 +179,6 @@
 
     <!-- Summary Cards -->
     <div id="summaryCards" class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6"></div>
-
-    <!-- RISD export bar -->
-    <div id="risd-export-bar" style="display:none;align-items:center;gap:12px;background:rgba(251,191,36,0.10);border:1px solid rgba(251,191,36,0.35);border-radius:8px;padding:10px 16px;margin-bottom:16px;font-size:0.8rem;color:#fbbf24;">
-      <span style="flex:1;">⚠️ You have local RISD overrides. Download the updated JSON and commit it to GitHub so everyone sees the same numbers.</span>
-      <button onclick="exportRisdJson()" style="background:#fbbf24;color:#080d1a;font-weight:700;border:none;border-radius:6px;padding:6px 14px;cursor:pointer;font-size:0.8rem;">Download JSON</button>
-      <button onclick="document.getElementById('risd-export-bar').style.display='none'" style="background:transparent;border:1px solid rgba(251,191,36,0.4);color:#fbbf24;border-radius:6px;padding:6px 10px;cursor:pointer;font-size:0.8rem;">Dismiss</button>
-    </div>
 
     <!-- Section wrapper -->
     <div class="bp-section-wrap">
@@ -978,18 +973,49 @@
       });
     }
 
+    const RISD_WORKER = 'https://igi-risd-worker.ignitegrowthintelligence.workers.dev/risd';
+
     function saveRisd(input) {
       const regionId = input.dataset.region;
       const monthKey = input.dataset.month;
-      const bpVal    = parseFloat(input.dataset.bp) || 0;
       const raw = input.value.replace(/[\$,\s]/g,'').trim();
       const num = raw === '' ? null : parseFloat(raw);
+
+      // Update local state and re-render immediately
       setRisd(currentWeekDate, regionId, monthKey, num);
-      // Re-render to update gap and enterprise total
-      if (commitsData) renderCommits(commitsData);
-      // Show export prompt
-      const ex = document.getElementById('risd-export-bar');
-      if (ex) ex.style.display = 'flex';
+      if (commitsData) {
+        if (!commitsData.risd) commitsData.risd = {};
+        if (!commitsData.risd[regionId]) commitsData.risd[regionId] = {};
+        commitsData.risd[regionId][monthKey] = num;
+        renderCommits(commitsData);
+      }
+
+      // Show saving indicator on the input
+      input.classList.add('risd-saving');
+      input.disabled = true;
+
+      // Push to GitHub via Worker
+      fetch(RISD_WORKER, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ weekDate: currentWeekDate, regionId, monthKey, value: num })
+      })
+      .then(r => r.json())
+      .then(data => {
+        input.classList.remove('risd-saving');
+        input.disabled = false;
+        if (data.ok) {
+          input.classList.add('risd-saved');
+          setTimeout(() => input.classList.remove('risd-saved'), 2000);
+        } else {
+          alert('Save failed: ' + (data.error || 'unknown error'));
+        }
+      })
+      .catch(err => {
+        input.classList.remove('risd-saving');
+        input.disabled = false;
+        alert('Save failed: ' + err.message);
+      });
     }
 
     async function loadWeek(weekDate) {
