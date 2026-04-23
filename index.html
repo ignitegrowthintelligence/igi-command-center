@@ -1026,19 +1026,33 @@
       });
     }
 
+    // Market name aliases — some reports use short names, normalize to canonical display name
+    const MARKET_NAME_ALIASES = {
+      'Trenton': 'Trenton/Princeton'
+    };
+    function normalizeMarketNames(data) {
+      if (!data || !data.regions) return;
+      data.regions.forEach(r => {
+        (r.markets || []).forEach(m => {
+          if (MARKET_NAME_ALIASES[m.name]) m.name = MARKET_NAME_ALIASES[m.name];
+        });
+      });
+    }
+
     async function loadWeek(weekDate) {
       currentWeekDate = weekDate;
       // Try to load matching SOB file for this week
       try {
         const cb2 = '?v=' + Date.now();
         const sr = await fetch(`data/sob-${weekDate}.json${cb2}`);
-        if (sr.ok) { sobData = await sr.json(); renderSOB(sobData); }
+        if (sr.ok) { sobData = await sr.json(); normalizeMarketNames(sobData); renderSOB(sobData); }
       } catch(e) { /* no SOB for this week, keep current */ }
       const cb = '?v=' + Date.now();
       const url = weekDate ? `data/${weekDate}.json${cb}` : `data/commits.json${cb}`;
       try {
         const r = await fetch(url);
         commitsData = await r.json();
+        normalizeMarketNames(commitsData);
         if (commitsData.lastRefreshed) {
           const d = new Date(commitsData.lastRefreshed);
           $('refreshBadge').className = 'refresh-badge';
@@ -1075,6 +1089,7 @@
             const latestSob = sobWeeksIdx.weeks[0].date;
             const sr = await fetch(`data/sob-${latestSob}.json` + cb);
             sobData = await sr.json();
+            normalizeMarketNames(sobData);
             renderSOB(sobData);
           }
         } catch(e) { console.warn('SOB data not available yet'); }
