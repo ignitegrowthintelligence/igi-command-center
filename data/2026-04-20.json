@@ -379,6 +379,36 @@
                                                    }
                                         },
                                         {
+                                            "name":  "Sierra Vista",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  2500
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  2500
+                                                   }
+                                        },
+                                        {
+                                            "name":  "St. George",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  -3000
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
                                             "name":  "Tri-Cities",
                                             "m1":  {
                                                        "commit":  0,
@@ -1060,18 +1090,18 @@
                                                    }
                                         },
                                         {
-                                            "name":  "Sierra Vista",
+                                            "name":  "Shelby",
                                             "m1":  {
-                                                       "commit":  1144.51,
+                                                       "commit":  0,
                                                        "adds":  0
                                                    },
                                             "m2":  {
-                                                       "commit":  3225.43,
-                                                       "adds":  2500
+                                                       "commit":  0,
+                                                       "adds":  0
                                                    },
                                             "m3":  {
-                                                       "commit":  3121.39,
-                                                       "adds":  2500
+                                                       "commit":  0,
+                                                       "adds":  0
                                                    }
                                         },
                                         {
@@ -1101,21 +1131,6 @@
                                                    },
                                             "m3":  {
                                                        "commit":  0,
-                                                       "adds":  0
-                                                   }
-                                        },
-                                        {
-                                            "name":  "St. George",
-                                            "m1":  {
-                                                       "commit":  5500,
-                                                       "adds":  -3000
-                                                   },
-                                            "m2":  {
-                                                       "commit":  5500,
-                                                       "adds":  0
-                                                   },
-                                            "m3":  {
-                                                       "commit":  5500,
                                                        "adds":  0
                                                    }
                                         },
