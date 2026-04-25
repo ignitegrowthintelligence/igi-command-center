@@ -1,6 +1,11 @@
 {
   "weeks": [
     {
+      "date": "2026-04-27",
+      "label": "Week of April 27, 2026",
+      "file": "2026-04-27.json"
+    },
+    {
       "date": "2026-04-21",
       "label": "Week of April 21, 2026",
       "file": "2026-04-21.json"
