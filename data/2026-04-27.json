@@ -1,24 +1,22 @@
-{
+﻿{
   "lastRefreshed": "2026-04-27T04:00:00Z",
-  "weekOf": "April 27, 2026",
-  "weekDate": "2026-04-27",
   "months": [
     {
       "key": "m1",
-      "label": "April",
       "abbr": "Apr",
+      "label": "April",
       "woa_month": 4
     },
     {
       "key": "m2",
-      "label": "May",
       "abbr": "May",
+      "label": "May",
       "woa_month": 5
     },
     {
       "key": "m3",
-      "label": "June",
       "abbr": "Jun",
+      "label": "June",
       "woa_month": 6
     }
   ],
@@ -45,76 +43,76 @@
         {
           "name": "Flint",
           "m1": {
-            "commit": 0,
+            "commit": 0.0,
             "adds": 0
           },
           "m2": {
-            "commit": 102000,
-            "adds": 7500
+            "commit": 6000.0,
+            "adds": 0
           },
           "m3": {
-            "commit": 0,
-            "adds": 6500
+            "commit": 6000.0,
+            "adds": 0
           }
         },
         {
           "name": "Grand Rapids",
           "m1": {
-            "commit": 0,
+            "commit": 0.0,
             "adds": 0
           },
           "m2": {
-            "commit": 1380.82,
-            "adds": 14414.37
+            "commit": 3203.39,
+            "adds": 0
           },
           "m3": {
-            "commit": 1479.45,
-            "adds": 14816.69
+            "commit": 4576.27,
+            "adds": 0
           }
         },
         {
           "name": "Kalamazoo",
           "m1": {
-            "commit": 0,
+            "commit": 0.0,
             "adds": 0
           },
           "m2": {
-            "commit": 5349.06,
-            "adds": 8596.73
+            "commit": 8596.73,
+            "adds": 0
           },
           "m3": {
-            "commit": 5731.13,
-            "adds": 8319.41
+            "commit": 8319.41,
+            "adds": 0
           }
         },
         {
           "name": "Killeen/Temple",
           "m1": {
-            "commit": 0,
-            "adds": 500
+            "commit": 0.0,
+            "adds": 0
           },
           "m2": {
-            "commit": 0,
-            "adds": 9427.29
+            "commit": 0.0,
+            "adds": 0
           },
           "m3": {
-            "commit": 0,
-            "adds": 3567.28
+            "commit": 0.0,
+            "adds": 0
           }
         },
         {
           "name": "Lafayette",
           "m1": {
-            "commit": 0,
-            "adds": 114.29
+            "commit": 0.0,
+            "adds": 0
           },
           "m2": {
-            "commit": 0,
-            "adds": 8983.96
+            "commit": 3296.85,
+            "adds": 0
           },
           "m3": {
-            "commit": 0,
-            "adds": 7827.58
+            "commit": 4475.26,
+            "adds": 0
           }
         },
         {
@@ -125,86 +123,86 @@
           },
           "m2": {
             "commit": 0,
-            "adds": 4922.73
+            "adds": 0
           },
           "m3": {
             "commit": 0,
-            "adds": 572.73
+            "adds": 0
           }
         },
         {
           "name": "Lansing",
           "m1": {
-            "commit": 0,
+            "commit": 0.0,
             "adds": 0
           },
           "m2": {
-            "commit": 8236.84,
-            "adds": 15711.43
+            "commit": 9086.43,
+            "adds": 0
           },
           "m3": {
-            "commit": 7962.35,
-            "adds": 12163.57
+            "commit": 8913.57,
+            "adds": 0
           }
         },
         {
           "name": "Lufkin",
           "m1": {
-            "commit": 1926.07,
+            "commit": 0,
             "adds": 0
           },
           "m2": {
-            "commit": 5428.02,
-            "adds": 1840
+            "commit": 0,
+            "adds": 0
           },
           "m3": {
-            "commit": 5252.92,
-            "adds": 1840
+            "commit": 0,
+            "adds": 0
           }
         },
         {
           "name": "Rockford",
           "m1": {
-            "commit": 0,
+            "commit": 0.0,
             "adds": 0
           },
           "m2": {
-            "commit": 3000,
-            "adds": 14825
+            "commit": 4000.0,
+            "adds": 0
           },
           "m3": {
-            "commit": 0,
-            "adds": 10325
+            "commit": 4000.0,
+            "adds": 0
           }
         },
         {
           "name": "Shreveport",
           "m1": {
-            "commit": 421.05,
-            "adds": 131.43
-          },
-          "m2": {
-            "commit": 1578.95,
-            "adds": 5035.2
-          },
-          "m3": {
-            "commit": 0,
-            "adds": 5978.53
-          }
-        },
-        {
-          "name": "Texarkana",
-          "m1": {
             "commit": 0,
             "adds": 0
           },
           "m2": {
             "commit": 0,
-            "adds": 2250
+            "adds": 0
           },
           "m3": {
             "commit": 0,
-            "adds": 10888.23
+            "adds": 0
+          }
+        },
+        {
+          "name": "Texarkana",
+          "m1": {
+            "commit": 0.0,
+            "adds": 0
+          },
+          "m2": {
+            "commit": 926.47,
+            "adds": 0
+          },
+          "m3": {
+            "commit": 1323.53,
+            "adds": 0
           }
         },
         {
@@ -230,11 +228,11 @@
           },
           "m2": {
             "commit": 0,
-            "adds": 9627.64
+            "adds": 0
           },
           "m3": {
             "commit": 0,
-            "adds": 9317.07
+            "adds": 0
           }
         }
       ]
@@ -261,16 +259,16 @@
         {
           "name": "Boise",
           "m1": {
-            "commit": 0,
+            "commit": 0.0,
             "adds": 0
           },
           "m2": {
-            "commit": 2772.36,
-            "adds": 2600
+            "commit": 0.0,
+            "adds": 0
           },
           "m3": {
-            "commit": 2682.93,
-            "adds": 7100
+            "commit": 6500.0,
+            "adds": 0
           }
         },
         {
@@ -311,11 +309,11 @@
           },
           "m2": {
             "commit": 0,
-            "adds": 4513.16
+            "adds": 0
           },
           "m3": {
             "commit": 0,
-            "adds": 3986.84
+            "adds": 0
           }
         },
         {
@@ -336,31 +334,31 @@
         {
           "name": "Fort Collins",
           "m1": {
-            "commit": 49.18,
+            "commit": 0,
             "adds": 0
           },
           "m2": {
-            "commit": 1524.59,
-            "adds": 3350
+            "commit": 0,
+            "adds": 0
           },
           "m3": {
-            "commit": 1475.41,
-            "adds": 3350
+            "commit": 0,
+            "adds": 0
           }
         },
         {
           "name": "Great Falls",
           "m1": {
-            "commit": 767.44,
-            "adds": 253.95
+            "commit": 0.0,
+            "adds": 0
           },
           "m2": {
-            "commit": 8739.5,
-            "adds": 8941.68
+            "commit": 5095.89,
+            "adds": 0
           },
           "m3": {
-            "commit": 4014.98,
-            "adds": 10739.14
+            "commit": 4931.51,
+            "adds": 0
           }
         },
         {
@@ -381,31 +379,31 @@
         {
           "name": "Sierra Vista",
           "m1": {
-            "commit": 0,
+            "commit": 0.0,
             "adds": 0
           },
           "m2": {
-            "commit": 0,
-            "adds": 2500
+            "commit": 2500.0,
+            "adds": 0
           },
           "m3": {
-            "commit": 0,
-            "adds": 2500
+            "commit": 2500.0,
+            "adds": 0
           }
         },
         {
           "name": "St. George",
           "m1": {
-            "commit": 0,
+            "commit": 0.0,
             "adds": 0
           },
           "m2": {
-            "commit": 0,
-            "adds": 9965.96
+            "commit": 4547.95,
+            "adds": 0
           },
           "m3": {
-            "commit": 0,
-            "adds": 12380.54
+            "commit": 4465.75,
+            "adds": 0
           }
         },
         {
@@ -416,7 +414,7 @@
           },
           "m2": {
             "commit": 0,
-            "adds": 2660
+            "adds": 0
           },
           "m3": {
             "commit": 0,
@@ -450,7 +448,7 @@
           },
           "m3": {
             "commit": 0,
-            "adds": 1488.08
+            "adds": 0
           }
         },
         {
@@ -461,11 +459,11 @@
           },
           "m2": {
             "commit": 0,
-            "adds": 989.56
+            "adds": 0
           },
           "m3": {
             "commit": 0,
-            "adds": 459.44
+            "adds": 0
           }
         }
       ]
@@ -482,116 +480,116 @@
           },
           "m2": {
             "commit": 0,
-            "adds": 1500
+            "adds": 0
           },
           "m3": {
             "commit": 0,
-            "adds": 1500
+            "adds": 0
           }
         },
         {
           "name": "Amarillo",
           "m1": {
-            "commit": 0,
+            "commit": 0.0,
             "adds": 0
           },
           "m2": {
-            "commit": 0,
-            "adds": 3048.28
+            "commit": 3048.28,
+            "adds": 0
           },
           "m3": {
-            "commit": 0,
-            "adds": 5379.31
+            "commit": 5379.31,
+            "adds": 0
           }
         },
         {
           "name": "El Paso",
           "m1": {
-            "commit": 5500,
+            "commit": 0.0,
             "adds": 0
           },
           "m2": {
-            "commit": 7000,
-            "adds": 30820.26
+            "commit": 11566.67,
+            "adds": 0
           },
           "m3": {
-            "commit": 6200,
-            "adds": 18714.74
+            "commit": 10933.33,
+            "adds": 0
           }
         },
         {
           "name": "Lawton",
           "m1": {
             "commit": 0,
-            "adds": 71.43
+            "adds": 0
           },
           "m2": {
             "commit": 0,
-            "adds": 553.57
+            "adds": 0
           },
           "m3": {
             "commit": 0,
-            "adds": 535.71
+            "adds": 0
           }
         },
         {
           "name": "Lubbock",
           "m1": {
-            "commit": 0,
-            "adds": 924.68
+            "commit": 0.0,
+            "adds": 0
           },
           "m2": {
-            "commit": 50000,
-            "adds": 11958.9
+            "commit": 1647.06,
+            "adds": 0
           },
           "m3": {
-            "commit": 0,
-            "adds": 9447.09
+            "commit": 1764.71,
+            "adds": 0
           }
         },
         {
           "name": "Odessa",
           "m1": {
             "commit": 0,
-            "adds": 65.22
+            "adds": 0
           },
           "m2": {
             "commit": 0,
-            "adds": 4907.91
+            "adds": 0
           },
           "m3": {
             "commit": 0,
-            "adds": 2302.17
+            "adds": 0
           }
         },
         {
           "name": "San Angelo",
           "m1": {
-            "commit": 549.45,
+            "commit": 0,
             "adds": 0
           },
           "m2": {
-            "commit": 5521.48,
+            "commit": 0,
             "adds": 0
           },
           "m3": {
-            "commit": 4830.17,
+            "commit": 0,
             "adds": 0
           }
         },
         {
           "name": "Wichita Falls",
           "m1": {
-            "commit": 0,
-            "adds": 15.38
+            "commit": 0.0,
+            "adds": 0
           },
           "m2": {
-            "commit": 1010.87,
-            "adds": 1394.42
+            "commit": 640.24,
+            "adds": 0
           },
           "m3": {
-            "commit": 978.26,
-            "adds": 1406.04
+            "commit": 914.63,
+            "adds": 0
           }
         }
       ]
@@ -709,7 +707,7 @@
     },
     {
       "id": "nne",
-      "name": "NNE",
+      "name": "Northeast / New England",
       "markets": [
         {
           "name": "Augusta",
@@ -805,7 +803,7 @@
     },
     {
       "id": "nj",
-      "name": "NJ",
+      "name": "New Jersey",
       "markets": [
         {
           "name": "Atlantic City",
@@ -856,21 +854,21 @@
     },
     {
       "id": "ny",
-      "name": "NY",
+      "name": "New York",
       "markets": [
         {
           "name": "Albany",
           "m1": {
-            "commit": 0,
+            "commit": 0.0,
             "adds": 0
           },
           "m2": {
-            "commit": 15209.88,
-            "adds": 7593.08
+            "commit": 5338.98,
+            "adds": 0
           },
           "m3": {
-            "commit": 16296.3,
-            "adds": 11064.47
+            "commit": 7627.12,
+            "adds": 0
           }
         },
         {
@@ -906,16 +904,16 @@
         {
           "name": "Buffalo",
           "m1": {
-            "commit": 351.56,
+            "commit": 0,
             "adds": 0
           },
           "m2": {
-            "commit": 1089.84,
+            "commit": 0,
             "adds": 0
           },
           "m3": {
-            "commit": 1054.69,
-            "adds": 4600
+            "commit": 0,
+            "adds": 0
           }
         },
         {
@@ -925,12 +923,12 @@
             "adds": 0
           },
           "m2": {
-            "commit": 3024.39,
-            "adds": 759.8
+            "commit": 0,
+            "adds": 0
           },
           "m3": {
-            "commit": 2926.83,
-            "adds": 735.29
+            "commit": 0,
+            "adds": 0
           }
         },
         {
@@ -955,34 +953,34 @@
             "adds": 0
           },
           "m2": {
-            "commit": 3567.12,
-            "adds": 1360
+            "commit": 0,
+            "adds": 0
           },
           "m3": {
-            "commit": 3945.2,
-            "adds": 2914.29
+            "commit": 0,
+            "adds": 0
           }
         },
         {
           "name": "Utica",
           "m1": {
-            "commit": 500,
+            "commit": 0.0,
             "adds": 0
           },
           "m2": {
-            "commit": 2505.43,
-            "adds": 6850.01
+            "commit": 1971.91,
+            "adds": 0
           },
           "m3": {
-            "commit": 2489.13,
-            "adds": 4451.1
+            "commit": 505.62,
+            "adds": 0
           }
         }
       ]
     },
     {
       "id": "others",
-      "name": "Others",
+      "name": "Others (Direct)",
       "markets": [
         {
           "name": "Dubuque",
@@ -1002,16 +1000,16 @@
         {
           "name": "Evansville/Owensboro",
           "m1": {
-            "commit": 0,
-            "adds": 714.29
+            "commit": 0.0,
+            "adds": 0
           },
           "m2": {
-            "commit": 2000,
-            "adds": 12278.23
+            "commit": 5054.35,
+            "adds": 0
           },
           "m3": {
-            "commit": 2000,
-            "adds": 7603.13
+            "commit": 4891.3,
+            "adds": 0
           }
         },
         {
@@ -1032,16 +1030,16 @@
         {
           "name": "Missoula",
           "m1": {
-            "commit": 0,
+            "commit": 0.0,
             "adds": 0
           },
           "m2": {
-            "commit": 0,
-            "adds": 897.51
+            "commit": 673.13,
+            "adds": 0
           },
           "m3": {
-            "commit": 0,
-            "adds": 997.23
+            "commit": 747.92,
+            "adds": 0
           }
         },
         {
@@ -1127,11 +1125,11 @@
           },
           "m2": {
             "commit": 0,
-            "adds": 11378.69
+            "adds": 0
           },
           "m3": {
             "commit": 0,
-            "adds": 3721.31
+            "adds": 0
           }
         },
         {
@@ -1168,45 +1166,13 @@
     }
   ],
   "risd": {
-    "kathi": {
-      "m1": -5000,
-      "m2": null,
-      "m3": 50000
-    },
-    "taylor": {
-      "m1": 0,
-      "m2": 14000,
-      "m3": 19000
-    },
-    "tylerw": {
-      "m1": null,
-      "m2": 65000,
-      "m3": 13000
-    },
-    "jeroen": {
-      "m1": null,
-      "m2": 38000,
-      "m3": 30000
-    },
-    "nne": {
-      "m1": null,
-      "m2": null,
-      "m3": null
-    },
-    "nj": {
-      "m1": null,
-      "m2": 35000,
-      "m3": 21000
-    },
-    "ny": {
-      "m1": null,
-      "m2": 25000,
-      "m3": 175000
-    },
-    "others": {
-      "m1": null,
-      "m2": null,
-      "m3": null
-    }
+    "kathi": { "m1": -5000, "m2": null, "m3": 50000 },
+    "taylor": { "m1": 0, "m2": 14000, "m3": 19000 },
+    "tylerw": { "m1": null, "m2": 65000, "m3": 13000 },
+    "jeroen": { "m1": null, "m2": 38000, "m3": 30000 },
+    "nne": { "m1": null, "m2": null, "m3": null },
+    "nj": { "m1": null, "m2": 35000, "m3": 21000 },
+    "ny": { "m1": null, "m2": 25000, "m3": 175000 },
+    "others": { "m1": null, "m2": null, "m3": null }
   }
 }
