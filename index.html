@@ -1073,7 +1073,7 @@
         weeksData.weeks.forEach((w, i) => {
           const opt = document.createElement('option');
           opt.value = w.date;
-          opt.textContent = 'Week of ' + w.label;
+          opt.textContent = w.label;
           if (i === 0) opt.selected = true;
           sel.appendChild(opt);
         });
