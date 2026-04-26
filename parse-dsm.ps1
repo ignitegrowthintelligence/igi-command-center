@@ -1,4 +1,4 @@
-# IGI Command Center -- DSM Report Parser
+﻿# IGI Command Center -- DSM Report Parser
 # Reads the DSM Report Excel and outputs data/dsm.json
 # Usage: .\parse-dsm.ps1
 
