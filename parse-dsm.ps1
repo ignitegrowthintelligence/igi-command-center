@@ -29,6 +29,7 @@ $dsmMarkets = @{
   "Colton Bybee"        = @("Sierra Vista","St. George","Williston")
   "Bryce Clemens"       = @("Poughkeepsie")
   "Josh Cox"            = @("Grand Rapids")
+  "Joshua Cox"          = @("Grand Rapids")
   "Todd Cross"          = @("Faribault/Owatonna","Rochester MN")
   "Nicole Daily"        = @("Tri-Cities","Wenatchee","Yakima")
   "Jennelle Diggs"      = @("Amarillo","Lawton","Odessa","San Angelo","Wichita Falls")
@@ -36,6 +37,7 @@ $dsmMarkets = @{
   "Jennifier Francis"   = @("Lafayette")
   "Christina Hawkins"   = @("Twin Falls")
   "Steve Horinka"       = @("Bismarck","Quad Cities","Quincy/Hannibal")
+  "Steven Horinka"      = @("Bismarck","Quad Cities","Quincy/Hannibal")
   "Nicholas Ineck"      = @("Billings","Bozeman")
   "Chelsea Jones"       = @("Evansville/Owensboro")
   "Alixzandra Jyawook"  = @("Lansing")
@@ -46,7 +48,7 @@ $dsmMarkets = @{
   "Paige Lauback"       = @("Binghamton","Oneonta","Utica")
   "Jason Longley"       = @("Boise")
   "Scott Mauser"        = @("Evansville/Owensboro")
-  "Michael Miller"      = @("Missoula")
+  "Michael Miller"      = @()  # RISD — excluded
   "William Prieto"      = @("Buffalo")
   "Natalie Redding"     = @("Grand Junction","Montrose")
   "Alyssa Salisbury"    = @("Rockford")
@@ -55,10 +57,10 @@ $dsmMarkets = @{
   "John Shea"           = @("Albany","Berkshires")
   "Ryan Sheehy"         = @("New Bedford","Portsmouth")
   "Tyler Tholl"         = @("Augusta","Portland")
-  "Angela Todd"         = @("Kalamazoo")
-  "Tony Townsend"       = @("Cedar Rapids","Dubuque","Sedalia","Waterloo")
+  "Angela Todd"         = @("Battle Creek","Kalamazoo")
+  "Tony Townsend"       = @()  # RISD — excluded
   "Jilian Watson"       = @("Flint")
-  "Bryan Wheeler"       = @("Casper","Cheyenne","Fort Collins","Laramie")
+  "Bryan Wheeler"       = @()  # RISD (Taylor Wheeler) — excluded
   "Joshua Whinery"      = @("Bangor")
 }
 
@@ -130,6 +132,9 @@ $excel = New-Object -ComObject Excel.Application
 $excel.Visible = $false; $excel.DisplayAlerts = $false
 $wb = $excel.Workbooks.Open($dsmFile.FullName)
 
+# RISDs whose sheets appear in the DSM file but should be excluded from the report
+$risdExclusions = @("Brandon Bufkin","Krystin Conklin","Kathryn Kirkland","Bryan Wheeler","Michael Miller","Tony Townsend")
+
 $dsmList = @()
 foreach ($sheet in $wb.Sheets) {
   $name = $sheet.Name
@@ -137,6 +142,13 @@ foreach ($sheet in $wb.Sheets) {
   if ($name -notmatch '^[A-Z]+,\s') { continue }
 
   $dsmName = Clean-DsmName $name
+
+  # Skip RISDs — they appear in the file but are not DSMs
+  if ($risdExclusions -contains $dsmName) {
+    Write-Host "  $dsmName (RISD — skipped)"
+    continue
+  }
+
   Write-Host "  $dsmName"
 
   $soloBudget  = Get-Period $sheet 34
