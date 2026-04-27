@@ -194,9 +194,14 @@ $sorted = $marketRows | Sort-Object { $_.sobDelta } -Descending
 $hotMkts = $sorted | Select-Object -First 10
 $coldMkts = ($sorted | Select-Object -Last 10) | Sort-Object { $_.sobDelta }
 
-# Focus: bottom 15 by FY $ gap (most negative = furthest behind budget)
+# Focus: markets below 85% Q2 AND FY $ gap worse than -$150K, ranked by FY $ gap
+# (thresholds are in $000s to match SOB data units)
+$focusQ2PctCeiling = 85      # Q2 % to budget must be below this
+$focusFyGapFloor   = -150    # FY $ gap must be worse than this (in $000s = -$150K)
 $coldNames = $coldMkts | ForEach-Object { $_.name }
-$focusMktsSorted = ($marketRows | Where-Object { $_.fyBudget -gt 0 } | Sort-Object { $_.fyGap }) | Select-Object -First 15
+$focusMktsSorted = ($marketRows | Where-Object {
+ $_.q2PctBgt -lt $focusQ2PctCeiling -and $_.fyGap -lt $focusFyGapFloor
+} | Sort-Object { $_.fyGap }) | Select-Object -First 15
 $focusMkts = @()
 foreach ($fm in $focusMktsSorted) {
  $focusMkts += [ordered]@{
