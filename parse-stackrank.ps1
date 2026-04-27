@@ -222,8 +222,8 @@ if ($oldestDsm -and $newestDsm) {
  foreach ($d in $newestDsm.dsms) {
  if (-not $oldDsmMap.ContainsKey($d.name)) { continue }
  $oldD = $oldDsmMap[$d.name]
- $fyStart = $oldD.totalRevenue.q1 + $oldD.totalRevenue.q2 + $oldD.totalRevenue.q3
- $fyEnd = $d.totalRevenue.q1 + $d.totalRevenue.q2 + $d.totalRevenue.q3
+ $fyStart = $oldD.totalRevenue.fyTotal
+ $fyEnd = $d.totalRevenue.fyTotal
  $q2Delta = $fyEnd - $fyStart
  $q2Pct = if ($fyStart -ne 0) { [math]::Round(($q2Delta / $fyStart) * 100, 1) } else { 0 }
  $dsmRows += [ordered]@{
