@@ -243,5 +243,7 @@ $output = [ordered]@{
 }
 
 $outPath = Join-Path $DataDir "stackrank.json"
-$output | ConvertTo-Json -Depth 10 | Set-Content $outPath -Encoding UTF8
+$utf8NoBom = New-Object System.Text.UTF8Encoding $false
+$jsonContent = $output | ConvertTo-Json -Depth 10
+[System.IO.File]::WriteAllText($outPath, $jsonContent, $utf8NoBom)
 Write-Host "Written: $outPath"

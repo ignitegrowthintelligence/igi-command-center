@@ -140,15 +140,19 @@ foreach ($folder in (Get-ChildItem $WeeklyRoot -Directory | Sort-Object Name)) {
 
   Write-Host "Week: $weekDate"
   $json = Parse-SOB-File $sobFile.FullName $weekDate
-  $json | ConvertTo-Json -Depth 10 | Set-Content $outPath -Encoding UTF8
+  $utf8NoBom = New-Object System.Text.UTF8Encoding $false
+  $jsonContent = $json | ConvertTo-Json -Depth 10
+  [System.IO.File]::WriteAllText($outPath, $jsonContent, $utf8NoBom)
   Write-Host "  -> $outPath"
   $sobWeeks += [ordered]@{ date=$weekDate; label=$json.weekLabel; sobFile=$json.sobFile }
   $latestDate = $weekDate
 }
 
 # Write SOB weeks index
+$utf8NoBom = New-Object System.Text.UTF8Encoding $false
 $sobIndex = [ordered]@{ weeks=($sobWeeks | Sort-Object { $_.date } -Descending) }
-$sobIndex | ConvertTo-Json -Depth 5 | Set-Content (Join-Path $OutputDir "sob-weeks.json") -Encoding UTF8
+$indexContent = $sobIndex | ConvertTo-Json -Depth 5
+[System.IO.File]::WriteAllText((Join-Path $OutputDir "sob-weeks.json"), $indexContent, $utf8NoBom)
 
 # Copy most recent as sob.json
 if ($latestDate) {
