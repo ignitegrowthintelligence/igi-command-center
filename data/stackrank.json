@@ -1,5 +1,5 @@
 {
-    "lastRefreshed":  "2026-04-27T12:44:45Z",
+    "lastRefreshed":  "2026-04-27T12:53:37Z",
     "weeksAnalyzed":  [
                           "Apr 6",
                           "Apr 13",
@@ -330,17 +330,6 @@
                                       "isAlsoCold":  false
                                   },
                                   {
-                                      "name":  "Trenton/Princeton",
-                                      "dsm":  "Diana Scully",
-                                      "risd":  "",
-                                      "fyPctBgt":  70.2,
-                                      "fyGap":  -1324,
-                                      "fyBudget":  4447,
-                                      "q2PctBgt":  101.1,
-                                      "q2PctPY":  106.4,
-                                      "isAlsoCold":  false
-                                  },
-                                  {
                                       "name":  "Portland",
                                       "dsm":  "Tyler Tholl",
                                       "risd":  "",
@@ -371,17 +360,6 @@
                                       "fyBudget":  1016,
                                       "q2PctBgt":  42.7,
                                       "q2PctPY":  45.6,
-                                      "isAlsoCold":  false
-                                  },
-                                  {
-                                      "name":  "Evansville/Owensboro",
-                                      "dsm":  "Scott Mauser",
-                                      "risd":  "",
-                                      "fyPctBgt":  71.2,
-                                      "fyGap":  -506,
-                                      "fyBudget":  1757,
-                                      "q2PctBgt":  96.8,
-                                      "q2PctPY":  110.8,
                                       "isAlsoCold":  false
                                   },
                                   {
@@ -418,28 +396,6 @@
                                       "isAlsoCold":  false
                                   },
                                   {
-                                      "name":  "Poughkeepsie",
-                                      "dsm":  "Bryce Clemens",
-                                      "risd":  "",
-                                      "fyPctBgt":  76.6,
-                                      "fyGap":  -355,
-                                      "fyBudget":  1516,
-                                      "q2PctBgt":  100.1,
-                                      "q2PctPY":  102.6,
-                                      "isAlsoCold":  false
-                                  },
-                                  {
-                                      "name":  "Buffalo",
-                                      "dsm":  "William Prieto",
-                                      "risd":  "",
-                                      "fyPctBgt":  74.3,
-                                      "fyGap":  -287,
-                                      "fyBudget":  1115,
-                                      "q2PctBgt":  90.2,
-                                      "q2PctPY":  106.6,
-                                      "isAlsoCold":  false
-                                  },
-                                  {
                                       "name":  "Albany",
                                       "dsm":  "John Shea",
                                       "risd":  "",
@@ -462,25 +418,47 @@
                                       "isAlsoCold":  false
                                   },
                                   {
-                                      "name":  "Boise",
-                                      "dsm":  "Jason Longley",
-                                      "risd":  "Taylor Wheeler",
-                                      "fyPctBgt":  82.2,
-                                      "fyGap":  -256,
-                                      "fyBudget":  1441,
-                                      "q2PctBgt":  87.4,
-                                      "q2PctPY":  94.6,
+                                      "name":  "Sioux Falls",
+                                      "dsm":  "",
+                                      "risd":  "",
+                                      "fyPctBgt":  63.9,
+                                      "fyGap":  -237,
+                                      "fyBudget":  657,
+                                      "q2PctBgt":  70.7,
+                                      "q2PctPY":  93,
                                       "isAlsoCold":  false
                                   },
                                   {
-                                      "name":  "St. Cloud",
-                                      "dsm":  "",
+                                      "name":  "Grand Junction",
+                                      "dsm":  "Natalie Redding",
                                       "risd":  "",
-                                      "fyPctBgt":  75.8,
-                                      "fyGap":  -250,
-                                      "fyBudget":  1033,
-                                      "q2PctBgt":  85.1,
-                                      "q2PctPY":  92,
+                                      "fyPctBgt":  57.2,
+                                      "fyGap":  -225,
+                                      "fyBudget":  526,
+                                      "q2PctBgt":  60.3,
+                                      "q2PctPY":  63.4,
+                                      "isAlsoCold":  false
+                                  },
+                                  {
+                                      "name":  "Lafayette",
+                                      "dsm":  "Jennifier Francis",
+                                      "risd":  "Kathi Kirkland",
+                                      "fyPctBgt":  64.5,
+                                      "fyGap":  -198,
+                                      "fyBudget":  558,
+                                      "q2PctBgt":  78.9,
+                                      "q2PctPY":  128.1,
+                                      "isAlsoCold":  true
+                                  },
+                                  {
+                                      "name":  "Bozeman",
+                                      "dsm":  "Nicholas Ineck",
+                                      "risd":  "Taylor Wheeler",
+                                      "fyPctBgt":  53,
+                                      "fyGap":  -194,
+                                      "fyBudget":  413,
+                                      "q2PctBgt":  62.2,
+                                      "q2PctPY":  83.1,
                                       "isAlsoCold":  false
                                   }
                               ]
