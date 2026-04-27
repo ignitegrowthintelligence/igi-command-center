@@ -98,6 +98,7 @@ function Parse-SOB-File([string]$sobPath, [string]$weekDate) {
         $mData.q3["aug"]   = Get-MonthData $sheet $baseRow 12
         $mData.q3["sep"]   = Get-MonthData $sheet $baseRow 13
         $mData.q3["total"] = Get-MonthData $sheet $baseRow 14
+        $mData["fy"]       = Get-MonthData $sheet $baseRow 19
       }
       $markets += $mData
     }

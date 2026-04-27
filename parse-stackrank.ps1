@@ -140,7 +140,7 @@ foreach ($mktName in $allMarkets) {
  foreach ($m in $r.markets) {
  if ($m.name -eq $mktName) {
   $sobOld = $m.q2.total.pacing
-  $fyOld = $m.q2.total.pacing + $m.q3.total.pacing
+  $fyOld  = if ($m.fy) { $m.fy.pacing } else { $m.q2.total.pacing + $m.q3.total.pacing }
   break
  }
  }
@@ -149,13 +149,19 @@ foreach ($mktName in $allMarkets) {
  foreach ($r in $latestSob.regions) {
  foreach ($m in $r.markets) {
  if ($m.name -eq $mktName) {
-  $sobNew = $m.q2.total.pacing
-  $q2PctBgt = $m.q2.total.pctBgt
-  $q2Budget = $m.q2.total.budget
-  $q2PctPY = $m.q2.total.pctPY
-  $fyNew = $m.q2.total.pacing + $m.q3.total.pacing
-  $fyBudget = $m.q2.total.budget + $m.q3.total.budget
-  $fyPctBgt = if ($fyBudget -ne 0) { [math]::Round(($fyNew / $fyBudget) * 100, 1) } else { 0 }
+  $sobNew    = $m.q2.total.pacing
+  $q2PctBgt  = $m.q2.total.pctBgt
+  $q2Budget  = $m.q2.total.budget
+  $q2PctPY   = $m.q2.total.pctPY
+  if ($m.fy) {
+   $fyNew    = $m.fy.pacing
+   $fyBudget = $m.fy.budget
+   $fyPctBgt = if ($m.fy.pctBgt) { $m.fy.pctBgt } else { if ($fyBudget -ne 0) { [math]::Round(($fyNew/$fyBudget)*100,1) } else { 0 } }
+  } else {
+   $fyNew    = $m.q2.total.pacing + $m.q3.total.pacing
+   $fyBudget = $m.q2.total.budget + $m.q3.total.budget
+   $fyPctBgt = if ($fyBudget -ne 0) { [math]::Round(($fyNew/$fyBudget)*100,1) } else { 0 }
+  }
   $fyGap = [math]::Round($fyNew - $fyBudget, 0)
   break
  }
