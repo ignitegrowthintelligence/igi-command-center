@@ -1247,7 +1247,7 @@
       h += '<th class="hot-rank">#</th>';
       h += '<th>DSM</th>';
       h += '<th>Markets</th>';
-      h += '<th class="accent" style="text-align:right;">Q2 Total Added</th>';
+      h += '<th class="accent" style="text-align:right;">FY Total Added</th>';
       h += '<th style="text-align:right;">% Growth</th>';
       h += '</tr></thead><tbody>';
       for (var i = 0; i < rows.length; i++) {
@@ -1287,10 +1287,10 @@
       html += '</div></div>';
       // Row 2: DSM Momentum / DSM Concern
       html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">';
-      html += '<div><div class="hot-section-title">&#x1F4C8; DSM Momentum (Top Q2 Rev Growth)</div>';
+      html += '<div><div class="hot-section-title">&#x1F4C8; DSM Momentum (Top FY Rev Growth)</div>';
       html += renderDsmRankings(stackData.dsms.hot || []);
       html += '</div>';
-      html += '<div><div class="hot-section-title">&#x1F4C9; DSM Concern (Biggest Q2 Rev Decline)</div>';
+      html += '<div><div class="hot-section-title">&#x1F4C9; DSM Concern (Biggest FY Rev Decline)</div>';
       html += renderDsmRankings(stackData.dsms.cold || []);
       html += '</div></div>';
       // Row 3: Focus Markets

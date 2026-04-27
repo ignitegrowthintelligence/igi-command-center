@@ -212,7 +212,7 @@ foreach ($fm in $focusMktsSorted) {
  }
 }
 
-# DSM rankings: Q2 total revenue change oldest->newest
+# DSM rankings: FY total revenue change oldest->newest (Q1+Q2+Q3)
 $dsmRows = @()
 $oldestDsm = $dsmByWeek[$oldestWd]
 $newestDsm = $dsmByWeek[$newestWd]
@@ -222,15 +222,15 @@ if ($oldestDsm -and $newestDsm) {
  foreach ($d in $newestDsm.dsms) {
  if (-not $oldDsmMap.ContainsKey($d.name)) { continue }
  $oldD = $oldDsmMap[$d.name]
- $q2Start = $oldD.totalRevenue.q2
- $q2End = $d.totalRevenue.q2
- $q2Delta = $q2End - $q2Start
- $q2Pct = if ($q2Start -ne 0) { [math]::Round(($q2Delta / $q2Start) * 100, 1) } else { 0 }
+ $fyStart = $oldD.totalRevenue.q1 + $oldD.totalRevenue.q2 + $oldD.totalRevenue.q3
+ $fyEnd = $d.totalRevenue.q1 + $d.totalRevenue.q2 + $d.totalRevenue.q3
+ $q2Delta = $fyEnd - $fyStart
+ $q2Pct = if ($fyStart -ne 0) { [math]::Round(($q2Delta / $fyStart) * 100, 1) } else { 0 }
  $dsmRows += [ordered]@{
  name = $d.name
  markets = $d.markets
- q2Start = [math]::Round($q2Start, 0)
- q2End = [math]::Round($q2End, 0)
+ q2Start = [math]::Round($fyStart, 0)
+ q2End = [math]::Round($fyEnd, 0)
  q2Delta = [math]::Round($q2Delta, 0)
  q2DeltaPct = $q2Pct
  }
