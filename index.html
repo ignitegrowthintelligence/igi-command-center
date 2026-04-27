@@ -1189,21 +1189,18 @@
       if (showRank) h += '<th class="hot-rank">#</th>';
       h += '<th>Market</th>';
       h += '<th>DSM</th>';
-      h += '<th class="accent" style="text-align:right;">Total Contract</th>';
       h += '<th class="accent" style="text-align:right;">FY Pacing Chg</th>';
       h += '<th class="hot-dim" style="text-align:right;">RISD</th>';
       h += '</tr></thead><tbody>';
       for (var i = 0; i < rows.length; i++) {
         var r = rows[i];
         var dsmCell = r.dsm === 'VACANT' || r.dsm === '' ? '<span class="hot-vacant">VACANT</span>' : r.dsm;
-        var contractClass = (r.cumulativeAdds || 0) >= 0 ? 'hot-pos' : 'hot-neg';
         var fyChgClass = (r.fyPacingDelta || 0) >= 0 ? 'hot-pos' : 'hot-neg';
         var risdCell = r.risd ? '<span class="hot-dim">' + r.risd + '</span>' : '<span class="hot-dim">-</span>';
         h += '<tr>';
         if (showRank) h += '<td class="hot-rank">' + (i+1) + '</td>';
         h += '<td class="hot-mkt">' + r.name + '</td>';
         h += '<td>' + dsmCell + '</td>';
-        h += '<td style="text-align:right;" class="' + contractClass + '">' + fmt$(r.cumulativeAdds || 0) + '</td>';
         h += '<td style="text-align:right;" class="' + fyChgClass + '">' + fmt$((r.fyPacingDelta || 0) * 1000) + '</td>';
         h += '<td style="text-align:right;">' + risdCell + '</td>';
         h += '</tr>';
