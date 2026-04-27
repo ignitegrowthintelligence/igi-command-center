@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -148,6 +148,23 @@
       .hide-mobile { display: none; }
       .mobile-scroll { overflow-x: auto; }
     }
+    /* Focus Markets tab */
+    .fm-table { width:100%; border-collapse:collapse; font-size:0.82rem; }
+    .fm-table thead th { background:var(--surface-2); color:var(--text-dim); font-size:0.68rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:8px 12px; border-bottom:1px solid var(--border-bright); white-space:nowrap; }
+    .fm-table thead th.accent { color:var(--teal); }
+    .fm-table tbody tr { border-bottom:1px solid var(--border); transition:background 0.1s; position:relative; }
+    .fm-table tbody tr:hover { background:var(--surface-2); }
+    .fm-table tbody td { padding:9px 12px; color:var(--text); vertical-align:middle; }
+    .fm-rank { color:var(--text-dim); font-size:0.75rem; width:28px; text-align:center; }
+    .fm-market { font-weight:600; }
+    .fm-gap-cell { position:relative; }
+    .fm-gap-bar { position:absolute; left:0; top:0; bottom:0; background:rgba(248,113,113,0.07); pointer-events:none; }
+    .fm-gap-val { position:relative; color:var(--red); font-weight:600; font-variant-numeric:tabular-nums; }
+    .fm-pct-red { color:var(--red); font-weight:700; }
+    .fm-pct-amber { color:var(--yellow); font-weight:700; }
+    .fm-pct-green { color:var(--green); font-weight:700; }
+    .fm-vacant { background:rgba(251,146,60,0.2); color:#fb923c; font-weight:700; border-radius:4px; padding:1px 8px; font-size:0.75rem; letter-spacing:0.03em; }
+    .fm-subtitle { font-size:0.72rem; color:var(--text-dim); letter-spacing:0.03em; }
   </style>
 </head>
 <body>
@@ -190,6 +207,7 @@
           <button onclick="switchTab('commits')" id="tab-commits" class="bp-tab-active px-4 py-1.5 text-sm font-medium transition-all">Weekly Commits</button>
           <button onclick="switchTab('sob')" id="tab-sob" class="bp-tab-inactive px-4 py-1.5 text-sm font-medium transition-all">Pacing &amp; SOB</button>
           <button onclick="switchTab('dsm')" id="tab-dsm" class="bp-tab-inactive px-4 py-1.5 text-sm font-medium transition-all">DSM Report</button>
+        <button onclick="switchTab('focus')" id="tab-focus" class="bp-tab-inactive px-4 py-1.5 text-sm font-medium transition-all">Focus Markets</button>
         </div>
       </div>
 
@@ -275,6 +293,31 @@
               </table>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- FOCUS MARKETS PANEL -->
+      <div id="panel-focus" class="hidden">
+        <div style="padding:16px 20px 10px;border-bottom:1px solid var(--border);">
+          <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);">Focus Markets</span>
+          <span class="fm-subtitle" style="margin-left:12px;">Source: SOB-IGNITE Wk 18 &nbsp;|&nbsp; April 25, 2026 &nbsp;|&nbsp; Ranked by FY % to Budget (ascending)</span>
+        </div>
+        <div style="overflow-x:auto;padding:0 4px 16px;">
+          <table class="fm-table">
+            <thead>
+              <tr>
+                <th class="fm-rank">#</th>
+                <th>Market</th>
+                <th class="accent" style="text-align:right;">FY % Bud</th>
+                <th class="accent" style="text-align:right;">FY $ Gap</th>
+                <th style="text-align:right;">Q2 % Bud</th>
+                <th style="text-align:right;">Q2 % PY</th>
+                <th>DSM</th>
+                <th>RISD</th>
+              </tr>
+            </thead>
+            <tbody id="fmTbody"></tbody>
+          </table>
         </div>
       </div>
 
@@ -670,7 +713,7 @@
         const sel = $('dsmSelector');
         if (sel && sel.value) renderDSM(sel.value);
       }
-      ['commits','sob','dsm'].forEach(t => {
+      ['commits','sob','dsm','focus'].forEach(t => {
         $('panel-' + t) && $('panel-' + t).classList.toggle('hidden', t !== tab);
         $('tab-' + t)    && ($('tab-' + t).className = t === tab
           ? 'bp-tab-active px-4 py-1.5 text-sm font-medium transition-all'
@@ -1097,6 +1140,58 @@
     }
 
     loadData();
+
+    // ── Focus Markets ──────────────────────────────────────────
+    var FOCUS_MARKETS = [
+      {rank:1,  market:'Utica',          fyPct:37.7, fyGap:2682063, q2Bud:30.2, q2PY:24.3,  dsm:'Paige Laubeck',     risd:''},
+      {rank:2,  market:'Atlantic City',  fyPct:38.9, fyGap:1130866, q2Bud:42.7, q2PY:45.6,  dsm:'VACANT',            risd:''},
+      {rank:3,  market:'Missoula',       fyPct:47.7, fyGap:928757,  q2Bud:50.2, q2PY:54.9,  dsm:'Mike Miller',       risd:''},
+      {rank:4,  market:'Lake Charles',   fyPct:49.5, fyGap:285400,  q2Bud:56.7, q2PY:77.8,  dsm:'Hillary Doyal',     risd:'Kathi Kirkland'},
+      {rank:5,  market:'Lawton',         fyPct:52.3, fyGap:417379,  q2Bud:40.1, q2PY:44.1,  dsm:'Jennelle Diggs',    risd:'Tyler Wille'},
+      {rank:6,  market:'Portland',       fyPct:55.8, fyGap:1637958, q2Bud:78.3, q2PY:87.2,  dsm:'Tyler Tholl',       risd:''},
+      {rank:7,  market:'Grand Junction', fyPct:57.8, fyGap:426303,  q2Bud:60.3, q2PY:63.4,  dsm:'Natalie Redding',   risd:''},
+      {rank:8,  market:'Sioux Falls',    fyPct:62.5, fyGap:487750,  q2Bud:70.7, q2PY:93.0,  dsm:'VACANT',            risd:''},
+      {rank:9,  market:'Albany',         fyPct:62.5, fyGap:534594,  q2Bud:64.6, q2PY:75.5,  dsm:'John Shea',         risd:''},
+      {rank:10, market:'Shore',          fyPct:63.8, fyGap:985883,  q2Bud:71.4, q2PY:78.8,  dsm:'Diana Scully',      risd:''},
+      {rank:11, market:'Portsmouth',     fyPct:66.0, fyGap:1191187, q2Bud:74.2, q2PY:86.0,  dsm:'Ryan Sheehy',       risd:''},
+      {rank:12, market:'Lafayette',      fyPct:66.2, fyGap:373286,  q2Bud:78.9, q2PY:128.1, dsm:'Jennifer Francis',   risd:'Kathi Kirkland'},
+      {rank:13, market:'St. Cloud',      fyPct:70.4, fyGap:571381,  q2Bud:85.1, q2PY:92.0,  dsm:'Joe Putz',          risd:''},
+      {rank:14, market:'Kalamazoo',      fyPct:71.3, fyGap:424116,  q2Bud:88.2, q2PY:123.1, dsm:'Angela Todd',        risd:'Kathi Kirkland'},
+      {rank:15, market:'Dubuque',        fyPct:75.1, fyGap:401437,  q2Bud:88.9, q2PY:107.6, dsm:'Tony Townsend',     risd:''}
+    ];
+
+    var FM_MAX_GAP = 0;
+    for (var fi = 0; fi < FOCUS_MARKETS.length; fi++) { if (FOCUS_MARKETS[fi].fyGap > FM_MAX_GAP) FM_MAX_GAP = FOCUS_MARKETS[fi].fyGap; }
+
+    function fmPctClass(pct, lo, hi) { return pct < lo ? 'fm-pct-red' : pct < hi ? 'fm-pct-amber' : 'fm-pct-green'; }
+
+    function renderFocusMarkets() {
+      var tbody = document.getElementById('fmTbody');
+      if (!tbody) return;
+      var html = '';
+      for (var i = 0; i < FOCUS_MARKETS.length; i++) {
+        var r = FOCUS_MARKETS[i];
+        var barW = (r.fyGap / FM_MAX_GAP * 100).toFixed(1);
+        var fyC  = fmPctClass(r.fyPct, 55, 75);
+        var pyC  = fmPctClass(r.q2PY, 70, 90);
+        var dsmCell  = r.dsm === 'VACANT' ? '<span class="fm-vacant">VACANT</span>' : r.dsm;
+        var risdCell = r.risd ? '<span style="color:var(--text-dim);font-size:0.8rem;">' + r.risd + '</span>' : '<span style="color:var(--text-dim);">&#8212;</span>';
+        var gap = '-$' + r.fyGap.toLocaleString();
+        html += '<tr>';
+        html += '<td class="fm-rank">' + r.rank + '</td>';
+        html += '<td class="fm-market">' + r.market + '</td>';
+        html += '<td style="text-align:right;"><span class="' + fyC + '">' + r.fyPct.toFixed(1) + '%</span></td>';
+        html += '<td class="fm-gap-cell" style="text-align:right;min-width:120px;"><div class="fm-gap-bar" style="width:' + barW + '%;"></div><span class="fm-gap-val">' + gap + '</span></td>';
+        html += '<td style="text-align:right;color:var(--text-dim);">' + r.q2Bud.toFixed(1) + '%</td>';
+        html += '<td style="text-align:right;"><span class="' + pyC + '">' + r.q2PY.toFixed(1) + '%</span></td>';
+        html += '<td>' + dsmCell + '</td>';
+        html += '<td>' + risdCell + '</td>';
+        html += '</tr>';
+      }
+      tbody.innerHTML = html;
+    }
+
+    renderFocusMarkets();
   </script>
 </body>
 </html>
