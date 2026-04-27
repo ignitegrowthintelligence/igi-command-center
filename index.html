@@ -165,7 +165,7 @@
     .fm-pct-green { color:var(--green); font-weight:700; }
     .fm-vacant { background:rgba(251,146,60,0.2); color:#fb923c; font-weight:700; border-radius:4px; padding:1px 8px; font-size:0.75rem; letter-spacing:0.03em; }
     .fm-subtitle { font-size:0.72rem; color:var(--text-dim); letter-spacing:0.03em; }
-    .hot-section-title { font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal); padding:14px 20px 6px; }
+    .hot-section-title { font-size:0.82rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--teal); padding:14px 20px 8px; }
     .hot-table { width:100%; border-collapse:collapse; font-size:0.81rem; }
     .hot-table thead th { background:var(--surface-2); color:var(--text-dim); font-size:0.66rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:7px 12px; border-bottom:1px solid var(--border-bright); white-space:nowrap; }
     .hot-table thead th.accent { color:var(--teal); }
@@ -1286,23 +1286,23 @@
       var html = '';
       // Row 1: Hot / Cold markets
       html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">';
-      html += '<div><div class="hot-section-title">&#x1F525; Hot Markets (FY SOB Momentum)</div>';
+      html += '<div><div class="hot-section-title">&#x1F525; Hot Markets</div>';
       html += renderHotMarkets(m.hot || [], true);
       html += '</div>';
-      html += '<div><div class="hot-section-title">&#x2744;&#xFE0F; Cold Markets (FY SOB Momentum)</div>';
+      html += '<div><div class="hot-section-title">&#x2744;&#xFE0F; Cold Markets</div>';
       html += renderHotMarkets(m.cold || [], true);
       html += '</div></div>';
-      // Row 2: DSM Momentum / DSM Concern
+      // Row 2: DSM Hot / Cold
       html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">';
-      html += '<div><div class="hot-section-title">&#x1F4C8; DSM Momentum (Top FY Rev Growth)</div>';
+      html += '<div><div class="hot-section-title">&#x1F525; Hot DSM Performance</div>';
       html += renderDsmRankings(stackData.dsms.hot || []);
       html += '</div>';
-      html += '<div><div class="hot-section-title">&#x1F4C9; DSM Concern (Biggest FY Rev Decline)</div>';
+      html += '<div><div class="hot-section-title">&#x2744;&#xFE0F; Cold DSM Performance</div>';
       html += renderDsmRankings(stackData.dsms.cold || []);
       html += '</div></div>';
       // Row 3: Focus Markets
       html += '<div style="margin-bottom:20px;">';
-      html += '<div class="hot-section-title">&#x26A0;&#xFE0F; Focus Markets (Q2 &lt; 85% &amp; FY Gap &gt; -$150K — ranked by FY $ Impact)</div>';
+      html += '<div class="hot-section-title">&#x26A0;&#xFE0F; Focus Markets</div>';
       html += renderFocusSection(m.focus || []);
       html += '</div>';
       el.innerHTML = html;
