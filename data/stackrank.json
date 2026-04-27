@@ -1,5 +1,5 @@
 {
-    "lastRefreshed":  "2026-04-27T16:58:34Z",
+    "lastRefreshed":  "2026-04-27T18:39:38Z",
     "weeksAnalyzed":  [
                           "Apr 6",
                           "Apr 13",
@@ -488,27 +488,38 @@
     "dsms":  {
                  "hot":  [
                              {
-                                 "name":  "Diana Scully",
-                                 "markets":  [
-                                                 "Shore",
-                                                 "Trenton/Princeton"
-                                             ],
-                                 "q2Start":  935967,
-                                 "q2End":  1284196,
-                                 "q2Delta":  348229,
-                                 "q2DeltaPct":  37.2
-                             },
-                             {
                                  "name":  "Crystal Bradford",
                                  "markets":  [
                                                  "Killeen/Temple",
                                                  "Tyler",
                                                  "Victoria"
                                              ],
-                                 "q2Start":  1226712,
-                                 "q2End":  1525612,
-                                 "q2Delta":  298900,
-                                 "q2DeltaPct":  24.4
+                                 "q2Start":  1254430,
+                                 "q2End":  1568380,
+                                 "q2Delta":  313950,
+                                 "q2DeltaPct":  25
+                             },
+                             {
+                                 "name":  "Diana Scully",
+                                 "markets":  [
+                                                 "Shore",
+                                                 "Trenton/Princeton"
+                                             ],
+                                 "q2Start":  679975,
+                                 "q2End":  962895,
+                                 "q2Delta":  282920,
+                                 "q2DeltaPct":  41.6
+                             },
+                             {
+                                 "name":  "Ryan Sheehy",
+                                 "markets":  [
+                                                 "New Bedford",
+                                                 "Portsmouth"
+                                             ],
+                                 "q2Start":  1967814,
+                                 "q2End":  2199414,
+                                 "q2Delta":  231600,
+                                 "q2DeltaPct":  11.8
                              },
                              {
                                  "name":  "Nicole Daily",
@@ -517,41 +528,35 @@
                                                  "Wenatchee",
                                                  "Yakima"
                                              ],
-                                 "q2Start":  952671,
-                                 "q2End":  1189568,
-                                 "q2Delta":  236897,
-                                 "q2DeltaPct":  24.9
+                                 "q2Start":  797663,
+                                 "q2End":  927060,
+                                 "q2Delta":  129397,
+                                 "q2DeltaPct":  16.2
                              },
                              {
-                                 "name":  "Ryan Sheehy",
+                                 "name":  "Michelle Sellers",
                                  "markets":  [
-                                                 "New Bedford",
-                                                 "Portsmouth"
+                                                 "Butte",
+                                                 "Great Falls"
                                              ],
-                                 "q2Start":  2381155,
-                                 "q2End":  2590755,
-                                 "q2Delta":  209600,
-                                 "q2DeltaPct":  8.8
+                                 "q2Start":  1128730,
+                                 "q2End":  1221910,
+                                 "q2Delta":  93180,
+                                 "q2DeltaPct":  8.3
                              },
                              {
-                                 "name":  "Alyssa Salisbury",
+                                 "name":  "Jennelle Diggs",
                                  "markets":  [
-                                                 "Rockford"
+                                                 "Amarillo",
+                                                 "Lawton",
+                                                 "Odessa",
+                                                 "San Angelo",
+                                                 "Wichita Falls"
                                              ],
-                                 "q2Start":  1957802,
-                                 "q2End":  2164062,
-                                 "q2Delta":  206260,
-                                 "q2DeltaPct":  10.5
-                             },
-                             {
-                                 "name":  "Scott Mauser",
-                                 "markets":  [
-                                                 "Evansville/Owensboro"
-                                             ],
-                                 "q2Start":  1303717,
-                                 "q2End":  1401779,
-                                 "q2Delta":  98062,
-                                 "q2DeltaPct":  7.5
+                                 "q2Start":  711893,
+                                 "q2End":  800153,
+                                 "q2Delta":  88260,
+                                 "q2DeltaPct":  12.4
                              },
                              {
                                  "name":  "John Shea",
@@ -559,20 +564,31 @@
                                                  "Albany",
                                                  "Berkshires"
                                              ],
-                                 "q2Start":  1108876,
-                                 "q2End":  1202126,
-                                 "q2Delta":  93250,
-                                 "q2DeltaPct":  8.4
+                                 "q2Start":  737767,
+                                 "q2End":  817017,
+                                 "q2Delta":  79250,
+                                 "q2DeltaPct":  10.7
+                             },
+                             {
+                                 "name":  "Tyler Tholl",
+                                 "markets":  [
+                                                 "Augusta",
+                                                 "Portland"
+                                             ],
+                                 "q2Start":  849093,
+                                 "q2End":  925843,
+                                 "q2Delta":  76750,
+                                 "q2DeltaPct":  9
                              },
                              {
                                  "name":  "Bryce Clemens",
                                  "markets":  [
                                                  "Poughkeepsie"
                                              ],
-                                 "q2Start":  904029,
-                                 "q2End":  995629,
-                                 "q2Delta":  91600,
-                                 "q2DeltaPct":  10.1
+                                 "q2Start":  737654,
+                                 "q2End":  811504,
+                                 "q2Delta":  73850,
+                                 "q2DeltaPct":  10
                              },
                              {
                                  "name":  "Steven Horinka",
@@ -581,106 +597,22 @@
                                                  "Quad Cities",
                                                  "Quincy/Hannibal"
                                              ],
-                                 "q2Start":  1506812,
-                                 "q2End":  1595248,
-                                 "q2Delta":  88436,
-                                 "q2DeltaPct":  5.9
-                             },
-                             {
-                                 "name":  "Tyler Tholl",
-                                 "markets":  [
-                                                 "Augusta",
-                                                 "Portland"
-                                             ],
-                                 "q2Start":  965723,
-                                 "q2End":  1038473,
-                                 "q2Delta":  72750,
-                                 "q2DeltaPct":  7.5
+                                 "q2Start":  1097131,
+                                 "q2End":  1144131,
+                                 "q2Delta":  47000,
+                                 "q2DeltaPct":  4.3
                              }
                          ],
                  "cold":  [
-                              {
-                                  "name":  "Colton Bybee",
-                                  "markets":  [
-                                                  "Sierra Vista",
-                                                  "St. George",
-                                                  "Williston"
-                                              ],
-                                  "q2Start":  3080260,
-                                  "q2End":  2683060,
-                                  "q2Delta":  -397200,
-                                  "q2DeltaPct":  -12.9
-                              },
-                              {
-                                  "name":  "Jeffrey Klein",
-                                  "markets":  [
-                                                  "Lufkin"
-                                              ],
-                                  "q2Start":  1087607,
-                                  "q2End":  1050812,
-                                  "q2Delta":  -36795,
-                                  "q2DeltaPct":  -3.4
-                              },
                               {
                                   "name":  "Jed Knapp",
                                   "markets":  [
                                                   "El Paso"
                                               ],
-                                  "q2Start":  825950,
-                                  "q2End":  801383,
-                                  "q2Delta":  -24567,
-                                  "q2DeltaPct":  -3
-                              },
-                              {
-                                  "name":  "Trey Bufkin",
-                                  "markets":  [
-                                                  "Lubbock"
-                                              ],
-                                  "q2Start":  916529,
-                                  "q2End":  904418,
-                                  "q2Delta":  -12111,
-                                  "q2DeltaPct":  -1.3
-                              },
-                              {
-                                  "name":  "Kelly Katoski",
-                                  "markets":  [
-                                                  "Duluth"
-                                              ],
-                                  "q2Start":  1390978,
-                                  "q2End":  1383878,
-                                  "q2Delta":  -7100,
-                                  "q2DeltaPct":  -0.5
-                              },
-                              {
-                                  "name":  "Jennifier Francis",
-                                  "markets":  [
-                                                  "Lafayette"
-                                              ],
-                                  "q2Start":  527248,
-                                  "q2End":  525748,
-                                  "q2Delta":  -1500,
-                                  "q2DeltaPct":  -0.3
-                              },
-                              {
-                                  "name":  "Natalie Redding",
-                                  "markets":  [
-                                                  "Grand Junction",
-                                                  "Montrose"
-                                              ],
-                                  "q2Start":  815130,
-                                  "q2End":  818930,
-                                  "q2Delta":  3800,
-                                  "q2DeltaPct":  0.5
-                              },
-                              {
-                                  "name":  "Christina Hawkins",
-                                  "markets":  [
-                                                  "Twin Falls"
-                                              ],
-                                  "q2Start":  719471,
-                                  "q2End":  731471,
-                                  "q2Delta":  12000,
-                                  "q2DeltaPct":  1.7
+                                  "q2Start":  838620,
+                                  "q2End":  808120,
+                                  "q2Delta":  -30500,
+                                  "q2DeltaPct":  -3.6
                               },
                               {
                                   "name":  "Todd Cross",
@@ -688,20 +620,93 @@
                                                   "Faribault/Owatonna",
                                                   "Rochester MN"
                                               ],
-                                  "q2Start":  1084065,
-                                  "q2End":  1098021,
-                                  "q2Delta":  13956,
-                                  "q2DeltaPct":  1.3
+                                  "q2Start":  69245,
+                                  "q2End":  49285,
+                                  "q2Delta":  -19960,
+                                  "q2DeltaPct":  -28.8
                               },
                               {
-                                  "name":  "Jilian Watson",
+                                  "name":  "Trey Bufkin",
                                   "markets":  [
-                                                  "Flint"
+                                                  "Lubbock"
                                               ],
-                                  "q2Start":  947866,
-                                  "q2End":  965566,
-                                  "q2Delta":  17700,
-                                  "q2DeltaPct":  1.9
+                                  "q2Start":  135500,
+                                  "q2End":  122000,
+                                  "q2Delta":  -13500,
+                                  "q2DeltaPct":  -10
+                              },
+                              {
+                                  "name":  "Kelly Katoski",
+                                  "markets":  [
+                                                  "Duluth"
+                                              ],
+                                  "q2Start":  1302428,
+                                  "q2End":  1293578,
+                                  "q2Delta":  -8850,
+                                  "q2DeltaPct":  -0.7
+                              },
+                              {
+                                  "name":  "Jennifier Francis",
+                                  "markets":  [
+                                                  "Lafayette"
+                                              ],
+                                  "q2Start":  485105,
+                                  "q2End":  477605,
+                                  "q2Delta":  -7500,
+                                  "q2DeltaPct":  -1.5
+                              },
+                              {
+                                  "name":  "Jeffrey Klein",
+                                  "markets":  [
+                                                  "Lufkin"
+                                              ],
+                                  "q2Start":  281409,
+                                  "q2End":  283009,
+                                  "q2Delta":  1600,
+                                  "q2DeltaPct":  0.6
+                              },
+                              {
+                                  "name":  "Natalie Redding",
+                                  "markets":  [
+                                                  "Grand Junction",
+                                                  "Montrose"
+                                              ],
+                                  "q2Start":  506590,
+                                  "q2End":  511045,
+                                  "q2Delta":  4455,
+                                  "q2DeltaPct":  0.9
+                              },
+                              {
+                                  "name":  "Scott Mauser",
+                                  "markets":  [
+                                                  "Evansville/Owensboro"
+                                              ],
+                                  "q2Start":  558357,
+                                  "q2End":  565190,
+                                  "q2Delta":  6833,
+                                  "q2DeltaPct":  1.2
+                              },
+                              {
+                                  "name":  "Christina Hawkins",
+                                  "markets":  [
+                                                  "Twin Falls"
+                                              ],
+                                  "q2Start":  306375,
+                                  "q2End":  318375,
+                                  "q2Delta":  12000,
+                                  "q2DeltaPct":  3.9
+                              },
+                              {
+                                  "name":  "Colton Bybee",
+                                  "markets":  [
+                                                  "Sierra Vista",
+                                                  "St. George",
+                                                  "Williston"
+                                              ],
+                                  "q2Start":  1538514,
+                                  "q2End":  1553514,
+                                  "q2Delta":  15000,
+                                  "q2DeltaPct":  1
                               }
                           ]
              }
