@@ -195,10 +195,10 @@ foreach ($mktName in $allMarkets) {
  }
 }
 
-# Sort by SOB delta descending for hot/cold
-$sorted = $marketRows | Sort-Object { $_.sobDelta } -Descending
+# Sort by FY pacing delta descending for hot/cold (consistent with Total Contract column)
+$sorted = $marketRows | Sort-Object { $_.fyPacingDelta } -Descending
 $hotMkts = $sorted | Select-Object -First 10
-$coldMkts = ($sorted | Select-Object -Last 10) | Sort-Object { $_.sobDelta }
+$coldMkts = ($sorted | Select-Object -Last 10) | Sort-Object { $_.fyPacingDelta }
 
 # Focus: markets below 85% Q2 AND FY $ gap worse than -$150K, ranked by FY $ gap
 # (thresholds are in $000s to match SOB data units)
