@@ -1,0 +1,1274 @@
+﻿{
+    "lastRefreshed":  "2026-04-27T11:49:35Z",
+    "weeksAnalyzed":  [
+                          "Apr 6",
+                          "Apr 13",
+                          "Apr 20",
+                          "Apr 27"
+                      ],
+    "weekDates":  [
+                      "2026-04-06",
+                      "2026-04-13",
+                      "2026-04-20",
+                      "2026-04-27"
+                  ],
+    "markets":  {
+                    "hot":  [
+                                {
+                                    "name":  "Trenton/Princeton",
+                                    "dsm":  "Diana Scully",
+                                    "risd":  "",
+                                    "sobStart":  1980,
+                                    "sobEnd":  2291,
+                                    "sobDelta":  311,
+                                    "sobDeltaPct":  15.7,
+                                    "weeklyAdds":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                    "cumulativeAdds":  0,
+                                    "q2PctBgt":  101.1,
+                                    "q2Budget":  2265,
+                                    "q2PctPY":  106.4
+                                },
+                                {
+                                    "name":  "Tyler",
+                                    "dsm":  "Crystal Bradford",
+                                    "risd":  "Kathi Kirkland",
+                                    "sobStart":  168,
+                                    "sobEnd":  392,
+                                    "sobDelta":  224,
+                                    "sobDeltaPct":  133.3,
+                                    "weeklyAdds":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                    "cumulativeAdds":  0,
+                                    "q2PctBgt":  206.6,
+                                    "q2Budget":  190,
+                                    "q2PctPY":  259.1
+                                },
+                                {
+                                    "name":  "Cedar Rapids",
+                                    "dsm":  "",
+                                    "risd":  "Jeroen Corver",
+                                    "sobStart":  1641,
+                                    "sobEnd":  1704,
+                                    "sobDelta":  63,
+                                    "sobDeltaPct":  3.8,
+                                    "weeklyAdds":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                    "cumulativeAdds":  0,
+                                    "q2PctBgt":  129.8,
+                                    "q2Budget":  1313,
+                                    "q2PctPY":  161.8
+                                },
+                                {
+                                    "name":  "San Angelo",
+                                    "dsm":  "Jennelle Diggs",
+                                    "risd":  "Tyler Wille",
+                                    "sobStart":  132,
+                                    "sobEnd":  194,
+                                    "sobDelta":  62,
+                                    "sobDeltaPct":  47,
+                                    "weeklyAdds":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                    "cumulativeAdds":  0,
+                                    "q2PctBgt":  119,
+                                    "q2Budget":  163,
+                                    "q2PctPY":  130.6
+                                },
+                                {
+                                    "name":  "Shreveport",
+                                    "dsm":  "Hillary Doyal",
+                                    "risd":  "Kathi Kirkland",
+                                    "sobStart":  691,
+                                    "sobEnd":  745,
+                                    "sobDelta":  54,
+                                    "sobDeltaPct":  7.8,
+                                    "weeklyAdds":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                    "cumulativeAdds":  0,
+                                    "q2PctBgt":  135.8,
+                                    "q2Budget":  548,
+                                    "q2PctPY":  151.5
+                                },
+                                {
+                                    "name":  "Poughkeepsie",
+                                    "dsm":  "Bryce Clemens",
+                                    "risd":  "",
+                                    "sobStart":  715,
+                                    "sobEnd":  759,
+                                    "sobDelta":  44,
+                                    "sobDeltaPct":  6.2,
+                                    "weeklyAdds":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                    "cumulativeAdds":  0,
+                                    "q2PctBgt":  100.1,
+                                    "q2Budget":  758,
+                                    "q2PctPY":  102.6
+                                },
+                                {
+                                    "name":  "Rockford",
+                                    "dsm":  "Alyssa Salisbury",
+                                    "risd":  "Kathi Kirkland",
+                                    "sobStart":  758,
+                                    "sobEnd":  799,
+                                    "sobDelta":  41,
+                                    "sobDeltaPct":  5.4,
+                                    "weeklyAdds":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                    "cumulativeAdds":  0,
+                                    "q2PctBgt":  120.1,
+                                    "q2Budget":  666,
+                                    "q2PctPY":  122.2
+                                },
+                                {
+                                    "name":  "Evansville/Owensboro",
+                                    "dsm":  "Scott Mauser",
+                                    "risd":  "",
+                                    "sobStart":  818,
+                                    "sobEnd":  844,
+                                    "sobDelta":  26,
+                                    "sobDeltaPct":  3.2,
+                                    "weeklyAdds":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                    "cumulativeAdds":  0,
+                                    "q2PctBgt":  96.8,
+                                    "q2Budget":  871,
+                                    "q2PctPY":  110.8
+                                },
+                                {
+                                    "name":  "Portland",
+                                    "dsm":  "Tyler Tholl",
+                                    "risd":  "",
+                                    "sobStart":  775,
+                                    "sobEnd":  798,
+                                    "sobDelta":  23,
+                                    "sobDeltaPct":  3,
+                                    "weeklyAdds":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                    "cumulativeAdds":  0,
+                                    "q2PctBgt":  78.3,
+                                    "q2Budget":  1020,
+                                    "q2PctPY":  87.2
+                                },
+                                {
+                                    "name":  "Lansing",
+                                    "dsm":  "Alixzandra Jyawook",
+                                    "risd":  "Kathi Kirkland",
+                                    "sobStart":  804,
+                                    "sobEnd":  824,
+                                    "sobDelta":  20,
+                                    "sobDeltaPct":  2.5,
+                                    "weeklyAdds":  [
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       0
+                                                   ],
+                                    "cumulativeAdds":  0,
+                                    "q2PctBgt":  172.4,
+                                    "q2Budget":  478,
+                                    "q2PctPY":  286.2
+                                }
+                            ],
+                    "cold":  [
+                                 {
+                                     "name":  "St. George",
+                                     "dsm":  "Colton Bybee",
+                                     "risd":  "Taylor Wheeler",
+                                     "sobStart":  886,
+                                     "sobEnd":  633,
+                                     "sobDelta":  -253,
+                                     "sobDeltaPct":  -28.6,
+                                     "weeklyAdds":  [
+                                                        0,
+                                                        0,
+                                                        0,
+                                                        0
+                                                    ],
+                                     "cumulativeAdds":  0,
+                                     "q2PctBgt":  186.3,
+                                     "q2Budget":  340,
+                                     "q2PctPY":  216
+                                 },
+                                 {
+                                     "name":  "Portsmouth",
+                                     "dsm":  "Ryan Sheehy",
+                                     "risd":  "",
+                                     "sobStart":  804,
+                                     "sobEnd":  702,
+                                     "sobDelta":  -102,
+                                     "sobDeltaPct":  -12.7,
+                                     "weeklyAdds":  [
+                                                        0,
+                                                        0,
+                                                        0,
+                                                        0
+                                                    ],
+                                     "cumulativeAdds":  0,
+                                     "q2PctBgt":  74.2,
+                                     "q2Budget":  947,
+                                     "q2PctPY":  86
+                                 },
+                                 {
+                                     "name":  "Duluth",
+                                     "dsm":  "Kelly Katoski",
+                                     "risd":  "Jeroen Corver",
+                                     "sobStart":  933,
+                                     "sobEnd":  903,
+                                     "sobDelta":  -30,
+                                     "sobDeltaPct":  -3.2,
+                                     "weeklyAdds":  [
+                                                        0,
+                                                        0,
+                                                        0,
+                                                        0
+                                                    ],
+                                     "cumulativeAdds":  0,
+                                     "q2PctBgt":  288.6,
+                                     "q2Budget":  313,
+                                     "q2PctPY":  398.9
+                                 },
+                                 {
+                                     "name":  "Missoula",
+                                     "dsm":  "",
+                                     "risd":  "",
+                                     "sobStart":  249,
+                                     "sobEnd":  230,
+                                     "sobDelta":  -19,
+                                     "sobDeltaPct":  -7.6,
+                                     "weeklyAdds":  [
+                                                        0,
+                                                        0,
+                                                        0,
+                                                        0
+                                                    ],
+                                     "cumulativeAdds":  0,
+                                     "q2PctBgt":  50.2,
+                                     "q2Budget":  459,
+                                     "q2PctPY":  54.9
+                                 },
+                                 {
+                                     "name":  "Shore",
+                                     "dsm":  "Diana Scully",
+                                     "risd":  "",
+                                     "sobStart":  619,
+                                     "sobEnd":  602,
+                                     "sobDelta":  -17,
+                                     "sobDeltaPct":  -2.7,
+                                     "weeklyAdds":  [
+                                                        0,
+                                                        0,
+                                                        0,
+                                                        0
+                                                    ],
+                                     "cumulativeAdds":  0,
+                                     "q2PctBgt":  71.4,
+                                     "q2Budget":  843,
+                                     "q2PctPY":  78.8
+                                 },
+                                 {
+                                     "name":  "Wichita Falls",
+                                     "dsm":  "Jennelle Diggs",
+                                     "risd":  "Tyler Wille",
+                                     "sobStart":  99,
+                                     "sobEnd":  88,
+                                     "sobDelta":  -11,
+                                     "sobDeltaPct":  -11.1,
+                                     "weeklyAdds":  [
+                                                        0,
+                                                        0,
+                                                        0,
+                                                        0
+                                                    ],
+                                     "cumulativeAdds":  0,
+                                     "q2PctBgt":  81.4,
+                                     "q2Budget":  108,
+                                     "q2PctPY":  153.8
+                                 },
+                                 {
+                                     "name":  "Kalamazoo",
+                                     "dsm":  "Angela Todd",
+                                     "risd":  "Kathi Kirkland",
+                                     "sobStart":  306,
+                                     "sobEnd":  300,
+                                     "sobDelta":  -6,
+                                     "sobDeltaPct":  -2,
+                                     "weeklyAdds":  [
+                                                        0,
+                                                        0,
+                                                        0,
+                                                        0
+                                                    ],
+                                     "cumulativeAdds":  0,
+                                     "q2PctBgt":  88.2,
+                                     "q2Budget":  340,
+                                     "q2PctPY":  123.1
+                                 },
+                                 {
+                                     "name":  "Great Falls",
+                                     "dsm":  "Michelle Sellers",
+                                     "risd":  "Taylor Wheeler",
+                                     "sobStart":  480,
+                                     "sobEnd":  475,
+                                     "sobDelta":  -5,
+                                     "sobDeltaPct":  -1,
+                                     "weeklyAdds":  [
+                                                        0,
+                                                        0,
+                                                        0,
+                                                        0
+                                                    ],
+                                     "cumulativeAdds":  0,
+                                     "q2PctBgt":  105.3,
+                                     "q2Budget":  451,
+                                     "q2PctPY":  113.7
+                                 },
+                                 {
+                                     "name":  "Lufkin",
+                                     "dsm":  "Jeffrey Klein",
+                                     "risd":  "Kathi Kirkland",
+                                     "sobStart":  314,
+                                     "sobEnd":  309,
+                                     "sobDelta":  -5,
+                                     "sobDeltaPct":  -1.6,
+                                     "weeklyAdds":  [
+                                                        0,
+                                                        0,
+                                                        0,
+                                                        0
+                                                    ],
+                                     "cumulativeAdds":  0,
+                                     "q2PctBgt":  104.2,
+                                     "q2Budget":  297,
+                                     "q2PctPY":  120.4
+                                 },
+                                 {
+                                     "name":  "Lafayette",
+                                     "dsm":  "Jennifier Francis",
+                                     "risd":  "Kathi Kirkland",
+                                     "sobStart":  214,
+                                     "sobEnd":  209,
+                                     "sobDelta":  -5,
+                                     "sobDeltaPct":  -2.3,
+                                     "weeklyAdds":  [
+                                                        0,
+                                                        0,
+                                                        0,
+                                                        0
+                                                    ],
+                                     "cumulativeAdds":  0,
+                                     "q2PctBgt":  78.9,
+                                     "q2Budget":  265,
+                                     "q2PctPY":  128.1
+                                 }
+                             ],
+                    "focus":  [
+                                  {
+                                      "Count":  12,
+                                      "IsReadOnly":  false,
+                                      "Keys":  [
+                                                   "name",
+                                                   "dsm",
+                                                   "risd",
+                                                   "sobStart",
+                                                   "sobEnd",
+                                                   "sobDelta",
+                                                   "sobDeltaPct",
+                                                   "weeklyAdds",
+                                                   "cumulativeAdds",
+                                                   "q2PctBgt",
+                                                   "q2Budget",
+                                                   "q2PctPY"
+                                               ],
+                                      "Values":  [
+                                                     "Utica",
+                                                     "Paige Lauback",
+                                                     "",
+                                                     329,
+                                                     338,
+                                                     9,
+                                                     2.7,
+                                                     [
+                                                         0,
+                                                         0,
+                                                         0,
+                                                         0
+                                                     ],
+                                                     0,
+                                                     30.2,
+                                                     1120,
+                                                     24.3
+                                                 ],
+                                      "IsFixedSize":  false,
+                                      "SyncRoot":  {
+
+                                                   },
+                                      "IsSynchronized":  false,
+                                      "isAlsoCold":  false
+                                  },
+                                  {
+                                      "Count":  12,
+                                      "IsReadOnly":  false,
+                                      "Keys":  [
+                                                   "name",
+                                                   "dsm",
+                                                   "risd",
+                                                   "sobStart",
+                                                   "sobEnd",
+                                                   "sobDelta",
+                                                   "sobDeltaPct",
+                                                   "weeklyAdds",
+                                                   "cumulativeAdds",
+                                                   "q2PctBgt",
+                                                   "q2Budget",
+                                                   "q2PctPY"
+                                               ],
+                                      "Values":  [
+                                                     "Lawton",
+                                                     "Jennelle Diggs",
+                                                     "Tyler Wille",
+                                                     95,
+                                                     95,
+                                                     0,
+                                                     0,
+                                                     [
+                                                         0,
+                                                         0,
+                                                         0,
+                                                         0
+                                                     ],
+                                                     0,
+                                                     40.1,
+                                                     236,
+                                                     44.1
+                                                 ],
+                                      "IsFixedSize":  false,
+                                      "SyncRoot":  {
+
+                                                   },
+                                      "IsSynchronized":  false,
+                                      "isAlsoCold":  false
+                                  },
+                                  {
+                                      "Count":  12,
+                                      "IsReadOnly":  false,
+                                      "Keys":  [
+                                                   "name",
+                                                   "dsm",
+                                                   "risd",
+                                                   "sobStart",
+                                                   "sobEnd",
+                                                   "sobDelta",
+                                                   "sobDeltaPct",
+                                                   "weeklyAdds",
+                                                   "cumulativeAdds",
+                                                   "q2PctBgt",
+                                                   "q2Budget",
+                                                   "q2PctPY"
+                                               ],
+                                      "Values":  [
+                                                     "Atlantic City",
+                                                     "",
+                                                     "",
+                                                     236,
+                                                     243,
+                                                     7,
+                                                     3,
+                                                     [
+                                                         0,
+                                                         0,
+                                                         0,
+                                                         0
+                                                     ],
+                                                     0,
+                                                     42.7,
+                                                     570,
+                                                     45.6
+                                                 ],
+                                      "IsFixedSize":  false,
+                                      "SyncRoot":  {
+
+                                                   },
+                                      "IsSynchronized":  false,
+                                      "isAlsoCold":  false
+                                  },
+                                  {
+                                      "Count":  12,
+                                      "IsReadOnly":  false,
+                                      "Keys":  [
+                                                   "name",
+                                                   "dsm",
+                                                   "risd",
+                                                   "sobStart",
+                                                   "sobEnd",
+                                                   "sobDelta",
+                                                   "sobDeltaPct",
+                                                   "weeklyAdds",
+                                                   "cumulativeAdds",
+                                                   "q2PctBgt",
+                                                   "q2Budget",
+                                                   "q2PctPY"
+                                               ],
+                                      "Values":  [
+                                                     "Missoula",
+                                                     "",
+                                                     "",
+                                                     249,
+                                                     230,
+                                                     -19,
+                                                     -7.6,
+                                                     [
+                                                         0,
+                                                         0,
+                                                         0,
+                                                         0
+                                                     ],
+                                                     0,
+                                                     50.2,
+                                                     459,
+                                                     54.9
+                                                 ],
+                                      "IsFixedSize":  false,
+                                      "SyncRoot":  {
+
+                                                   },
+                                      "IsSynchronized":  false,
+                                      "isAlsoCold":  true
+                                  },
+                                  {
+                                      "Count":  12,
+                                      "IsReadOnly":  false,
+                                      "Keys":  [
+                                                   "name",
+                                                   "dsm",
+                                                   "risd",
+                                                   "sobStart",
+                                                   "sobEnd",
+                                                   "sobDelta",
+                                                   "sobDeltaPct",
+                                                   "weeklyAdds",
+                                                   "cumulativeAdds",
+                                                   "q2PctBgt",
+                                                   "q2Budget",
+                                                   "q2PctPY"
+                                               ],
+                                      "Values":  [
+                                                     "Lake Charles",
+                                                     "Hillary Doyal",
+                                                     "Kathi Kirkland",
+                                                     70,
+                                                     70,
+                                                     0,
+                                                     0,
+                                                     [
+                                                         0,
+                                                         0,
+                                                         0,
+                                                         0
+                                                     ],
+                                                     0,
+                                                     56.7,
+                                                     123,
+                                                     77.8
+                                                 ],
+                                      "IsFixedSize":  false,
+                                      "SyncRoot":  {
+
+                                                   },
+                                      "IsSynchronized":  false,
+                                      "isAlsoCold":  false
+                                  },
+                                  {
+                                      "Count":  12,
+                                      "IsReadOnly":  false,
+                                      "Keys":  [
+                                                   "name",
+                                                   "dsm",
+                                                   "risd",
+                                                   "sobStart",
+                                                   "sobEnd",
+                                                   "sobDelta",
+                                                   "sobDeltaPct",
+                                                   "weeklyAdds",
+                                                   "cumulativeAdds",
+                                                   "q2PctBgt",
+                                                   "q2Budget",
+                                                   "q2PctPY"
+                                               ],
+                                      "Values":  [
+                                                     "Grand Junction",
+                                                     "Natalie Redding",
+                                                     "",
+                                                     154,
+                                                     158,
+                                                     4,
+                                                     2.6,
+                                                     [
+                                                         0,
+                                                         0,
+                                                         0,
+                                                         0
+                                                     ],
+                                                     0,
+                                                     60.3,
+                                                     263,
+                                                     63.4
+                                                 ],
+                                      "IsFixedSize":  false,
+                                      "SyncRoot":  {
+
+                                                   },
+                                      "IsSynchronized":  false,
+                                      "isAlsoCold":  false
+                                  },
+                                  {
+                                      "Count":  12,
+                                      "IsReadOnly":  false,
+                                      "Keys":  [
+                                                   "name",
+                                                   "dsm",
+                                                   "risd",
+                                                   "sobStart",
+                                                   "sobEnd",
+                                                   "sobDelta",
+                                                   "sobDeltaPct",
+                                                   "weeklyAdds",
+                                                   "cumulativeAdds",
+                                                   "q2PctBgt",
+                                                   "q2Budget",
+                                                   "q2PctPY"
+                                               ],
+                                      "Values":  [
+                                                     "Bozeman",
+                                                     "Nicholas Ineck",
+                                                     "Taylor Wheeler",
+                                                     119,
+                                                     119,
+                                                     0,
+                                                     0,
+                                                     [
+                                                         0,
+                                                         0,
+                                                         0,
+                                                         0
+                                                     ],
+                                                     0,
+                                                     62.2,
+                                                     191,
+                                                     83.1
+                                                 ],
+                                      "IsFixedSize":  false,
+                                      "SyncRoot":  {
+
+                                                   },
+                                      "IsSynchronized":  false,
+                                      "isAlsoCold":  false
+                                  },
+                                  {
+                                      "Count":  12,
+                                      "IsReadOnly":  false,
+                                      "Keys":  [
+                                                   "name",
+                                                   "dsm",
+                                                   "risd",
+                                                   "sobStart",
+                                                   "sobEnd",
+                                                   "sobDelta",
+                                                   "sobDeltaPct",
+                                                   "weeklyAdds",
+                                                   "cumulativeAdds",
+                                                   "q2PctBgt",
+                                                   "q2Budget",
+                                                   "q2PctPY"
+                                               ],
+                                      "Values":  [
+                                                     "Wenatchee",
+                                                     "Nicole Daily",
+                                                     "Taylor Wheeler",
+                                                     54,
+                                                     54,
+                                                     0,
+                                                     0,
+                                                     [
+                                                         0,
+                                                         0,
+                                                         0,
+                                                         0
+                                                     ],
+                                                     0,
+                                                     64.4,
+                                                     85,
+                                                     106.9
+                                                 ],
+                                      "IsFixedSize":  false,
+                                      "SyncRoot":  {
+
+                                                   },
+                                      "IsSynchronized":  false,
+                                      "isAlsoCold":  false
+                                  },
+                                  {
+                                      "Count":  12,
+                                      "IsReadOnly":  false,
+                                      "Keys":  [
+                                                   "name",
+                                                   "dsm",
+                                                   "risd",
+                                                   "sobStart",
+                                                   "sobEnd",
+                                                   "sobDelta",
+                                                   "sobDeltaPct",
+                                                   "weeklyAdds",
+                                                   "cumulativeAdds",
+                                                   "q2PctBgt",
+                                                   "q2Budget",
+                                                   "q2PctPY"
+                                               ],
+                                      "Values":  [
+                                                     "Albany",
+                                                     "John Shea",
+                                                     "",
+                                                     268,
+                                                     276,
+                                                     8,
+                                                     3,
+                                                     [
+                                                         0,
+                                                         0,
+                                                         0,
+                                                         0
+                                                     ],
+                                                     0,
+                                                     64.6,
+                                                     428,
+                                                     75.5
+                                                 ],
+                                      "IsFixedSize":  false,
+                                      "SyncRoot":  {
+
+                                                   },
+                                      "IsSynchronized":  false,
+                                      "isAlsoCold":  false
+                                  },
+                                  {
+                                      "Count":  12,
+                                      "IsReadOnly":  false,
+                                      "Keys":  [
+                                                   "name",
+                                                   "dsm",
+                                                   "risd",
+                                                   "sobStart",
+                                                   "sobEnd",
+                                                   "sobDelta",
+                                                   "sobDeltaPct",
+                                                   "weeklyAdds",
+                                                   "cumulativeAdds",
+                                                   "q2PctBgt",
+                                                   "q2Budget",
+                                                   "q2PctPY"
+                                               ],
+                                      "Values":  [
+                                                     "Laramie",
+                                                     "",
+                                                     "Taylor Wheeler",
+                                                     19,
+                                                     19,
+                                                     0,
+                                                     0,
+                                                     [
+                                                         0,
+                                                         0,
+                                                         0,
+                                                         0
+                                                     ],
+                                                     0,
+                                                     67.1,
+                                                     28,
+                                                     80.8
+                                                 ],
+                                      "IsFixedSize":  false,
+                                      "SyncRoot":  {
+
+                                                   },
+                                      "IsSynchronized":  false,
+                                      "isAlsoCold":  false
+                                  },
+                                  {
+                                      "Count":  12,
+                                      "IsReadOnly":  false,
+                                      "Keys":  [
+                                                   "name",
+                                                   "dsm",
+                                                   "risd",
+                                                   "sobStart",
+                                                   "sobEnd",
+                                                   "sobDelta",
+                                                   "sobDeltaPct",
+                                                   "weeklyAdds",
+                                                   "cumulativeAdds",
+                                                   "q2PctBgt",
+                                                   "q2Budget",
+                                                   "q2PctPY"
+                                               ],
+                                      "Values":  [
+                                                     "New Bedford",
+                                                     "Ryan Sheehy",
+                                                     "",
+                                                     75,
+                                                     76,
+                                                     1,
+                                                     1.3,
+                                                     [
+                                                         0,
+                                                         0,
+                                                         0,
+                                                         0
+                                                     ],
+                                                     0,
+                                                     69.1,
+                                                     110,
+                                                     86.7
+                                                 ],
+                                      "IsFixedSize":  false,
+                                      "SyncRoot":  {
+
+                                                   },
+                                      "IsSynchronized":  false,
+                                      "isAlsoCold":  false
+                                  },
+                                  {
+                                      "Count":  12,
+                                      "IsReadOnly":  false,
+                                      "Keys":  [
+                                                   "name",
+                                                   "dsm",
+                                                   "risd",
+                                                   "sobStart",
+                                                   "sobEnd",
+                                                   "sobDelta",
+                                                   "sobDeltaPct",
+                                                   "weeklyAdds",
+                                                   "cumulativeAdds",
+                                                   "q2PctBgt",
+                                                   "q2Budget",
+                                                   "q2PctPY"
+                                               ],
+                                      "Values":  [
+                                                     "Sioux Falls",
+                                                     "",
+                                                     "",
+                                                     239,
+                                                     239,
+                                                     0,
+                                                     0,
+                                                     [
+                                                         0,
+                                                         0,
+                                                         0,
+                                                         0
+                                                     ],
+                                                     0,
+                                                     70.7,
+                                                     338,
+                                                     93
+                                                 ],
+                                      "IsFixedSize":  false,
+                                      "SyncRoot":  {
+
+                                                   },
+                                      "IsSynchronized":  false,
+                                      "isAlsoCold":  false
+                                  },
+                                  {
+                                      "Count":  12,
+                                      "IsReadOnly":  false,
+                                      "Keys":  [
+                                                   "name",
+                                                   "dsm",
+                                                   "risd",
+                                                   "sobStart",
+                                                   "sobEnd",
+                                                   "sobDelta",
+                                                   "sobDeltaPct",
+                                                   "weeklyAdds",
+                                                   "cumulativeAdds",
+                                                   "q2PctBgt",
+                                                   "q2Budget",
+                                                   "q2PctPY"
+                                               ],
+                                      "Values":  [
+                                                     "Shore",
+                                                     "Diana Scully",
+                                                     "",
+                                                     619,
+                                                     602,
+                                                     -17,
+                                                     -2.7,
+                                                     [
+                                                         0,
+                                                         0,
+                                                         0,
+                                                         0
+                                                     ],
+                                                     0,
+                                                     71.4,
+                                                     843,
+                                                     78.8
+                                                 ],
+                                      "IsFixedSize":  false,
+                                      "SyncRoot":  {
+
+                                                   },
+                                      "IsSynchronized":  false,
+                                      "isAlsoCold":  true
+                                  },
+                                  {
+                                      "Count":  12,
+                                      "IsReadOnly":  false,
+                                      "Keys":  [
+                                                   "name",
+                                                   "dsm",
+                                                   "risd",
+                                                   "sobStart",
+                                                   "sobEnd",
+                                                   "sobDelta",
+                                                   "sobDeltaPct",
+                                                   "weeklyAdds",
+                                                   "cumulativeAdds",
+                                                   "q2PctBgt",
+                                                   "q2Budget",
+                                                   "q2PctPY"
+                                               ],
+                                      "Values":  [
+                                                     "Sierra Vista",
+                                                     "Colton Bybee",
+                                                     "Taylor Wheeler",
+                                                     87,
+                                                     92,
+                                                     5,
+                                                     5.7,
+                                                     [
+                                                         0,
+                                                         0,
+                                                         0,
+                                                         0
+                                                     ],
+                                                     0,
+                                                     72.7,
+                                                     127,
+                                                     83.2
+                                                 ],
+                                      "IsFixedSize":  false,
+                                      "SyncRoot":  {
+
+                                                   },
+                                      "IsSynchronized":  false,
+                                      "isAlsoCold":  false
+                                  },
+                                  {
+                                      "Count":  12,
+                                      "IsReadOnly":  false,
+                                      "Keys":  [
+                                                   "name",
+                                                   "dsm",
+                                                   "risd",
+                                                   "sobStart",
+                                                   "sobEnd",
+                                                   "sobDelta",
+                                                   "sobDeltaPct",
+                                                   "weeklyAdds",
+                                                   "cumulativeAdds",
+                                                   "q2PctBgt",
+                                                   "q2Budget",
+                                                   "q2PctPY"
+                                               ],
+                                      "Values":  [
+                                                     "Quad Cities",
+                                                     "Steven Horinka",
+                                                     "Jeroen Corver",
+                                                     343,
+                                                     359,
+                                                     16,
+                                                     4.7,
+                                                     [
+                                                         0,
+                                                         0,
+                                                         0,
+                                                         0
+                                                     ],
+                                                     0,
+                                                     72.9,
+                                                     492,
+                                                     117.8
+                                                 ],
+                                      "IsFixedSize":  false,
+                                      "SyncRoot":  {
+
+                                                   },
+                                      "IsSynchronized":  false,
+                                      "isAlsoCold":  false
+                                  }
+                              ]
+                },
+    "dsms":  {
+                 "hot":  [
+                             {
+                                 "name":  "Crystal Bradford",
+                                 "markets":  [
+                                                 "Killeen/Temple",
+                                                 "Tyler",
+                                                 "Victoria"
+                                             ],
+                                 "q2Start":  410826,
+                                 "q2End":  655810,
+                                 "q2Delta":  244984,
+                                 "q2DeltaPct":  59.6
+                             },
+                             {
+                                 "name":  "Diana Scully",
+                                 "markets":  [
+                                                 "Shore",
+                                                 "Trenton/Princeton"
+                                             ],
+                                 "q2Start":  283955,
+                                 "q2End":  484898,
+                                 "q2Delta":  200943,
+                                 "q2DeltaPct":  70.8
+                             },
+                             {
+                                 "name":  "Nicole Daily",
+                                 "markets":  [
+                                                 "Tri-Cities",
+                                                 "Wenatchee",
+                                                 "Yakima"
+                                             ],
+                                 "q2Start":  310435,
+                                 "q2End":  431730,
+                                 "q2Delta":  121295,
+                                 "q2DeltaPct":  39.1
+                             },
+                             {
+                                 "name":  "Alyssa Salisbury",
+                                 "markets":  [
+                                                 "Rockford"
+                                             ],
+                                 "q2Start":  680653,
+                                 "q2End":  759573,
+                                 "q2Delta":  78920,
+                                 "q2DeltaPct":  11.6
+                             },
+                             {
+                                 "name":  "Scott Mauser",
+                                 "markets":  [
+                                                 "Evansville/Owensboro"
+                                             ],
+                                 "q2Start":  453183,
+                                 "q2End":  520476,
+                                 "q2Delta":  67293,
+                                 "q2DeltaPct":  14.8
+                             },
+                             {
+                                 "name":  "Jennelle Diggs",
+                                 "markets":  [
+                                                 "Amarillo",
+                                                 "Lawton",
+                                                 "Odessa",
+                                                 "San Angelo",
+                                                 "Wichita Falls"
+                                             ],
+                                 "q2Start":  287932,
+                                 "q2End":  352497,
+                                 "q2Delta":  64565,
+                                 "q2DeltaPct":  22.4
+                             },
+                             {
+                                 "name":  "Ryan Sheehy",
+                                 "markets":  [
+                                                 "New Bedford",
+                                                 "Portsmouth"
+                                             ],
+                                 "q2Start":  728525,
+                                 "q2End":  783925,
+                                 "q2Delta":  55400,
+                                 "q2DeltaPct":  7.6
+                             },
+                             {
+                                 "name":  "Hillary Doyal",
+                                 "markets":  [
+                                                 "Lake Charles",
+                                                 "Shreveport",
+                                                 "Texarkana"
+                                             ],
+                                 "q2Start":  592621,
+                                 "q2End":  647401,
+                                 "q2Delta":  54780,
+                                 "q2DeltaPct":  9.2
+                             },
+                             {
+                                 "name":  "Steven Horinka",
+                                 "markets":  [
+                                                 "Bismarck",
+                                                 "Quad Cities",
+                                                 "Quincy/Hannibal"
+                                             ],
+                                 "q2Start":  416642,
+                                 "q2End":  462051,
+                                 "q2Delta":  45409,
+                                 "q2DeltaPct":  10.9
+                             },
+                             {
+                                 "name":  "Tyler Tholl",
+                                 "markets":  [
+                                                 "Augusta",
+                                                 "Portland"
+                                             ],
+                                 "q2Start":  306746,
+                                 "q2End":  345996,
+                                 "q2Delta":  39250,
+                                 "q2DeltaPct":  12.8
+                             }
+                         ],
+                 "cold":  [
+                              {
+                                  "name":  "Colton Bybee",
+                                  "markets":  [
+                                                  "Sierra Vista",
+                                                  "St. George",
+                                                  "Williston"
+                                              ],
+                                  "q2Start":  1012000,
+                                  "q2End":  756400,
+                                  "q2Delta":  -255600,
+                                  "q2DeltaPct":  -25.3
+                              },
+                              {
+                                  "name":  "Kelly Katoski",
+                                  "markets":  [
+                                                  "Duluth"
+                                              ],
+                                  "q2Start":  777778,
+                                  "q2End":  753078,
+                                  "q2Delta":  -24700,
+                                  "q2DeltaPct":  -3.2
+                              },
+                              {
+                                  "name":  "Jeffrey Klein",
+                                  "markets":  [
+                                                  "Lufkin"
+                                              ],
+                                  "q2Start":  313860,
+                                  "q2End":  309045,
+                                  "q2Delta":  -4815,
+                                  "q2DeltaPct":  -1.5
+                              },
+                              {
+                                  "name":  "Trey Bufkin",
+                                  "markets":  [
+                                                  "Lubbock"
+                                              ],
+                                  "q2Start":  221027,
+                                  "q2End":  217604,
+                                  "q2Delta":  -3423,
+                                  "q2DeltaPct":  -1.5
+                              },
+                              {
+                                  "name":  "Christina Hawkins",
+                                  "markets":  [
+                                                  "Twin Falls"
+                                              ],
+                                  "q2Start":  223078,
+                                  "q2End":  226078,
+                                  "q2Delta":  3000,
+                                  "q2DeltaPct":  1.3
+                              },
+                              {
+                                  "name":  "Natalie Redding",
+                                  "markets":  [
+                                                  "Grand Junction",
+                                                  "Montrose"
+                                              ],
+                                  "q2Start":  224200,
+                                  "q2End":  228000,
+                                  "q2Delta":  3800,
+                                  "q2DeltaPct":  1.7
+                              },
+                              {
+                                  "name":  "Joshua Whinery",
+                                  "markets":  [
+                                                  "Bangor"
+                                              ],
+                                  "q2Start":  401517,
+                                  "q2End":  407867,
+                                  "q2Delta":  6350,
+                                  "q2DeltaPct":  1.6
+                              },
+                              {
+                                  "name":  "Michelle Sellers",
+                                  "markets":  [
+                                                  "Butte",
+                                                  "Great Falls"
+                                              ],
+                                  "q2Start":  551316,
+                                  "q2End":  558961,
+                                  "q2Delta":  7645,
+                                  "q2DeltaPct":  1.4
+                              },
+                              {
+                                  "name":  "Jennifier Francis",
+                                  "markets":  [
+                                                  "Lafayette"
+                                              ],
+                                  "q2Start":  144186,
+                                  "q2End":  152186,
+                                  "q2Delta":  8000,
+                                  "q2DeltaPct":  5.5
+                              },
+                              {
+                                  "name":  "Todd Cross",
+                                  "markets":  [
+                                                  "Faribault/Owatonna",
+                                                  "Rochester MN"
+                                              ],
+                                  "q2Start":  323364,
+                                  "q2End":  332264,
+                                  "q2Delta":  8900,
+                                  "q2DeltaPct":  2.8
+                              }
+                          ]
+             }
+}

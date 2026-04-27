@@ -165,6 +165,24 @@
     .fm-pct-green { color:var(--green); font-weight:700; }
     .fm-vacant { background:rgba(251,146,60,0.2); color:#fb923c; font-weight:700; border-radius:4px; padding:1px 8px; font-size:0.75rem; letter-spacing:0.03em; }
     .fm-subtitle { font-size:0.72rem; color:var(--text-dim); letter-spacing:0.03em; }
+    .hot-section-title { font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal); padding:14px 20px 6px; }
+    .hot-table { width:100%; border-collapse:collapse; font-size:0.81rem; }
+    .hot-table thead th { background:var(--surface-2); color:var(--text-dim); font-size:0.66rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:7px 12px; border-bottom:1px solid var(--border-bright); white-space:nowrap; }
+    .hot-table thead th.accent { color:var(--teal); }
+    .hot-table tbody tr { border-bottom:1px solid var(--border); }
+    .hot-table tbody tr:hover { background:var(--surface-2); }
+    .hot-table tbody td { padding:8px 12px; color:var(--text); vertical-align:middle; }
+    .hot-rank { color:var(--text-dim); font-size:0.72rem; text-align:center; width:24px; }
+    .hot-mkt { font-weight:600; }
+    .hot-dim { color:var(--text-dim); font-size:0.78rem; }
+    .hot-pos { color:var(--green); font-weight:700; }
+    .hot-neg { color:var(--red); font-weight:700; }
+    .hot-amber { color:var(--yellow); font-weight:700; }
+    .hot-vacant { background:rgba(251,146,60,0.2); color:#fb923c; font-weight:700; border-radius:4px; padding:1px 7px; font-size:0.73rem; }
+    .hot-flag { background:rgba(248,113,113,0.15); color:var(--red); border:1px solid rgba(248,113,113,0.3); border-radius:3px; padding:0 5px; font-size:0.65rem; font-weight:700; margin-left:5px; }
+    .spark-wrap { display:inline-flex; gap:2px; align-items:flex-end; height:16px; vertical-align:middle; }
+    .spark-bar { width:7px; border-radius:1px; min-height:2px; }
+    .hot-also-cold td:first-child { border-left:2px solid var(--red); }
   </style>
 </head>
 <body>
@@ -207,7 +225,7 @@
           <button onclick="switchTab('commits')" id="tab-commits" class="bp-tab-active px-4 py-1.5 text-sm font-medium transition-all">Weekly Commits</button>
           <button onclick="switchTab('sob')" id="tab-sob" class="bp-tab-inactive px-4 py-1.5 text-sm font-medium transition-all">Pacing &amp; SOB</button>
           <button onclick="switchTab('dsm')" id="tab-dsm" class="bp-tab-inactive px-4 py-1.5 text-sm font-medium transition-all">DSM Report</button>
-        <button onclick="switchTab('focus')" id="tab-focus" class="bp-tab-inactive px-4 py-1.5 text-sm font-medium transition-all">Focus Markets</button>
+        <button onclick="switchTab('hot')" id="tab-hot" class="bp-tab-inactive px-4 py-1.5 text-sm font-medium transition-all">What's Hot</button>
         </div>
       </div>
 
@@ -296,29 +314,13 @@
         </div>
       </div>
 
-      <!-- FOCUS MARKETS PANEL -->
-      <div id="panel-focus" class="hidden">
-        <div style="padding:16px 20px 10px;border-bottom:1px solid var(--border);">
-          <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);">Focus Markets</span>
-          <span class="fm-subtitle" style="margin-left:12px;">Source: SOB-IGNITE Wk 18 &nbsp;|&nbsp; April 25, 2026 &nbsp;|&nbsp; Ranked by FY % to Budget (ascending)</span>
+      <!-- WHAT'S HOT PANEL -->
+      <div id="panel-hot" class="hidden">
+        <div style="padding:14px 20px 10px;border-bottom:1px solid var(--border);display:flex;align-items:baseline;gap:16px;">
+          <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);">What's Hot</span>
+          <span id="hotSubtitle" style="font-size:0.72rem;color:var(--text-dim);"></span>
         </div>
-        <div style="overflow-x:auto;padding:0 4px 16px;">
-          <table class="fm-table">
-            <thead>
-              <tr>
-                <th class="fm-rank">#</th>
-                <th>Market</th>
-                <th class="accent" style="text-align:right;">FY % Bud</th>
-                <th class="accent" style="text-align:right;">FY $ Gap</th>
-                <th style="text-align:right;">Q2 % Bud</th>
-                <th style="text-align:right;">Q2 % PY</th>
-                <th>DSM</th>
-                <th>RISD</th>
-              </tr>
-            </thead>
-            <tbody id="fmTbody"></tbody>
-          </table>
-        </div>
+        <div id="hotContent" style="padding:4px 0 16px;"></div>
       </div>
 
       <!-- SOB PANEL -->
@@ -706,6 +708,7 @@
 
     function switchTab(tab) {
       if (tab === 'dsm' && !dsmData) { loadDSMData(); }
+      if (tab === 'hot') { renderWhatshot(); }
       // Swap summary cards based on active tab
       if (tab === 'sob' && sobData && commitsData) renderSobCards(commitsData.months);
       if (tab === 'commits' && commitsData) renderSummaryCards(currentEntEff || {}, commitsData.months);
@@ -713,7 +716,7 @@
         const sel = $('dsmSelector');
         if (sel && sel.value) renderDSM(sel.value);
       }
-      ['commits','sob','dsm','focus'].forEach(t => {
+      ['commits','sob','dsm','hot'].forEach(t => {
         $('panel-' + t) && $('panel-' + t).classList.toggle('hidden', t !== tab);
         $('tab-' + t)    && ($('tab-' + t).className = t === tab
           ? 'bp-tab-active px-4 py-1.5 text-sm font-medium transition-all'
@@ -1141,7 +1144,175 @@
 
     loadData();
 
-    // ── Focus Markets ──────────────────────────────────────────
+    // ── What's Hot ──────────────────────────────────────────
+    var stackData = null;
+
+    function fmt$(v) {
+      if (v === 0) return '-';
+      var abs = Math.abs(v);
+      var s;
+      if (abs >= 1000000) { s = '$' + (abs/1000000).toFixed(1) + 'M'; }
+      else if (abs >= 1000) { s = '$' + Math.round(abs/1000) + 'K'; }
+      else { s = '$' + Math.round(abs); }
+      return v < 0 ? '-' + s : '+' + s;
+    }
+
+    function fmtPctHot(v) {
+      if (v === 0 || v === null || v === undefined) return '-';
+      return (v > 0 ? '+' : '') + v.toFixed(1) + '%';
+    }
+
+    function pctClass(pct, lo, hi) {
+      return pct < lo ? 'hot-neg' : pct < hi ? 'hot-amber' : 'hot-pos';
+    }
+
+    function sparkBars(adds, weeks) {
+      if (!adds || adds.length === 0) return '';
+      var max = 0;
+      for (var i = 0; i < adds.length; i++) { if (Math.abs(adds[i]) > max) max = Math.abs(adds[i]); }
+      if (max === 0) return '<span class="hot-dim">-</span>';
+      var out = '<span class="spark-wrap">';
+      for (var i = 0; i < adds.length; i++) {
+        var h = max > 0 ? Math.max(2, Math.round(Math.abs(adds[i]) / max * 14)) : 2;
+        var c = adds[i] >= 0 ? 'var(--green)' : 'var(--red)';
+        out += '<span class="spark-bar" style="height:' + h + 'px;background:' + c + ';opacity:0.75;" title="' + weeks[i] + ': ' + fmt$(adds[i]) + '"></span>';
+      }
+      out += '</span>';
+      return out;
+    }
+
+    function renderHotMarkets(rows, weeks, showRank) {
+      var h = '<table class="hot-table"><thead><tr>';
+      if (showRank) h += '<th class="hot-rank">#</th>';
+      h += '<th>Market</th>';
+      h += '<th>DSM</th>';
+      h += '<th class="accent" style="text-align:right;">SOB Delta</th>';
+      h += '<th class="accent" style="text-align:right;">SOB %</th>';
+      h += '<th style="text-align:right;">Cum Adds</th>';
+      h += '<th style="text-align:center;">Wk Adds</th>';
+      h += '<th class="hot-dim" style="text-align:right;">RISD</th>';
+      h += '</tr></thead><tbody>';
+      for (var i = 0; i < rows.length; i++) {
+        var r = rows[i];
+        var dsmCell = r.dsm === 'VACANT' || r.dsm === '' ? '<span class="hot-vacant">VACANT</span>' : r.dsm;
+        var deltaClass = r.sobDelta >= 0 ? 'hot-pos' : 'hot-neg';
+        var pctClass2 = r.sobDeltaPct >= 0 ? 'hot-pos' : 'hot-neg';
+        var addsClass = r.cumulativeAdds >= 0 ? 'hot-pos' : 'hot-neg';
+        var risdCell = r.risd ? '<span class="hot-dim">' + r.risd + '</span>' : '<span class="hot-dim">-</span>';
+        h += '<tr>';
+        if (showRank) h += '<td class="hot-rank">' + (i+1) + '</td>';
+        h += '<td class="hot-mkt">' + r.name + '</td>';
+        h += '<td>' + dsmCell + '</td>';
+        h += '<td style="text-align:right;" class="' + deltaClass + '">' + fmt$(r.sobDelta * 1000) + '</td>';
+        h += '<td style="text-align:right;" class="' + pctClass2 + '">' + fmtPctHot(r.sobDeltaPct) + '</td>';
+        h += '<td style="text-align:right;" class="' + addsClass + '">' + fmt$(r.cumulativeAdds) + '</td>';
+        h += '<td style="text-align:center;">' + sparkBars(r.weeklyAdds, weeks) + '</td>';
+        h += '<td style="text-align:right;">' + risdCell + '</td>';
+        h += '</tr>';
+      }
+      h += '</tbody></table>';
+      return h;
+    }
+
+    function renderFocusSection(rows) {
+      var h = '<table class="hot-table"><thead><tr>';
+      h += '<th class="hot-rank">#</th>';
+      h += '<th>Market</th>';
+      h += '<th>DSM</th>';
+      h += '<th class="accent" style="text-align:right;">Q2 % Bud</th>';
+      h += '<th class="accent" style="text-align:right;">Q2 $ Gap</th>';
+      h += '<th style="text-align:right;">Q2 % PY</th>';
+      h += '<th class="hot-dim" style="text-align:right;">RISD</th>';
+      h += '</tr></thead><tbody>';
+      for (var i = 0; i < rows.length; i++) {
+        var r = rows[i];
+        var q2PctClass = pctClass(r.q2PctBgt, 70, 90);
+        var q2PyClass = pctClass(r.q2PctPY, 70, 90);
+        var gap = (r.sobEnd - r.q2Budget) * 1000;
+        var gapStr = '-$' + Math.abs(Math.round(gap)).toLocaleString();
+        var dsmCell = r.dsm === '' ? '<span class="hot-vacant">VACANT</span>' : r.dsm;
+        var risdCell = r.risd ? '<span class="hot-dim">' + r.risd + '</span>' : '<span class="hot-dim">-</span>';
+        var flagStr = r.isAlsoCold ? '<span class="hot-flag">COLD</span>' : '';
+        var rowClass = r.isAlsoCold ? ' class="hot-also-cold"' : '';
+        h += '<tr' + rowClass + '>';
+        h += '<td class="hot-rank">' + (i+1) + '</td>';
+        h += '<td class="hot-mkt">' + r.name + flagStr + '</td>';
+        h += '<td>' + dsmCell + '</td>';
+        h += '<td style="text-align:right;" class="' + q2PctClass + '">' + r.q2PctBgt.toFixed(1) + '%</td>';
+        h += '<td style="text-align:right;color:var(--red);font-weight:600;">' + gapStr + '</td>';
+        h += '<td style="text-align:right;" class="' + q2PyClass + '">' + (r.q2PctPY ? r.q2PctPY.toFixed(1) + '%' : '-') + '</td>';
+        h += '<td style="text-align:right;">' + risdCell + '</td>';
+        h += '</tr>';
+      }
+      h += '</tbody></table>';
+      return h;
+    }
+
+    function renderDsmRankings(hotDsms, coldDsms) {
+      var sections = [{label:'DSM On the Move', rows:hotDsms}, {label:'DSM Going Cold', rows:coldDsms}];
+      var h = '';
+      for (var s = 0; s < sections.length; s++) {
+        h += '<div class="hot-section-title">' + sections[s].label + '</div>';
+        h += '<table class="hot-table"><thead><tr>';
+        h += '<th class="hot-rank">#</th><th>DSM</th><th>Markets</th>';
+        h += '<th class="accent" style="text-align:right;">Q2 Rev Delta</th>';
+        h += '<th class="accent" style="text-align:right;">Delta %</th>';
+        h += '<th style="text-align:right;">Q2 Start</th>';
+        h += '<th style="text-align:right;">Q2 Now</th>';
+        h += '</tr></thead><tbody>';
+        var rows = sections[s].rows;
+        for (var i = 0; i < rows.length; i++) {
+          var d = rows[i];
+          var deltaClass = d.q2Delta >= 0 ? 'hot-pos' : 'hot-neg';
+          var pctClass3 = d.q2DeltaPct >= 0 ? 'hot-pos' : 'hot-neg';
+          var mkts = d.markets && d.markets.length > 0 ? d.markets.join(', ') : '-';
+          h += '<tr>';
+          h += '<td class="hot-rank">' + (i+1) + '</td>';
+          h += '<td class="hot-mkt">' + d.name + '</td>';
+          h += '<td class="hot-dim" style="font-size:0.74rem;">' + mkts + '</td>';
+          h += '<td style="text-align:right;" class="' + deltaClass + '">' + fmt$(d.q2Delta) + '</td>';
+          h += '<td style="text-align:right;" class="' + pctClass3 + '">' + fmtPctHot(d.q2DeltaPct) + '</td>';
+          h += '<td style="text-align:right;color:var(--text-dim);">' + fmt$(d.q2Start) + '</td>';
+          h += '<td style="text-align:right;color:var(--text-dim);">' + fmt$(d.q2End) + '</td>';
+          h += '</tr>';
+        }
+        h += '</tbody></table>';
+      }
+      return h;
+    }
+
+    function renderWhatshot() {
+      if (!stackData) return;
+      var weeks = stackData.weeksAnalyzed || [];
+      var sub = document.getElementById('hotSubtitle');
+      if (sub) sub.textContent = 'Weeks: ' + weeks.join(' | ') + ' | SOB momentum + 4-week adds trend';
+      var content = document.getElementById('hotContent');
+      if (!content) return;
+      var html = '';
+      html += '<div class="hot-section-title">On the Move — Top 10 Markets</div>';
+      html += renderHotMarkets(stackData.markets.hot || [], weeks, true);
+      html += '<div class="hot-section-title" style="margin-top:8px;">Going Cold — Bottom 10 Markets</div>';
+      html += renderHotMarkets(stackData.markets.cold || [], weeks, true);
+      html += '<div class="hot-section-title" style="margin-top:8px;">Focus Markets — Ranked by Q2 % to Budget</div>';
+      html += '<div style="font-size:0.7rem;color:var(--text-dim);padding:0 20px 6px;">Red left border = also in Going Cold list</div>';
+      html += renderFocusSection(stackData.markets.focus || []);
+      html += '<div style="margin-top:8px;">';
+      html += renderDsmRankings(stackData.dsms.hot || [], stackData.dsms.cold || []);
+      html += '</div>';
+      content.innerHTML = html;
+    }
+
+    function loadWhatshot() {
+      var cb = '?v=' + Date.now();
+      fetch('data/stackrank.json' + cb)
+        .then(function(r) { return r.json(); })
+        .then(function(d) { stackData = d; renderWhatshot(); })
+        .catch(function(e) { console.warn('stackrank.json not available yet'); });
+    }
+
+    loadWhatshot();
+
+    // ── Focus Markets (legacy static data) ──────────────────────────────────────────
     var FOCUS_MARKETS = [
       {rank:1,  market:'Utica',          fyPct:37.7, fyGap:2682063, q2Bud:30.2, q2PY:24.3,  dsm:'Paige Laubeck',     risd:''},
       {rank:2,  market:'Atlantic City',  fyPct:38.9, fyGap:1130866, q2Bud:42.7, q2PY:45.6,  dsm:'VACANT',            risd:''},
