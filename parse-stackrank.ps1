@@ -186,10 +186,24 @@ $coldMkts = ($sorted | Select-Object -Last 10) | Sort-Object { $_.sobDelta }
 
 # Focus: bottom 15 by Q2% to budget (markets with real SOB data only)
 $coldNames = $coldMkts | ForEach-Object { $_.name }
-$focusMkts = ($marketRows | Where-Object { $_.q2Budget -gt 0 } | Sort-Object { $_.q2PctBgt }) | Select-Object -First 15
-$focusMkts = $focusMkts | ForEach-Object {
- $n = $_.name
- $_ | Select-Object *,@{N='isAlsoCold';E={ $coldNames -contains $n }}
+$focusMktsSorted = ($marketRows | Where-Object { $_.q2Budget -gt 0 } | Sort-Object { $_.q2PctBgt }) | Select-Object -First 15
+$focusMkts = @()
+foreach ($fm in $focusMktsSorted) {
+ $focusMkts += [ordered]@{
+  name = $fm.name
+  dsm = $fm.dsm
+  risd = $fm.risd
+  sobStart = $fm.sobStart
+  sobEnd = $fm.sobEnd
+  sobDelta = $fm.sobDelta
+  sobDeltaPct = $fm.sobDeltaPct
+  weeklyAdds = $fm.weeklyAdds
+  cumulativeAdds = $fm.cumulativeAdds
+  q2PctBgt = $fm.q2PctBgt
+  q2Budget = $fm.q2Budget
+  q2PctPY = $fm.q2PctPY
+  isAlsoCold = ($coldNames -contains $fm.name)
+ }
 }
 
 # DSM rankings: Q2 total revenue change oldest->newest

@@ -1214,33 +1214,32 @@
       return h;
     }
 
-    function renderFocusSection(rows) {
+    function renderFocusSection(rows, weeks) {
       var h = '<table class="hot-table"><thead><tr>';
       h += '<th class="hot-rank">#</th>';
       h += '<th>Market</th>';
       h += '<th>DSM</th>';
-      h += '<th class="accent" style="text-align:right;">Q2 % Bud</th>';
-      h += '<th class="accent" style="text-align:right;">Q2 $ Gap</th>';
-      h += '<th style="text-align:right;">Q2 % PY</th>';
+      h += '<th class="accent" style="text-align:right;">Q2 % Bgt</th>';
+      h += '<th style="text-align:right;">SOB Delta</th>';
+      h += '<th style="text-align:right;">Cum Adds</th>';
       h += '<th class="hot-dim" style="text-align:right;">RISD</th>';
       h += '</tr></thead><tbody>';
       for (var i = 0; i < rows.length; i++) {
         var r = rows[i];
-        var q2PctClass = pctClass(r.q2PctBgt, 70, 90);
-        var q2PyClass = pctClass(r.q2PctPY, 70, 90);
-        var gap = (r.sobEnd - r.q2Budget) * 1000;
-        var gapStr = '-$' + Math.abs(Math.round(gap)).toLocaleString();
-        var dsmCell = r.dsm === '' ? '<span class="hot-vacant">VACANT</span>' : r.dsm;
-        var risdCell = r.risd ? '<span class="hot-dim">' + r.risd + '</span>' : '<span class="hot-dim">-</span>';
-        var flagStr = r.isAlsoCold ? '<span class="hot-flag">COLD</span>' : '';
         var rowClass = r.isAlsoCold ? ' class="hot-also-cold"' : '';
+        var flag = r.isAlsoCold ? '<span class="hot-flag">COLD</span>' : '';
+        var dsmCell = r.dsm === 'VACANT' || r.dsm === '' ? '<span class="hot-vacant">VACANT</span>' : r.dsm;
+        var pctCls = pctClass(r.q2PctBgt, 70, 90);
+        var deltaClass = r.sobDelta >= 0 ? 'hot-pos' : 'hot-neg';
+        var addsClass = r.cumulativeAdds >= 0 ? 'hot-pos' : 'hot-neg';
+        var risdCell = r.risd ? '<span class="hot-dim">' + r.risd + '</span>' : '<span class="hot-dim">-</span>';
         h += '<tr' + rowClass + '>';
         h += '<td class="hot-rank">' + (i+1) + '</td>';
-        h += '<td class="hot-mkt">' + r.name + flagStr + '</td>';
+        h += '<td class="hot-mkt">' + r.name + flag + '</td>';
         h += '<td>' + dsmCell + '</td>';
-        h += '<td style="text-align:right;" class="' + q2PctClass + '">' + r.q2PctBgt.toFixed(1) + '%</td>';
-        h += '<td style="text-align:right;color:var(--red);font-weight:600;">' + gapStr + '</td>';
-        h += '<td style="text-align:right;" class="' + q2PyClass + '">' + (r.q2PctPY ? r.q2PctPY.toFixed(1) + '%' : '-') + '</td>';
+        h += '<td style="text-align:right;" class="' + pctCls + '">' + fmtPctHot(r.q2PctBgt) + '</td>';
+        h += '<td style="text-align:right;" class="' + deltaClass + '">' + fmt$(r.sobDelta * 1000) + '</td>';
+        h += '<td style="text-align:right;" class="' + addsClass + '">' + fmt$(r.cumulativeAdds) + '</td>';
         h += '<td style="text-align:right;">' + risdCell + '</td>';
         h += '</tr>';
       }
@@ -1248,121 +1247,88 @@
       return h;
     }
 
-    function renderDsmRankings(hotDsms, coldDsms) {
-      var sections = [{label:'DSM On the Move', rows:hotDsms}, {label:'DSM Going Cold', rows:coldDsms}];
-      var h = '';
-      for (var s = 0; s < sections.length; s++) {
-        h += '<div class="hot-section-title">' + sections[s].label + '</div>';
-        h += '<table class="hot-table"><thead><tr>';
-        h += '<th class="hot-rank">#</th><th>DSM</th><th>Markets</th>';
-        h += '<th class="accent" style="text-align:right;">Q2 Rev Delta</th>';
-        h += '<th class="accent" style="text-align:right;">Delta %</th>';
-        h += '<th style="text-align:right;">Q2 Start</th>';
-        h += '<th style="text-align:right;">Q2 Now</th>';
-        h += '</tr></thead><tbody>';
-        var rows = sections[s].rows;
-        for (var i = 0; i < rows.length; i++) {
-          var d = rows[i];
-          var deltaClass = d.q2Delta >= 0 ? 'hot-pos' : 'hot-neg';
-          var pctClass3 = d.q2DeltaPct >= 0 ? 'hot-pos' : 'hot-neg';
-          var mkts = d.markets && d.markets.length > 0 ? d.markets.join(', ') : '-';
-          h += '<tr>';
-          h += '<td class="hot-rank">' + (i+1) + '</td>';
-          h += '<td class="hot-mkt">' + d.name + '</td>';
-          h += '<td class="hot-dim" style="font-size:0.74rem;">' + mkts + '</td>';
-          h += '<td style="text-align:right;" class="' + deltaClass + '">' + fmt$(d.q2Delta) + '</td>';
-          h += '<td style="text-align:right;" class="' + pctClass3 + '">' + fmtPctHot(d.q2DeltaPct) + '</td>';
-          h += '<td style="text-align:right;color:var(--text-dim);">' + fmt$(d.q2Start) + '</td>';
-          h += '<td style="text-align:right;color:var(--text-dim);">' + fmt$(d.q2End) + '</td>';
-          h += '</tr>';
-        }
-        h += '</tbody></table>';
+    function renderDsmRankings(rows) {
+      var h = '<table class="hot-table"><thead><tr>';
+      h += '<th class="hot-rank">#</th>';
+      h += '<th>DSM</th>';
+      h += '<th>Markets</th>';
+      h += '<th class="accent" style="text-align:right;">Q2 Rev Delta</th>';
+      h += '<th style="text-align:right;">Q2 %</th>';
+      h += '</tr></thead><tbody>';
+      for (var i = 0; i < rows.length; i++) {
+        var r = rows[i];
+        var deltaClass = r.q2Delta >= 0 ? 'hot-pos' : 'hot-neg';
+        var pctCls = r.q2DeltaPct >= 0 ? 'hot-pos' : 'hot-neg';
+        var mkts = Array.isArray(r.markets) ? r.markets.join(', ') : (r.markets || '');
+        h += '<tr>';
+        h += '<td class="hot-rank">' + (i+1) + '</td>';
+        h += '<td class="hot-mkt">' + r.name + '</td>';
+        h += '<td class="hot-dim" style="font-size:0.75rem;">' + mkts + '</td>';
+        h += '<td style="text-align:right;" class="' + deltaClass + '">' + fmt$(r.q2Delta) + '</td>';
+        h += '<td style="text-align:right;" class="' + pctCls + '">' + fmtPctHot(r.q2DeltaPct) + '</td>';
+        h += '</tr>';
       }
+      h += '</tbody></table>';
       return h;
     }
 
     function renderWhatshot() {
       if (!stackData) return;
-      var weeks = stackData.weeksAnalyzed || [];
-      var sub = document.getElementById('hotSubtitle');
-      if (sub) sub.textContent = 'Weeks: ' + weeks.join(' | ') + ' | SOB momentum + 4-week adds trend';
-      var content = document.getElementById('hotContent');
-      if (!content) return;
+      var m = stackData.markets;
+      var weeks = stackData.weeksAnalyzed || stackData.weekDates || [];
+      var el = $('hotContent');
+      if (!el) return;
+      var sub = $('hotSubtitle');
+      if (sub && stackData.weeksAnalyzed) {
+        sub.textContent = 'Based on ' + stackData.weeksAnalyzed.join(', ') + '  \xB7  Refreshed ' + (stackData.lastRefreshed ? stackData.lastRefreshed.substring(0,10) : '');
+      }
       var html = '';
-      html += '<div class="hot-section-title">On the Move — Top 10 Markets</div>';
-      html += renderHotMarkets(stackData.markets.hot || [], weeks, true);
-      html += '<div class="hot-section-title" style="margin-top:8px;">Going Cold — Bottom 10 Markets</div>';
-      html += renderHotMarkets(stackData.markets.cold || [], weeks, true);
-      html += '<div class="hot-section-title" style="margin-top:8px;">Focus Markets — Ranked by Q2 % to Budget</div>';
-      html += '<div style="font-size:0.7rem;color:var(--text-dim);padding:0 20px 6px;">Red left border = also in Going Cold list</div>';
-      html += renderFocusSection(stackData.markets.focus || []);
-      html += '<div style="margin-top:8px;">';
-      html += renderDsmRankings(stackData.dsms.hot || [], stackData.dsms.cold || []);
+      html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">';
+      html += '<div><div class="hot-section-title">&#x1F525; Hot Markets (SOB Momentum)</div>';
+      html += renderHotMarkets(m.hot || [], weeks, true);
       html += '</div>';
-      content.innerHTML = html;
+      html += '<div><div class="hot-section-title">&#x2744;&#xFE0F; Cold Markets (SOB Momentum)</div>';
+      html += renderHotMarkets(m.cold || [], weeks, true);
+      html += '</div></div>';
+      html += '<div style="margin-bottom:20px;">';
+      html += '<div class="hot-section-title">&#x26A0;&#xFE0F; Focus Markets (Lowest Q2 % to Budget)</div>';
+      html += renderFocusSection(m.focus || [], weeks);
+      html += '</div>';
+      html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">';
+      html += '<div><div class="hot-section-title">&#x1F4C8; DSM Momentum (Top Q2 Rev Growth)</div>';
+      html += renderDsmRankings(stackData.dsms.hot || []);
+      html += '</div>';
+      html += '<div><div class="hot-section-title">&#x1F4C9; DSM Concern (Biggest Q2 Rev Decline)</div>';
+      html += renderDsmRankings(stackData.dsms.cold || []);
+      html += '</div></div>';
+      el.innerHTML = html;
     }
 
     function loadWhatshot() {
       var cb = '?v=' + Date.now();
       fetch('data/stackrank.json' + cb)
         .then(function(r) { return r.json(); })
-        .then(function(d) { stackData = d; renderWhatshot(); })
-        .catch(function(e) { console.warn('stackrank.json not available yet'); });
+        .then(function(data) {
+          // Normalize focus items: PS Select-Object serializes ordered dicts with Keys/Values arrays
+          if (data.markets && data.markets.focus) {
+            data.markets.focus = (data.markets.focus || []).map(function(item) {
+              if (item && item.Keys && item.Values) {
+                var obj = {};
+                for (var k = 0; k < item.Keys.length; k++) { obj[item.Keys[k]] = item.Values[k]; }
+                obj.isAlsoCold = !!item.isAlsoCold;
+                return obj;
+              }
+              return item;
+            });
+          }
+          stackData = data;
+          renderWhatshot();
+        })
+        .catch(function(e) { console.warn('stackrank.json not available yet', e); });
     }
 
     loadWhatshot();
 
-    // ── Focus Markets (legacy static data) ──────────────────────────────────────────
-    var FOCUS_MARKETS = [
-      {rank:1,  market:'Utica',          fyPct:37.7, fyGap:2682063, q2Bud:30.2, q2PY:24.3,  dsm:'Paige Laubeck',     risd:''},
-      {rank:2,  market:'Atlantic City',  fyPct:38.9, fyGap:1130866, q2Bud:42.7, q2PY:45.6,  dsm:'VACANT',            risd:''},
-      {rank:3,  market:'Missoula',       fyPct:47.7, fyGap:928757,  q2Bud:50.2, q2PY:54.9,  dsm:'Mike Miller',       risd:''},
-      {rank:4,  market:'Lake Charles',   fyPct:49.5, fyGap:285400,  q2Bud:56.7, q2PY:77.8,  dsm:'Hillary Doyal',     risd:'Kathi Kirkland'},
-      {rank:5,  market:'Lawton',         fyPct:52.3, fyGap:417379,  q2Bud:40.1, q2PY:44.1,  dsm:'Jennelle Diggs',    risd:'Tyler Wille'},
-      {rank:6,  market:'Portland',       fyPct:55.8, fyGap:1637958, q2Bud:78.3, q2PY:87.2,  dsm:'Tyler Tholl',       risd:''},
-      {rank:7,  market:'Grand Junction', fyPct:57.8, fyGap:426303,  q2Bud:60.3, q2PY:63.4,  dsm:'Natalie Redding',   risd:''},
-      {rank:8,  market:'Sioux Falls',    fyPct:62.5, fyGap:487750,  q2Bud:70.7, q2PY:93.0,  dsm:'VACANT',            risd:''},
-      {rank:9,  market:'Albany',         fyPct:62.5, fyGap:534594,  q2Bud:64.6, q2PY:75.5,  dsm:'John Shea',         risd:''},
-      {rank:10, market:'Shore',          fyPct:63.8, fyGap:985883,  q2Bud:71.4, q2PY:78.8,  dsm:'Diana Scully',      risd:''},
-      {rank:11, market:'Portsmouth',     fyPct:66.0, fyGap:1191187, q2Bud:74.2, q2PY:86.0,  dsm:'Ryan Sheehy',       risd:''},
-      {rank:12, market:'Lafayette',      fyPct:66.2, fyGap:373286,  q2Bud:78.9, q2PY:128.1, dsm:'Jennifer Francis',   risd:'Kathi Kirkland'},
-      {rank:13, market:'St. Cloud',      fyPct:70.4, fyGap:571381,  q2Bud:85.1, q2PY:92.0,  dsm:'Joe Putz',          risd:''},
-      {rank:14, market:'Kalamazoo',      fyPct:71.3, fyGap:424116,  q2Bud:88.2, q2PY:123.1, dsm:'Angela Todd',        risd:'Kathi Kirkland'},
-      {rank:15, market:'Dubuque',        fyPct:75.1, fyGap:401437,  q2Bud:88.9, q2PY:107.6, dsm:'Tony Townsend',     risd:''}
-    ];
-
-    var FM_MAX_GAP = 0;
-    for (var fi = 0; fi < FOCUS_MARKETS.length; fi++) { if (FOCUS_MARKETS[fi].fyGap > FM_MAX_GAP) FM_MAX_GAP = FOCUS_MARKETS[fi].fyGap; }
-
-    function fmPctClass(pct, lo, hi) { return pct < lo ? 'fm-pct-red' : pct < hi ? 'fm-pct-amber' : 'fm-pct-green'; }
-
-    function renderFocusMarkets() {
-      var tbody = document.getElementById('fmTbody');
-      if (!tbody) return;
-      var html = '';
-      for (var i = 0; i < FOCUS_MARKETS.length; i++) {
-        var r = FOCUS_MARKETS[i];
-        var barW = (r.fyGap / FM_MAX_GAP * 100).toFixed(1);
-        var fyC  = fmPctClass(r.fyPct, 55, 75);
-        var pyC  = fmPctClass(r.q2PY, 70, 90);
-        var dsmCell  = r.dsm === 'VACANT' ? '<span class="fm-vacant">VACANT</span>' : r.dsm;
-        var risdCell = r.risd ? '<span style="color:var(--text-dim);font-size:0.8rem;">' + r.risd + '</span>' : '<span style="color:var(--text-dim);">&#8212;</span>';
-        var gap = '-$' + r.fyGap.toLocaleString();
-        html += '<tr>';
-        html += '<td class="fm-rank">' + r.rank + '</td>';
-        html += '<td class="fm-market">' + r.market + '</td>';
-        html += '<td style="text-align:right;"><span class="' + fyC + '">' + r.fyPct.toFixed(1) + '%</span></td>';
-        html += '<td class="fm-gap-cell" style="text-align:right;min-width:120px;"><div class="fm-gap-bar" style="width:' + barW + '%;"></div><span class="fm-gap-val">' + gap + '</span></td>';
-        html += '<td style="text-align:right;color:var(--text-dim);">' + r.q2Bud.toFixed(1) + '%</td>';
-        html += '<td style="text-align:right;"><span class="' + pyC + '">' + r.q2PY.toFixed(1) + '%</span></td>';
-        html += '<td>' + dsmCell + '</td>';
-        html += '<td>' + risdCell + '</td>';
-        html += '</tr>';
-      }
-      tbody.innerHTML = html;
-    }
-
-    renderFocusMarkets();
-  </script>
-</body>
+    </script>
+  </body>
 </html>
