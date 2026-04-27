@@ -131,35 +131,44 @@ foreach ($region in $latestSob.regions) {
 # Compute market momentum
 $marketRows = @()
 foreach ($mktName in $allMarkets) {
- # SOB Q2 pacing: oldest vs newest (values in $000s)
- $sobOld = 0; $sobNew = 0
+ # Q2 and FY pacing: oldest vs newest (values in $000s)
+ $sobOld = 0; $sobNew = 0; $fyOld = 0; $fyNew = 0
+ $q2PctBgt = 0; $q2Budget = 0; $q2PctPY = 0
+ $fyBudget = 0; $fyPctBgt = 0; $fyGap = 0
  if ($sobByWeek[$oldestWd]) {
  foreach ($r in $sobByWeek[$oldestWd].regions) {
  foreach ($m in $r.markets) {
- if ($m.name -eq $mktName) { $sobOld = $m.q2.total.pacing; break }
+ if ($m.name -eq $mktName) {
+  $sobOld = $m.q2.total.pacing
+  $fyOld = $m.q2.total.pacing + $m.q3.total.pacing
+  break
+ }
  }
  }
  }
  foreach ($r in $latestSob.regions) {
  foreach ($m in $r.markets) {
  if ($m.name -eq $mktName) {
- $sobNew = $m.q2.total.pacing
- $q2PctBgt = $m.q2.total.pctBgt
- $q2Budget = $m.q2.total.budget
- $q2PctPY = $m.q2.total.pctPY
- break
+  $sobNew = $m.q2.total.pacing
+  $q2PctBgt = $m.q2.total.pctBgt
+  $q2Budget = $m.q2.total.budget
+  $q2PctPY = $m.q2.total.pctPY
+  $fyNew = $m.q2.total.pacing + $m.q3.total.pacing
+  $fyBudget = $m.q2.total.budget + $m.q3.total.budget
+  $fyPctBgt = if ($fyBudget -ne 0) { [math]::Round(($fyNew / $fyBudget) * 100, 1) } else { 0 }
+  $fyGap = [math]::Round($fyNew - $fyBudget, 0)
+  break
  }
  }
  }
  $sobDelta = $sobNew - $sobOld
  $sobDeltaPct = if ($sobOld -ne 0) { [math]::Round(($sobDelta / $sobOld) * 100, 1) } else { 0 }
+ $fyPacingDelta = $fyNew - $fyOld
 
- # Weekly adds per week
- $weeklyAdds = @()
+ # Cumulative adds over 4 weeks from Sales Revenue CSVs
  $cumAdds = 0
  foreach ($wd in $weekDates) {
  $v = if ($addsByWeek[$wd].ContainsKey($mktName)) { $addsByWeek[$wd][$mktName] } else { 0 }
- $weeklyAdds += [math]::Round($v, 0)
  $cumAdds += $v
  }
 
@@ -167,11 +176,12 @@ foreach ($mktName in $allMarkets) {
  name = $mktName
  dsm = if ($marketDsm.ContainsKey($mktName)) { $marketDsm[$mktName] } else { "" }
  risd = if ($marketRisd.ContainsKey($mktName)) { $marketRisd[$mktName] } else { "" }
- sobStart = $sobOld
- sobEnd = $sobNew
  sobDelta = $sobDelta
  sobDeltaPct = $sobDeltaPct
- weeklyAdds = $weeklyAdds
+ fyPacingDelta = $fyPacingDelta
+ fyPctBgt = $fyPctBgt
+ fyGap = $fyGap
+ fyBudget = $fyBudget
  cumulativeAdds = [math]::Round($cumAdds, 0)
  q2PctBgt = $q2PctBgt
  q2Budget = $q2Budget
@@ -184,23 +194,19 @@ $sorted = $marketRows | Sort-Object { $_.sobDelta } -Descending
 $hotMkts = $sorted | Select-Object -First 10
 $coldMkts = ($sorted | Select-Object -Last 10) | Sort-Object { $_.sobDelta }
 
-# Focus: bottom 15 by Q2% to budget (markets with real SOB data only)
+# Focus: bottom 15 by FY $ gap (most negative = furthest behind budget)
 $coldNames = $coldMkts | ForEach-Object { $_.name }
-$focusMktsSorted = ($marketRows | Where-Object { $_.q2Budget -gt 0 } | Sort-Object { $_.q2PctBgt }) | Select-Object -First 15
+$focusMktsSorted = ($marketRows | Where-Object { $_.fyBudget -gt 0 } | Sort-Object { $_.fyGap }) | Select-Object -First 15
 $focusMkts = @()
 foreach ($fm in $focusMktsSorted) {
  $focusMkts += [ordered]@{
   name = $fm.name
   dsm = $fm.dsm
   risd = $fm.risd
-  sobStart = $fm.sobStart
-  sobEnd = $fm.sobEnd
-  sobDelta = $fm.sobDelta
-  sobDeltaPct = $fm.sobDeltaPct
-  weeklyAdds = $fm.weeklyAdds
-  cumulativeAdds = $fm.cumulativeAdds
+  fyPctBgt = $fm.fyPctBgt
+  fyGap = $fm.fyGap
+  fyBudget = $fm.fyBudget
   q2PctBgt = $fm.q2PctBgt
-  q2Budget = $fm.q2Budget
   q2PctPY = $fm.q2PctPY
   isAlsoCold = ($coldNames -contains $fm.name)
  }
