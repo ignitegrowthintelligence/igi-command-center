@@ -1,0 +1,546 @@
+﻿{
+    "lastRefreshed":  "2026-04-28T04:00:00Z",
+    "months":  [
+                   {
+                       "key":  "m1",
+                       "abbr":  "Apr",
+                       "label":  "April",
+                       "woa_month":  4
+                   },
+                   {
+                       "key":  "m2",
+                       "abbr":  "May",
+                       "label":  "May",
+                       "woa_month":  5
+                   },
+                   {
+                       "key":  "m3",
+                       "abbr":  "Jun",
+                       "label":  "June",
+                       "woa_month":  6
+                   }
+               ],
+    "regions":  [
+                    {
+                        "id":  "kathi",
+                        "name":  "Kathi Kirkland",
+                        "markets":  [
+                                        {
+                                            "name":  "Battle Creek",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Flint",
+                                            "m1":  -9000,
+                                            "m2":  2000,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Grand Rapids",
+                                            "m1":  -3350,
+                                            "m2":  2500,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Kalamazoo",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Killeen/Temple",
+                                            "m1":  -7364,
+                                            "m2":  4522,
+                                            "m3":  721
+                                        },
+                                        {
+                                            "name":  "Lafayette",
+                                            "m1":  null,
+                                            "m2":  2833,
+                                            "m3":  2167
+                                        },
+                                        {
+                                            "name":  "Lake Charles",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Lansing",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Lufkin",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Rockford",
+                                            "m1":  null,
+                                            "m2":  4000,
+                                            "m3":  4000
+                                        },
+                                        {
+                                            "name":  "Shreveport",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Texarkana",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Tyler",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Victoria",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        }
+                                    ]
+                    },
+                    {
+                        "id":  "taylor",
+                        "name":  "Taylor Wheeler",
+                        "markets":  [
+                                        {
+                                            "name":  "Billings",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Boise",
+                                            "m1":  null,
+                                            "m2":  2600,
+                                            "m3":  2600
+                                        },
+                                        {
+                                            "name":  "Bozeman",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Butte",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Casper",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Cheyenne",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Fort Collins",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Great Falls",
+                                            "m1":  -500,
+                                            "m2":  500,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Laramie",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Sierra Vista",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "St. George",
+                                            "m1":  -1500,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Tri-Cities",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Twin Falls",
+                                            "m1":  null,
+                                            "m2":  1000,
+                                            "m3":  1000
+                                        },
+                                        {
+                                            "name":  "Wenatchee",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Yakima",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        }
+                                    ]
+                    },
+                    {
+                        "id":  "tylerw",
+                        "name":  "Tyler Wille",
+                        "markets":  [
+                                        {
+                                            "name":  "Abilene",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Amarillo",
+                                            "m1":  -500,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "El Paso",
+                                            "m1":  -3012,
+                                            "m2":  -234,
+                                            "m3":  767
+                                        },
+                                        {
+                                            "name":  "Lawton",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Lubbock",
+                                            "m1":  -1063,
+                                            "m2":  -1063,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Odessa",
+                                            "m1":  null,
+                                            "m2":  9500,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "San Angelo",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Wichita Falls",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        }
+                                    ]
+                    },
+                    {
+                        "id":  "jeroen",
+                        "name":  "Jeroen Corver",
+                        "markets":  [
+                                        {
+                                            "name":  "Bismarck",
+                                            "m1":  -1500,
+                                            "m2":  500,
+                                            "m3":  -1500
+                                        },
+                                        {
+                                            "name":  "Cedar Rapids",
+                                            "m1":  null,
+                                            "m2":  23588,
+                                            "m3":  23588
+                                        },
+                                        {
+                                            "name":  "Duluth",
+                                            "m1":  1805,
+                                            "m2":  1805,
+                                            "m3":  1805
+                                        },
+                                        {
+                                            "name":  "Faribault/Owatonna",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Rochester MN",
+                                            "m1":  null,
+                                            "m2":  6000,
+                                            "m3":  9000
+                                        },
+                                        {
+                                            "name":  "Sedalia",
+                                            "m1":  -1750,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Waterloo",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        }
+                                    ]
+                    },
+                    {
+                        "id":  "nne",
+                        "name":  "Northeast / New England",
+                        "markets":  [
+                                        {
+                                            "name":  "Augusta",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Bangor",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "New Bedford",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Portland",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Portsmouth",
+                                            "m1":  null,
+                                            "m2":  17000,
+                                            "m3":  17000
+                                        },
+                                        {
+                                            "name":  "Presque Isle",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        }
+                                    ]
+                    },
+                    {
+                        "id":  "nj",
+                        "name":  "New Jersey",
+                        "markets":  [
+                                        {
+                                            "name":  "Atlantic City",
+                                            "m1":  null,
+                                            "m2":  8650,
+                                            "m3":  9000
+                                        },
+                                        {
+                                            "name":  "Shore",
+                                            "m1":  -3500,
+                                            "m2":  null,
+                                            "m3":  3500
+                                        },
+                                        {
+                                            "name":  "Trenton/Princeton",
+                                            "m1":  -8500,
+                                            "m2":  -3250,
+                                            "m3":  1750
+                                        }
+                                    ]
+                    },
+                    {
+                        "id":  "ny",
+                        "name":  "New York",
+                        "markets":  [
+                                        {
+                                            "name":  "Albany",
+                                            "m1":  -13250,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Berkshires",
+                                            "m1":  -1500,
+                                            "m2":  6500,
+                                            "m3":  3500
+                                        },
+                                        {
+                                            "name":  "Binghamton",
+                                            "m1":  null,
+                                            "m2":  1020,
+                                            "m3":  1020
+                                        },
+                                        {
+                                            "name":  "Buffalo",
+                                            "m1":  null,
+                                            "m2":  750,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Danbury",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Oneonta",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Poughkeepsie",
+                                            "m1":  null,
+                                            "m2":  2800,
+                                            "m3":  21500
+                                        },
+                                        {
+                                            "name":  "Utica",
+                                            "m1":  null,
+                                            "m2":  1500,
+                                            "m3":  null
+                                        }
+                                    ]
+                    },
+                    {
+                        "id":  "others",
+                        "name":  "Others (Direct)",
+                        "markets":  [
+                                        {
+                                            "name":  "Dubuque",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Evansville/Owensboro",
+                                            "m1":  175,
+                                            "m2":  1250,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Grand Junction",
+                                            "m1":  2500,
+                                            "m2":  2500,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Missoula",
+                                            "m1":  null,
+                                            "m2":  2500,
+                                            "m3":  2500
+                                        },
+                                        {
+                                            "name":  "Montrose",
+                                            "m1":  -3700,
+                                            "m2":  -2500,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Quad Cities",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Quincy/Hannibal",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Shelby",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Sioux Falls",
+                                            "m1":  null,
+                                            "m2":  -1500,
+                                            "m3":  -1500
+                                        },
+                                        {
+                                            "name":  "St. Cloud",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Tuscaloosa",
+                                            "m1":  null,
+                                            "m2":  null,
+                                            "m3":  null
+                                        },
+                                        {
+                                            "name":  "Williston",
+                                            "m1":  -250,
+                                            "m2":  null,
+                                            "m3":  null
+                                        }
+                                    ]
+                    }
+                ],
+    "risd":  {
+                 "tylerw":  {
+                                "m2":  10000,
+                                "m3":  10000
+                            },
+                 "taylor":  {
+                                "m2":  23000,
+                                "m3":  23000
+                            },
+                 "ny":  {
+                            "m2":  25000,
+                            "m3":  16000
+                        },
+                 "nj":  {
+                            "m2":  50000,
+                            "m3":  45000
+                        },
+                 "nne":  {
+                             "m2":  5000,
+                             "m3":  5000
+                         },
+                 "kathi":  {
+                               "m1":  null,
+                               "m2":  35000,
+                               "m3":  37000
+                           },
+                 "others":  {
+                                "m2":  5500,
+                                "m3":  5500
+                            },
+                 "jeroen":  {
+                                "m2":  47119,
+                                "m3":  42152
+                            }
+             }
+}
