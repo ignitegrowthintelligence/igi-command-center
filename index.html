@@ -4,207 +4,218 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IGI Signal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root {
-      --accent:       #EF4136;
-      --accent-dim:   rgba(239,65,54,0.10);
-      --accent-glow:  rgba(239,65,54,0.22);
-      --bg:           #E4E4E4;
-      --surface:      #FFFFFF;
-      --surface-2:    #F5F5F5;
-      --surface-3:    #EBEBEB;
-      --border:       #D0D0D0;
-      --border-bright: rgba(239,65,54,0.4);
-      --text:         #191919;
-      --text-dim:     #555555;
-      --green:        #16a34a;
-      --red:          #EF4136;
-      --yellow:       #c2820a;
+      --accent:        #EF4136;
+      --accent-dim:    rgba(239,65,54,0.10);
+      --accent-mid:    rgba(239,65,54,0.22);
+      --accent-border: rgba(239,65,54,0.45);
+      --bg:            #F0F0F0;
+      --surface:       #FFFFFF;
+      --surface-2:     #F5F5F5;
+      --dark-bg:       #18181B;
+      --dark-surface:  #1F1F23;
+      --dark-deep:     #09090B;
+      --dark-ent:      #050507;
+      --border:        #E2E2E2;
+      --border-dark:   rgba(255,255,255,0.06);
+      --text:          #09090B;
+      --text-dim:      #71717A;
+      --text-dark:     rgba(255,255,255,0.88);
+      --text-dark-dim: rgba(255,255,255,0.42);
+      --green:         #15803d;
+      --green-dim:     rgba(21,128,61,0.12);
+      --amber:         #b45309;
+      --amber-dim:     rgba(180,83,9,0.12);
+      --red:           #EF4136;
+      --r-card:        10px;
+      --r-btn:         6px;
+      --r-badge:       4px;
     }
 
     * { box-sizing: border-box; }
-    body { background: var(--bg); font-family: 'Calibri', 'Gill Sans', Arial, sans-serif; color: var(--text); margin: 0; min-height: 100vh; }
+    body { background: var(--bg); font-family: 'Inter', 'Calibri', system-ui, sans-serif; color: var(--text); margin: 0; min-height: 100vh; }
 
-    /* Header */
-    .bp-header { background: #191919; border-bottom: 4px solid #EF4136; }
-    .bp-logo   { color: #EF4136; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight: 800; font-size: 1.1rem; letter-spacing: 0.05em; }
-    .bp-logo span { color: #fff; }
+    /* ── Header ── */
+    .bp-header { background: #111113; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .bp-logo { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 700; color: #fff; letter-spacing: -0.02em; }
+    .bp-logo span { color: var(--accent); }
+    .bp-logo-divider { display: inline-block; width: 1px; height: 14px; background: rgba(255,255,255,0.15); margin: 0 10px; vertical-align: middle; }
+    .bp-logo-sub { display: inline-block; font-size: 0.62rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.28); vertical-align: middle; }
 
-    /* Summary cards */
-    .bp-card { background: var(--surface); border: 1px solid var(--border); border-radius: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
-    .bp-card-accent { border-top: 4px solid var(--accent); border-left: 3px solid var(--accent); }
-    .bp-card-kpi { font-size: 2.1rem; font-weight: 800; color: var(--text); line-height: 1.1; margin: 6px 0 2px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; letter-spacing: -0.01em; }
-    .bp-card-label { font-size: 0.67rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); }
-    .bp-card-sub { font-size: 0.75rem; color: var(--text-dim); margin-bottom: 8px; }
+    /* ── Summary cards ── */
+    .bp-card { background: var(--surface); border-radius: var(--r-card); border: 1px solid rgba(0,0,0,0.07); box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 14px rgba(0,0,0,0.05); overflow: hidden; }
+    .bp-card-accent { border: none; }
+    .bp-card-top { background: #18181B; padding: 9px 14px; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid var(--accent); }
+    .bp-card-month { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+    .bp-card-body { padding: 13px 14px 15px; }
+    .bp-card-kpi { font-family: 'DM Mono', 'Courier New', monospace; font-size: 2rem; font-weight: 500; color: var(--text); line-height: 1; margin-bottom: 3px; letter-spacing: -0.02em; }
+    .bp-card-sub { font-size: 0.72rem; color: var(--text-dim); margin-bottom: 10px; }
+    .bp-card-status { font-size: 0.72rem; font-weight: 600; margin-top: 7px; display: flex; align-items: center; gap: 4px; }
+    .bp-status-badge { font-size: 0.6rem; font-weight: 600; padding: 2px 7px; border-radius: var(--r-badge); }
+    .badge-on-track { background: var(--green-dim); color: var(--green); }
+    .badge-at-risk  { background: var(--amber-dim); color: var(--amber); }
+    .badge-behind   { background: var(--accent-dim); color: var(--accent); }
 
-    /* Table section */
-    .bp-section-header { background: #191919; border-bottom: 1px solid rgba(255,255,255,0.1); border-radius: 0; }
-    .bp-section-title  { font-size: 1rem; font-weight: 700; letter-spacing: 0.02em; color: #fff; font-family: 'Franklin Gothic Medium', Arial, sans-serif; }
+    /* ── Table section wrapper ── */
+    .bp-section-wrap { border-radius: var(--r-card); overflow: hidden; border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+    .bp-section-header { background: #18181B; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .bp-section-title { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.01em; color: rgba(255,255,255,0.5); }
 
-    /* Tabs */
-    .bp-tab-active   { background: var(--accent); color: #fff; font-weight: 700; border-radius: 0; }
-    .bp-tab-inactive { color: rgba(255,255,255,0.55); border-radius: 0; }
-    .bp-tab-inactive:hover { background: rgba(255,255,255,0.1); color: #fff; }
+    /* ── Tabs ── */
+    .bp-tab-active   { background: var(--accent); color: #fff; font-weight: 600; border-radius: var(--r-btn); font-size: 0.7rem; }
+    .bp-tab-inactive { color: rgba(255,255,255,0.48); border-radius: var(--r-btn); font-size: 0.7rem; }
+    .bp-tab-inactive:hover { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.75); }
 
-    /* Table wrapper */
-    .bp-table { width: 100%; border-collapse: collapse; background: transparent; }
+    /* ── Table ── */
+    .bp-table { width: 100%; border-collapse: collapse; background: var(--dark-bg); }
     .bp-table thead th {
-      background: #191919;
-      color: #BBBBBB;
-      font-size: 0.67rem;
-      font-weight: 700;
-      letter-spacing: 0.09em;
+      background: var(--dark-deep);
+      color: rgba(255,255,255,0.32);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       padding: 10px 12px;
-      border-bottom: 2px solid var(--accent);
+      border-bottom: 1px solid rgba(239,65,54,0.5);
       white-space: nowrap;
-      font-family: 'Franklin Gothic Medium', Arial, sans-serif;
+      font-family: 'Inter', sans-serif;
     }
     .bp-table thead th.accent { color: var(--accent); }
-    .bp-table tbody tr { border-bottom: 1px solid var(--border); transition: background 0.1s; }
-    .bp-table tbody tr:hover { background: #FFF5F4; }
+    .bp-table tbody tr { border-bottom: 1px solid rgba(255,255,255,0.04); transition: background 0.1s; }
+    .bp-table tbody tr:hover { background: rgba(255,255,255,0.03); }
+    .bp-table tbody td:not(:first-child) { font-family: 'DM Mono', monospace; font-size: 0.72rem; }
 
-    /* Row tiers */
-    .row-enterprise { background: #191919 !important; }
-    .row-enterprise:hover { background: #191919 !important; filter: brightness(1.15); }
-    .row-enterprise td { color: #fff !important; font-weight: 700; }
-    .row-region { background: #F5F5F5 !important; }
-    .row-region td { font-weight: 600; color: var(--text); }
-    .row-market td { color: var(--text-dim); font-size: 0.85rem; }
+    /* ── Row tiers ── */
+    .row-enterprise { background: var(--dark-ent) !important; }
+    .row-enterprise:hover { background: #0a0a0d !important; }
+    .row-enterprise td { color: rgba(255,255,255,0.95) !important; font-weight: 700; }
+    .row-region { background: var(--dark-surface) !important; }
+    .row-region td { color: rgba(255,255,255,0.75) !important; font-weight: 500; }
+    .row-market { background: #18181B !important; }
+    .row-market td { color: rgba(255,255,255,0.42) !important; font-size: 0.8rem; }
 
-    /* Left border accent */
-    .row-enterprise td:first-child { border-left: 3px solid var(--accent); padding-left: 13px; }
-    .row-region td:first-child { border-left: 3px solid rgba(239,65,54,0.3); padding-left: 29px; }
+    /* ── Left border accent ── */
+    .row-enterprise td:first-child { border-left: 4px solid var(--accent); padding-left: 12px; }
+    .row-region td:first-child { border-left: 2px solid rgba(239,65,54,0.2); padding-left: 28px; }
+    .row-market td:first-child { padding-left: 44px; }
 
-    /* Chevron */
-    .chevron { display: inline-block; transition: transform 0.2s; font-size: 0.65rem; margin-right: 4px; color: var(--accent); }
+    /* ── Chevron ── */
+    .chevron { display: inline-block; transition: transform 0.2s; font-size: 0.6rem; margin-right: 4px; color: var(--accent); opacity: 0.8; }
     .chevron.open { transform: rotate(90deg); }
     tr.hidden { display: none; }
 
-    /* Badges */
-    .badge-green  { background: rgba(22,163,74,0.10); color: #16a34a; border: 1px solid rgba(22,163,74,0.3); border-radius: 0; padding: 1px 7px; font-size: 0.72rem; font-weight: 600; }
-    .badge-yellow { background: rgba(194,130,10,0.10); color: #c2820a; border: 1px solid rgba(194,130,10,0.3); border-radius: 0; padding: 1px 7px; font-size: 0.72rem; font-weight: 600; }
-    .badge-red    { background: rgba(239,65,54,0.10); color: var(--red); border: 1px solid rgba(239,65,54,0.3); border-radius: 0; padding: 1px 7px; font-size: 0.72rem; font-weight: 600; }
-    .badge-gray   { background: rgba(0,0,0,0.05); color: var(--text-dim); border: 1px solid var(--border); border-radius: 0; padding: 1px 7px; font-size: 0.72rem; }
+    /* ── Status badges (table) ── */
+    .badge-green  { background: var(--green-dim); color: var(--green); border: 1px solid rgba(21,128,61,0.25); border-radius: var(--r-badge); padding: 1px 7px; font-size: 0.68rem; font-weight: 600; }
+    .badge-yellow { background: var(--amber-dim); color: var(--amber); border: 1px solid rgba(180,83,9,0.25); border-radius: var(--r-badge); padding: 1px 7px; font-size: 0.68rem; font-weight: 600; }
+    .badge-red    { background: var(--accent-dim); color: var(--red); border: 1px solid rgba(239,65,54,0.25); border-radius: var(--r-badge); padding: 1px 7px; font-size: 0.68rem; font-weight: 600; }
+    .badge-gray   { background: rgba(255,255,255,0.06); color: var(--text-dark-dim); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--r-badge); padding: 1px 7px; font-size: 0.68rem; }
 
-    /* Progress bar */
-    .progress-bar { height: 6px; background: rgba(0,0,0,0.10); border-radius: 0; overflow: hidden; margin-top: 8px; }
-    .progress-fill { height: 100%; border-radius: 0; transition: width 0.5s ease; }
+    /* ── Progress bar ── */
+    .progress-bar  { height: 4px; background: rgba(0,0,0,0.07); border-radius: 2px; overflow: hidden; margin-top: 8px; }
+    .progress-fill { height: 100%; border-radius: 2px; transition: width 0.5s ease; }
 
-    /* Value colors */
-    .val-pos { color: var(--green); }
-    .val-neg { color: var(--red); }
-    .val-neutral { color: var(--text-dim); }
+    /* ── Value colors ── */
+    .val-pos { color: var(--green); font-weight: 600; }
+    .val-neg { color: var(--red); font-weight: 600; }
+    .val-neutral { color: var(--text-dark-dim); }
 
-    /* Refresh badge */
-    .refresh-badge { background: var(--accent-dim); color: var(--accent); border: 1px solid var(--border-bright); border-radius: 0; padding: 2px 10px; font-size: 0.72rem; }
+    /* ── Refresh badge ── */
+    .refresh-badge { background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(239,65,54,0.3); border-radius: var(--r-badge); padding: 2px 10px; font-size: 0.68rem; font-weight: 500; }
 
-    /* Editable RISD commit cell */
+    /* ── RISD input ── */
     .risd-input {
-      background: transparent;
-      border: none;
-      border-bottom: 1px dashed rgba(239,65,54,0.5);
-      color: var(--accent);
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-align: right;
-      width: 90px;
-      outline: none;
-      padding: 2px 4px;
-      border-radius: 0;
+      background: transparent; border: none;
+      border-bottom: 1px dashed rgba(239,65,54,0.45);
+      color: var(--accent); font-size: 0.8rem; font-weight: 600;
+      text-align: right; width: 90px; outline: none; padding: 2px 4px; border-radius: 0;
+      font-family: 'DM Mono', monospace;
     }
-    .risd-input:focus {
-      border-bottom: 1px solid var(--accent);
-      background: rgba(239,65,54,0.05);
-      border-radius: 0;
-    }
-    .risd-input::placeholder { color: var(--text-dim); font-weight: 400; }
+    .risd-input:focus { border-bottom: 1px solid var(--accent); background: rgba(239,65,54,0.05); }
+    .risd-input::placeholder { color: rgba(255,255,255,0.25); font-weight: 400; }
     .risd-set { color: var(--accent) !important; }
     .risd-saving { opacity: 0.5; cursor: wait; }
     .risd-saved { border-bottom-color: var(--green) !important; color: var(--green) !important; transition: all 0.3s; }
-    .risd-badge { font-size:0.58rem; background:var(--accent-dim); color:var(--accent); border:1px solid rgba(239,65,54,0.3); border-radius:0; padding:0 4px; margin-left:4px; vertical-align:middle; }
+    .risd-badge { font-size: 0.55rem; background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(239,65,54,0.25); border-radius: var(--r-badge); padding: 0 4px; margin-left: 4px; vertical-align: middle; }
 
-    /* Week selector */
+    /* ── Week selector ── */
     .week-select {
-      background: #2a2a2a;
-      border: 1px solid rgba(239,65,54,0.45);
-      color: #ffffff;
-      border-radius: 0;
-      padding: 4px 10px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      outline: none;
-      cursor: pointer;
-      appearance: none;
-      -webkit-appearance: none;
+      background: #27272A; border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.82); border-radius: var(--r-btn);
+      padding: 5px 28px 5px 10px; font-size: 0.75rem; font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      outline: none; cursor: pointer; appearance: none; -webkit-appearance: none;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23EF4136' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 8px center;
-      padding-right: 28px;
+      background-repeat: no-repeat; background-position: right 8px center;
     }
-    .week-select option { background: #191919; color: #fff; }
+    .week-select option { background: #18181B; color: #fff; }
 
-    /* Section border */
-    .bp-section-wrap { border: 1px solid var(--border); border-radius: 0; overflow: hidden; }
+    /* ── SOB / DSM sub-panels ── */
+    .bp-subpanel-bar { background: #1F1F23; padding: 8px 16px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .bp-subpanel-label { font-size: 0.68rem; font-weight: 500; color: rgba(255,255,255,0.42); }
 
     @media (max-width: 768px) {
       .hide-mobile { display: none; }
       .mobile-scroll { overflow-x: auto; }
     }
 
-    /* What's Hot / Focus Markets tab styles */
-    .fm-table { width:100%; border-collapse:collapse; font-size:0.82rem; }
-    .fm-table thead th { background:#191919; color:#BBBBBB; font-size:0.68rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:8px 12px; border-bottom:2px solid var(--accent); white-space:nowrap; font-family:'Franklin Gothic Medium',Arial,sans-serif; }
+    /* ── What's Hot / Focus Markets ── */
+    .fm-table { width:100%; border-collapse:collapse; font-size:0.82rem; background: var(--dark-bg); }
+    .fm-table thead th { background: var(--dark-deep); color: rgba(255,255,255,0.32); font-size:0.62rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; padding:8px 12px; border-bottom:1px solid rgba(239,65,54,0.5); white-space:nowrap; font-family:'Inter',sans-serif; }
     .fm-table thead th.accent { color:var(--accent); }
-    .fm-table tbody tr { border-bottom:1px solid var(--border); transition:background 0.1s; position:relative; }
-    .fm-table tbody tr:hover { background:#FFF5F4; }
-    .fm-table tbody td { padding:9px 12px; color:var(--text); vertical-align:middle; }
-    .fm-rank { color:var(--text-dim); font-size:0.75rem; width:28px; text-align:center; }
-    .fm-market { font-weight:600; }
+    .fm-table tbody tr { border-bottom:1px solid rgba(255,255,255,0.04); transition:background 0.1s; position:relative; }
+    .fm-table tbody tr:hover { background: rgba(255,255,255,0.03); }
+    .fm-table tbody td { padding:9px 12px; color: rgba(255,255,255,0.75); vertical-align:middle; }
+    .fm-rank { color: rgba(255,255,255,0.32); font-size:0.75rem; width:28px; text-align:center; }
+    .fm-market { font-weight:600; color: rgba(255,255,255,0.88) !important; }
     .fm-gap-cell { position:relative; }
     .fm-gap-bar { position:absolute; left:0; top:0; bottom:0; background:rgba(239,65,54,0.07); pointer-events:none; }
-    .fm-gap-val { position:relative; color:var(--red); font-weight:600; font-variant-numeric:tabular-nums; }
-    .fm-pct-red { color:var(--red); font-weight:700; }
-    .fm-pct-amber { color:#c2820a; font-weight:700; }
-    .fm-pct-green { color:var(--green); font-weight:700; }
-    .fm-vacant { background:rgba(239,65,54,0.15); color:var(--accent); font-weight:700; border-radius:0; padding:1px 8px; font-size:0.75rem; letter-spacing:0.03em; }
-    .fm-subtitle { font-size:0.72rem; color:var(--text-dim); letter-spacing:0.03em; }
-    .hot-section-title { font-size:0.82rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); padding:14px 20px 8px; font-family:'Franklin Gothic Medium',Arial,sans-serif; }
-    .hot-table { width:100%; border-collapse:collapse; font-size:0.81rem; }
-    .hot-table thead th { background:#191919; color:#BBBBBB; font-size:0.66rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:7px 12px; border-bottom:2px solid var(--accent); white-space:nowrap; font-family:'Franklin Gothic Medium',Arial,sans-serif; }
+    .fm-gap-val { position:relative; color:var(--red); font-weight:600; font-variant-numeric:tabular-nums; font-family:'DM Mono',monospace; }
+    .fm-pct-red { color:var(--red); font-weight:600; }
+    .fm-pct-amber { color:var(--amber); font-weight:600; }
+    .fm-pct-green { color:var(--green); font-weight:600; }
+    .fm-vacant { background:rgba(239,65,54,0.15); color:var(--accent); font-weight:700; border-radius: var(--r-badge); padding:1px 8px; font-size:0.72rem; }
+    .fm-subtitle { font-size:0.68rem; color: rgba(255,255,255,0.42); }
+    .hot-section-title { font-size:0.72rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); padding:14px 20px 8px; font-family:'Inter',sans-serif; }
+    .hot-table { width:100%; border-collapse:collapse; font-size:0.81rem; background: var(--dark-bg); }
+    .hot-table thead th { background: var(--dark-deep); color: rgba(255,255,255,0.32); font-size:0.62rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; padding:7px 12px; border-bottom:1px solid rgba(239,65,54,0.5); white-space:nowrap; font-family:'Inter',sans-serif; }
     .hot-table thead th.accent { color:var(--accent); }
-    .hot-table tbody tr { border-bottom:1px solid var(--border); }
-    .hot-table tbody tr:hover { background:#FFF5F4; }
-    .hot-table tbody td { padding:8px 12px; color:var(--text); vertical-align:middle; }
-    .hot-rank { color:var(--text-dim); font-size:0.72rem; text-align:center; width:24px; }
-    .hot-mkt { font-weight:600; }
-    .hot-dim { color:var(--text-dim); font-size:0.78rem; }
-    .hot-pos, .hot-table tbody td.hot-pos { color:var(--green); font-weight:700; }
-    .hot-neg, .hot-table tbody td.hot-neg { color:var(--red); font-weight:700; }
-    .hot-amber, .hot-table tbody td.hot-amber { color:#c2820a; font-weight:700; }
-    .hot-vacant { background:rgba(239,65,54,0.15); color:var(--accent); font-weight:700; border-radius:0; padding:1px 7px; font-size:0.73rem; }
-    .hot-flag { background:rgba(239,65,54,0.12); color:var(--red); border:1px solid rgba(239,65,54,0.3); border-radius:0; padding:0 5px; font-size:0.65rem; font-weight:700; margin-left:5px; }
+    .hot-table tbody tr { border-bottom:1px solid rgba(255,255,255,0.04); }
+    .hot-table tbody tr:hover { background: rgba(255,255,255,0.03); }
+    .hot-table tbody td { padding:8px 12px; color: rgba(255,255,255,0.72); vertical-align:middle; }
+    .hot-rank { color: rgba(255,255,255,0.3); font-size:0.72rem; text-align:center; width:24px; }
+    .hot-mkt { font-weight:600; color: rgba(255,255,255,0.88) !important; }
+    .hot-dim { color: rgba(255,255,255,0.38); font-size:0.75rem; }
+    .hot-pos, .hot-table tbody td.hot-pos { color:var(--green); font-weight:600; }
+    .hot-neg, .hot-table tbody td.hot-neg { color:var(--red); font-weight:600; }
+    .hot-amber, .hot-table tbody td.hot-amber { color:var(--amber); font-weight:600; }
+    .hot-vacant { background:rgba(239,65,54,0.15); color:var(--accent); font-weight:700; border-radius: var(--r-badge); padding:1px 7px; font-size:0.72rem; }
+    .hot-flag { background:rgba(239,65,54,0.12); color:var(--red); border:1px solid rgba(239,65,54,0.25); border-radius: var(--r-badge); padding:0 5px; font-size:0.62rem; font-weight:700; margin-left:5px; }
     .spark-wrap { display:inline-flex; gap:2px; align-items:flex-end; height:16px; vertical-align:middle; }
-    .spark-bar { width:7px; border-radius:0; min-height:2px; }
+    .spark-bar { width:7px; border-radius:1px; min-height:2px; }
     .hot-also-cold td:first-child { border-left:2px solid var(--red); }
   </style>
 </head>
 <body>
 
   <!-- Header -->
-  <header class="bp-header px-4 md:px-8 py-3">
-    <div class="max-w-screen-2xl mx-auto flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div>
-          <div class="bp-logo">IGI <span>Signal</span></div>
-          <div style="color:rgba(255,255,255,0.5);font-size:0.68rem;letter-spacing:0.1em;font-family:'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;">IGNITE GROWTH INTELLIGENCE</div>
-        </div>
+  <header class="bp-header" style="padding: 0 24px; height: 52px; display: flex; align-items: center;">
+    <div class="max-w-screen-2xl mx-auto flex items-center justify-between" style="width:100%;">
+      <div class="flex items-center">
+        <div class="bp-logo"><span>IGI</span> Signal</div>
+        <span class="bp-logo-divider"></span>
+        <span class="bp-logo-sub">Ignite Growth Intelligence</span>
       </div>
       <div class="flex items-center gap-3">
+        <div style="display:flex;align-items:center;gap:5px;font-size:0.68rem;font-weight:500;color:rgba(255,255,255,0.3);">
+          <span style="display:inline-block;width:6px;height:6px;background:#15803d;border-radius:50%;"></span>
+          Live
+        </div>
         <a href="https://ignitegrowthintelligence.github.io/igi-reignite-planner/" target="_blank"
-           style="background:rgba(239,65,54,0.15);border:1px solid rgba(239,65,54,0.45);color:#EF4136;border-radius:0;padding:4px 14px;font-size:.72rem;font-weight:700;text-decoration:none;letter-spacing:.08em;font-family:'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;">
-          IGI FOCUS
+           style="background:transparent;border:1px solid rgba(239,65,54,0.5);color:#EF4136;border-radius:6px;padding:5px 12px;font-size:0.72rem;font-weight:600;text-decoration:none;font-family:'Inter',sans-serif;letter-spacing:0.01em;">
+          IGI Focus ↗
         </a>
         <select id="weekSelector" class="week-select" onchange="loadWeek(this.value)">
           <option value="">Loading weeks...</option>
@@ -223,13 +234,13 @@
     <div class="bp-section-wrap">
 
       <!-- Dark section header with tabs -->
-      <div class="bp-section-header px-5 py-3 flex items-center justify-between">
+      <div class="bp-section-header" style="padding: 0 16px; height: 48px; display: flex; align-items: center; justify-content: space-between;">
         <span class="bp-section-title">Revenue Type Summary</span>
-        <div class="flex items-center gap-2">
-          <button onclick="switchTab('commits')" id="tab-commits" class="bp-tab-active px-4 py-1.5 text-sm font-medium transition-all">Weekly Commits</button>
-          <button onclick="switchTab('sob')" id="tab-sob" class="bp-tab-inactive px-4 py-1.5 text-sm font-medium transition-all">Pacing &amp; SOB</button>
-          <button onclick="switchTab('dsm')" id="tab-dsm" class="bp-tab-inactive px-4 py-1.5 text-sm font-medium transition-all">DSM Report</button>
-        <button onclick="switchTab('hot')" id="tab-hot" class="bp-tab-inactive px-4 py-1.5 text-sm font-medium transition-all">What's Hot</button>
+        <div class="flex items-center gap-1">
+          <button onclick="switchTab('commits')" id="tab-commits" class="bp-tab-active transition-all" style="padding:5px 12px;">Weekly Commits</button>
+          <button onclick="switchTab('sob')" id="tab-sob" class="bp-tab-inactive transition-all" style="padding:5px 12px;">Pacing &amp; SOB</button>
+          <button onclick="switchTab('dsm')" id="tab-dsm" class="bp-tab-inactive transition-all" style="padding:5px 12px;">DSM Report</button>
+          <button onclick="switchTab('hot')" id="tab-hot" class="bp-tab-inactive transition-all" style="padding:5px 12px;">What's Hot</button>
         </div>
       </div>
 
@@ -320,18 +331,18 @@
 
       <!-- WHAT'S HOT PANEL -->
       <div id="panel-hot" class="hidden">
-        <div style="padding:14px 20px 10px;border-bottom:1px solid var(--border);display:flex;align-items:baseline;gap:16px;">
-          <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);">What's Hot</span>
-          <span id="hotSubtitle" style="font-size:0.72rem;color:var(--text-dim);"></span>
+        <div class="bp-subpanel-bar">
+          <span style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);">What's Hot</span>
+          <span id="hotSubtitle" class="bp-subpanel-label"></span>
         </div>
         <div id="hotContent" style="padding:4px 0 16px;"></div>
       </div>
 
       <!-- SOB PANEL -->
       <div id="panel-sob" class="hidden">
-        <div style="padding:10px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;">
-          <span id="sobWeekLabel" style="font-size:0.78rem;color:var(--text-dim);"></span>
-          <span style="font-size:0.72rem;color:var(--text-dim);">Values in $000s &nbsp;&bull;&nbsp; Ignite Revenue-Cash only</span>
+        <div class="bp-subpanel-bar">
+          <span id="sobWeekLabel" class="bp-subpanel-label"></span>
+          <span class="bp-subpanel-label">Values in $000s &nbsp;&bull;&nbsp; Ignite Revenue-Cash only</span>
         </div>
         <div class="mobile-scroll">
           <table class="bp-table" id="sobTable">
@@ -588,20 +599,27 @@
       $('summaryCards').innerHTML = months.map(m => {
         const ev = ent[m.key] || {commit:0,adds:0};
         const p = ev.commit !== 0 ? pct(ev.adds, ev.commit) : null;
-        const barColor = p === null ? '#d1d5db' : p >= 80 ? '#10b981' : p >= 50 ? '#f59e0b' : '#ef4444';
+        const barColor = p === null ? 'rgba(255,255,255,0.1)' : p >= 100 ? '#15803d' : p >= 80 ? '#b45309' : '#EF4136';
         const barW = p !== null ? Math.min(Math.max(p,0),100) : 0;
-        const statusCls = p === null ? 'val-neutral' : p >= 80 ? 'val-pos' : p >= 50 ? '' : 'val-neg';
-        const statusStyle = p !== null && p >= 50 && p < 80 ? 'color:var(--yellow);' : '';
+        const badgeCls = p === null ? 'badge-on-track' : p >= 100 ? 'badge-on-track' : p >= 80 ? 'badge-at-risk' : 'badge-behind';
+        const badgeLabel = p === null ? 'No Data' : p >= 100 ? 'On Track' : p >= 80 ? 'At Risk' : 'Behind';
+        const statusCls = p === null ? 'val-neutral' : p >= 100 ? 'val-pos' : p >= 80 ? '' : 'val-neg';
+        const statusStyle = p !== null && p >= 80 && p < 100 ? 'color:var(--amber);' : '';
         return `
-          <div class="bp-card bp-card-accent p-4">
-            <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);">${m.label} 2026</div>
-            <div style="font-size:2.1rem;font-weight:800;color:var(--text);line-height:1.1;margin:6px 0 2px;font-family:'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;letter-spacing:-0.01em;">${fmt(ev.adds)}</div>
-            <div style="font-size:0.75rem;color:var(--text-dim);">of ${fmt(ev.commit)} committed</div>
-            <div class="progress-bar">
-              <div class="progress-fill" style="width:${barW}%;background:${barColor};"></div>
+          <div class="bp-card bp-card-accent">
+            <div class="bp-card-top">
+              <div class="bp-card-month">${m.label} 2026</div>
+              <div class="bp-status-badge ${badgeCls}">${badgeLabel}</div>
             </div>
-            <div style="font-size:0.82rem;font-weight:700;margin-top:6px;${statusStyle}" class="${statusCls}">
-              ${p !== null ? p + '% delivered' : 'No commits entered'}
+            <div class="bp-card-body">
+              <div class="bp-card-kpi">${fmt(ev.adds)}</div>
+              <div class="bp-card-sub">of ${fmt(ev.commit)} committed</div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width:${barW}%;background:${barColor};"></div>
+              </div>
+              <div class="bp-card-status ${statusCls}" style="${statusStyle}">
+                ${p !== null ? p + '% delivered' : 'No commits entered'}
+              </div>
             </div>
           </div>`;
       }).join('');
@@ -615,20 +633,27 @@
         const billing = sob ? sob.billing : 0;
         const budget  = sob ? sob.budget  : 0;
         const p = budget !== 0 ? pct(billing, budget) : null;
-        const barColor = p === null ? '#d1d5db' : p >= 85 ? '#10b981' : p >= 70 ? '#f59e0b' : '#ef4444';
+        const barColor = p === null ? 'rgba(255,255,255,0.1)' : p >= 100 ? '#15803d' : p >= 80 ? '#b45309' : '#EF4136';
         const barW = p !== null ? Math.min(Math.max(p,0),100) : 0;
-        const statusCls = p === null ? 'val-neutral' : p >= 85 ? 'val-pos' : p >= 70 ? '' : 'val-neg';
-        const statusStyle = p !== null && p >= 70 && p < 85 ? 'color:var(--yellow);' : '';
+        const badgeCls = p === null ? 'badge-on-track' : p >= 100 ? 'badge-on-track' : p >= 80 ? 'badge-at-risk' : 'badge-behind';
+        const badgeLabel = p === null ? 'No Data' : p >= 100 ? 'On Track' : p >= 80 ? 'At Risk' : 'Behind';
+        const statusCls = p === null ? 'val-neutral' : p >= 100 ? 'val-pos' : p >= 80 ? '' : 'val-neg';
+        const statusStyle = p !== null && p >= 80 && p < 100 ? 'color:var(--amber);' : '';
         return `
-          <div class="bp-card bp-card-accent p-4">
-            <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);">${m.label} 2026</div>
-            <div style="font-size:2.1rem;font-weight:800;color:var(--text);line-height:1.1;margin:6px 0 2px;font-family:'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;letter-spacing:-0.01em;">${fmtSOB(billing)}</div>
-            <div style="font-size:0.75rem;color:var(--text-dim);">of ${fmtSOB(budget)} budgeted</div>
-            <div class="progress-bar">
-              <div class="progress-fill" style="width:${barW}%;background:${barColor};"></div>
+          <div class="bp-card bp-card-accent">
+            <div class="bp-card-top">
+              <div class="bp-card-month">${m.label} 2026</div>
+              <div class="bp-status-badge ${badgeCls}">${badgeLabel}</div>
             </div>
-            <div style="font-size:0.82rem;font-weight:700;margin-top:6px;${statusStyle}" class="${statusCls}">
-              ${p !== null ? p + '% of budget' : 'No SOB data'}
+            <div class="bp-card-body">
+              <div class="bp-card-kpi">${fmtSOB(billing)}</div>
+              <div class="bp-card-sub">of ${fmtSOB(budget)} budgeted</div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width:${barW}%;background:${barColor};"></div>
+              </div>
+              <div class="bp-card-status ${statusCls}" style="${statusStyle}">
+                ${p !== null ? p + '% of budget' : 'No SOB data'}
+              </div>
             </div>
           </div>`;
       }).join('');
@@ -782,20 +807,27 @@
           });
         }
         const p = budgetK !== 0 ? pct(revK, budgetK) : null;
-        const barColor = p === null ? '#d1d5db' : p >= 100 ? '#10b981' : p >= 85 ? '#10b981' : p >= 70 ? '#f59e0b' : '#ef4444';
+        const barColor = p === null ? 'rgba(255,255,255,0.1)' : p >= 100 ? '#15803d' : p >= 80 ? '#b45309' : '#EF4136';
         const barW = p !== null ? Math.min(Math.max(p,0),100) : 0;
-        const statusCls = p === null ? 'val-neutral' : p >= 85 ? 'val-pos' : p >= 70 ? '' : 'val-neg';
-        const statusStyle = p !== null && p >= 70 && p < 85 ? 'color:var(--yellow);' : '';
+        const statusCls = p === null ? 'val-neutral' : p >= 100 ? 'val-pos' : p >= 80 ? '' : 'val-neg';
+        const statusStyle = p !== null && p >= 80 && p < 100 ? 'color:var(--amber);' : '';
+        const badgeCls2 = p === null ? 'badge-on-track' : p >= 100 ? 'badge-on-track' : p >= 80 ? 'badge-at-risk' : 'badge-behind';
+        const badgeLabel2 = p === null ? 'No Data' : p >= 100 ? 'On Track' : p >= 80 ? 'At Risk' : 'Behind';
         return `
-          <div class="bp-card bp-card-accent p-4">
-            <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);">${m.label} 2026</div>
-            <div style="font-size:2.1rem;font-weight:800;color:var(--text);line-height:1.1;margin:6px 0 2px;font-family:'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;letter-spacing:-0.01em;">${fmtSOB(revK)}</div>
-            <div style="font-size:0.75rem;color:var(--text-dim);">of ${fmtSOB(budgetK)} market revenue</div>
-            <div class="progress-bar">
-              <div class="progress-fill" style="width:${barW}%;background:${barColor};"></div>
+          <div class="bp-card bp-card-accent">
+            <div class="bp-card-top">
+              <div class="bp-card-month">${m.label} 2026</div>
+              <div class="bp-status-badge ${badgeCls2}">${badgeLabel2}</div>
             </div>
-            <div style="font-size:0.82rem;font-weight:700;margin-top:6px;${statusStyle}" class="${statusCls}">
-              ${p !== null ? p + '% of budget' : 'No SOB data'}
+            <div class="bp-card-body">
+              <div class="bp-card-kpi">${fmtSOB(revK)}</div>
+              <div class="bp-card-sub">of ${fmtSOB(budgetK)} market revenue</div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width:${barW}%;background:${barColor};"></div>
+              </div>
+              <div class="bp-card-status ${statusCls}" style="${statusStyle}">
+                ${p !== null ? p + '% of budget' : 'No SOB data'}
+              </div>
             </div>
           </div>`;
       }).join('');
@@ -1282,10 +1314,9 @@
       if (!el) return;
       var sub = $('hotSubtitle');
       if (sub && stackData.weeksAnalyzed) {
-        sub.textContent = 'Based on ' + stackData.weeksAnalyzed.join(', ') + '  \xB7  Refreshed ' + (stackData.lastRefreshed ? stackData.lastRefreshed.substring(0,10) : '');
+        sub.textContent = 'Based on ' + stackData.weeksAnalyzed.join(', ') + '  �  Refreshed ' + (stackData.lastRefreshed ? stackData.lastRefreshed.substring(0,10) : '');
       }
       var html = '';
-      // Row 1: Hot / Cold markets
       html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">';
       html += '<div><div class="hot-section-title">&#x1F525; Hot Markets</div>';
       html += renderHotMarkets(m.hot || [], true);
@@ -1293,7 +1324,6 @@
       html += '<div><div class="hot-section-title">&#x2744;&#xFE0F; Cold Markets</div>';
       html += renderHotMarkets(m.cold || [], true);
       html += '</div></div>';
-      // Row 2: DSM Hot / Cold
       html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">';
       html += '<div><div class="hot-section-title">&#x1F525; Hot DSM Performance</div>';
       html += renderDsmRankings(stackData.dsms.hot || []);
@@ -1301,7 +1331,6 @@
       html += '<div><div class="hot-section-title">&#x2744;&#xFE0F; Cold DSM Performance</div>';
       html += renderDsmRankings(stackData.dsms.cold || []);
       html += '</div></div>';
-      // Row 3: Focus Markets
       html += '<div style="margin-bottom:20px;">';
       html += '<div class="hot-section-title">&#x26A0;&#xFE0F; Focus Markets</div>';
       html += renderFocusSection(m.focus || []);
@@ -1313,9 +1342,7 @@
       var cb = '?v=' + Date.now();
       fetch('data/stackrank.json' + cb)
         .then(function(r) { return r.json(); })
-        .then(function(r) { return r.json(); })
         .then(function(data) {
-          // Normalize focus items: PS Select-Object serializes ordered dicts with Keys/Values arrays
           if (data.markets && data.markets.focus) {
             data.markets.focus = (data.markets.focus || []).map(function(item) {
               if (item && item.Keys && item.Values) {
