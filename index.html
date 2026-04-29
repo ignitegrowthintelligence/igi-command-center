@@ -280,23 +280,8 @@
         </div>
 
         <div id="dsmContent" style="padding:16px 0;">
-          <!-- Section 1: Solo Performance -->
+          <!-- Section 1: Total Revenue by Month -->
           <div style="padding:0 16px 8px;">
-            <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;">Solo Performance</div>
-            <div class="mobile-scroll">
-              <table class="bp-table" id="dsmSoloTable">
-                <thead><tr>
-                  <th class="text-left">Metric</th>
-                  <th class="text-right">Apr</th><th class="text-right">May</th><th class="text-right">Jun</th><th class="text-right accent">Q2</th>
-                  <th class="text-right hide-mobile">Jul</th><th class="text-right hide-mobile">Aug</th><th class="text-right hide-mobile">Sep</th><th class="text-right accent hide-mobile">Q3</th>
-                </tr></thead>
-                <tbody id="dsmSoloTbody"></tbody>
-              </table>
-            </div>
-          </div>
-
-          <!-- Section 2: Total Revenue -->
-          <div style="padding:16px 16px 8px;border-top:1px solid var(--border);margin-top:12px;">
             <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;">Total Revenue by Month</div>
             <div class="mobile-scroll">
               <table class="bp-table" id="dsmRevTable">
@@ -306,6 +291,21 @@
                   <th class="text-right hide-mobile">Jul</th><th class="text-right hide-mobile">Aug</th><th class="text-right hide-mobile">Sep</th><th class="text-right accent hide-mobile">Q3</th>
                 </tr></thead>
                 <tbody id="dsmRevTbody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Section 2: Solo Performance -->
+          <div style="padding:16px 16px 8px;border-top:1px solid var(--border);margin-top:12px;">
+            <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;">Solo Performance</div>
+            <div class="mobile-scroll">
+              <table class="bp-table" id="dsmSoloTable">
+                <thead><tr>
+                  <th class="text-left">Metric</th>
+                  <th class="text-right">Apr</th><th class="text-right">May</th><th class="text-right">Jun</th><th class="text-right accent">Q2</th>
+                  <th class="text-right hide-mobile">Jul</th><th class="text-right hide-mobile">Aug</th><th class="text-right hide-mobile">Sep</th><th class="text-right accent hide-mobile">Q3</th>
+                </tr></thead>
+                <tbody id="dsmSoloTbody"></tbody>
               </table>
             </div>
           </div>
@@ -784,53 +784,65 @@
         .catch(() => console.warn('DSM data not available'));
     }
 
-    // DSM summary cards -- selected DSM total revenue vs their markets' SOB budget
+    // DSM rank helper
+    function computeDsmRank(allDsms, valueFn, targetName) {
+      const sorted = [...allDsms].sort((a, b) => (valueFn(b) || 0) - (valueFn(a) || 0));
+      return sorted.findIndex(d => d.name === targetName) + 1;
+    }
+
+    // DSM summary cards â€” Q2 focused with rank badge
     function renderDsmCards(dsm) {
-      if (!commitsData || !commitsData.months) return;
-      const months = commitsData.months;
-      $('summaryCards').innerHTML = months.map(m => {
-        const wn = m.woa_month;
-        const mk2 = sobMonthKey[wn], qk = sobMonthQtr[wn];
-        // Total revenue from DSM report (full dollars -> convert to K for comparison)
-        const revFull = (dsm.totalRevenue && dsm.totalRevenue[mk2]) || 0;
-        const revK = revFull / 1000;
-        // Sum of markets' SOB budget for this month
-        let budgetK = 0;
-        if (sobData && mk2) {
-          dsm.markets.forEach(mktName => {
-            sobData.regions.forEach(r => r.markets.forEach(mkt => {
-              if (mkt.name === mktName) {
-                const mo = mkt[qk] && mkt[qk][mk2];
-                if (mo) budgetK += mo.pacing || 0;
-              }
-            }));
-          });
-        }
-        const p = budgetK !== 0 ? pct(revK, budgetK) : null;
-        const barColor = p === null ? 'rgba(255,255,255,0.1)' : p >= 100 ? '#15803d' : p >= 80 ? '#b45309' : '#EF4136';
-        const barW = p !== null ? Math.min(Math.max(p,0),100) : 0;
-        const statusCls = p === null ? 'val-neutral' : p >= 100 ? 'val-pos' : p >= 80 ? '' : 'val-neg';
-        const statusStyle = p !== null && p >= 80 && p < 100 ? 'color:var(--amber);' : '';
-        const badgeCls2 = p === null ? 'badge-on-track' : p >= 100 ? 'badge-on-track' : p >= 80 ? 'badge-at-risk' : 'badge-behind';
-        const badgeLabel2 = p === null ? 'No Data' : p >= 100 ? 'On Track' : p >= 80 ? 'At Risk' : 'Behind';
-        return `
-          <div class="bp-card bp-card-accent">
-            <div class="bp-card-top">
-              <div class="bp-card-month">${m.label} 2026</div>
-              <div class="bp-status-badge ${badgeCls2}">${badgeLabel2}</div>
-            </div>
-            <div class="bp-card-body">
-              <div class="bp-card-kpi">${fmtSOB(revK)}</div>
-              <div class="bp-card-sub">of ${fmtSOB(budgetK)} market revenue</div>
-              <div class="progress-bar">
-                <div class="progress-fill" style="width:${barW}%;background:${barColor};"></div>
-              </div>
-              <div class="bp-card-status ${statusCls}" style="${statusStyle}">
-                ${p !== null ? p + '% of budget' : 'No SOB data'}
-              </div>
-            </div>
-          </div>`;
-      }).join('');
+      if (!dsmData || !dsmData.dsms) return;
+      const allDsms = dsmData.dsms;
+      const total = allDsms.length;
+
+      // Card 1: Q2 Total Revenue
+      const q2Rev = (dsm.totalRevenue && dsm.totalRevenue.q2) || 0;
+      const revRank = computeDsmRank(allDsms, d => (d.totalRevenue && d.totalRevenue.q2) || 0, dsm.name);
+
+      // Card 2: Q2 Solo Pacing
+      const q2Solo = (dsm.soloPacing && dsm.soloPacing.q2) || 0;
+      const soloRank = computeDsmRank(allDsms, d => (d.soloPacing && d.soloPacing.q2) || 0, dsm.name);
+
+      // Card 3: Q2 % to Market Budget (from SOB data)
+      function getQ2BudgetPct(d) {
+        if (!sobData) return 0;
+        let pacing = 0, budget = 0;
+        d.markets.forEach(mktName => {
+          sobData.regions.forEach(r => r.markets.forEach(mkt => {
+            if (mkt.name === mktName && mkt.q2 && mkt.q2.total) {
+              pacing += mkt.q2.total.pacing || 0;
+              budget += mkt.q2.total.budget || 0;
+            }
+          }));
+        });
+        return budget > 0 ? Math.round(pacing / budget * 100) : 0;
+      }
+      const q2Pct = getQ2BudgetPct(dsm);
+      const pctRank = computeDsmRank(allDsms, getQ2BudgetPct, dsm.name);
+
+      function rankStyle(r) {
+        if (r === 1) return 'color:#15803d;font-size:1.35rem;font-weight:800;';
+        if (r <= 3) return 'color:var(--amber);font-size:1.35rem;font-weight:800;';
+        return 'color:var(--text-dim);font-size:1.35rem;font-weight:800;';
+      }
+
+      const cards = [
+        { label: 'Q2 TOTAL REVENUE',    kpi: fmtK(q2Rev),      rank: revRank },
+        { label: 'Q2 SOLO PACING',      kpi: fmtK(q2Solo),     rank: soloRank },
+        { label: 'Q2 VS MARKET BUDGET', kpi: q2Pct + '%',       rank: pctRank },
+      ];
+
+      $('summaryCards').innerHTML = cards.map(c => `
+        <div class="bp-card bp-card-accent">
+          <div class="bp-card-top">
+            <div class="bp-card-month" style="font-size:0.72rem;letter-spacing:0.08em;">${c.label}</div>
+          </div>
+          <div class="bp-card-body">
+            <div class="bp-card-kpi">${c.kpi}</div>
+            <div style="${rankStyle(c.rank)}">#${c.rank} of ${total} DSMs</div>
+          </div>
+        </div>`).join('');
     }
 
     function renderDSM(dsmName) {
@@ -847,19 +859,31 @@
 
       const mk = (n) => fmtK(n);  // reuse SOB formatter
 
-      // Section 1: Solo Performance
+      // Section 1: Total Revenue by Month
+      const revTbody = $('dsmRevTbody');
+      revTbody.innerHTML = '';
+      const revTr = document.createElement('tr');
+      revTr.className = 'row-market';
+      const r = dsm.totalRevenue || {};
+      revTr.innerHTML = `<td class="py-2 px-4" style="color:var(--text-dim)">IGNITE Total</td>
+        <td class="text-right py-2 px-3">${mk(r.apr||0)}</td><td class="text-right py-2 px-3">${mk(r.may||0)}</td>
+        <td class="text-right py-2 px-3">${mk(r.jun||0)}</td><td class="text-right py-2 px-3 font-semibold">${mk(r.q2||0)}</td>
+        <td class="text-right py-2 px-3 hide-mobile">${mk(r.jul||0)}</td><td class="text-right py-2 px-3 hide-mobile">${mk(r.aug||0)}</td>
+        <td class="text-right py-2 px-3 hide-mobile">${mk(r.sep||0)}</td><td class="text-right py-2 px-3 font-semibold hide-mobile">${mk(r.q3||0)}</td>`;
+      revTbody.appendChild(revTr);
+
+      // Section 2: Solo Performance
       const soloTbody = $('dsmSoloTbody');
       soloTbody.innerHTML = '';
       const soloRows = [
-        { label: 'Budget',         data: dsm.soloBudget,   cls: '' },
-        { label: 'Pacing',         data: dsm.soloPacing,   cls: 'val-pos' },
-        { label: 'Gap',            data: null,             cls: '' }
+        { label: 'Budget', data: dsm.soloBudget, cls: '' },
+        { label: 'Pacing', data: dsm.soloPacing, cls: 'val-pos' },
+        { label: 'Gap',    data: null,            cls: '' }
       ];
       soloRows.forEach((row, idx) => {
         const tr = document.createElement('tr');
         tr.className = idx === 0 ? 'row-region' : idx === 1 ? 'row-market' : 'row-enterprise';
         if (idx === 2) {
-          // Gap row
           const b = dsm.soloBudget, p = dsm.soloPacing;
           const gapCls = (mo) => { const g = (p[mo]||0)-(b[mo]||0); return g >= 0 ? 'val-pos' : 'val-neg'; };
           const gapFmt = (mo) => { const g = (p[mo]||0)-(b[mo]||0); return fmtK(g); };
@@ -886,19 +910,6 @@
         }
         soloTbody.appendChild(tr);
       });
-
-      // Section 2: Total Revenue
-      const revTbody = $('dsmRevTbody');
-      revTbody.innerHTML = '';
-      const tr = document.createElement('tr');
-      tr.className = 'row-market';
-      const r = dsm.totalRevenue || {};
-      tr.innerHTML = `<td class="py-2 px-4" style="color:var(--text-dim)">IGNITE Total</td>
-        <td class="text-right py-2 px-3">${mk(r.apr||0)}</td><td class="text-right py-2 px-3">${mk(r.may||0)}</td>
-        <td class="text-right py-2 px-3">${mk(r.jun||0)}</td><td class="text-right py-2 px-3 font-semibold">${mk(r.q2||0)}</td>
-        <td class="text-right py-2 px-3 hide-mobile">${mk(r.jul||0)}</td><td class="text-right py-2 px-3 hide-mobile">${mk(r.aug||0)}</td>
-        <td class="text-right py-2 px-3 hide-mobile">${mk(r.sep||0)}</td><td class="text-right py-2 px-3 font-semibold hide-mobile">${mk(r.q3||0)}</td>`;
-      revTbody.appendChild(tr);
 
       // Section 3: Market Performance from SOB
       const mktTbody = $('dsmMktTbody');
@@ -1314,7 +1325,7 @@
       if (!el) return;
       var sub = $('hotSubtitle');
       if (sub && stackData.weeksAnalyzed) {
-        sub.textContent = 'Based on ' + stackData.weeksAnalyzed.join(', ') + '  ·  Refreshed ' + (stackData.lastRefreshed ? stackData.lastRefreshed.substring(0,10) : '');
+        sub.textContent = 'Based on ' + stackData.weeksAnalyzed.join(', ') + '  ï¿½  Refreshed ' + (stackData.lastRefreshed ? stackData.lastRefreshed.substring(0,10) : '');
       }
       var html = '';
       html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">';
