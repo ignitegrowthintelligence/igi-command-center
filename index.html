@@ -3,90 +3,91 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IGI Command Center v2</title>
+  <title>IGI Signal</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root {
-      --teal:       #00bcd4;
-      --teal-dim:   rgba(0,188,212,0.12);
-      --teal-glow:  rgba(0,188,212,0.25);
-      --bg:         #080d1a;
-      --surface:    #0f1629;
-      --surface-2:  #141d35;
-      --surface-3:  #1a2540;
-      --border:     rgba(255,255,255,0.07);
-      --border-bright: rgba(0,188,212,0.3);
-      --text:       #e2e8f0;
-      --text-dim:   #64748b;
-      --green:      #34d399;
-      --red:        #f87171;
-      --yellow:     #fbbf24;
+      --accent:       #EF4136;
+      --accent-dim:   rgba(239,65,54,0.10);
+      --accent-glow:  rgba(239,65,54,0.22);
+      --bg:           #F2F2F2;
+      --surface:      #FFFFFF;
+      --surface-2:    #F5F5F5;
+      --surface-3:    #EBEBEB;
+      --border:       #DDDDDD;
+      --border-bright: rgba(239,65,54,0.4);
+      --text:         #191919;
+      --text-dim:     #555555;
+      --green:        #16a34a;
+      --red:          #EF4136;
+      --yellow:       #c2820a;
     }
 
     * { box-sizing: border-box; }
-    body { background: var(--bg); font-family: 'Inter', system-ui, sans-serif; color: var(--text); margin: 0; min-height: 100vh; }
+    body { background: var(--bg); font-family: 'Calibri', 'Gill Sans', Arial, sans-serif; color: var(--text); margin: 0; min-height: 100vh; }
 
     /* Header */
-    .bp-header { background: var(--surface); border-bottom: 1px solid var(--border-bright); }
-    .bp-logo   { color: var(--teal); font-weight: 800; font-size: 1.1rem; letter-spacing: 0.05em; }
+    .bp-header { background: #191919; border-bottom: 4px solid #EF4136; }
+    .bp-logo   { color: #EF4136; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight: 800; font-size: 1.1rem; letter-spacing: 0.05em; }
     .bp-logo span { color: #fff; }
 
     /* Summary cards */
-    .bp-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
-    .bp-card-accent { border-top: 2px solid var(--teal); }
+    .bp-card { background: var(--surface); border: 1px solid var(--border); border-radius: 0; }
+    .bp-card-accent { border-top: 3px solid var(--accent); }
 
     /* Table section */
-    .bp-section-header { background: var(--surface); border-bottom: 1px solid var(--border); border-radius: 8px 8px 0 0; }
-    .bp-section-title  { font-size: 1rem; font-weight: 600; letter-spacing: 0.02em; color: #fff; }
+    .bp-section-header { background: #191919; border-bottom: 1px solid rgba(255,255,255,0.1); border-radius: 0; }
+    .bp-section-title  { font-size: 1rem; font-weight: 700; letter-spacing: 0.02em; color: #fff; font-family: 'Franklin Gothic Medium', Arial, sans-serif; }
 
     /* Tabs */
-    .bp-tab-active   { background: var(--teal); color: #000; font-weight: 700; border-radius: 4px; }
-    .bp-tab-inactive { color: var(--text-dim); border-radius: 4px; }
-    .bp-tab-inactive:hover { background: var(--surface-3); color: var(--text); }
+    .bp-tab-active   { background: var(--accent); color: #fff; font-weight: 700; border-radius: 0; }
+    .bp-tab-inactive { color: rgba(255,255,255,0.55); border-radius: 0; }
+    .bp-tab-inactive:hover { background: rgba(255,255,255,0.1); color: #fff; }
 
     /* Table wrapper */
     .bp-table { width: 100%; border-collapse: collapse; background: transparent; }
     .bp-table thead th {
-      background: var(--surface-2);
-      color: var(--text-dim);
+      background: #F5F5F5;
+      color: #555555;
       font-size: 0.68rem;
       font-weight: 700;
       letter-spacing: 0.09em;
       text-transform: uppercase;
       padding: 10px 12px;
-      border-bottom: 1px solid var(--border-bright);
+      border-bottom: 2px solid var(--accent);
       white-space: nowrap;
+      font-family: 'Franklin Gothic Medium', Arial, sans-serif;
     }
-    .bp-table thead th.accent { color: var(--teal); }
+    .bp-table thead th.accent { color: var(--accent); }
     .bp-table tbody tr { border-bottom: 1px solid var(--border); transition: background 0.1s; }
-    .bp-table tbody tr:hover { background: var(--surface-2); }
+    .bp-table tbody tr:hover { background: #FFF5F4; }
 
     /* Row tiers */
-    .row-enterprise { background: var(--surface-3) !important; }
-    .row-enterprise:hover { background: var(--surface-3) !important; filter: brightness(1.1); }
+    .row-enterprise { background: #191919 !important; }
+    .row-enterprise:hover { background: #191919 !important; filter: brightness(1.15); }
     .row-enterprise td { color: #fff !important; font-weight: 700; }
-    .row-region { background: var(--surface-2) !important; }
+    .row-region { background: #F5F5F5 !important; }
     .row-region td { font-weight: 600; color: var(--text); }
     .row-market td { color: var(--text-dim); font-size: 0.85rem; }
 
-    /* Left border accent on enterprise */
-    .row-enterprise td:first-child { border-left: 3px solid var(--teal); padding-left: 13px; }
-    .row-region td:first-child { border-left: 3px solid rgba(0,188,212,0.3); padding-left: 29px; }
+    /* Left border accent */
+    .row-enterprise td:first-child { border-left: 3px solid var(--accent); padding-left: 13px; }
+    .row-region td:first-child { border-left: 3px solid rgba(239,65,54,0.3); padding-left: 29px; }
 
     /* Chevron */
-    .chevron { display: inline-block; transition: transform 0.2s; font-size: 0.65rem; margin-right: 4px; color: var(--teal); }
+    .chevron { display: inline-block; transition: transform 0.2s; font-size: 0.65rem; margin-right: 4px; color: var(--accent); }
     .chevron.open { transform: rotate(90deg); }
     tr.hidden { display: none; }
 
     /* Badges */
-    .badge-green  { background: rgba(52,211,153,0.15); color: var(--green);  border: 1px solid rgba(52,211,153,0.3); border-radius: 4px; padding: 1px 7px; font-size: 0.72rem; font-weight: 600; }
-    .badge-yellow { background: rgba(251,191,36,0.12);  color: var(--yellow); border: 1px solid rgba(251,191,36,0.3); border-radius: 4px; padding: 1px 7px; font-size: 0.72rem; font-weight: 600; }
-    .badge-red    { background: rgba(248,113,113,0.12);  color: var(--red);    border: 1px solid rgba(248,113,113,0.3); border-radius: 4px; padding: 1px 7px; font-size: 0.72rem; font-weight: 600; }
-    .badge-gray   { background: rgba(255,255,255,0.06);  color: var(--text-dim); border: 1px solid var(--border); border-radius: 4px; padding: 1px 7px; font-size: 0.72rem; }
+    .badge-green  { background: rgba(22,163,74,0.10); color: #16a34a; border: 1px solid rgba(22,163,74,0.3); border-radius: 0; padding: 1px 7px; font-size: 0.72rem; font-weight: 600; }
+    .badge-yellow { background: rgba(194,130,10,0.10); color: #c2820a; border: 1px solid rgba(194,130,10,0.3); border-radius: 0; padding: 1px 7px; font-size: 0.72rem; font-weight: 600; }
+    .badge-red    { background: rgba(239,65,54,0.10); color: var(--red); border: 1px solid rgba(239,65,54,0.3); border-radius: 0; padding: 1px 7px; font-size: 0.72rem; font-weight: 600; }
+    .badge-gray   { background: rgba(0,0,0,0.05); color: var(--text-dim); border: 1px solid var(--border); border-radius: 0; padding: 1px 7px; font-size: 0.72rem; }
 
     /* Progress bar */
-    .progress-bar { height: 4px; background: rgba(255,255,255,0.08); border-radius: 2px; overflow: hidden; margin-top: 8px; }
-    .progress-fill { height: 100%; border-radius: 2px; transition: width 0.5s ease; }
+    .progress-bar { height: 4px; background: rgba(0,0,0,0.08); border-radius: 0; overflow: hidden; margin-top: 8px; }
+    .progress-fill { height: 100%; border-radius: 0; transition: width 0.5s ease; }
 
     /* Value colors */
     .val-pos { color: var(--green); }
@@ -94,14 +95,14 @@
     .val-neutral { color: var(--text-dim); }
 
     /* Refresh badge */
-    .refresh-badge { background: var(--teal-dim); color: var(--teal); border: 1px solid var(--border-bright); border-radius: 999px; padding: 2px 10px; font-size: 0.72rem; }
+    .refresh-badge { background: var(--accent-dim); color: var(--accent); border: 1px solid var(--border-bright); border-radius: 0; padding: 2px 10px; font-size: 0.72rem; }
 
     /* Editable RISD commit cell */
     .risd-input {
       background: transparent;
       border: none;
-      border-bottom: 1px dashed rgba(0,188,212,0.4);
-      color: var(--teal);
+      border-bottom: 1px dashed rgba(239,65,54,0.5);
+      color: var(--accent);
       font-size: 0.85rem;
       font-weight: 700;
       text-align: right;
@@ -111,22 +112,22 @@
       border-radius: 0;
     }
     .risd-input:focus {
-      border-bottom: 1px solid var(--teal);
-      background: rgba(0,188,212,0.06);
-      border-radius: 3px 3px 0 0;
+      border-bottom: 1px solid var(--accent);
+      background: rgba(239,65,54,0.05);
+      border-radius: 0;
     }
     .risd-input::placeholder { color: var(--text-dim); font-weight: 400; }
-    .risd-set { color: var(--teal) !important; }
+    .risd-set { color: var(--accent) !important; }
     .risd-saving { opacity: 0.5; cursor: wait; }
     .risd-saved { border-bottom-color: var(--green) !important; color: var(--green) !important; transition: all 0.3s; }
-    .risd-badge { font-size:0.58rem; background:rgba(0,188,212,0.15); color:var(--teal); border:1px solid rgba(0,188,212,0.3); border-radius:3px; padding:0 4px; margin-left:4px; vertical-align:middle; }
+    .risd-badge { font-size:0.58rem; background:var(--accent-dim); color:var(--accent); border:1px solid rgba(239,65,54,0.3); border-radius:0; padding:0 4px; margin-left:4px; vertical-align:middle; }
 
     /* Week selector */
     .week-select {
-      background: var(--surface-3);
-      border: 1px solid var(--border-bright);
-      color: var(--teal);
-      border-radius: 4px;
+      background: #2a2a2a;
+      border: 1px solid rgba(239,65,54,0.45);
+      color: #ffffff;
+      border-radius: 0;
       padding: 4px 10px;
       font-size: 0.8rem;
       font-weight: 600;
@@ -134,54 +135,55 @@
       cursor: pointer;
       appearance: none;
       -webkit-appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2300bcd4' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23EF4136' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 8px center;
       padding-right: 28px;
     }
-    .week-select option { background: var(--surface); color: var(--text); }
+    .week-select option { background: #191919; color: #fff; }
 
     /* Section border */
-    .bp-section-wrap { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+    .bp-section-wrap { border: 1px solid var(--border); border-radius: 0; overflow: hidden; }
 
     @media (max-width: 768px) {
       .hide-mobile { display: none; }
       .mobile-scroll { overflow-x: auto; }
     }
-    /* Focus Markets tab */
+
+    /* What's Hot / Focus Markets tab styles */
     .fm-table { width:100%; border-collapse:collapse; font-size:0.82rem; }
-    .fm-table thead th { background:var(--surface-2); color:var(--text-dim); font-size:0.68rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:8px 12px; border-bottom:1px solid var(--border-bright); white-space:nowrap; }
-    .fm-table thead th.accent { color:var(--teal); }
+    .fm-table thead th { background:#F5F5F5; color:#555555; font-size:0.68rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:8px 12px; border-bottom:2px solid var(--accent); white-space:nowrap; font-family:'Franklin Gothic Medium',Arial,sans-serif; }
+    .fm-table thead th.accent { color:var(--accent); }
     .fm-table tbody tr { border-bottom:1px solid var(--border); transition:background 0.1s; position:relative; }
-    .fm-table tbody tr:hover { background:var(--surface-2); }
+    .fm-table tbody tr:hover { background:#FFF5F4; }
     .fm-table tbody td { padding:9px 12px; color:var(--text); vertical-align:middle; }
     .fm-rank { color:var(--text-dim); font-size:0.75rem; width:28px; text-align:center; }
     .fm-market { font-weight:600; }
     .fm-gap-cell { position:relative; }
-    .fm-gap-bar { position:absolute; left:0; top:0; bottom:0; background:rgba(248,113,113,0.07); pointer-events:none; }
+    .fm-gap-bar { position:absolute; left:0; top:0; bottom:0; background:rgba(239,65,54,0.07); pointer-events:none; }
     .fm-gap-val { position:relative; color:var(--red); font-weight:600; font-variant-numeric:tabular-nums; }
     .fm-pct-red { color:var(--red); font-weight:700; }
-    .fm-pct-amber { color:var(--yellow); font-weight:700; }
+    .fm-pct-amber { color:#c2820a; font-weight:700; }
     .fm-pct-green { color:var(--green); font-weight:700; }
-    .fm-vacant { background:rgba(251,146,60,0.2); color:#fb923c; font-weight:700; border-radius:4px; padding:1px 8px; font-size:0.75rem; letter-spacing:0.03em; }
+    .fm-vacant { background:rgba(239,65,54,0.15); color:var(--accent); font-weight:700; border-radius:0; padding:1px 8px; font-size:0.75rem; letter-spacing:0.03em; }
     .fm-subtitle { font-size:0.72rem; color:var(--text-dim); letter-spacing:0.03em; }
-    .hot-section-title { font-size:0.82rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--teal); padding:14px 20px 8px; }
+    .hot-section-title { font-size:0.82rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); padding:14px 20px 8px; font-family:'Franklin Gothic Medium',Arial,sans-serif; }
     .hot-table { width:100%; border-collapse:collapse; font-size:0.81rem; }
-    .hot-table thead th { background:var(--surface-2); color:var(--text-dim); font-size:0.66rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:7px 12px; border-bottom:1px solid var(--border-bright); white-space:nowrap; }
-    .hot-table thead th.accent { color:var(--teal); }
+    .hot-table thead th { background:#F5F5F5; color:#555555; font-size:0.66rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:7px 12px; border-bottom:2px solid var(--accent); white-space:nowrap; font-family:'Franklin Gothic Medium',Arial,sans-serif; }
+    .hot-table thead th.accent { color:var(--accent); }
     .hot-table tbody tr { border-bottom:1px solid var(--border); }
-    .hot-table tbody tr:hover { background:var(--surface-2); }
+    .hot-table tbody tr:hover { background:#FFF5F4; }
     .hot-table tbody td { padding:8px 12px; color:var(--text); vertical-align:middle; }
     .hot-rank { color:var(--text-dim); font-size:0.72rem; text-align:center; width:24px; }
     .hot-mkt { font-weight:600; }
     .hot-dim { color:var(--text-dim); font-size:0.78rem; }
     .hot-pos, .hot-table tbody td.hot-pos { color:var(--green); font-weight:700; }
     .hot-neg, .hot-table tbody td.hot-neg { color:var(--red); font-weight:700; }
-    .hot-amber, .hot-table tbody td.hot-amber { color:var(--yellow); font-weight:700; }
-    .hot-vacant { background:rgba(251,146,60,0.2); color:#fb923c; font-weight:700; border-radius:4px; padding:1px 7px; font-size:0.73rem; }
-    .hot-flag { background:rgba(248,113,113,0.15); color:var(--red); border:1px solid rgba(248,113,113,0.3); border-radius:3px; padding:0 5px; font-size:0.65rem; font-weight:700; margin-left:5px; }
+    .hot-amber, .hot-table tbody td.hot-amber { color:#c2820a; font-weight:700; }
+    .hot-vacant { background:rgba(239,65,54,0.15); color:var(--accent); font-weight:700; border-radius:0; padding:1px 7px; font-size:0.73rem; }
+    .hot-flag { background:rgba(239,65,54,0.12); color:var(--red); border:1px solid rgba(239,65,54,0.3); border-radius:0; padding:0 5px; font-size:0.65rem; font-weight:700; margin-left:5px; }
     .spark-wrap { display:inline-flex; gap:2px; align-items:flex-end; height:16px; vertical-align:middle; }
-    .spark-bar { width:7px; border-radius:1px; min-height:2px; }
+    .spark-bar { width:7px; border-radius:0; min-height:2px; }
     .hot-also-cold td:first-child { border-left:2px solid var(--red); }
   </style>
 </head>
@@ -191,16 +193,15 @@
   <header class="bp-header px-4 md:px-8 py-3">
     <div class="max-w-screen-2xl mx-auto flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <div class="w-8 h-8 rounded flex items-center justify-center font-black text-lg" style="background:var(--bp-teal);color:#fff;">I</div>
         <div>
-          <div class="bp-logo">IGI <span>Command Center</span></div>
-          <div style="color:rgba(255,255,255,0.45);font-size:0.7rem;letter-spacing:0.05em;">IGNITE GROWTH INTELLIGENCE</div>
+          <div class="bp-logo">IGI <span>Signal</span></div>
+          <div style="color:rgba(255,255,255,0.5);font-size:0.68rem;letter-spacing:0.1em;font-family:'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;">IGNITE GROWTH INTELLIGENCE</div>
         </div>
       </div>
       <div class="flex items-center gap-3">
         <a href="https://ignitegrowthintelligence.github.io/igi-reignite-planner/" target="_blank"
-           style="background:rgba(251,146,60,.15);border:1px solid rgba(251,146,60,.3);color:#fb923c;border-radius:6px;padding:4px 12px;font-size:.72rem;font-weight:700;text-decoration:none;letter-spacing:.03em;">
-          🔥 Re-Ignite
+           style="background:rgba(239,65,54,0.15);border:1px solid rgba(239,65,54,0.45);color:#EF4136;border-radius:0;padding:4px 14px;font-size:.72rem;font-weight:700;text-decoration:none;letter-spacing:.08em;font-family:'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;">
+          IGI FOCUS
         </a>
         <select id="weekSelector" class="week-select" onchange="loadWeek(this.value)">
           <option value="">Loading weeks...</option>
@@ -267,7 +268,7 @@
         <div id="dsmContent" style="padding:16px 0;">
           <!-- Section 1: Solo Performance -->
           <div style="padding:0 16px 8px;">
-            <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;">Solo Performance</div>
+            <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;">Solo Performance</div>
             <div class="mobile-scroll">
               <table class="bp-table" id="dsmSoloTable">
                 <thead><tr>
@@ -282,7 +283,7 @@
 
           <!-- Section 2: Total Revenue -->
           <div style="padding:16px 16px 8px;border-top:1px solid var(--border);margin-top:12px;">
-            <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;">Total Revenue by Month</div>
+            <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;">Total Revenue by Month</div>
             <div class="mobile-scroll">
               <table class="bp-table" id="dsmRevTable">
                 <thead><tr>
@@ -297,7 +298,7 @@
 
           <!-- Section 3: Market Performance (SOB) -->
           <div style="padding:16px 16px 8px;border-top:1px solid var(--border);margin-top:12px;">
-            <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;">Market Performance (SOB)</div>
+            <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;">Market Performance (SOB)</div>
             <div class="mobile-scroll">
               <table class="bp-table" id="dsmMktTable">
                 <thead><tr>
@@ -317,7 +318,7 @@
       <!-- WHAT'S HOT PANEL -->
       <div id="panel-hot" class="hidden">
         <div style="padding:14px 20px 10px;border-bottom:1px solid var(--border);display:flex;align-items:baseline;gap:16px;">
-          <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);">What's Hot</span>
+          <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);">What's Hot</span>
           <span id="hotSubtitle" style="font-size:0.72rem;color:var(--text-dim);"></span>
         </div>
         <div id="hotContent" style="padding:4px 0 16px;"></div>
@@ -1325,11 +1326,4 @@
           stackData = data;
           renderWhatshot();
         })
-        .catch(function(e) { console.warn('stackrank.json not available yet', e); });
-    }
-
-    loadWhatshot();
-
-    </script>
-  </body>
-</html>
+        .catch(function(e) { 
