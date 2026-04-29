@@ -10,11 +10,11 @@
       --accent:       #EF4136;
       --accent-dim:   rgba(239,65,54,0.10);
       --accent-glow:  rgba(239,65,54,0.22);
-      --bg:           #F2F2F2;
+      --bg:           #E4E4E4;
       --surface:      #FFFFFF;
       --surface-2:    #F5F5F5;
       --surface-3:    #EBEBEB;
-      --border:       #DDDDDD;
+      --border:       #D0D0D0;
       --border-bright: rgba(239,65,54,0.4);
       --text:         #191919;
       --text-dim:     #555555;
@@ -32,8 +32,11 @@
     .bp-logo span { color: #fff; }
 
     /* Summary cards */
-    .bp-card { background: var(--surface); border: 1px solid var(--border); border-radius: 0; }
-    .bp-card-accent { border-top: 3px solid var(--accent); }
+    .bp-card { background: var(--surface); border: 1px solid var(--border); border-radius: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+    .bp-card-accent { border-top: 4px solid var(--accent); border-left: 3px solid var(--accent); }
+    .bp-card-kpi { font-size: 2.1rem; font-weight: 800; color: var(--text); line-height: 1.1; margin: 6px 0 2px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; letter-spacing: -0.01em; }
+    .bp-card-label { font-size: 0.67rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); }
+    .bp-card-sub { font-size: 0.75rem; color: var(--text-dim); margin-bottom: 8px; }
 
     /* Table section */
     .bp-section-header { background: #191919; border-bottom: 1px solid rgba(255,255,255,0.1); border-radius: 0; }
@@ -47,9 +50,9 @@
     /* Table wrapper */
     .bp-table { width: 100%; border-collapse: collapse; background: transparent; }
     .bp-table thead th {
-      background: #F5F5F5;
-      color: #555555;
-      font-size: 0.68rem;
+      background: #191919;
+      color: #BBBBBB;
+      font-size: 0.67rem;
       font-weight: 700;
       letter-spacing: 0.09em;
       text-transform: uppercase;
@@ -86,7 +89,7 @@
     .badge-gray   { background: rgba(0,0,0,0.05); color: var(--text-dim); border: 1px solid var(--border); border-radius: 0; padding: 1px 7px; font-size: 0.72rem; }
 
     /* Progress bar */
-    .progress-bar { height: 4px; background: rgba(0,0,0,0.08); border-radius: 0; overflow: hidden; margin-top: 8px; }
+    .progress-bar { height: 6px; background: rgba(0,0,0,0.10); border-radius: 0; overflow: hidden; margin-top: 8px; }
     .progress-fill { height: 100%; border-radius: 0; transition: width 0.5s ease; }
 
     /* Value colors */
@@ -152,7 +155,7 @@
 
     /* What's Hot / Focus Markets tab styles */
     .fm-table { width:100%; border-collapse:collapse; font-size:0.82rem; }
-    .fm-table thead th { background:#F5F5F5; color:#555555; font-size:0.68rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:8px 12px; border-bottom:2px solid var(--accent); white-space:nowrap; font-family:'Franklin Gothic Medium',Arial,sans-serif; }
+    .fm-table thead th { background:#191919; color:#BBBBBB; font-size:0.68rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:8px 12px; border-bottom:2px solid var(--accent); white-space:nowrap; font-family:'Franklin Gothic Medium',Arial,sans-serif; }
     .fm-table thead th.accent { color:var(--accent); }
     .fm-table tbody tr { border-bottom:1px solid var(--border); transition:background 0.1s; position:relative; }
     .fm-table tbody tr:hover { background:#FFF5F4; }
@@ -169,7 +172,7 @@
     .fm-subtitle { font-size:0.72rem; color:var(--text-dim); letter-spacing:0.03em; }
     .hot-section-title { font-size:0.82rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); padding:14px 20px 8px; font-family:'Franklin Gothic Medium',Arial,sans-serif; }
     .hot-table { width:100%; border-collapse:collapse; font-size:0.81rem; }
-    .hot-table thead th { background:#F5F5F5; color:#555555; font-size:0.66rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:7px 12px; border-bottom:2px solid var(--accent); white-space:nowrap; font-family:'Franklin Gothic Medium',Arial,sans-serif; }
+    .hot-table thead th { background:#191919; color:#BBBBBB; font-size:0.66rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:7px 12px; border-bottom:2px solid var(--accent); white-space:nowrap; font-family:'Franklin Gothic Medium',Arial,sans-serif; }
     .hot-table thead th.accent { color:var(--accent); }
     .hot-table tbody tr { border-bottom:1px solid var(--border); }
     .hot-table tbody tr:hover { background:#FFF5F4; }
@@ -592,12 +595,12 @@
         return `
           <div class="bp-card bp-card-accent p-4">
             <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);">${m.label} 2026</div>
-            <div style="font-size:1.6rem;font-weight:800;color:#fff;line-height:1.2;margin:4px 0;">${fmt(ev.adds)}</div>
+            <div style="font-size:2.1rem;font-weight:800;color:var(--text);line-height:1.1;margin:6px 0 2px;font-family:'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;letter-spacing:-0.01em;">${fmt(ev.adds)}</div>
             <div style="font-size:0.75rem;color:var(--text-dim);">of ${fmt(ev.commit)} committed</div>
             <div class="progress-bar">
               <div class="progress-fill" style="width:${barW}%;background:${barColor};"></div>
             </div>
-            <div style="font-size:0.72rem;margin-top:4px;${statusStyle}" class="${statusCls}">
+            <div style="font-size:0.82rem;font-weight:700;margin-top:6px;${statusStyle}" class="${statusCls}">
               ${p !== null ? p + '% delivered' : 'No commits entered'}
             </div>
           </div>`;
@@ -619,12 +622,12 @@
         return `
           <div class="bp-card bp-card-accent p-4">
             <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);">${m.label} 2026</div>
-            <div style="font-size:1.6rem;font-weight:800;color:#fff;line-height:1.2;margin:4px 0;">${fmtSOB(billing)}</div>
+            <div style="font-size:2.1rem;font-weight:800;color:var(--text);line-height:1.1;margin:6px 0 2px;font-family:'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;letter-spacing:-0.01em;">${fmtSOB(billing)}</div>
             <div style="font-size:0.75rem;color:var(--text-dim);">of ${fmtSOB(budget)} budgeted</div>
             <div class="progress-bar">
               <div class="progress-fill" style="width:${barW}%;background:${barColor};"></div>
             </div>
-            <div style="font-size:0.72rem;margin-top:4px;${statusStyle}" class="${statusCls}">
+            <div style="font-size:0.82rem;font-weight:700;margin-top:6px;${statusStyle}" class="${statusCls}">
               ${p !== null ? p + '% of budget' : 'No SOB data'}
             </div>
           </div>`;
@@ -786,12 +789,12 @@
         return `
           <div class="bp-card bp-card-accent p-4">
             <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);">${m.label} 2026</div>
-            <div style="font-size:1.6rem;font-weight:800;color:#fff;line-height:1.2;margin:4px 0;">${fmtSOB(revK)}</div>
+            <div style="font-size:2.1rem;font-weight:800;color:var(--text);line-height:1.1;margin:6px 0 2px;font-family:'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;letter-spacing:-0.01em;">${fmtSOB(revK)}</div>
             <div style="font-size:0.75rem;color:var(--text-dim);">of ${fmtSOB(budgetK)} market revenue</div>
             <div class="progress-bar">
               <div class="progress-fill" style="width:${barW}%;background:${barColor};"></div>
             </div>
-            <div style="font-size:0.72rem;margin-top:4px;${statusStyle}" class="${statusCls}">
+            <div style="font-size:0.82rem;font-weight:700;margin-top:6px;${statusStyle}" class="${statusCls}">
               ${p !== null ? p + '% of budget' : 'No SOB data'}
             </div>
           </div>`;
@@ -1309,6 +1312,7 @@
     function loadWhatshot() {
       var cb = '?v=' + Date.now();
       fetch('data/stackrank.json' + cb)
+        .then(function(r) { return r.json(); })
         .then(function(r) { return r.json(); })
         .then(function(data) {
           // Normalize focus items: PS Select-Object serializes ordered dicts with Keys/Values arrays
