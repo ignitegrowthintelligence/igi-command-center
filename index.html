@@ -271,12 +271,20 @@
 
       <!-- DSM PANEL -->
       <div id="panel-dsm" class="hidden">
-        <div style="padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <!-- Normal mode: selector + share button -->
+        <div id="dsmSelectorRow" style="padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
           <label style="font-size:0.78rem;color:var(--text-dim);">Select DSM:</label>
           <select id="dsmSelector" class="week-select" onchange="renderDSM(this.value)" style="min-width:200px;">
             <option value="">Loading...</option>
           </select>
           <span id="dsmSubtitle" style="font-size:0.72rem;color:var(--text-dim);"></span>
+          <button onclick="shareDsmLink()" style="margin-left:auto;padding:5px 14px;background:var(--surface-2);border:1px solid var(--border-bright);border-radius:4px;color:var(--teal);font-size:0.76rem;cursor:pointer;white-space:nowrap;">&#x1F517; Share Report</button>
+          <span id="dsmShareConfirm" style="display:none;font-size:0.73rem;color:var(--green);">&#x2713; Link copied!</span>
+        </div>
+        <!-- Locked mode: shown when ?dsm= URL param is present -->
+        <div id="dsmLockedRow" style="display:none;padding:12px 16px;border-bottom:1px solid var(--border);align-items:center;gap:12px;flex-wrap:wrap;">
+          <span style="font-size:0.85rem;font-weight:600;color:var(--text);" id="dsmLockedName"></span>
+          <span id="dsmLockedSubtitle" style="font-size:0.72rem;color:var(--text-dim);"></span>
         </div>
 
         <div id="dsmContent" style="padding:16px 0;">
@@ -758,6 +766,20 @@
 
     // ── DSM rendering ───────────────────────────────────────────
     let dsmData = null;
+    var lockedDsm = (new URLSearchParams(window.location.search)).get('dsm');
+
+    function shareDsmLink() {
+      var sel = $('dsmSelector');
+      var name = sel ? sel.value : '';
+      if (!name) return;
+      var url = window.location.origin + window.location.pathname + '?dsm=' + encodeURIComponent(name);
+      navigator.clipboard.writeText(url).then(function() {
+        var c = $('dsmShareConfirm');
+        if (c) { c.style.display = 'inline'; setTimeout(function(){ c.style.display = 'none'; }, 2500); }
+      }).catch(function() {
+        prompt('Copy this link:', url);
+      });
+    }
 
     function loadDSMData() {
       const cb = '?v=' + Date.now();
@@ -775,13 +797,26 @@
           dsmData.dsms.forEach((d, i) => {
             const opt = document.createElement('option');
             opt.value = d.name;
-            opt.textContent = d.name + (d.markets.length ? ` — ${d.markets.join(', ')}` : '');
+            opt.textContent = d.name + (d.markets.length ? ' — ' + d.markets.join(', ') : '');
             if (i === 0) opt.selected = true;
             sel.appendChild(opt);
           });
+          // If locked to a specific DSM via URL param
+          if (lockedDsm) {
+            var match = dsmData.dsms.find(function(d){ return d.name === lockedDsm; });
+            if (match) {
+              $('dsmSelectorRow').style.display = 'none';
+              var lr = $('dsmLockedRow');
+              lr.style.display = 'flex';
+              $('dsmLockedName').textContent = match.name;
+              $('dsmLockedSubtitle').textContent = match.markets.length ? 'Markets: ' + match.markets.join(', ') : '';
+              renderDSM(match.name);
+              return;
+            }
+          }
           if (dsmData.dsms.length > 0) renderDSM(dsmData.dsms[0].name);
         })
-        .catch(() => console.warn('DSM data not available'));
+        .catch(function(){ console.warn('DSM data not available'); });
     }
 
     // DSM rank helper
@@ -853,9 +888,11 @@
       // Update summary cards for this DSM
       renderDsmCards(dsm);
 
-      // Subtitle
+      // Subtitle (normal and locked mode)
       const subtitle = $('dsmSubtitle');
       if (subtitle) subtitle.textContent = dsm.markets.length ? 'Markets: ' + dsm.markets.join(', ') : '';
+      const lockedSub = $('dsmLockedSubtitle');
+      if (lockedSub) lockedSub.textContent = dsm.markets.length ? 'Markets: ' + dsm.markets.join(', ') : '';
 
       const mk = (n) => fmtK(n);  // reuse SOB formatter
 
@@ -865,7 +902,7 @@
       const revTr = document.createElement('tr');
       revTr.className = 'row-market';
       const r = dsm.totalRevenue || {};
-      revTr.innerHTML = `<td class="py-2 px-4" style="color:var(--text-dim)">IGNITE Total</td>
+      revTr.innerHTML = `<td class="py-2 px-4" style="color:var(--text-dim)">Ignite + Amped Total</td>
         <td class="text-right py-2 px-3">${mk(r.apr||0)}</td><td class="text-right py-2 px-3">${mk(r.may||0)}</td>
         <td class="text-right py-2 px-3">${mk(r.jun||0)}</td><td class="text-right py-2 px-3 font-semibold">${mk(r.q2||0)}</td>
         <td class="text-right py-2 px-3 hide-mobile">${mk(r.jul||0)}</td><td class="text-right py-2 px-3 hide-mobile">${mk(r.aug||0)}</td>
@@ -1372,6 +1409,11 @@
     }
 
     loadWhatshot();
+
+    // If a DSM share link was opened, auto-load DSM tab
+    if (lockedDsm) {
+      loadDSMData().then(function(){ switchTab('dsm'); });
+    }
 
     </script>
   </body>
