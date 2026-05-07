@@ -139,10 +139,19 @@ function Parse-Blueprint([string]$path) {
   foreach ($line in $lines) {
     $line = $line.Trim()
     # TYPE header: extract the 3 month labels Blueprint uses
+    # Handles formats: "May 2026", "26-May", "May", "Jun", etc.
     if ($line -match '^TYPE,' -and $bpMonthLabels.Count -eq 0) {
+      $abbrevMap = @{
+        "Jan"="January";"Feb"="February";"Mar"="March";"Apr"="April";"May"="May"
+        "Jun"="June";"Jul"="July";"Aug"="August";"Sep"="September"
+        "Oct"="October";"Nov"="November";"Dec"="December"
+      }
       $parts = $line -split ','
       foreach ($p in ($parts[1..3])) {
-        $label = ($p.Trim().Trim('"') -replace '\s+\d{4}$','').Trim()
+        $label = ($p.Trim().Trim('"') -replace '\s+\d{4}$','').Trim()  # strip " 2026" suffix
+        $label = ($label -replace '^\d+-','').Trim()                    # strip "26-" day prefix
+        # Expand 3-letter abbreviation to full month name
+        if ($label.Length -eq 3 -and $abbrevMap.ContainsKey($label)) { $label = $abbrevMap[$label] }
         # Capitalize first letter
         if ($label.Length -gt 1) { $label = $label.Substring(0,1).ToUpper() + $label.Substring(1).ToLower() }
         if ($monthKeys.ContainsKey($label)) { $bpMonthLabels += $label }

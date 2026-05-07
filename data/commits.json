@@ -1,1215 +1,1155 @@
-{
-  "regions": [
-    {
-      "markets": [
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Battle Creek",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": -300,
-            "commit": 6000
-          },
-          "m1": {
-            "adds": -300,
-            "commit": 0
-          },
-          "name": "Flint",
-          "m2": {
-            "adds": -300,
-            "commit": 6000
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 4576.27
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Grand Rapids",
-          "m2": {
-            "adds": 0,
-            "commit": 3203.39
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 8319.41
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Kalamazoo",
-          "m2": {
-            "adds": 0,
-            "commit": 8596.73
-          }
-        },
-        {
-          "m3": {
-            "adds": -6000,
-            "commit": 0
-          },
-          "m1": {
-            "adds": -6000,
-            "commit": 0
-          },
-          "name": "Killeen/Temple",
-          "m2": {
-            "adds": -6000,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 4475.26
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Lafayette",
-          "m2": {
-            "adds": 0,
-            "commit": 3296.85
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Lake Charles",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": -816,
-            "commit": 8913.57
-          },
-          "m1": {
-            "adds": 360,
-            "commit": 0
-          },
-          "name": "Lansing",
-          "m2": {
-            "adds": -344,
-            "commit": 9086.43
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Lufkin",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 4000
-          },
-          "m1": {
-            "adds": 1525,
-            "commit": 0
-          },
-          "name": "Rockford",
-          "m2": {
-            "adds": 1525,
-            "commit": 4000
-          }
-        },
-        {
-          "m3": {
-            "adds": 2500,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 2500,
-            "commit": 0
-          },
-          "name": "Shreveport",
-          "m2": {
-            "adds": 2500,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 500,
-            "commit": 1323.53
-          },
-          "m1": {
-            "adds": 250,
-            "commit": 0
-          },
-          "name": "Texarkana",
-          "m2": {
-            "adds": 500,
-            "commit": 926.47
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Tyler",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Victoria",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        }
-      ],
-      "name": "Kathi Kirkland",
-      "id": "kathi"
-    },
-    {
-      "markets": [
-        {
-          "m3": {
-            "adds": -10800,
-            "commit": 0
-          },
-          "m1": {
-            "adds": -10800,
-            "commit": 0
-          },
-          "name": "Billings",
-          "m2": {
-            "adds": -10800,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 6500
-          },
-          "m1": {
-            "adds": 2500,
-            "commit": 0
-          },
-          "name": "Boise",
-          "m2": {
-            "adds": 500,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Bozeman",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Butte",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 1400,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 1400,
-            "commit": 0
-          },
-          "name": "Casper",
-          "m2": {
-            "adds": 1400,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 1500,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 375,
-            "commit": 0
-          },
-          "name": "Cheyenne",
-          "m2": {
-            "adds": 1500,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Fort Collins",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 4931.51
-          },
-          "m1": {
-            "adds": 2500,
-            "commit": 0
-          },
-          "name": "Great Falls",
-          "m2": {
-            "adds": 0,
-            "commit": 5095.89
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Laramie",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 2500
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Sierra Vista",
-          "m2": {
-            "adds": 0,
-            "commit": 2500
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 4465.75
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "St. George",
-          "m2": {
-            "adds": 0,
-            "commit": 4547.95
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 16000,
-            "commit": 0
-          },
-          "name": "Tri-Cities",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Twin Falls",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": -2000,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Wenatchee",
-          "m2": {
-            "adds": -2000,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Yakima",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        }
-      ],
-      "name": "Taylor Wheeler",
-      "id": "taylor"
-    },
-    {
-      "markets": [
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Abilene",
-          "m2": {
-            "adds": 250,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 750,
-            "commit": 5379.31
-          },
-          "m1": {
-            "adds": 2025,
-            "commit": 0
-          },
-          "name": "Amarillo",
-          "m2": {
-            "adds": 750,
-            "commit": 3048.28
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 10933.33
-          },
-          "m1": {
-            "adds": -500,
-            "commit": 0
-          },
-          "name": "El Paso",
-          "m2": {
-            "adds": -500,
-            "commit": 11566.67
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Lawton",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 4750,
-            "commit": 1764.71
-          },
-          "m1": {
-            "adds": 2250,
-            "commit": 0
-          },
-          "name": "Lubbock",
-          "m2": {
-            "adds": 4750,
-            "commit": 1647.06
-          }
-        },
-        {
-          "m3": {
-            "adds": -1595,
-            "commit": 0
-          },
-          "m1": {
-            "adds": -1530,
-            "commit": 0
-          },
-          "name": "Odessa",
-          "m2": {
-            "adds": -1595,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "San Angelo",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 914.63
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Wichita Falls",
-          "m2": {
-            "adds": 0,
-            "commit": 640.24
-          }
-        }
-      ],
-      "name": "Tyler Wille",
-      "id": "tylerw"
-    },
-    {
-      "markets": [
-        {
-          "m3": {
-            "adds": 4986,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Bismarck",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 8179,
-            "commit": 0
-          },
-          "m1": {
-            "adds": -1819,
-            "commit": 0
-          },
-          "name": "Cedar Rapids",
-          "m2": {
-            "adds": 8179,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 3200,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Dubuque",
-          "m2": {
-            "adds": 3200,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 3825,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 2500,
-            "commit": 0
-          },
-          "name": "Duluth",
-          "m2": {
-            "adds": 5175,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Faribault/Owatonna",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Quad Cities",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": -2750,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 1000,
-            "commit": 0
-          },
-          "name": "Quincy/Hannibal",
-          "m2": {
-            "adds": 3322,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 2500,
-            "commit": 0
-          },
-          "name": "Rochester MN",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 5610,
-            "commit": 0
-          },
-          "name": "Sedalia",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Waterloo",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        }
-      ],
-      "name": "Jeroen Corver",
-      "id": "jeroen"
-    },
-    {
-      "markets": [
-        {
-          "m3": {
-            "adds": 1500,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 1500,
-            "commit": 0
-          },
-          "name": "Augusta",
-          "m2": {
-            "adds": 1500,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Bangor",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "New Bedford",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 2500,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Portland",
-          "m2": {
-            "adds": 3500,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 8000,
-            "commit": 0
-          },
-          "name": "Portsmouth",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Presque Isle",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        }
-      ],
-      "name": "NNE",
-      "id": "nne"
-    },
-    {
-      "markets": [
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 16250,
-            "commit": 0
-          },
-          "name": "Atlantic City",
-          "m2": {
-            "adds": 8500,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 3400,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 3400,
-            "commit": 0
-          },
-          "name": "Shore",
-          "m2": {
-            "adds": 3400,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 8000,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 7800,
-            "commit": 0
-          },
-          "name": "Trenton/Princeton",
-          "m2": {
-            "adds": 8000,
-            "commit": 0
-          }
-        }
-      ],
-      "name": "NJ",
-      "id": "nj"
-    },
-    {
-      "markets": [
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 7627.12
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Albany",
-          "m2": {
-            "adds": 0,
-            "commit": 5338.98
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Berkshires",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Binghamton",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 26792,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 1700,
-            "commit": 0
-          },
-          "name": "Buffalo",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Danbury",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Oneonta",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": -1700,
-            "commit": 0
-          },
-          "name": "Poughkeepsie",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 505.62
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Utica",
-          "m2": {
-            "adds": 0,
-            "commit": 1971.91
-          }
-        }
-      ],
-      "name": "NY",
-      "id": "ny"
-    },
-    {
-      "markets": [
-        {
-          "m3": {
-            "adds": 3200,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Dubuque",
-          "m2": {
-            "adds": 3200,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 6275,
-            "commit": 4891.3
-          },
-          "m1": {
-            "adds": 2975,
-            "commit": 0
-          },
-          "name": "Evansville/Owensboro",
-          "m2": {
-            "adds": 6275,
-            "commit": 5054.35
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Grand Junction",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 747.92
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Missoula",
-          "m2": {
-            "adds": 0,
-            "commit": 673.13
-          }
-        },
-        {
-          "m3": {
-            "adds": 393,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Montrose",
-          "m2": {
-            "adds": -393,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Quad Cities",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": -2750,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 1000,
-            "commit": 0
-          },
-          "name": "Quincy/Hannibal",
-          "m2": {
-            "adds": 3322,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Shelby",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 1500,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Sioux Falls",
-          "m2": {
-            "adds": 1500,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "St. Cloud",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Tuscaloosa",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        },
-        {
-          "m3": {
-            "adds": 0,
-            "commit": 0
-          },
-          "m1": {
-            "adds": 0,
-            "commit": 0
-          },
-          "name": "Williston",
-          "m2": {
-            "adds": 0,
-            "commit": 0
-          }
-        }
-      ],
-      "name": "Others",
-      "id": "others"
-    }
-  ],
-  "weekOf": "May 4, 2026",
-  "months": [
-    {
-      "label": "May",
-      "key": "m1",
-      "abbr": "May",
-      "woa_month": 5
-    },
-    {
-      "label": "June",
-      "key": "m2",
-      "abbr": "Jun",
-      "woa_month": 6
-    },
-    {
-      "label": "July",
-      "key": "m3",
-      "abbr": "Jul",
-      "woa_month": 7
-    }
-  ],
-  "lastRefreshed": "2026-05-06T00:00:00.000Z",
-  "weekDate": "2026-05-04"
+﻿{
+    "lastRefreshed":  "2026-05-07T14:54:21Z",
+    "weekOf":  "May 4, 2026",
+    "weekDate":  "2026-05-04",
+    "months":  [
+                   {
+                       "key":  "m1",
+                       "label":  "May",
+                       "abbr":  "May",
+                       "woa_month":  5
+                   },
+                   {
+                       "key":  "m2",
+                       "label":  "June",
+                       "abbr":  "Jun",
+                       "woa_month":  6
+                   },
+                   {
+                       "key":  "m3",
+                       "label":  "July",
+                       "abbr":  "Jul",
+                       "woa_month":  7
+                   }
+               ],
+    "regions":  [
+                    {
+                        "id":  "kathi",
+                        "name":  "Kathi Kirkland",
+                        "markets":  [
+                                        {
+                                            "name":  "Flint",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  -300
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  -300
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  -300
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Grand Rapids",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Kalamazoo",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Killeen/Temple",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  -6000
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  -6000
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  -6000
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Lafayette",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Lake Charles",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Lansing",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  360
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  -344
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  -816
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Lufkin",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Rockford",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  1525
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  1525
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Shreveport",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  2500
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  2500
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  2500
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Texarkana",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  250
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  500
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  500
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Tyler",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Victoria",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        }
+                                    ]
+                    },
+                    {
+                        "id":  "taylor",
+                        "name":  "Taylor Wheeler",
+                        "markets":  [
+                                        {
+                                            "name":  "Billings",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  -10800
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  -10800
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  -10800
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Boise",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  2500
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  500
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Bozeman",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Butte",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Casper",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  1400
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  1400
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  1400
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Cheyenne",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  375
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  1500
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  1500
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Fort Collins",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Great Falls",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  2500
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Laramie",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Sierra Vista",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "St. George",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Tri-Cities",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  16000
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Twin Falls",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Wenatchee",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  -2000
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  -2000
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Williston",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Yakima",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        }
+                                    ]
+                    },
+                    {
+                        "id":  "tylerw",
+                        "name":  "Tyler Wille",
+                        "markets":  [
+                                        {
+                                            "name":  "Abilene",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  250
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Amarillo",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  2025
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  750
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  750
+                                                   }
+                                        },
+                                        {
+                                            "name":  "El Paso",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  -500
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  -500
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Lawton",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Lubbock",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  2250
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  4750
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  4750
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Odessa",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  -1530
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  -1595
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  -1595
+                                                   }
+                                        },
+                                        {
+                                            "name":  "San Angelo",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Wichita Falls",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        }
+                                    ]
+                    },
+                    {
+                        "id":  "jeroen",
+                        "name":  "Jeroen Corver",
+                        "markets":  [
+                                        {
+                                            "name":  "Bismarck",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  4986
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Cedar Rapids",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  -1819
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  8179
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  8179
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Dubuque",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  3200
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  3200
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Duluth",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  2500
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  5175
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  3825
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Faribault/Owatonna",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Quad Cities",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Quincy/Hannibal",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  1000
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  3322
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  -2750
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Rochester MN",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  2500
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Sedalia",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  5610
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Waterloo",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        }
+                                    ]
+                    },
+                    {
+                        "id":  "nne",
+                        "name":  "NNE",
+                        "markets":  [
+                                        {
+                                            "name":  "Augusta",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  1500
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  1500
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  1500
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Bangor",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "New Bedford",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Portland",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  3500
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  2500
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Portsmouth",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  8000
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Presque Isle",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        }
+                                    ]
+                    },
+                    {
+                        "id":  "nj",
+                        "name":  "NJ",
+                        "markets":  [
+                                        {
+                                            "name":  "Atlantic City",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Shore",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  3400
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  3400
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  3400
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Trenton/Princeton",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        }
+                                    ]
+                    },
+                    {
+                        "id":  "ny",
+                        "name":  "NY",
+                        "markets":  [
+                                        {
+                                            "name":  "Albany",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Berkshires",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Binghamton",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Buffalo",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  1700
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  26792
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Danbury",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Oneonta",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Poughkeepsie",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  -1700
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Utica",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        }
+                                    ]
+                    },
+                    {
+                        "id":  "others",
+                        "name":  "Others",
+                        "markets":  [
+                                        {
+                                            "name":  "Evansville/Owensboro",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  2975
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  6275
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  6275
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Grand Junction",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Missoula",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Montrose",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  -393
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  393
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Shelby",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Sioux Falls",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  1500
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  1500
+                                                   }
+                                        },
+                                        {
+                                            "name":  "St. Cloud",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        },
+                                        {
+                                            "name":  "Tuscaloosa",
+                                            "m1":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m2":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   },
+                                            "m3":  {
+                                                       "commit":  0,
+                                                       "adds":  0
+                                                   }
+                                        }
+                                    ]
+                    }
+                ]
 }
