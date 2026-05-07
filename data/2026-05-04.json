@@ -1,46 +1,4 @@
 {
-  "risd": {
-    "tylerw": {
-      "m2": 10000,
-      "m3": null,
-      "m1": 10000
-    },
-    "taylor": {
-      "m2": 23000,
-      "m3": null,
-      "m1": null
-    },
-    "ny": {
-      "m2": null,
-      "m3": null,
-      "m1": null
-    },
-    "nj": {
-      "m2": 45000,
-      "m3": null,
-      "m1": null
-    },
-    "nne": {
-      "m2": 5000,
-      "m3": null,
-      "m1": null
-    },
-    "kathi": {
-      "m1": null,
-      "m2": null,
-      "m3": null
-    },
-    "others": {
-      "m2": 5500,
-      "m3": null,
-      "m1": null
-    },
-    "jeroen": {
-      "m2": 42000,
-      "m3": null,
-      "m1": null
-    }
-  },
   "regions": [
     {
       "markets": [
@@ -1231,7 +1189,7 @@
       "id": "others"
     }
   ],
-  "weekOf": "May 5, 2026",
+  "weekOf": "May 4, 2026",
   "months": [
     {
       "label": "May",
@@ -1253,5 +1211,5 @@
     }
   ],
   "lastRefreshed": "2026-05-06T00:00:00.000Z",
-  "weekDate": "2026-05-05"
+  "weekDate": "2026-05-04"
 }
