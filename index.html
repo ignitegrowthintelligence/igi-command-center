@@ -8,10 +8,10 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root {
-      --accent:        #EF4136;
-      --accent-dim:    rgba(239,65,54,0.10);
-      --accent-mid:    rgba(239,65,54,0.22);
-      --accent-border: rgba(239,65,54,0.45);
+      --accent:        #00aebd;
+      --accent-dim:    rgba(0,174,189,0.10);
+      --accent-mid:    rgba(0,174,189,0.22);
+      --accent-border: rgba(0,174,189,0.45);
       --bg:            #F0F0F0;
       --surface:       #FFFFFF;
       --surface-2:     #F5F5F5;
@@ -29,18 +29,18 @@
       --green-dim:     rgba(21,128,61,0.12);
       --amber:         #b45309;
       --amber-dim:     rgba(180,83,9,0.12);
-      --red:           #EF4136;
+      --red:           #00aebd;
       --r-card:        10px;
       --r-btn:         6px;
       --r-badge:       4px;
     }
 
     * { box-sizing: border-box; }
-    body { background: var(--bg); font-family: 'Inter', 'Calibri', system-ui, sans-serif; color: var(--text); margin: 0; min-height: 100vh; }
+    body { background: var(--bg); font-family: 'Roboto', Arial, sans-serif; color: var(--text); margin: 0; min-height: 100vh; }
 
     /* ── Header ── */
     .bp-header { background: #111113; border-bottom: 1px solid rgba(255,255,255,0.06); }
-    .bp-logo { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 700; color: #fff; letter-spacing: -0.02em; }
+    .bp-logo { font-family: 'Inter', Arial, sans-serif; font-size: 1rem; font-weight: 700; color: #fff; letter-spacing: -0.02em; }
     .bp-logo span { color: var(--accent); }
     .bp-logo-divider { display: inline-block; width: 1px; height: 14px; background: rgba(255,255,255,0.15); margin: 0 10px; vertical-align: middle; }
     .bp-logo-sub { display: inline-block; font-size: 0.62rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.28); vertical-align: middle; }
@@ -79,9 +79,9 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       padding: 10px 12px;
-      border-bottom: 1px solid rgba(239,65,54,0.5);
+      border-bottom: 1px solid rgba(0,174,189,0.5);
       white-space: nowrap;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Inter', Arial, sans-serif;
     }
     .bp-table thead th.accent { color: var(--accent); }
     .bp-table tbody tr { border-bottom: 1px solid rgba(255,255,255,0.04); transition: background 0.1s; }
@@ -99,7 +99,7 @@
 
     /* ── Left border accent ── */
     .row-enterprise td:first-child { border-left: 4px solid var(--accent); padding-left: 12px; }
-    .row-region td:first-child { border-left: 2px solid rgba(239,65,54,0.2); padding-left: 28px; }
+    .row-region td:first-child { border-left: 2px solid rgba(0,174,189,0.2); padding-left: 28px; }
     .row-market td:first-child { padding-left: 44px; }
 
     /* ── Chevron ── */
@@ -110,7 +110,7 @@
     /* ── Status badges (table) ── */
     .badge-green  { background: var(--green-dim); color: var(--green); border: 1px solid rgba(21,128,61,0.25); border-radius: var(--r-badge); padding: 1px 7px; font-size: 0.68rem; font-weight: 600; }
     .badge-yellow { background: var(--amber-dim); color: var(--amber); border: 1px solid rgba(180,83,9,0.25); border-radius: var(--r-badge); padding: 1px 7px; font-size: 0.68rem; font-weight: 600; }
-    .badge-red    { background: var(--accent-dim); color: var(--red); border: 1px solid rgba(239,65,54,0.25); border-radius: var(--r-badge); padding: 1px 7px; font-size: 0.68rem; font-weight: 600; }
+    .badge-red    { background: var(--accent-dim); color: var(--red); border: 1px solid rgba(0,174,189,0.25); border-radius: var(--r-badge); padding: 1px 7px; font-size: 0.68rem; font-weight: 600; }
     .badge-gray   { background: rgba(255,255,255,0.06); color: var(--text-dark-dim); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--r-badge); padding: 1px 7px; font-size: 0.68rem; }
 
     /* ── Progress bar ── */
@@ -123,29 +123,29 @@
     .val-neutral { color: var(--text-dark-dim); }
 
     /* ── Refresh badge ── */
-    .refresh-badge { background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(239,65,54,0.3); border-radius: var(--r-badge); padding: 2px 10px; font-size: 0.68rem; font-weight: 500; }
+    .refresh-badge { background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(0,174,189,0.3); border-radius: var(--r-badge); padding: 2px 10px; font-size: 0.68rem; font-weight: 500; }
 
     /* ── RISD input ── */
     .risd-input {
       background: transparent; border: none;
-      border-bottom: 1px dashed rgba(239,65,54,0.45);
+      border-bottom: 1px dashed rgba(0,174,189,0.45);
       color: var(--accent); font-size: 0.8rem; font-weight: 600;
       text-align: right; width: 90px; outline: none; padding: 2px 4px; border-radius: 0;
       font-family: 'DM Mono', monospace;
     }
-    .risd-input:focus { border-bottom: 1px solid var(--accent); background: rgba(239,65,54,0.05); }
+    .risd-input:focus { border-bottom: 1px solid var(--accent); background: rgba(0,174,189,0.05); }
     .risd-input::placeholder { color: rgba(255,255,255,0.25); font-weight: 400; }
     .risd-set { color: var(--accent) !important; }
     .risd-saving { opacity: 0.5; cursor: wait; }
     .risd-saved { border-bottom-color: var(--green) !important; color: var(--green) !important; transition: all 0.3s; }
-    .risd-badge { font-size: 0.55rem; background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(239,65,54,0.25); border-radius: var(--r-badge); padding: 0 4px; margin-left: 4px; vertical-align: middle; }
+    .risd-badge { font-size: 0.55rem; background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(0,174,189,0.25); border-radius: var(--r-badge); padding: 0 4px; margin-left: 4px; vertical-align: middle; }
 
     /* ── Week selector ── */
     .week-select {
       background: #27272A; border: 1px solid rgba(255,255,255,0.1);
       color: rgba(255,255,255,0.82); border-radius: var(--r-btn);
       padding: 5px 28px 5px 10px; font-size: 0.75rem; font-weight: 500;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Inter', Arial, sans-serif;
       outline: none; cursor: pointer; appearance: none; -webkit-appearance: none;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23EF4136' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
       background-repeat: no-repeat; background-position: right 8px center;
@@ -163,7 +163,7 @@
 
     /* ── What's Hot / Focus Markets ── */
     .fm-table { width:100%; border-collapse:collapse; font-size:0.82rem; background: var(--dark-bg); }
-    .fm-table thead th { background: var(--dark-deep); color: rgba(255,255,255,0.32); font-size:0.62rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; padding:8px 12px; border-bottom:1px solid rgba(239,65,54,0.5); white-space:nowrap; font-family:'Inter',sans-serif; }
+    .fm-table thead th { background: var(--dark-deep); color: rgba(255,255,255,0.32); font-size:0.62rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; padding:8px 12px; border-bottom:1px solid rgba(0,174,189,0.5); white-space:nowrap; font-family:'Inter', Arial, sans-serif; }
     .fm-table thead th.accent { color:var(--accent); }
     .fm-table tbody tr { border-bottom:1px solid rgba(255,255,255,0.04); transition:background 0.1s; position:relative; }
     .fm-table tbody tr:hover { background: rgba(255,255,255,0.03); }
@@ -171,16 +171,16 @@
     .fm-rank { color: rgba(255,255,255,0.32); font-size:0.75rem; width:28px; text-align:center; }
     .fm-market { font-weight:600; color: rgba(255,255,255,0.88) !important; }
     .fm-gap-cell { position:relative; }
-    .fm-gap-bar { position:absolute; left:0; top:0; bottom:0; background:rgba(239,65,54,0.07); pointer-events:none; }
+    .fm-gap-bar { position:absolute; left:0; top:0; bottom:0; background:rgba(0,174,189,0.07); pointer-events:none; }
     .fm-gap-val { position:relative; color:var(--red); font-weight:600; font-variant-numeric:tabular-nums; font-family:'DM Mono',monospace; }
     .fm-pct-red { color:var(--red); font-weight:600; }
     .fm-pct-amber { color:var(--amber); font-weight:600; }
     .fm-pct-green { color:var(--green); font-weight:600; }
-    .fm-vacant { background:rgba(239,65,54,0.15); color:var(--accent); font-weight:700; border-radius: var(--r-badge); padding:1px 8px; font-size:0.72rem; }
+    .fm-vacant { background:rgba(0,174,189,0.15); color:var(--accent); font-weight:700; border-radius: var(--r-badge); padding:1px 8px; font-size:0.72rem; }
     .fm-subtitle { font-size:0.68rem; color: rgba(255,255,255,0.42); }
-    .hot-section-title { font-size:0.72rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); padding:14px 20px 8px; font-family:'Inter',sans-serif; }
+    .hot-section-title { font-size:0.72rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); padding:14px 20px 8px; font-family:'Inter', Arial, sans-serif; }
     .hot-table { width:100%; border-collapse:collapse; font-size:0.81rem; background: var(--dark-bg); }
-    .hot-table thead th { background: var(--dark-deep); color: rgba(255,255,255,0.32); font-size:0.62rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; padding:7px 12px; border-bottom:1px solid rgba(239,65,54,0.5); white-space:nowrap; font-family:'Inter',sans-serif; }
+    .hot-table thead th { background: var(--dark-deep); color: rgba(255,255,255,0.32); font-size:0.62rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; padding:7px 12px; border-bottom:1px solid rgba(0,174,189,0.5); white-space:nowrap; font-family:'Inter', Arial, sans-serif; }
     .hot-table thead th.accent { color:var(--accent); }
     .hot-table tbody tr { border-bottom:1px solid rgba(255,255,255,0.04); }
     .hot-table tbody tr:hover { background: rgba(255,255,255,0.03); }
@@ -191,12 +191,13 @@
     .hot-pos, .hot-table tbody td.hot-pos { color:var(--green); font-weight:600; }
     .hot-neg, .hot-table tbody td.hot-neg { color:var(--red); font-weight:600; }
     .hot-amber, .hot-table tbody td.hot-amber { color:var(--amber); font-weight:600; }
-    .hot-vacant { background:rgba(239,65,54,0.15); color:var(--accent); font-weight:700; border-radius: var(--r-badge); padding:1px 7px; font-size:0.72rem; }
-    .hot-flag { background:rgba(239,65,54,0.12); color:var(--red); border:1px solid rgba(239,65,54,0.25); border-radius: var(--r-badge); padding:0 5px; font-size:0.62rem; font-weight:700; margin-left:5px; }
+    .hot-vacant { background:rgba(0,174,189,0.15); color:var(--accent); font-weight:700; border-radius: var(--r-badge); padding:1px 7px; font-size:0.72rem; }
+    .hot-flag { background:rgba(0,174,189,0.12); color:var(--red); border:1px solid rgba(0,174,189,0.25); border-radius: var(--r-badge); padding:0 5px; font-size:0.62rem; font-weight:700; margin-left:5px; }
     .spark-wrap { display:inline-flex; gap:2px; align-items:flex-end; height:16px; vertical-align:middle; }
     .spark-bar { width:7px; border-radius:1px; min-height:2px; }
     .hot-also-cold td:first-child { border-left:2px solid var(--red); }
   </style>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -214,7 +215,7 @@
           Live
         </div>
         <a href="https://ignitegrowthintelligence.github.io/igi-reignite-planner/" target="_blank"
-           style="background:transparent;border:1px solid rgba(239,65,54,0.5);color:#EF4136;border-radius:6px;padding:5px 12px;font-size:0.72rem;font-weight:600;text-decoration:none;font-family:'Inter',sans-serif;letter-spacing:0.01em;">
+           style="background:transparent;border:1px solid rgba(0,174,189,0.5);color:#00aebd;border-radius:6px;padding:5px 12px;font-size:0.72rem;font-weight:600;text-decoration:none;font-family:'Inter', Arial, sans-serif;letter-spacing:0.01em;">
           IGI <span style="color:#ffffff;">Playbook</span> ↗
         </a>
         <select id="weekSelector" class="week-select" onchange="loadWeek(this.value)">
@@ -607,7 +608,7 @@
       $('summaryCards').innerHTML = months.map(m => {
         const ev = ent[m.key] || {commit:0,adds:0};
         const p = ev.commit !== 0 ? pct(ev.adds, ev.commit) : null;
-        const barColor = p === null ? 'rgba(255,255,255,0.1)' : p >= 100 ? '#15803d' : p >= 80 ? '#b45309' : '#EF4136';
+        const barColor = p === null ? 'rgba(255,255,255,0.1)' : p >= 100 ? '#15803d' : p >= 80 ? '#b45309' : '#00aebd';
         const barW = p !== null ? Math.min(Math.max(p,0),100) : 0;
         const badgeCls = p === null ? 'badge-on-track' : p >= 100 ? 'badge-on-track' : p >= 80 ? 'badge-at-risk' : 'badge-behind';
         const badgeLabel = p === null ? 'No Data' : p >= 100 ? 'On Track' : p >= 80 ? 'At Risk' : 'Behind';
@@ -641,7 +642,7 @@
         const billing = sob ? sob.billing : 0;
         const budget  = sob ? sob.budget  : 0;
         const p = budget !== 0 ? pct(billing, budget) : null;
-        const barColor = p === null ? 'rgba(255,255,255,0.1)' : p >= 100 ? '#15803d' : p >= 80 ? '#b45309' : '#EF4136';
+        const barColor = p === null ? 'rgba(255,255,255,0.1)' : p >= 100 ? '#15803d' : p >= 80 ? '#b45309' : '#00aebd';
         const barW = p !== null ? Math.min(Math.max(p,0),100) : 0;
         const badgeCls = p === null ? 'badge-on-track' : p >= 100 ? 'badge-on-track' : p >= 80 ? 'badge-at-risk' : 'badge-behind';
         const badgeLabel = p === null ? 'No Data' : p >= 100 ? 'On Track' : p >= 80 ? 'At Risk' : 'Behind';
