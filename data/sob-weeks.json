@@ -1,6 +1,16 @@
 {
     "weeks":  [
                   {
+                      "date":  "2026-05-11",
+                      "label":  "Wk 18-2026",
+                      "sobFile":  "2026 - SOB-IGNITE 5_9_2026.xlsx"
+                  },
+                  {
+                      "date":  "2026-05-04",
+                      "label":  "Wk 17-2026",
+                      "sobFile":  "2026 - SOB-IGNITE 5_3_2026.xlsx"
+                  },
+                  {
                       "date":  "2026-04-27",
                       "label":  "Wk 16-2026",
                       "sobFile":  "2026 - SOB-IGNITE 4_25_2026.xlsx"
