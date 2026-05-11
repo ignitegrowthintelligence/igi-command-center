@@ -150,6 +150,7 @@ function Parse-Blueprint([string]$path) {
       foreach ($p in ($parts[1..3])) {
         $label = ($p.Trim().Trim('"') -replace '\s+\d{4}$','').Trim()  # strip " 2026" suffix
         $label = ($label -replace '^\d+-','').Trim()                    # strip "26-" day prefix
+        $label = ($label -replace '-\d+$','').Trim()                    # strip "May-26" year suffix
         # Expand 3-letter abbreviation to full month name
         if ($label.Length -eq 3 -and $abbrevMap.ContainsKey($label)) { $label = $abbrevMap[$label] }
         # Capitalize first letter
@@ -297,10 +298,10 @@ foreach ($folder in (Get-ChildItem $WeeklyRoot -Directory | Sort-Object Name)) {
   try {
     $folderDt = [datetime]::ParseExact($weekDate, 'yyyy-MM-dd', $null)
     if ($folderDt.DayOfWeek -ne 'Monday') {
-      Write-Warning "  *** FOLDER '$weekDate' IS A $($folderDt.DayOfWeek.ToString().ToUpper()) — folders should be named for Monday's date. Rename to avoid wrong week labels. ***"
+      Write-Warning "  *** FOLDER '$weekDate' IS A $($folderDt.DayOfWeek.ToString().ToUpper()) -- folders should be named for Monday's date. Rename to avoid wrong week labels. ***"
     }
   } catch {
-    Write-Warning "  Skipping '$weekDate' — folder name is not a valid yyyy-MM-dd date"
+    Write-Warning "  Skipping '$weekDate' -- folder name is not a valid yyyy-MM-dd date"
     continue
   }
   Write-Host "Week: $weekDate"
