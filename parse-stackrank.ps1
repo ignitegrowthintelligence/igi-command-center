@@ -56,10 +56,14 @@ function Read-SalesCSV([string]$path) {
  return $adds
 }
 
-# Get last 4 weekly folders sorted newest first
-$folders = Get-ChildItem $WeeklyRoot -Directory | Sort-Object Name -Descending | Select-Object -First 4
-$folders = $folders | Sort-Object Name # re-sort oldest first for delta calculation
-$weekDates = $folders | ForEach-Object { $_.Name }
+# Get last 4 weeks that have actual SOB data files — decoupled from local folder state
+# This ensures the dashboard always shows the 4 most recent weeks with real data,
+# regardless of whether newer empty folders exist on the local machine.
+$weekDates = (Get-ChildItem $DataDir -Filter "sob-*.json" |
+  Sort-Object Name -Descending |
+  Select-Object -First 4 |
+  ForEach-Object { $_.Name -replace '^sob-','' -replace '\.json$','' } |
+  Sort-Object)  # re-sort oldest first for delta calculation
 Write-Host "Analyzing weeks: $($weekDates -join ', ')"
 
 # Load SOB data for each week
