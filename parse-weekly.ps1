@@ -293,6 +293,16 @@ function Build-WeekJson([string]$weekDate, [array]$months, [hashtable]$bpData, [
 $weeks = @()
 foreach ($folder in (Get-ChildItem $WeeklyRoot -Directory | Sort-Object Name)) {
   $weekDate = $folder.Name
+  # Validate folder name is a parseable date and warn if not Monday
+  try {
+    $folderDt = [datetime]::ParseExact($weekDate, 'yyyy-MM-dd', $null)
+    if ($folderDt.DayOfWeek -ne 'Monday') {
+      Write-Warning "  *** FOLDER '$weekDate' IS A $($folderDt.DayOfWeek.ToString().ToUpper()) — folders should be named for Monday's date. Rename to avoid wrong week labels. ***"
+    }
+  } catch {
+    Write-Warning "  Skipping '$weekDate' — folder name is not a valid yyyy-MM-dd date"
+    continue
+  }
   Write-Host "Week: $weekDate"
   $bpFile = Get-ChildItem $folder.FullName "Blueprint*.csv" -ErrorAction SilentlyContinue | Select-Object -Last 1
   $woFile = Get-ChildItem $folder.FullName "Sales Revenue.csv" -ErrorAction SilentlyContinue | Select-Object -First 1
@@ -346,9 +356,5 @@ if ($latest) {
 }
 Write-Host "Done. $($weeks.Count) weeks processed."
 
-# Also run DSM parser if DSM file exists
-$dsmScript = Join-Path $PSScriptRoot "parse-dsm.ps1"
-if (Test-Path $dsmScript) {
-  Write-Host "`n--- DSM ---"
-  & powershell -ExecutionPolicy Bypass -File $dsmScript
-}
+# NOTE: DSM parsing (parse-dsm.ps1) is run separately to avoid session timeouts.
+# Run it independently after weekly data is pushed.
