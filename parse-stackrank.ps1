@@ -57,9 +57,8 @@ function Read-SalesCSV([string]$path) {
 }
 
 # Get last 4 weeks that have actual SOB data files — decoupled from local folder state
-# This ensures the dashboard always shows the 4 most recent weeks with real data,
-# regardless of whether newer empty folders exist on the local machine.
-$weekDates = (Get-ChildItem $DataDir -Filter "sob-*.json" |
+# Filter to "sob-20??-??-??.json" pattern only to exclude sob-weeks.json index file.
+$weekDates = (Get-ChildItem $DataDir -Filter "sob-20??-??-??.json" |
   Sort-Object Name -Descending |
   Select-Object -First 4 |
   ForEach-Object { $_.Name -replace '^sob-','' -replace '\.json$','' } |
@@ -256,10 +255,11 @@ $dsmSorted = $dsmRows | Sort-Object { $_.q2Delta } -Descending
 $hotDsms = $dsmSorted | Select-Object -First 10
 $coldDsms = ($dsmSorted | Select-Object -Last 10) | Sort-Object { $_.q2Delta }
 
-# Build week labels for display
+# Build week labels for display — use actual month abbreviation, not hardcoded "Apr"
+$monthAbbr = @{1="Jan";2="Feb";3="Mar";4="Apr";5="May";6="Jun";7="Jul";8="Aug";9="Sep";10="Oct";11="Nov";12="Dec"}
 $weekLabels = $weekDates | ForEach-Object {
  $dt = [datetime]::ParseExact($_, 'yyyy-MM-dd', $null)
- "Apr " + $dt.Day.ToString()
+ $monthAbbr[$dt.Month] + " " + $dt.Day.ToString()
 }
 
 $output = [ordered]@{

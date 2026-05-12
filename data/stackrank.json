@@ -1,34 +1,710 @@
 {
-    "lastRefreshed":  "2026-05-11T13:01:11Z",
+    "lastRefreshed":  "2026-05-12T14:28:31Z",
     "weeksAnalyzed":  [
+                          "Apr 20",
                           "Apr 27",
-                          "Apr 4",
-                          "Apr 11",
-                          "Apr 11"
+                          "May 4",
+                          "May 11"
                       ],
     "weekDates":  [
+                      "2026-04-20",
                       "2026-04-27",
                       "2026-05-04",
-                      "2026-05-11",
-                      "weeks"
+                      "2026-05-11"
                   ],
     "markets":  {
-                    "hot":  {
-
-                            },
-                    "cold":  {
-
-                             },
+                    "hot":  [
+                                {
+                                    "name":  "Trenton/Princeton",
+                                    "dsm":  "Diana Scully",
+                                    "risd":  "",
+                                    "sobDelta":  315,
+                                    "sobDeltaPct":  15.1,
+                                    "fyPacingDelta":  539,
+                                    "fyPctBgt":  72.8,
+                                    "fyGap":  -2269,
+                                    "fyBudget":  8350,
+                                    "cumulativeAdds":  0,
+                                    "q2PctBgt":  105.8,
+                                    "q2Budget":  2265,
+                                    "q2PctPY":  111.3
+                                },
+                                {
+                                    "name":  "Lubbock",
+                                    "dsm":  "Trey Bufkin",
+                                    "risd":  "Tyler Wille",
+                                    "sobDelta":  79,
+                                    "sobDeltaPct":  10.4,
+                                    "fyPacingDelta":  294,
+                                    "fyPctBgt":  103.5,
+                                    "fyGap":  82,
+                                    "fyBudget":  2350,
+                                    "cumulativeAdds":  0,
+                                    "q2PctBgt":  145,
+                                    "q2Budget":  576,
+                                    "q2PctPY":  164.6
+                                },
+                                {
+                                    "name":  "Rochester MN",
+                                    "dsm":  "Todd Cross",
+                                    "risd":  "Jeroen Corver",
+                                    "sobDelta":  35,
+                                    "sobDeltaPct":  7.7,
+                                    "fyPacingDelta":  213,
+                                    "fyPctBgt":  102.5,
+                                    "fyGap":  39,
+                                    "fyBudget":  1553,
+                                    "cumulativeAdds":  0,
+                                    "q2PctBgt":  118.9,
+                                    "q2Budget":  412,
+                                    "q2PctPY":  137.4
+                                },
+                                {
+                                    "name":  "Cedar Rapids",
+                                    "dsm":  "",
+                                    "risd":  "Jeroen Corver",
+                                    "sobDelta":  60,
+                                    "sobDeltaPct":  3.6,
+                                    "fyPacingDelta":  209,
+                                    "fyPctBgt":  112.3,
+                                    "fyGap":  647,
+                                    "fyBudget":  5250,
+                                    "cumulativeAdds":  0,
+                                    "q2PctBgt":  131.1,
+                                    "q2Budget":  1313,
+                                    "q2PctPY":  163.3
+                                },
+                                {
+                                    "name":  "Portsmouth",
+                                    "dsm":  "Ryan Sheehy",
+                                    "risd":  "",
+                                    "sobDelta":  75,
+                                    "sobDeltaPct":  10.8,
+                                    "fyPacingDelta":  187,
+                                    "fyPctBgt":  70.4,
+                                    "fyGap":  -1036,
+                                    "fyBudget":  3506,
+                                    "cumulativeAdds":  0,
+                                    "q2PctBgt":  81.1,
+                                    "q2Budget":  947,
+                                    "q2PctPY":  94
+                                },
+                                {
+                                    "name":  "Portland",
+                                    "dsm":  "Tyler Tholl",
+                                    "risd":  "",
+                                    "sobDelta":  69,
+                                    "sobDeltaPct":  8.9,
+                                    "fyPacingDelta":  179,
+                                    "fyPctBgt":  58.6,
+                                    "fyGap":  -1537,
+                                    "fyBudget":  3708,
+                                    "cumulativeAdds":  0,
+                                    "q2PctBgt":  83,
+                                    "q2Budget":  1020,
+                                    "q2PctPY":  92.5
+                                },
+                                {
+                                    "name":  "Tyler",
+                                    "dsm":  "Crystal Bradford",
+                                    "risd":  "Kathi Kirkland",
+                                    "sobDelta":  42,
+                                    "sobDeltaPct":  10.7,
+                                    "fyPacingDelta":  161,
+                                    "fyPctBgt":  126.4,
+                                    "fyGap":  201,
+                                    "fyBudget":  760,
+                                    "cumulativeAdds":  0,
+                                    "q2PctBgt":  228.4,
+                                    "q2Budget":  190,
+                                    "q2PctPY":  286.5
+                                },
+                                {
+                                    "name":  "Buffalo",
+                                    "dsm":  "William Prieto",
+                                    "risd":  "",
+                                    "sobDelta":  18,
+                                    "sobDeltaPct":  3.7,
+                                    "fyPacingDelta":  138,
+                                    "fyPctBgt":  82.7,
+                                    "fyGap":  -371,
+                                    "fyBudget":  2144,
+                                    "cumulativeAdds":  0,
+                                    "q2PctBgt":  93.2,
+                                    "q2Budget":  536,
+                                    "q2PctPY":  110.1
+                                },
+                                {
+                                    "name":  "Poughkeepsie",
+                                    "dsm":  "Bryce Clemens",
+                                    "risd":  "",
+                                    "sobDelta":  48,
+                                    "sobDeltaPct":  6.5,
+                                    "fyPacingDelta":  100,
+                                    "fyPctBgt":  77.4,
+                                    "fyGap":  -612,
+                                    "fyBudget":  2708,
+                                    "cumulativeAdds":  0,
+                                    "q2PctBgt":  103.3,
+                                    "q2Budget":  758,
+                                    "q2PctPY":  105.9
+                                },
+                                {
+                                    "name":  "Lansing",
+                                    "dsm":  "Alixzandra Jyawook",
+                                    "risd":  "Kathi Kirkland",
+                                    "sobDelta":  -5,
+                                    "sobDeltaPct":  -0.6,
+                                    "fyPacingDelta":  99,
+                                    "fyPctBgt":  145.4,
+                                    "fyGap":  862,
+                                    "fyBudget":  1901,
+                                    "cumulativeAdds":  0,
+                                    "q2PctBgt":  169.5,
+                                    "q2Budget":  478,
+                                    "q2PctPY":  281.3
+                                }
+                            ],
+                    "cold":  [
+                                 {
+                                     "name":  "Lufkin",
+                                     "dsm":  "Jeffrey Klein",
+                                     "risd":  "Kathi Kirkland",
+                                     "sobDelta":  -77,
+                                     "sobDeltaPct":  -24.3,
+                                     "fyPacingDelta":  -309,
+                                     "fyPctBgt":  70.9,
+                                     "fyGap":  -320,
+                                     "fyBudget":  1100,
+                                     "cumulativeAdds":  0,
+                                     "q2PctBgt":  80.7,
+                                     "q2Budget":  297,
+                                     "q2PctPY":  93.4
+                                 },
+                                 {
+                                     "name":  "Grand Rapids",
+                                     "dsm":  "Joshua Cox",
+                                     "risd":  "Kathi Kirkland",
+                                     "sobDelta":  -36,
+                                     "sobDeltaPct":  -7.1,
+                                     "fyPacingDelta":  -135,
+                                     "fyPctBgt":  96.3,
+                                     "fyGap":  -63,
+                                     "fyBudget":  1694,
+                                     "cumulativeAdds":  0,
+                                     "q2PctBgt":  107,
+                                     "q2Budget":  440,
+                                     "q2PctPY":  119.2
+                                 },
+                                 {
+                                     "name":  "Billings",
+                                     "dsm":  "Nicholas Ineck",
+                                     "risd":  "Taylor Wheeler",
+                                     "sobDelta":  -21,
+                                     "sobDeltaPct":  -19.1,
+                                     "fyPacingDelta":  -43,
+                                     "fyPctBgt":  85.7,
+                                     "fyGap":  -57,
+                                     "fyBudget":  400,
+                                     "cumulativeAdds":  0,
+                                     "q2PctBgt":  85.2,
+                                     "q2Budget":  104,
+                                     "q2PctPY":  123
+                                 },
+                                 {
+                                     "name":  "Duluth",
+                                     "dsm":  "Kelly Katoski",
+                                     "risd":  "Jeroen Corver",
+                                     "sobDelta":  -21,
+                                     "sobDeltaPct":  -2.3,
+                                     "fyPacingDelta":  -36,
+                                     "fyPctBgt":  143.3,
+                                     "fyGap":  543,
+                                     "fyBudget":  1251,
+                                     "cumulativeAdds":  0,
+                                     "q2PctBgt":  291.5,
+                                     "q2Budget":  313,
+                                     "q2PctPY":  402.9
+                                 },
+                                 {
+                                     "name":  "Wichita Falls",
+                                     "dsm":  "Jennelle Diggs",
+                                     "risd":  "Tyler Wille",
+                                     "sobDelta":  -13,
+                                     "sobDeltaPct":  -14.9,
+                                     "fyPacingDelta":  -34,
+                                     "fyPctBgt":  71.3,
+                                     "fyGap":  -121,
+                                     "fyBudget":  424,
+                                     "cumulativeAdds":  0,
+                                     "q2PctBgt":  68.5,
+                                     "q2Budget":  108,
+                                     "q2PctPY":  129.3
+                                 },
+                                 {
+                                     "name":  "St. George",
+                                     "dsm":  "Colton Bybee",
+                                     "risd":  "Taylor Wheeler",
+                                     "sobDelta":  -40,
+                                     "sobDeltaPct":  -6.3,
+                                     "fyPacingDelta":  -34,
+                                     "fyPctBgt":  164.4,
+                                     "fyGap":  876,
+                                     "fyBudget":  1360,
+                                     "cumulativeAdds":  0,
+                                     "q2PctBgt":  175.2,
+                                     "q2Budget":  340,
+                                     "q2PctPY":  203.1
+                                 },
+                                 {
+                                     "name":  "Killeen/Temple",
+                                     "dsm":  "Crystal Bradford",
+                                     "risd":  "Kathi Kirkland",
+                                     "sobDelta":  -14,
+                                     "sobDeltaPct":  -3.7,
+                                     "fyPacingDelta":  -32,
+                                     "fyPctBgt":  76.6,
+                                     "fyGap":  -323,
+                                     "fyBudget":  1380,
+                                     "cumulativeAdds":  0,
+                                     "q2PctBgt":  107,
+                                     "q2Budget":  345,
+                                     "q2PctPY":  142.7
+                                 },
+                                 {
+                                     "name":  "Dubuque",
+                                     "dsm":  "",
+                                     "risd":  "Jeroen Corver",
+                                     "sobDelta":  3,
+                                     "sobDeltaPct":  0.8,
+                                     "fyPacingDelta":  -25,
+                                     "fyPctBgt":  72.7,
+                                     "fyGap":  -442,
+                                     "fyBudget":  1615,
+                                     "cumulativeAdds":  0,
+                                     "q2PctBgt":  86.8,
+                                     "q2Budget":  416,
+                                     "q2PctPY":  105.1
+                                 },
+                                 {
+                                     "name":  "Bangor",
+                                     "dsm":  "Joshua Whinery",
+                                     "risd":  "",
+                                     "sobDelta":  -6,
+                                     "sobDeltaPct":  -1.4,
+                                     "fyPacingDelta":  -14,
+                                     "fyPctBgt":  87.8,
+                                     "fyGap":  -207,
+                                     "fyBudget":  1702,
+                                     "cumulativeAdds":  0,
+                                     "q2PctBgt":  86.7,
+                                     "q2Budget":  485,
+                                     "q2PctPY":  86.4
+                                 },
+                                 {
+                                     "name":  "Yakima",
+                                     "dsm":  "Nicole Daily",
+                                     "risd":  "Taylor Wheeler",
+                                     "sobDelta":  -3,
+                                     "sobDeltaPct":  -1,
+                                     "fyPacingDelta":  -12,
+                                     "fyPctBgt":  76,
+                                     "fyGap":  -240,
+                                     "fyBudget":  1000,
+                                     "cumulativeAdds":  0,
+                                     "q2PctBgt":  106.7,
+                                     "q2Budget":  270,
+                                     "q2PctPY":  124.5
+                                 }
+                             ],
                     "focus":  [
-
+                                  {
+                                      "name":  "Utica",
+                                      "dsm":  "Paige Lauback",
+                                      "risd":  "",
+                                      "fyPctBgt":  39.3,
+                                      "fyGap":  -2613,
+                                      "fyBudget":  4306,
+                                      "q2PctBgt":  34,
+                                      "q2PctPY":  27.4,
+                                      "isAlsoCold":  false
+                                  },
+                                  {
+                                      "name":  "Portland",
+                                      "dsm":  "Tyler Tholl",
+                                      "risd":  "",
+                                      "fyPctBgt":  58.6,
+                                      "fyGap":  -1537,
+                                      "fyBudget":  3708,
+                                      "q2PctBgt":  83,
+                                      "q2PctPY":  92.5,
+                                      "isAlsoCold":  false
+                                  },
+                                  {
+                                      "name":  "Atlantic City",
+                                      "dsm":  "",
+                                      "risd":  "",
+                                      "fyPctBgt":  41.5,
+                                      "fyGap":  -1082,
+                                      "fyBudget":  1850,
+                                      "q2PctBgt":  50.2,
+                                      "q2PctPY":  53.5,
+                                      "isAlsoCold":  false
+                                  },
+                                  {
+                                      "name":  "Portsmouth",
+                                      "dsm":  "Ryan Sheehy",
+                                      "risd":  "",
+                                      "fyPctBgt":  70.4,
+                                      "fyGap":  -1036,
+                                      "fyBudget":  3506,
+                                      "q2PctBgt":  81.1,
+                                      "q2PctPY":  94,
+                                      "isAlsoCold":  false
+                                  },
+                                  {
+                                      "name":  "Shore",
+                                      "dsm":  "Diana Scully",
+                                      "risd":  "",
+                                      "fyPctBgt":  64.5,
+                                      "fyGap":  -965,
+                                      "fyBudget":  2720,
+                                      "q2PctBgt":  71,
+                                      "q2PctPY":  78.4,
+                                      "isAlsoCold":  false
+                                  },
+                                  {
+                                      "name":  "Missoula",
+                                      "dsm":  "",
+                                      "risd":  "",
+                                      "fyPctBgt":  49,
+                                      "fyGap":  -906,
+                                      "fyBudget":  1776,
+                                      "q2PctBgt":  51.3,
+                                      "q2PctPY":  56,
+                                      "isAlsoCold":  false
+                                  },
+                                  {
+                                      "name":  "Quad Cities",
+                                      "dsm":  "Steven Horinka",
+                                      "risd":  "Jeroen Corver",
+                                      "fyPctBgt":  58.4,
+                                      "fyGap":  -818,
+                                      "fyBudget":  1969,
+                                      "q2PctBgt":  74.1,
+                                      "q2PctPY":  119.7,
+                                      "isAlsoCold":  false
+                                  },
+                                  {
+                                      "name":  "St. Cloud",
+                                      "dsm":  "",
+                                      "risd":  "",
+                                      "fyPctBgt":  69.9,
+                                      "fyGap":  -581,
+                                      "fyBudget":  1931,
+                                      "q2PctBgt":  83.3,
+                                      "q2PctPY":  90.1,
+                                      "isAlsoCold":  false
+                                  },
+                                  {
+                                      "name":  "Albany",
+                                      "dsm":  "John Shea",
+                                      "risd":  "",
+                                      "fyPctBgt":  61.6,
+                                      "fyGap":  -546,
+                                      "fyBudget":  1425,
+                                      "q2PctBgt":  61.8,
+                                      "q2PctPY":  72.3,
+                                      "isAlsoCold":  false
+                                  },
+                                  {
+                                      "name":  "Sioux Falls",
+                                      "dsm":  "",
+                                      "risd":  "",
+                                      "fyPctBgt":  66,
+                                      "fyGap":  -442,
+                                      "fyBudget":  1300,
+                                      "q2PctBgt":  74.6,
+                                      "q2PctPY":  98.1,
+                                      "isAlsoCold":  false
+                                  },
+                                  {
+                                      "name":  "Grand Junction",
+                                      "dsm":  "Natalie Redding",
+                                      "risd":  "",
+                                      "fyPctBgt":  58.3,
+                                      "fyGap":  -422,
+                                      "fyBudget":  1011,
+                                      "q2PctBgt":  61.9,
+                                      "q2PctPY":  65.2,
+                                      "isAlsoCold":  false
+                                  },
+                                  {
+                                      "name":  "Lawton",
+                                      "dsm":  "Jennelle Diggs",
+                                      "risd":  "Tyler Wille",
+                                      "fyPctBgt":  52.3,
+                                      "fyGap":  -417,
+                                      "fyBudget":  875,
+                                      "q2PctBgt":  40.1,
+                                      "q2PctPY":  44.1,
+                                      "isAlsoCold":  false
+                                  },
+                                  {
+                                      "name":  "Bozeman",
+                                      "dsm":  "Nicholas Ineck",
+                                      "risd":  "Taylor Wheeler",
+                                      "fyPctBgt":  52.1,
+                                      "fyGap":  -367,
+                                      "fyBudget":  765,
+                                      "q2PctBgt":  58.6,
+                                      "q2PctPY":  78.2,
+                                      "isAlsoCold":  false
+                                  },
+                                  {
+                                      "name":  "Lafayette",
+                                      "dsm":  "Jennifier Francis",
+                                      "risd":  "Kathi Kirkland",
+                                      "fyPctBgt":  68,
+                                      "fyGap":  -354,
+                                      "fyBudget":  1106,
+                                      "q2PctBgt":  82.3,
+                                      "q2PctPY":  133.6,
+                                      "isAlsoCold":  false
+                                  },
+                                  {
+                                      "name":  "Bismarck",
+                                      "dsm":  "Steven Horinka",
+                                      "risd":  "Jeroen Corver",
+                                      "fyPctBgt":  66.2,
+                                      "fyGap":  -327,
+                                      "fyBudget":  968,
+                                      "q2PctBgt":  81.5,
+                                      "q2PctPY":  92,
+                                      "isAlsoCold":  false
+                                  }
                               ]
                 },
     "dsms":  {
-                 "hot":  {
-
-                         },
-                 "cold":  {
-
-                          }
+                 "hot":  [
+                             {
+                                 "name":  "Alyssa Salisbury",
+                                 "markets":  [
+                                                 "Rockford"
+                                             ],
+                                 "q2Start":  718817,
+                                 "q2End":  2256567,
+                                 "q2Delta":  1537750,
+                                 "q2DeltaPct":  213.9
+                             },
+                             {
+                                 "name":  "Alixzandra Jyawook",
+                                 "markets":  [
+                                                 "Lansing"
+                                             ],
+                                 "q2Start":  492809,
+                                 "q2End":  1820634,
+                                 "q2Delta":  1327825,
+                                 "q2DeltaPct":  269.4
+                             },
+                             {
+                                 "name":  "Colton Bybee",
+                                 "markets":  [
+                                                 "Sierra Vista",
+                                                 "St. George",
+                                                 "Williston"
+                                             ],
+                                 "q2Start":  1536514,
+                                 "q2End":  2815316,
+                                 "q2Delta":  1278802,
+                                 "q2DeltaPct":  83.2
+                             },
+                             {
+                                 "name":  "Todd Cross",
+                                 "markets":  [
+                                                 "Faribault/Owatonna",
+                                                 "Rochester MN"
+                                             ],
+                                 "q2Start":  55475,
+                                 "q2End":  1133108,
+                                 "q2Delta":  1077633,
+                                 "q2DeltaPct":  1942.6
+                             },
+                             {
+                                 "name":  "Trey Bufkin",
+                                 "markets":  [
+                                                 "Lubbock"
+                                             ],
+                                 "q2Start":  122000,
+                                 "q2End":  1117162,
+                                 "q2Delta":  995162,
+                                 "q2DeltaPct":  815.7
+                             },
+                             {
+                                 "name":  "Michelle Sellers",
+                                 "markets":  [
+                                                 "Butte",
+                                                 "Great Falls"
+                                             ],
+                                 "q2Start":  1160910,
+                                 "q2End":  2049473,
+                                 "q2Delta":  888563,
+                                 "q2DeltaPct":  76.5
+                             },
+                             {
+                                 "name":  "Scott Mauser",
+                                 "markets":  [
+                                                 "Evansville/Owensboro"
+                                             ],
+                                 "q2Start":  565190,
+                                 "q2End":  1443293,
+                                 "q2Delta":  878103,
+                                 "q2DeltaPct":  155.4
+                             },
+                             {
+                                 "name":  "Jilian Watson",
+                                 "markets":  [
+                                                 "Flint"
+                                             ],
+                                 "q2Start":  377150,
+                                 "q2End":  1077115,
+                                 "q2Delta":  699965,
+                                 "q2DeltaPct":  185.6
+                             },
+                             {
+                                 "name":  "Nicholas Ineck",
+                                 "markets":  [
+                                                 "Billings",
+                                                 "Bozeman"
+                                             ],
+                                 "q2Start":  310340,
+                                 "q2End":  911977,
+                                 "q2Delta":  601637,
+                                 "q2DeltaPct":  193.9
+                             },
+                             {
+                                 "name":  "Ryan Sheehy",
+                                 "markets":  [
+                                                 "New Bedford",
+                                                 "Portsmouth"
+                                             ],
+                                 "q2Start":  2167914,
+                                 "q2End":  2744282,
+                                 "q2Delta":  576368,
+                                 "q2DeltaPct":  26.6
+                             }
+                         ],
+                 "cold":  [
+                              {
+                                  "name":  "Crystal Bradford",
+                                  "markets":  [
+                                                  "Killeen/Temple",
+                                                  "Tyler",
+                                                  "Victoria"
+                                              ],
+                                  "q2Start":  1567780,
+                                  "q2End":  1539080,
+                                  "q2Delta":  -28700,
+                                  "q2DeltaPct":  -1.8
+                              },
+                              {
+                                  "name":  "Angela Todd",
+                                  "markets":  [
+                                                  "Battle Creek",
+                                                  "Kalamazoo"
+                                              ],
+                                  "q2Start":  262076,
+                                  "q2End":  343371,
+                                  "q2Delta":  81295,
+                                  "q2DeltaPct":  31
+                              },
+                              {
+                                  "name":  "Kelly Katoski",
+                                  "markets":  [
+                                                  "Duluth"
+                                              ],
+                                  "q2Start":  1337228,
+                                  "q2End":  1439128,
+                                  "q2Delta":  101900,
+                                  "q2DeltaPct":  7.6
+                              },
+                              {
+                                  "name":  "Jed Knapp",
+                                  "markets":  [
+                                                  "El Paso"
+                                              ],
+                                  "q2Start":  797620,
+                                  "q2End":  906583,
+                                  "q2Delta":  108963,
+                                  "q2DeltaPct":  13.7
+                              },
+                              {
+                                  "name":  "Paige Lauback",
+                                  "markets":  [
+                                                  "Binghamton",
+                                                  "Oneonta",
+                                                  "Utica"
+                                              ],
+                                  "q2Start":  1183395,
+                                  "q2End":  1299298,
+                                  "q2Delta":  115903,
+                                  "q2DeltaPct":  9.8
+                              },
+                              {
+                                  "name":  "Jennifier Francis",
+                                  "markets":  [
+                                                  "Lafayette"
+                                              ],
+                                  "q2Start":  477605,
+                                  "q2End":  620244,
+                                  "q2Delta":  142639,
+                                  "q2DeltaPct":  29.9
+                              },
+                              {
+                                  "name":  "Chelsea Jones",
+                                  "markets":  [
+                                                  "Evansville/Owensboro"
+                                              ],
+                                  "q2Start":  252672,
+                                  "q2End":  409807,
+                                  "q2Delta":  157135,
+                                  "q2DeltaPct":  62.2
+                              },
+                              {
+                                  "name":  "William Prieto",
+                                  "markets":  [
+                                                  "Buffalo"
+                                              ],
+                                  "q2Start":  1265904,
+                                  "q2End":  1461539,
+                                  "q2Delta":  195635,
+                                  "q2DeltaPct":  15.5
+                              },
+                              {
+                                  "name":  "Tyler Tholl",
+                                  "markets":  [
+                                                  "Augusta",
+                                                  "Portland"
+                                              ],
+                                  "q2Start":  906343,
+                                  "q2End":  1154893,
+                                  "q2Delta":  248550,
+                                  "q2DeltaPct":  27.4
+                              },
+                              {
+                                  "name":  "Jennelle Diggs",
+                                  "markets":  [
+                                                  "Amarillo",
+                                                  "Lawton",
+                                                  "Odessa",
+                                                  "San Angelo",
+                                                  "Wichita Falls"
+                                              ],
+                                  "q2Start":  751293,
+                                  "q2End":  1016218,
+                                  "q2Delta":  264925,
+                                  "q2DeltaPct":  35.3
+                              }
+                          ]
              }
 }
