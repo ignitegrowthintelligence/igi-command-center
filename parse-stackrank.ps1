@@ -177,7 +177,7 @@ foreach ($mktName in $allMarkets) {
  # Cumulative adds over 4 weeks from Sales Revenue CSVs
  $cumAdds = 0
  foreach ($wd in $weekDates) {
- $v = if ($addsByWeek[$wd].ContainsKey($mktName)) { $addsByWeek[$wd][$mktName] } else { 0 }
+ $v = if ($addsByWeek[$wd] -ne $null -and $addsByWeek[$wd].ContainsKey($mktName)) { $addsByWeek[$wd][$mktName] } else { 0 }
  $cumAdds += $v
  }
 
